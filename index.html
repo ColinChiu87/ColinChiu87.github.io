@@ -21,9 +21,9 @@
   </script>
 
   <meta property="og:type" content="website">
-<meta property="og:title" content="RuRu的前端小天地">
+<meta property="og:title" content="Ru">
 <meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="RuRu的前端小天地">
+<meta property="og:site_name" content="Ru">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:author" content="Kuan Ru, Chiu">
 <meta name="twitter:card" content="summary">
@@ -41,7 +41,7 @@
   };
 </script>
 
-  <title>RuRu的前端小天地</title>
+  <title>Ru</title>
   
 
 
@@ -92,7 +92,7 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">RuRu的前端小天地</h1>
+      <h1 class="site-title">Ru</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
       <p class="site-subtitle" itemprop="description">要成為一個更好的人</p>
@@ -117,6 +117,11 @@
         <li class="menu-item menu-item-about">
 
     <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
 
   </li>
         <li class="menu-item menu-item-archives">
@@ -153,6 +158,79 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/13/vue-that/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="Kuan Ru, Chiu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ru">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/13/vue-that/" class="post-title-link" itemprop="url">什麼時候該使用『 const vm = this 』</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2021-05-13 13:28:43 / 修改時間：14:06:54" itemprop="dateCreated datePublished" datetime="2021-05-13T13:28:43+08:00">2021-05-13</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li><ul>
+<li>影響this的是在於<em>函式的呼叫方式</em> * *</li>
+</ul>
+</li>
+</ul>
+<h3 id="this的範例"><a href="#this的範例" class="headerlink" title="this的範例"></a>this的範例</h3><p>ˋˋˋ<br>reverseText: function(){<br>    return this.text.split(‘’).reverse().join(‘’);<br>}<br>ˋˋˋ</p>
+<p>在第一個範例中，this運行後都是在這個元件底下<br>並沒有另外的函式在內（ex: forEach）<br>全部的this都是指向<strong>Vue的該元件</strong><br>因此不需要另外使用 vm = this</p>
+<p>至於使用 vm = this 可以避免內部有其他函式叫<br>導致 this 的運作不如預期。<br>ˋˋˋ<br>//因為在””內層函式””filter的函式內使用到this，指向會跑掉，所以需要使用vm。<br>filterArray: function(){<br>    var vm = this;<br>    return vm.arrayData.filter(function(){<br>        return item.name.match(vm.filterText)<br>    })<br>}<br>ˋˋˋ</p>
+<ul>
+<li><ul>
+<li>除了使用 filter/ forEach 會讓this指向window外，函式在直接呼叫的時候this也會指向window * *</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/17/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -162,7 +240,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="RuRu的前端小天地">
+      <meta itemprop="name" content="Ru">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -288,9 +366,13 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">文章</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">標籤</span>
       </div>
   </nav>
 </div>
