@@ -23,17 +23,17 @@
   <meta name="description" content="** 影響this的是在於函式的呼叫方式 ** 以下為this的範例 123reverseText: function()&amp;#123;    return this.text.split(&amp;#x27;&amp;#x27;).reverse().join(&amp;#x27;&amp;#x27;);&amp;#125;  在第一個範例中，this運行後都是在這個元件底下並沒有另外的函式在內（ex: forEach）全部的this">
 <meta property="og:type" content="article">
 <meta property="og:title" content="什麼時候該使用『 const vm &#x3D; this 』">
-<meta property="og:url" content="https://colinchiu87.github.io/project/2021/05/13/vue-that/index.html">
+<meta property="og:url" content="https://colinchiu87.github.io/project/2021/05/12/vue-this/index.html">
 <meta property="og:site_name" content="小小工程師">
 <meta property="og:description" content="** 影響this的是在於函式的呼叫方式 ** 以下為this的範例 123reverseText: function()&amp;#123;    return this.text.split(&amp;#x27;&amp;#x27;).reverse().join(&amp;#x27;&amp;#x27;);&amp;#125;  在第一個範例中，this運行後都是在這個元件底下並沒有另外的函式在內（ex: forEach）全部的this">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2021-05-13T05:28:43.000Z">
-<meta property="article:modified_time" content="2021-05-13T07:46:28.892Z">
+<meta property="article:published_time" content="2021-05-12T05:28:43.000Z">
+<meta property="article:modified_time" content="2021-05-13T08:12:04.206Z">
 <meta property="article:author" content="Kuan Ru, Chiu">
 <meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://colinchiu87.github.io/project/2021/05/13/vue-that/">
+<link rel="canonical" href="https://colinchiu87.github.io/project/2021/05/12/vue-this/">
 
 
 <script id="page-configurations">
@@ -164,7 +164,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://colinchiu87.github.io/project/2021/05/13/vue-that/">
+    <link itemprop="mainEntityOfPage" href="https://colinchiu87.github.io/project/2021/05/12/vue-this/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/project/uploads/avatar.jpg">
@@ -186,10 +186,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2021-05-13 13:28:43 / 修改時間：15:46:28" itemprop="dateCreated datePublished" datetime="2021-05-13T13:28:43+08:00">2021-05-13</time>
+              <time title="創建時間：2021-05-12 13:28:43" itemprop="dateCreated datePublished" datetime="2021-05-12T13:28:43+08:00">2021-05-12</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-05-13 16:12:04" itemprop="dateModified" datetime="2021-05-13T16:12:04+08:00">2021-05-13</time>
+              </span>
 
           
 
