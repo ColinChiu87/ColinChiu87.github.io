@@ -22,9 +22,9 @@
 
   <meta name="description" content="成為一個更好的人">
 <meta property="og:type" content="website">
-<meta property="og:title" content="小小工程師">
+<meta property="og:title" content="在泥巴打滾的工程師">
 <meta property="og:url" content="https://colinchiu87.github.io/index.html">
-<meta property="og:site_name" content="小小工程師">
+<meta property="og:site_name" content="在泥巴打滾的工程師">
 <meta property="og:description" content="成為一個更好的人">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:author" content="Kuan Ru, Chiu">
@@ -44,7 +44,7 @@
   };
 </script>
 
-  <title>小小工程師</title>
+  <title>在泥巴打滾的工程師</title>
   
 
 
@@ -95,7 +95,7 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">小小工程師</h1>
+      <h1 class="site-title">在泥巴打滾的工程師</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
       <p class="site-subtitle" itemprop="description">成為一個更好的人</p>
@@ -161,6 +161,88 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://colinchiu87.github.io/2021/07/22/typeScript/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="Kuan Ru, Chiu">
+      <meta itemprop="description" content="成為一個更好的人">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="在泥巴打滾的工程師">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/07/22/typeScript/" class="post-title-link" itemprop="url">來聊聊 Type Script</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2021-07-22 17:43:01" itemprop="dateCreated datePublished" datetime="2021-07-22T17:43:01+08:00">2021-07-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-07-23 00:18:32" itemprop="dateModified" datetime="2021-07-23T00:18:32+08:00">2021-07-23</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>第一次在專案裡與 TS 相遇，那就不免俗的了解囉！</p>
+<img src="/2021/07/22/typeScript/js-ts.jpg" class="">
+
+<p>稍微簡介一下～<br>TypeScript是由微軟開發的一種能用來編譯出JavaScript程式碼的程式語言，因其比JS還多了一道編譯手續，能夠在編譯階段找出語法上的問題，而且也添加了型別檢查的機制，讓程式更容易閱讀與偵錯，也更適合開發大型的專案。<br>白話一點來說，JS可以通過TS編譯器來編譯，而且還能夠實現JavaScript的版本轉換(例如ES6轉ES5)</p>
+<h1 id="安裝與設定"><a href="#安裝與設定" class="headerlink" title="安裝與設定"></a>安裝與設定</h1><h3 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h3><p>我們要先設定好Node.js和npm環境，建議使用Node.js最新的LTS版本。<br>Node.js是JavaScript程式的執行環境，讓我們不需要開啟瀏覽器也可以執行JS。而npm則是JS的套件管理器，常與Node.js一同被安裝。</p>
+<p>Windows的使用者可以直接到<a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node.js官方網站</a>下載，而Linux或MacOS的使用者可以參考<a target="_blank" rel="noopener" href="https://magiclen.org/linux-install-nodejs/">這篇文章</a>安裝指定版本。</p>
+<h3 id="tsc"><a href="#tsc" class="headerlink" title="tsc"></a>tsc</h3><p>tsc是TypeScript程式的編譯器，能夠將TS編譯成JS。<br>執行以下npm指令:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g typescript</span><br></pre></td></tr></table></figure>
+<p>關於編譯器的設定，我就先不說明，一開始花太多時間在這會顯得有點浪費且沒意思，畢竟內容很龐大也很複雜。</p>
+<hr>
+<h1 id="簡單的範例"><a href="#簡單的範例" class="headerlink" title="簡單的範例"></a>簡單的範例</h1><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">name: <span class="built_in">string</span></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello &quot;</span> + name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(colin)</span><br></pre></td></tr></table></figure>
+<p>這邊唯一和我們學過的JavaScript不同，就是func這個函式的傳入參數多一個 :string 的指示詞，這東西在ＴＳ裡稱做類型註解。這邊就是說傳入的參數只接受字串(string)的型態，只要是其他型別在呼叫或是執行時就會報錯。</p>
+<p>對於函式而言，會有傳入參數和回傳值兩種情況，那麼我們就要養成習慣。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">name: <span class="built_in">string</span></span>): <span class="title">string</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello &quot;</span> + name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(colin)</span><br></pre></td></tr></table></figure>
+<p>上面這表示回傳值的型態也是string類型，順帶一提，如果函式沒有回傳值時可以使用 void，相信很多人都有看過吧，這就是專門為沒有回傳值的函式所準備的類型。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name: <span class="built_in">string</span> | <span class="built_in">number</span> = <span class="string">&quot;Colin&quot;</span>;</span><br></pre></td></tr></table></figure>
+<p>這裡的意思是 name這個變數能接受的型態為字串(string)與數字(number)，而且預設值為 Colin字串。</p>
+<hr>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://colinchiu87.github.io/2021/07/13/vue-data/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -170,7 +252,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小小工程師">
+      <meta itemprop="name" content="在泥巴打滾的工程師">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -235,7 +317,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小小工程師">
+      <meta itemprop="name" content="在泥巴打滾的工程師">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -307,7 +389,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小小工程師">
+      <meta itemprop="name" content="在泥巴打滾的工程師">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -433,12 +515,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">標籤</span>
       </div>
   </nav>
