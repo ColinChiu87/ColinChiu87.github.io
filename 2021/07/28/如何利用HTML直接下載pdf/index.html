@@ -20,18 +20,22 @@
     var CONFIG = {"hostname":"colinchiu87.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="成為一個更好的人">
-<meta property="og:type" content="website">
-<meta property="og:title" content="在泥巴打滾的工程師">
-<meta property="og:url" content="https://colinchiu87.github.io/archives/2021/index.html">
+  <meta name="description" content="今天在嘗試利用 html的&lt;a&gt;標籤做下載檔案的功能，發現了一件事情，其他檔案能正常下載除了pdf 當你的程式是寫&lt;a href&#x3D;&quot;test.pdf&quot; &#x2F;&gt;，當點擊連結時，會使用在當前瀏覽器中打開該文件給予預覽。這就會不符合我的需求，我希望的是直接給使用者下載，不需要再打開預覽文件。 HTML &lt;a&gt; download屬性爬了一下文發現很簡單">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何利用HTML直接下載pdf">
+<meta property="og:url" content="https://colinchiu87.github.io/2021/07/28/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8HTML%E7%9B%B4%E6%8E%A5%E4%B8%8B%E8%BC%89pdf/index.html">
 <meta property="og:site_name" content="在泥巴打滾的工程師">
-<meta property="og:description" content="成為一個更好的人">
+<meta property="og:description" content="今天在嘗試利用 html的&lt;a&gt;標籤做下載檔案的功能，發現了一件事情，其他檔案能正常下載除了pdf 當你的程式是寫&lt;a href&#x3D;&quot;test.pdf&quot; &#x2F;&gt;，當點擊連結時，會使用在當前瀏覽器中打開該文件給予預覽。這就會不符合我的需求，我希望的是直接給使用者下載，不需要再打開預覽文件。 HTML &lt;a&gt; download屬性爬了一下文發現很簡單">
 <meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2021-07-28T09:57:28.000Z">
+<meta property="article:modified_time" content="2021-07-28T10:26:26.020Z">
 <meta property="article:author" content="Kuan Ru, Chiu">
-<meta property="article:tag" content="前端">
+<meta property="article:tag" content="html">
+<meta property="article:tag" content="download">
+<meta property="article:tag" content="pdf">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://colinchiu87.github.io/archives/2021/">
+<link rel="canonical" href="https://colinchiu87.github.io/2021/07/28/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8HTML%E7%9B%B4%E6%8E%A5%E4%B8%8B%E8%BC%89pdf/">
 
 
 <script id="page-configurations">
@@ -39,12 +43,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-TW'
   };
 </script>
 
-  <title>歸檔 | 在泥巴打滾的工程師</title>
+  <title>如何利用HTML直接下載pdf | 在泥巴打滾的工程師</title>
   
 
 
@@ -155,130 +159,84 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共有 5 篇文章。 繼續努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://colinchiu87.github.io/2021/07/28/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8HTML%E7%9B%B4%E6%8E%A5%E4%B8%8B%E8%BC%89pdf/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="Kuan Ru, Chiu">
+      <meta itemprop="description" content="成為一個更好的人">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="在泥巴打滾的工程師">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          如何利用HTML直接下載pdf
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2021-07-28 17:57:28 / 修改時間：18:26:26" itemprop="dateCreated datePublished" datetime="2021-07-28T17:57:28+08:00">2021-07-28</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-07-28T17:57:28+08:00"
-              content="2021-07-28">
-          07-28
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/28/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8HTML%E7%9B%B4%E6%8E%A5%E4%B8%8B%E8%BC%89pdf/" itemprop="url">
-            <span itemprop="name">如何利用HTML直接下載pdf</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-07-22T17:43:01+08:00"
-              content="2021-07-22">
-          07-22
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/22/typeScript/" itemprop="url">
-            <span itemprop="name">來聊聊 Type Script</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-07-13T19:46:10+08:00"
-              content="2021-07-13">
-          07-13
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/13/vue-data/" itemprop="url">
-            <span itemprop="name">為什麼Vue中的data有時候會看到return，而有時候卻沒有？</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-05-12T13:28:43+08:00"
-              content="2021-05-12">
-          05-12
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/05/12/vue-this/" itemprop="url">
-            <span itemprop="name">什麼時候該使用『 const vm = this 』</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-03-17T10:21:00+08:00"
-              content="2021-03-17">
-          03-17
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/03/17/hello-world/" itemprop="url">
-            <span itemprop="name">Hello World</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+        <p>今天在嘗試利用 html的<code>&lt;a&gt;</code>標籤做下載檔案的功能，發現了一件事情，其他檔案能正常下載<br><del>除了pdf</del></p>
+<p>當你的程式是寫<code>&lt;a href=&quot;test.pdf&quot; /&gt;</code>，當點擊連結時，會使用在當前瀏覽器中打開該文件給予預覽。<br>這就會不符合我的需求，我希望的是直接給使用者下載，不需要再打開預覽文件。</p>
+<h3 id="HTML-lt-a-gt-download屬性"><a href="#HTML-lt-a-gt-download屬性" class="headerlink" title="HTML &lt;a&gt; download屬性"></a>HTML <code>&lt;a&gt;</code> download屬性</h3><p>爬了一下文發現很簡單！只要在a標籤裡再加上一個download就好～<br><code>&lt;a href=&quot;yourfile.pdf&quot; download=&quot;newFileName&quot;&gt;下載檔案&lt;/a&gt;</code><br>這邊的newFileName是讓你可以指定使用者下載下來時的檔名，<br>如果留空，就會默認為伺服器端的名稱，<br>如下：<br><code>&lt;a href=&quot;test.pdf&quot; download&gt;click&lt;/a&gt;</code></p>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/html/" rel="tag"># html</a>
+              <a href="/tags/download/" rel="tag"># download</a>
+              <a href="/tags/pdf/" rel="tag"># pdf</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/07/22/typeScript/" rel="prev" title="來聊聊 Type Script">
+      <i class="fa fa-chevron-left"></i> 來聊聊 Type Script
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
@@ -331,6 +289,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML-lt-a-gt-download%E5%B1%AC%E6%80%A7"><span class="nav-number">1.</span> <span class="nav-text">HTML &lt;a&gt; download屬性</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
