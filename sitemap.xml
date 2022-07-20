@@ -140,27 +140,6 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/tags/html/</loc>
-    <lastmod>2022-07-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://colinchiu87.github.io/tags/download/</loc>
-    <lastmod>2022-07-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://colinchiu87.github.io/tags/pdf/</loc>
-    <lastmod>2022-07-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://colinchiu87.github.io/tags/Hexo/</loc>
     <lastmod>2022-07-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -182,14 +161,35 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/tags/vue-js/</loc>
+    <loc>https://colinchiu87.github.io/tags/ts/</loc>
     <lastmod>2022-07-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/tags/ts/</loc>
+    <loc>https://colinchiu87.github.io/tags/html/</loc>
+    <lastmod>2022-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://colinchiu87.github.io/tags/download/</loc>
+    <lastmod>2022-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://colinchiu87.github.io/tags/pdf/</loc>
+    <lastmod>2022-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://colinchiu87.github.io/tags/vue-js/</loc>
     <lastmod>2022-07-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
