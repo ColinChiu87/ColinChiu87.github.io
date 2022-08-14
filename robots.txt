@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /tags
+Disallow: /about
+
+Sitemap: https://colinchiu87.github.io/sitemap.xml
