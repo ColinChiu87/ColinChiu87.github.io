@@ -6,7 +6,7 @@
   <link href="https://colinchiu87.github.io/atom.xml" rel="self"/>
   
   <link href="https://colinchiu87.github.io/"/>
-  <updated>2022-09-17T07:31:27.291Z</updated>
+  <updated>2022-09-17T10:59:04.753Z</updated>
   <id>https://colinchiu87.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一失足掉進的坑 Hexo Config</title>
+    <link href="https://colinchiu87.github.io/posts/Hexo_config_permalink/"/>
+    <id>https://colinchiu87.github.io/posts/Hexo_config_permalink/</id>
+    <published>2022-09-17T09:23:24.000Z</published>
+    <updated>2022-09-17T10:59:04.753Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>有在使用 Hexo Blog 的朋友一定知道他有很多設定可以玩！除了一般的標題、簡介、相關連結外，還有分頁、閱讀進度、總閱覽人數…等等一大堆。<br>今日心血來潮想要把部落格的 config 設定弄的更完整一些，沒有想到居然在之中受困數個小時…，真的覺得自己好笑又好氣😓</p><span id="more"></span><h1 id="permalink-永久連結"><a href="#permalink-永久連結" class="headerlink" title="permalink 永久連結"></a>permalink 永久連結</h1><p>這是設定關於網站文章的連結（ URL ），就是點進你的文章後上面所顯使的連結樣式</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span>       <span class="comment"># 預設 Ex: 2013/07/14/hello-world/</span></span><br></pre></td></tr></table></figure><p>Hexo 文件有告訴大家說可以使用變數(文章尾端附圖)以及 Front-matter 做變化。看到這裡根本不知道不行自訂對吧！對吧！對吧…?<br>所以我就自作主張改成了以下這樣：</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:title/</span>       <span class="comment"># Ex: posts/hello-world/</span></span><br></pre></td></tr></table></figure><p>原本想說網址太長多少會影響 SEO 的表現，所以我不想要時間在前面佔空間，還有這樣 public 資料夾的文章會被收在 posts 的資料夾裡不會散落一地，看起來才會讓我蘇湖🤤。<br>接下來 Deploy 出去就發現文章都連不進去啦啦啦😱，在改這個設定的時候，我已經有幾篇文章了，以為是動到了已發布文章的路徑才造成如此，便開始我的 Debug 之路，翻啊找啊爬啊根本沒有搜尋到什麼相關的東西，回頭重新讀了一下文件，才領悟到無法自訂呀～只能透過 permalink_defaults 改寫你想要的東西。於是我就將我的 category 預設為 posts 然後改寫。</p><img src="/posts/Hexo_config_permalink/permalinks1.png" class=""><img src="/posts/Hexo_config_permalink/permalinks2.png" class=""><h1 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h1><p>不要自作聰明… 😂</p><img src="/posts/Hexo_config_permalink/Permalinks.png" class="" title="[Permalink可用變數]">]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;有在使用 Hexo Blog 的朋友一定知道他有很多設定可以玩！除了一般的標題、簡介、相關連結外，還有分頁、閱讀進度、總閱覽人數…等等一大堆。&lt;br&gt;今日心血來潮想要把部落格的 config 設定弄的更完整一些，沒有想到居然在之中受困數個小時…，真的覺得自己好笑又好氣😓&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Hexo" scheme="https://colinchiu87.github.io/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>讓爬蟲程式照著規則來 robots.txt</title>
@@ -53,9 +72,9 @@
     
     
     
-    <category term="SEO" scheme="https://colinchiu87.github.io/tags/SEO/"/>
-    
     <category term="Hexo" scheme="https://colinchiu87.github.io/tags/Hexo/"/>
+    
+    <category term="SEO" scheme="https://colinchiu87.github.io/tags/SEO/"/>
     
     <category term="Google Search Console" scheme="https://colinchiu87.github.io/tags/Google-Search-Console/"/>
     
