@@ -1,6 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>讓爬蟲程式照著規則來 robots.txt</title>
+    <url>/posts/SEO_robotsTxt/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>如果有了解過 SEO ，那你可能有聽說過『 robots.txt 』這個名字。<br>主要用來避免網站要求太多，導致超載(<del>要求太多會人家討厭的</del><br>而簡單來說，他就是來讓爬蟲程式聽話的一個檔案，像是該爬這裡、不該走這裡，<br>但是但是但是…有機率會不聽話失效🤫。</p>
+<p><img src="https://webris.org/wp-content/uploads/2017/12/robots_txt_file_explained.gif" alt="robots.txt示意圖"></p>
+<h1 id="建議使用的理由"><a href="#建議使用的理由" class="headerlink" title="建議使用的理由"></a>建議使用的理由</h1><p>robots.txt 檔案主用途在於管理爬蟲對自己網站的流量，<strong>直接了當的與爬蟲溝通</strong>；“正常情況下”可以讓搜尋引擎的結果不顯示特定檔案。<br>以下幾種情況是建議使用的：</p>
+<ul>
+<li>網站還有未完成或需要測試時。</li>
+<li>有網頁內容重複性太高時。</li>
+<li>網站內有一些相對不重要的資訊，浪費資源。</li>
+<li>擁有機密檔案。</li>
+</ul>
+<h1 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h1><ul>
+<li><p>他網有連結到設置封鎖的網頁，索引還是會被建立。<br>只是要自己的網頁不要出現在搜尋引擎上就請不要用這個方法，就算你使用 robots.txt 來限制，只要有別的網頁有說明文字指向你，那麼即使爬蟲未造訪這裡，也會被建立成索引。以下提供其他的方法給大家：密碼保護、noindex。</p>
+</li>
+<li><p>不是所有的搜尋引擎都會支援。<br>不同的檢索器會自行決定要不要遵守，所以並不是強制性的。（Googlebot是好寶寶他會）</p>
+</li>
+<li><p>不同檢索器語法的使用不一定相同。<br>我們平時熟知的大宗搜尋引擎都聽得懂，但就是有人會理解成不同的意思，這時候我們就必須應材施教了。</p>
+</li>
+</ul>
+<h1 id="實作"><a href="#實作" class="headerlink" title="實作"></a>實作</h1><h2 id="基本規則"><a href="#基本規則" class="headerlink" title="基本規則"></a>基本規則</h2><p>一開始先介紹一些基本的規範、格式～</p>
+<ul>
+<li>一個網站只能存在一個 robots.txt 檔案。</li>
+<li>檔名只能是 robots.txt ，不能當手遊的名字一樣亂取…PikaChiu（喂🤭</li>
+<li>檔案要放在根目錄。</li>
+</ul>
+<h2 id="建立檔案並新增規則"><a href="#建立檔案並新增規則" class="headerlink" title="建立檔案並新增規則"></a>建立檔案並新增規則</h2><p>第一步先用編輯器建立一個名叫 robots.txt 的文字檔，這邊要<strong>注意</strong>的是不要用文書處理軟體，人家說有可能會有問題。<br>再來就是重頭戲了，告訴你用三個單字搞定</p>
+<ul>
+<li>User_Agent: 爬蟲的名字，例如：Googlebot。</li>
+<li>Allow: 允許人家“可以”爬的。</li>
+<li>Disallow: “不同意”人家進來爬的。</li>
+</ul>
+<p>好了教完了😂😂😂</p>
+<h2 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h2><p>用一些範例來講解，大家應該就可以很快上手。</p>
+
+]]></content>
+      <tags>
+        <tag>SEO</tag>
+        <tag>crawler</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何利用HTML直接下載pdf</title>
     <url>/posts/Html_downloadPdf/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天在嘗試利用 html的<code>&lt;a&gt;</code>標籤做下載檔案的功能，發現了一件事情，其他檔案能正常下載<br><del>除了pdf</del></p>
@@ -18,6 +59,37 @@
         <tag>html</tag>
         <tag>download</tag>
         <tag>pdf</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>來聊聊 Type Script</title>
+    <url>/posts/TS/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>第一次在專案裡與 TS 相遇，那就不免俗的了解囉！</p>
+<img src="/posts/TS/js-ts.jpg" class="">
+
+<p>稍微簡介一下～<br>TypeScript是由微軟開發的一種能用來編譯出JavaScript程式碼的程式語言，因其比JS還多了一道編譯手續，能夠在編譯階段找出語法上的問題，而且也添加了型別檢查的機制，讓程式更容易閱讀與偵錯，也更適合開發大型的專案。<br>白話一點來說，JS可以通過TS編譯器來編譯，而且還能夠實現JavaScript的版本轉換(例如ES6轉ES5)</p>
+<span id="more"></span>
+<h1 id="安裝與設定"><a href="#安裝與設定" class="headerlink" title="安裝與設定"></a>安裝與設定</h1><h2 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h2><p>我們要先設定好Node.js和npm環境，建議使用Node.js最新的LTS版本。<br>Node.js是JavaScript程式的執行環境，讓我們不需要開啟瀏覽器也可以執行JS。而npm則是JS的套件管理器，常與Node.js一同被安裝。</p>
+<p>Windows的使用者可以直接到<span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL2VuLw==">Node.js官方網站<i class="fa fa-external-link-alt"></i></span>下載，而Linux或MacOS的使用者可以參考<span class="exturl" data-url="aHR0cHM6Ly9tYWdpY2xlbi5vcmcvbGludXgtaW5zdGFsbC1ub2RlanMv">這篇文章<i class="fa fa-external-link-alt"></i></span>安裝指定版本。</p>
+<h2 id="tsc"><a href="#tsc" class="headerlink" title="tsc"></a>tsc</h2><p>tsc是TypeScript程式的編譯器，能夠將TS編譯成JS。<br>執行以下npm指令:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm i -g typescript</span><br></pre></td></tr></table></figure>
+
+<p>關於編譯器的設定，我就先不說明，一開始花太多時間在這會顯得有點浪費且沒意思，畢竟內容很龐大也很複雜。</p>
+<hr>
+<h1 id="簡單的範例"><a href="#簡單的範例" class="headerlink" title="簡單的範例"></a>簡單的範例</h1><figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">name: <span class="built_in">string</span></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello &quot;</span> + name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(colin)</span><br></pre></td></tr></table></figure>
+
+<p>這邊唯一和我們學過的JavaScript不同，就是func這個函式的傳入參數多一個 :string 的指示詞，這東西在ＴＳ裡稱做類型註解。這邊就是說傳入的參數只接受字串(string)的型態，只要是其他型別在呼叫或是執行時就會報錯。</p>
+<p>對於函式而言，會有傳入參數和回傳值兩種情況，那麼我們就要養成習慣。</p>
+<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">name: <span class="built_in">string</span></span>): <span class="title">string</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello &quot;</span> + name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(colin)</span><br></pre></td></tr></table></figure>
+
+<p>上面這表示回傳值的型態也是string類型，順帶一提，如果函式沒有回傳值時可以使用 void，相信很多人都有看過吧，這就是專門為沒有回傳值的函式所準備的類型。</p>
+<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line">name: <span class="built_in">string</span> | <span class="built_in">number</span> = <span class="string">&quot;Colin&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>這裡的意思是 name這個變數能接受的型態為字串(string)與數字(number)，而且預設值為 Colin字串。</p>
+<hr>
+]]></content>
+      <tags>
+        <tag>ts</tag>
       </tags>
   </entry>
   <entry>
@@ -102,40 +174,9 @@
 <p>這篇就到這，我們下次見👋🏻</p>
 ]]></content>
       <tags>
-        <tag>Hexo</tag>
         <tag>SEO</tag>
+        <tag>Hexo</tag>
         <tag>Google Search Console</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>來聊聊 Type Script</title>
-    <url>/posts/TS/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>第一次在專案裡與 TS 相遇，那就不免俗的了解囉！</p>
-<img src="/posts/TS/js-ts.jpg" class="">
-
-<p>稍微簡介一下～<br>TypeScript是由微軟開發的一種能用來編譯出JavaScript程式碼的程式語言，因其比JS還多了一道編譯手續，能夠在編譯階段找出語法上的問題，而且也添加了型別檢查的機制，讓程式更容易閱讀與偵錯，也更適合開發大型的專案。<br>白話一點來說，JS可以通過TS編譯器來編譯，而且還能夠實現JavaScript的版本轉換(例如ES6轉ES5)</p>
-<span id="more"></span>
-<h1 id="安裝與設定"><a href="#安裝與設定" class="headerlink" title="安裝與設定"></a>安裝與設定</h1><h2 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h2><p>我們要先設定好Node.js和npm環境，建議使用Node.js最新的LTS版本。<br>Node.js是JavaScript程式的執行環境，讓我們不需要開啟瀏覽器也可以執行JS。而npm則是JS的套件管理器，常與Node.js一同被安裝。</p>
-<p>Windows的使用者可以直接到<span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL2VuLw==">Node.js官方網站<i class="fa fa-external-link-alt"></i></span>下載，而Linux或MacOS的使用者可以參考<span class="exturl" data-url="aHR0cHM6Ly9tYWdpY2xlbi5vcmcvbGludXgtaW5zdGFsbC1ub2RlanMv">這篇文章<i class="fa fa-external-link-alt"></i></span>安裝指定版本。</p>
-<h2 id="tsc"><a href="#tsc" class="headerlink" title="tsc"></a>tsc</h2><p>tsc是TypeScript程式的編譯器，能夠將TS編譯成JS。<br>執行以下npm指令:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm i -g typescript</span><br></pre></td></tr></table></figure>
-
-<p>關於編譯器的設定，我就先不說明，一開始花太多時間在這會顯得有點浪費且沒意思，畢竟內容很龐大也很複雜。</p>
-<hr>
-<h1 id="簡單的範例"><a href="#簡單的範例" class="headerlink" title="簡單的範例"></a>簡單的範例</h1><figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">name: <span class="built_in">string</span></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello &quot;</span> + name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(colin)</span><br></pre></td></tr></table></figure>
-
-<p>這邊唯一和我們學過的JavaScript不同，就是func這個函式的傳入參數多一個 :string 的指示詞，這東西在ＴＳ裡稱做類型註解。這邊就是說傳入的參數只接受字串(string)的型態，只要是其他型別在呼叫或是執行時就會報錯。</p>
-<p>對於函式而言，會有傳入參數和回傳值兩種情況，那麼我們就要養成習慣。</p>
-<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">name: <span class="built_in">string</span></span>): <span class="title">string</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello &quot;</span> + name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(colin)</span><br></pre></td></tr></table></figure>
-
-<p>上面這表示回傳值的型態也是string類型，順帶一提，如果函式沒有回傳值時可以使用 void，相信很多人都有看過吧，這就是專門為沒有回傳值的函式所準備的類型。</p>
-<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line">name: <span class="built_in">string</span> | <span class="built_in">number</span> = <span class="string">&quot;Colin&quot;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>這裡的意思是 name這個變數能接受的型態為字串(string)與數字(number)，而且預設值為 Colin字串。</p>
-<hr>
-]]></content>
-      <tags>
-        <tag>ts</tag>
       </tags>
   </entry>
   <entry>
@@ -151,69 +192,6 @@
 ]]></content>
       <tags>
         <tag>Vue.js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>認識三神獸之一 Vue</title>
-    <url>/posts/Vue_know/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>第一次和Vue碰面是在我大四實習時，剛好遇到公司開始推行同仁使用框架開發，也讓我這個菜鳥搭上前端框架的順風車。<br>趁現在有空閒之餘來整理一下當初的筆記，也順帶複習一下 Vue.js！</p>
-<span id="more"></span>
-<h1 id="何謂框架"><a href="#何謂框架" class="headerlink" title="何謂框架"></a>何謂框架</h1><p>框架(framework)，是指協助開發者能更容易地進行網頁製作的工具，將一些複雜的語法及工具以簡易的方式撰寫，進而提升效率及效能。就像是設計一台汽車，已經將模型給你了，你只需要對設計圖進行配色就可以完成，而上色這個部分和周邊的配件就是可以讓大家去精進功力地方了。<br>而現行較主流的框架為 Vue, React, Angular 等等。</p>
-<h1 id="Vue-js"><a href="#Vue-js" class="headerlink" title="Vue.js"></a>Vue.js</h1><p>Vue是一種javascript的一種漸進式(progressive)框架，是以 View(視圖層)為基礎，與其他框架不同的是，他的目標是透過簡單的API提供開發者實作資料綁定和操作網頁上的元件，也因為核心(宣告式渲染、元件系統)關注在狀態和畫面的同步層級上，所以能夠輕易地與其他 js 函式庫、前端開發工具等等的做整合。</p>
-<img src="/posts/Vue_know/vue-logo.jpeg" class="">
-
-<h1 id="特色"><a href="#特色" class="headerlink" title="特色"></a>特色</h1><ul>
-<li>輕量型框架：架構輕量、效能好</li>
-<li>提供資料綁定(Data Binding)的功能：可以將值關聯到 Html 標籤或 Attribute 上，變更資料、樣式</li>
-<li>虛擬Dom(Virtual DOM)：以 javascript 物件模擬特定的 Dom 結構而產生的樹狀節構。不直接操作 Dom 元素，而是等一個段落後，再將這些變更回真實Dom上</li>
-<li>元件化系統(Components system)：提供 Dom 強大的擴充性，也可將部分程式碼封裝起來，供開發者維護、重複使用</li>
-<li>指示詞(Directive)：內建許多指示詞(v-開頭)，用來進行程式邏輯的判斷</li>
-<li>Vue路由器(Router)：利用它建構一個基本卻完整的路由庫，來操作瀏覽器上/下一頁的流程，建立 SPA 完整單頁式應用的能力。</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>vue.js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>讓爬蟲程式照著規則來 robots.txt</title>
-    <url>/posts/SEO_robotsTxt/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>如果有了解過 SEO ，那你可能有聽說過『 robots.txt 』這個名字。<br>主要用來避免網站要求太多，導致超載(<del>要求太多會人家討厭的</del><br>而簡單來說，他就是來讓爬蟲程式聽話的一個檔案，像是該爬這裡、不該走這裡，<br>但是但是但是…有機率會不聽話失效🤫。</p>
-<p><img src="https://webris.org/wp-content/uploads/2017/12/robots_txt_file_explained.gif" alt="robots.txt示意圖"></p>
-<h1 id="建議使用的理由"><a href="#建議使用的理由" class="headerlink" title="建議使用的理由"></a>建議使用的理由</h1><p>robots.txt 檔案主用途在於管理爬蟲對自己網站的流量，<strong>直接了當的與爬蟲溝通</strong>；“正常情況下”可以讓搜尋引擎的結果不顯示特定檔案。<br>以下幾種情況是建議使用的：</p>
-<ul>
-<li>網站還有未完成或需要測試時。</li>
-<li>有網頁內容重複性太高時。</li>
-<li>網站內有一些相對不重要的資訊，浪費資源。</li>
-<li>擁有機密檔案。</li>
-</ul>
-<h1 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h1><ul>
-<li><p>他網有連結到設置封鎖的網頁，索引還是會被建立。<br>只是要自己的網頁不要出現在搜尋引擎上就請不要用這個方法，就算你使用 robots.txt 來限制，只要有別的網頁有說明文字指向你，那麼即使爬蟲未造訪這裡，也會被建立成索引。以下提供其他的方法給大家：密碼保護、noindex。</p>
-</li>
-<li><p>不是所有的搜尋引擎都會支援。<br>不同的檢索器會自行決定要不要遵守，所以並不是強制性的。（Googlebot是好寶寶他會）</p>
-</li>
-<li><p>不同檢索器語法的使用不一定相同。<br>我們平時熟知的大宗搜尋引擎都聽得懂，但就是有人會理解成不同的意思，這時候我們就必須應材施教了。</p>
-</li>
-</ul>
-<h1 id="實作"><a href="#實作" class="headerlink" title="實作"></a>實作</h1><h2 id="基本規則"><a href="#基本規則" class="headerlink" title="基本規則"></a>基本規則</h2><p>一開始先介紹一些基本的規範、格式～</p>
-<ul>
-<li>一個網站只能存在一個 robots.txt 檔案。</li>
-<li>檔名只能是 robots.txt ，不能當手遊的名字一樣亂取…PikaChiu（喂🤭</li>
-<li>檔案要放在根目錄。</li>
-</ul>
-<h2 id="建立檔案並新增規則"><a href="#建立檔案並新增規則" class="headerlink" title="建立檔案並新增規則"></a>建立檔案並新增規則</h2><p>第一步先用編輯器建立一個名叫 robots.txt 的文字檔，這邊要<strong>注意</strong>的是不要用文書處理軟體，人家說有可能會有問題。<br>再來就是重頭戲了，告訴你用三個單字搞定</p>
-<ul>
-<li>User_Agent: 爬蟲的名字，例如：Googlebot。</li>
-<li>Allow: 允許人家“可以”爬的。</li>
-<li>Disallow: “不同意”人家進來爬的。</li>
-</ul>
-<p>好了教完了😂😂😂</p>
-<h2 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h2><p>用一些範例來講解，大家應該就可以很快上手。</p>
-
-]]></content>
-      <tags>
-        <tag>SEO</tag>
-        <tag>crawler</tag>
       </tags>
   </entry>
   <entry>
@@ -249,6 +227,28 @@
 ]]></content>
       <tags>
         <tag>Vue.js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>認識三神獸之一 Vue</title>
+    <url>/posts/Vue_know/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>第一次和Vue碰面是在我大四實習時，剛好遇到公司開始推行同仁使用框架開發，也讓我這個菜鳥搭上前端框架的順風車。<br>趁現在有空閒之餘來整理一下當初的筆記，也順帶複習一下 Vue.js！</p>
+<span id="more"></span>
+<h1 id="何謂框架"><a href="#何謂框架" class="headerlink" title="何謂框架"></a>何謂框架</h1><p>框架(framework)，是指協助開發者能更容易地進行網頁製作的工具，將一些複雜的語法及工具以簡易的方式撰寫，進而提升效率及效能。就像是設計一台汽車，已經將模型給你了，你只需要對設計圖進行配色就可以完成，而上色這個部分和周邊的配件就是可以讓大家去精進功力地方了。<br>而現行較主流的框架為 Vue, React, Angular 等等。</p>
+<h1 id="Vue-js"><a href="#Vue-js" class="headerlink" title="Vue.js"></a>Vue.js</h1><p>Vue是一種javascript的一種漸進式(progressive)框架，是以 View(視圖層)為基礎，與其他框架不同的是，他的目標是透過簡單的API提供開發者實作資料綁定和操作網頁上的元件，也因為核心(宣告式渲染、元件系統)關注在狀態和畫面的同步層級上，所以能夠輕易地與其他 js 函式庫、前端開發工具等等的做整合。</p>
+<img src="/posts/Vue_know/vue-logo.jpeg" class="">
+
+<h1 id="特色"><a href="#特色" class="headerlink" title="特色"></a>特色</h1><ul>
+<li>輕量型框架：架構輕量、效能好</li>
+<li>提供資料綁定(Data Binding)的功能：可以將值關聯到 Html 標籤或 Attribute 上，變更資料、樣式</li>
+<li>虛擬Dom(Virtual DOM)：以 javascript 物件模擬特定的 Dom 結構而產生的樹狀節構。不直接操作 Dom 元素，而是等一個段落後，再將這些變更回真實Dom上</li>
+<li>元件化系統(Components system)：提供 Dom 強大的擴充性，也可將部分程式碼封裝起來，供開發者維護、重複使用</li>
+<li>指示詞(Directive)：內建許多指示詞(v-開頭)，用來進行程式邏輯的判斷</li>
+<li>Vue路由器(Router)：利用它建構一個基本卻完整的路由庫，來操作瀏覽器上/下一頁的流程，建立 SPA 完整單頁式應用的能力。</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>vue.js</tag>
       </tags>
   </entry>
 </search>
