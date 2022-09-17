@@ -1,53 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>ES6-解構賦值</title>
-    <url>/2022/01/03/ES6_destructuringAssignment/</url>
-    <content><![CDATA[<h1 id="說文解字"><a href="#說文解字" class="headerlink" title="說文解字"></a>說文解字</h1><p>解構賦值(Destructuring Assignment)是在ES6的一個新特性，讓我們在撰寫物件、陣列時可以把在裡頭的資料解開擷取成為獨立的變數，能夠更簡短並增加閱讀性。<br>以下為他的說明：</p>
-<blockquote>
-<p>The destructuring assignment syntax is a JavaScript expression that makes it possible to extract data from arrays or objects using a syntax that mirrors the construction of array and object literals</p>
-</blockquote>
-<span id="more"></span>
-<p>上面所說的就是解構賦值的用法如同<strong>鏡子</strong>(mirror)般，對應陣列or物件的結構，將資料從右邊往左邊送，只不過內容的位置順序不變（鏡子會左右顛倒），也就是一種樣式對應(pattern)的方法。</p>
-<p>介紹比較常用的情況：</p>
-<ul>
-<li>從陣列解構賦值</li>
-<li>從物件解構賦值</li>
-<li>解構賦值給定預設值</li>
-<li>搭配函式的傳入參數使用</li>
-</ul>
-<h1 id="陣列"><a href="#陣列" class="headerlink" title="陣列"></a>陣列</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&#x27;hello&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> [a, b, c, , d, f] = str;</span><br><span class="line"></span><br><span class="line"><span class="comment">// a=&#x27;h&#x27;, b=&#x27;e&#x27;, c=&#x27;l&#x27;, d=&#x27;o&#x27; 留空白就會跳過</span></span><br><span class="line"><span class="comment">// f=undefined  如果左方變數多於右方，則會顯示undefined</span></span><br><span class="line"><span class="comment">// 這邊也順便帶入一個概念是分解字串</span></span><br></pre></td></tr></table></figure>
-
-<p>接下來要說的是我覺得很方便的用法“互換”，一般我們要互換兩個變數要多宣告一個第三變數才能完成，這邊我們可以直接完成。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>, b = <span class="number">2</span>;</span><br><span class="line">[b, a] = [a, b];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 此時的 a=2, b=1</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="物件"><a href="#物件" class="headerlink" title="物件"></a>物件</h1><p>這邊的概念和陣列一樣，不過陣列是利用順序的索引值對照，而物件是用屬性名稱來對應(所以沒有順序性)。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> family = &#123; <span class="attr">me</span>: <span class="string">&#x27;colin&#x27;</span>, <span class="attr">sis</span>: <span class="string">&#x27;candy&#x27;</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 一般寫法</span></span><br><span class="line"><span class="keyword">let</span> me = family.me;</span><br><span class="line"><span class="keyword">let</span> sis = family.sis;</span><br><span class="line"></span><br><span class="line"><span class="comment">//縮寫</span></span><br><span class="line"><span class="keyword">let</span> &#123;me, sis&#125; = family;</span><br><span class="line"></span><br><span class="line"><span class="comment">// me:colin, sis:candy</span></span><br></pre></td></tr></table></figure>
-
-<p>物件的解構還能重新賦予變數的名稱</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> player = &#123; <span class="attr">jordan</span>: <span class="string">&#x27;喬丹&#x27;</span>, <span class="attr">wade</span>: <span class="string">&#x27;偉德&#x27;</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> &#123; <span class="attr">jordan</span>: king &#125; = player;</span><br><span class="line"></span><br><span class="line"><span class="comment">//此時king的值為&#x27;喬丹&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="混合使用"><a href="#混合使用" class="headerlink" title="混合使用"></a>混合使用</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123; <span class="attr">jordan</span>: king, <span class="attr">family</span>: [, ...member] &#125; = &#123; <span class="attr">jordan</span>: <span class="string">&#x27;喬丹&#x27;</span>, <span class="attr">family</span>: [<span class="string">&#x27;阿姨&#x27;</span>, <span class="string">&#x27;老媽&#x27;</span>, <span class="string">&#x27;老爸&#x27;</span>] &#125;</span><br><span class="line"><span class="built_in">console</span>.log(king, member); <span class="comment">// 請問答案是什麼？ Ans: king:&#x27;喬丹&#x27;, member: [&#x27;老媽&#x27;, &#x27;老爸&#x27;]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//p.s 其餘運算子用法 (...變數)：將陣列展開成個別值灑進去。</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="預設值"><a href="#預設值" class="headerlink" title="預設值"></a>預設值</h1><p>在等號左邊是可以給預設值的，避免未被賦值時造成undefined。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> [jordan = <span class="string">&#x27;喬丹&#x27;</span>, lebron = <span class="string">&#x27;雷霸龍&#x27;</span>] = [<span class="string">&#x27;阿明&#x27;</span>];</span><br><span class="line"><span class="comment">// jordan值為&#x27;阿明&#x27;</span></span><br><span class="line"><span class="comment">// lebron則為預設值&#x27;雷霸龍&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>陷阱題</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; a =<span class="string">&#x27;hello&#x27;</span> &#125; = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="keyword">const</span> [ b =<span class="string">&#x27;hello&#x27;</span> ] = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="comment">// 此時 a, b 分別為什麼呢？</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="函式"><a href="#函式" class="headerlink" title="函式"></a>函式</h1><p>在函式要傳參數時也可以使用解構，參數一樣能夠自訂變數名稱、順序、預設值等</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">&#123;a = <span class="number">1</span>, b&#125;</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a + b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(&#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>&#125;) <span class="comment">// 3</span></span><br><span class="line">func(&#123;<span class="attr">b</span>: <span class="number">2</span>&#125;) <span class="comment">// 3</span></span><br><span class="line">func(&#123;<span class="attr">b</span>: <span class="number">6</span>, <span class="attr">a</span>: <span class="number">3</span>&#125;) <span class="comment">// 9</span></span><br><span class="line">func(&#123;<span class="attr">a</span>: <span class="literal">null</span>, <span class="attr">b</span>: <span class="number">2</span>&#125;) <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>註：所以在函式傳入參數中作解構賦值時，給定null值時會導致預設值無用，請記住這一點。當數字運算時，null相當於0。</p>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>javascript</tag>
-        <tag>ES6</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>如何利用HTML直接下載pdf</title>
     <url>/2021/07/28/Html_downloadPdf/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天在嘗試利用 html的<code>&lt;a&gt;</code>標籤做下載檔案的功能，發現了一件事情，其他檔案能正常下載<br><del>除了pdf</del></p>
@@ -65,6 +18,46 @@
         <tag>html</tag>
         <tag>download</tag>
         <tag>pdf</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo-SEO Google Search Console</title>
+    <url>/2022/07/20/SEO_hexoByGoogleSearchConsole/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>發布了自己的部落格後，是不是發現在 Google 搜尋引擎找不著自己的網站呀！<br>難道是自己已經邊緣到被全世界排擠了嗎…QAQ<br>雖然這也有可能是一個原因啦…(XD，不鬧了</p>
+<span id="more"></span>
+<h1 id="Google-Search-Console"><a href="#Google-Search-Console" class="headerlink" title="Google Search Console"></a>Google Search Console</h1><p>它的前身叫做 Google Webmaster Tool，而它的作用就是專門管理你的網站在搜尋引擎的 SEO 表現，<br>如果你想知道你的網站熱門的關鍵字、曝光或點擊數量，那麼你一定要試試。</p>
+<p>要讓搜尋引擎能找到自己的網站，我們要先進入 <a href="https://search.google.com/search-console/about">Google Search Console</a> 註冊服務並進行一些設定。</p>
+<h1 id="實作"><a href="#實作" class="headerlink" title="實作"></a>實作</h1><h2 id="驗證網站"><a href="#驗證網站" class="headerlink" title="驗證網站"></a>驗證網站</h2><p>一開始必須先設定驗證你的網站（如下圖）。</p>
+<img src="/2022/07/20/SEO_hexoByGoogleSearchConsole/gsc.jpg" class="">
+<p>有購買網域的話，就可以使用左邊的驗證；如果像我一樣是利用 Git Page 發布的，就選擇右邊“網址前置字元”，<br>輸入完你的網址後會要去驗證，我這邊使用的是 HTML 檔案，當然你可以選擇你喜歡的方式驗證。</p>
+<ol>
+<li>點擊按鈕<strong>下載</strong>檔案。<img src="/2022/07/20/SEO_hexoByGoogleSearchConsole/gsc1.jpg" class=""></li>
+<li>直接將檔案放進來你會發現驗證是失敗的，所以我們要先<strong>編輯</strong>一下這個檔案！</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">layout: <span class="literal">false</span></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">google-site-verification: googleb6bf13d6a5baaaaaaaaa.html</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>將<strong>檔案放到 hexo/ source 底下</strong>。</p>
+<img src="/2022/07/20/SEO_hexoByGoogleSearchConsole/gsc2.png" class=""></li>
+<li><p>不免俗的還是要提醒一下，請記得將 Hexo <strong>部署</strong>到 GitHub Pages。</p>
+</li>
+<li><p>最後按下驗證的按鈕即可。</p>
+</li>
+</ol>
+<p>大概等待個兩三天 GSC 就會分析出你的網站有哪些關鍵字熱門、需要優化的地方，基本上你就照著他提供方向去做調整，網站的 SEO 就會大大到提升了。</p>
+<h2 id="Sitemap"><a href="#Sitemap" class="headerlink" title="Sitemap"></a>Sitemap</h2><p>說到 Google Search Conosle 那就順便提一下 Sitemap 吧~<br>以往建立一個新的網站時，如果沒有強而有力的網站互聯(ㄏㄨㄟˋ)的話，就很難被爬蟲給爬到，所以這時就要給自己的 Hexo 安裝套件是專門幫忙生成 sitemap.xml ，而這檔案是提交給搜尋引擎爬蟲使用。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
+
+<p>在終端機輸入完指令後就可以部署上去。<br>接著來到 Google Search Console 上的 “Sitemap” 頁面，並在新增欄位輸入 sitemap.xml 提交就完成囉。</p>
+<img src="/2022/07/20/SEO_hexoByGoogleSearchConsole/gsc3.png" class="">
+
+<p>都設定好了以後， Google 爬蟲只要定期去看 sitemap 檔案是否更新，就會去爬你的網站並做更新囉！<br>一般來說部落格要被搜尋引擎收錄大概會需要 7~14 天不等，當然也有更快的，就看運氣了😂</p>
+<p>這篇就到這，我們下次見👋🏻</p>
+]]></content>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>SEO</tag>
+        <tag>Google Search Console</tag>
       </tags>
   </entry>
   <entry>
@@ -140,62 +133,51 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo-SEO Google Search Console</title>
-    <url>/2022/07/20/SEO_hexoByGoogleSearchConsole/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>發布了自己的部落格後，是不是發現在 Google 搜尋引擎找不著自己的網站呀！<br>難道是自己已經邊緣到被全世界排擠了嗎…QAQ<br>雖然這也有可能是一個原因啦…(XD，不鬧了</p>
+    <title>ES6-解構賦值</title>
+    <url>/2022/01/03/ES6_destructuringAssignment/</url>
+    <content><![CDATA[<h1 id="說文解字"><a href="#說文解字" class="headerlink" title="說文解字"></a>說文解字</h1><p>解構賦值(Destructuring Assignment)是在ES6的一個新特性，讓我們在撰寫物件、陣列時可以把在裡頭的資料解開擷取成為獨立的變數，能夠更簡短並增加閱讀性。<br>以下為他的說明：</p>
+<blockquote>
+<p>The destructuring assignment syntax is a JavaScript expression that makes it possible to extract data from arrays or objects using a syntax that mirrors the construction of array and object literals</p>
+</blockquote>
 <span id="more"></span>
-<h1 id="Google-Search-Console"><a href="#Google-Search-Console" class="headerlink" title="Google Search Console"></a>Google Search Console</h1><p>它的前身叫做 Google Webmaster Tool，而它的作用就是專門管理你的網站在搜尋引擎的 SEO 表現，<br>如果你想知道你的網站熱門的關鍵字、曝光或點擊數量，那麼你一定要試試。</p>
-<p>要讓搜尋引擎能找到自己的網站，我們要先進入 <a href="https://search.google.com/search-console/about">Google Search Console</a> 註冊服務並進行一些設定。</p>
-<h1 id="實作"><a href="#實作" class="headerlink" title="實作"></a>實作</h1><h2 id="驗證網站"><a href="#驗證網站" class="headerlink" title="驗證網站"></a>驗證網站</h2><p>一開始必須先設定驗證你的網站（如下圖）。</p>
-<img src="/2022/07/20/SEO_hexoByGoogleSearchConsole/gsc.jpg" class="">
-<p>有購買網域的話，就可以使用左邊的驗證；如果像我一樣是利用 Git Page 發布的，就選擇右邊“網址前置字元”，<br>輸入完你的網址後會要去驗證，我這邊使用的是 HTML 檔案，當然你可以選擇你喜歡的方式驗證。</p>
-<ol>
-<li>點擊按鈕<strong>下載</strong>檔案。<img src="/2022/07/20/SEO_hexoByGoogleSearchConsole/gsc1.jpg" class=""></li>
-<li>直接將檔案放進來你會發現驗證是失敗的，所以我們要先<strong>編輯</strong>一下這個檔案！</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">layout: <span class="literal">false</span></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">google-site-verification: googleb6bf13d6a5baaaaaaaaa.html</span><br></pre></td></tr></table></figure>
+<p>上面所說的就是解構賦值的用法如同<strong>鏡子</strong>(mirror)般，對應陣列or物件的結構，將資料從右邊往左邊送，只不過內容的位置順序不變（鏡子會左右顛倒），也就是一種樣式對應(pattern)的方法。</p>
+<p>介紹比較常用的情況：</p>
+<ul>
+<li>從陣列解構賦值</li>
+<li>從物件解構賦值</li>
+<li>解構賦值給定預設值</li>
+<li>搭配函式的傳入參數使用</li>
+</ul>
+<h1 id="陣列"><a href="#陣列" class="headerlink" title="陣列"></a>陣列</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&#x27;hello&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> [a, b, c, , d, f] = str;</span><br><span class="line"></span><br><span class="line"><span class="comment">// a=&#x27;h&#x27;, b=&#x27;e&#x27;, c=&#x27;l&#x27;, d=&#x27;o&#x27; 留空白就會跳過</span></span><br><span class="line"><span class="comment">// f=undefined  如果左方變數多於右方，則會顯示undefined</span></span><br><span class="line"><span class="comment">// 這邊也順便帶入一個概念是分解字串</span></span><br></pre></td></tr></table></figure>
 
-<ol start="3">
-<li><p>將<strong>檔案放到 hexo/ source 底下</strong>。</p>
-<img src="/2022/07/20/SEO_hexoByGoogleSearchConsole/gsc2.png" class=""></li>
-<li><p>不免俗的還是要提醒一下，請記得將 Hexo <strong>部署</strong>到 GitHub Pages。</p>
-</li>
-<li><p>最後按下驗證的按鈕即可。</p>
-</li>
-</ol>
-<p>大概等待個兩三天 GSC 就會分析出你的網站有哪些關鍵字熱門、需要優化的地方，基本上你就照著他提供方向去做調整，網站的 SEO 就會大大到提升了。</p>
-<h2 id="Sitemap"><a href="#Sitemap" class="headerlink" title="Sitemap"></a>Sitemap</h2><p>說到 Google Search Conosle 那就順便提一下 Sitemap 吧~<br>以往建立一個新的網站時，如果沒有強而有力的網站互聯(ㄏㄨㄟˋ)的話，就很難被爬蟲給爬到，所以這時就要給自己的 Hexo 安裝套件是專門幫忙生成 sitemap.xml ，而這檔案是提交給搜尋引擎爬蟲使用。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
+<p>接下來要說的是我覺得很方便的用法“互換”，一般我們要互換兩個變數要多宣告一個第三變數才能完成，這邊我們可以直接完成。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>, b = <span class="number">2</span>;</span><br><span class="line">[b, a] = [a, b];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 此時的 a=2, b=1</span></span><br></pre></td></tr></table></figure>
 
-<p>在終端機輸入完指令後就可以部署上去。<br>接著來到 Google Search Console 上的 “Sitemap” 頁面，並在新增欄位輸入 sitemap.xml 提交就完成囉。</p>
-<img src="/2022/07/20/SEO_hexoByGoogleSearchConsole/gsc3.png" class="">
+<h1 id="物件"><a href="#物件" class="headerlink" title="物件"></a>物件</h1><p>這邊的概念和陣列一樣，不過陣列是利用順序的索引值對照，而物件是用屬性名稱來對應(所以沒有順序性)。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> family = &#123; <span class="attr">me</span>: <span class="string">&#x27;colin&#x27;</span>, <span class="attr">sis</span>: <span class="string">&#x27;candy&#x27;</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 一般寫法</span></span><br><span class="line"><span class="keyword">let</span> me = family.me;</span><br><span class="line"><span class="keyword">let</span> sis = family.sis;</span><br><span class="line"></span><br><span class="line"><span class="comment">//縮寫</span></span><br><span class="line"><span class="keyword">let</span> &#123;me, sis&#125; = family;</span><br><span class="line"></span><br><span class="line"><span class="comment">// me:colin, sis:candy</span></span><br></pre></td></tr></table></figure>
 
-<p>都設定好了以後， Google 爬蟲只要定期去看 sitemap 檔案是否更新，就會去爬你的網站並做更新囉！<br>一般來說部落格要被搜尋引擎收錄大概會需要 7~14 天不等，當然也有更快的，就看運氣了😂</p>
-<p>這篇就到這，我們下次見👋🏻</p>
+<p>物件的解構還能重新賦予變數的名稱</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> player = &#123; <span class="attr">jordan</span>: <span class="string">&#x27;喬丹&#x27;</span>, <span class="attr">wade</span>: <span class="string">&#x27;偉德&#x27;</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> &#123; <span class="attr">jordan</span>: king &#125; = player;</span><br><span class="line"></span><br><span class="line"><span class="comment">//此時king的值為&#x27;喬丹&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="混合使用"><a href="#混合使用" class="headerlink" title="混合使用"></a>混合使用</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123; <span class="attr">jordan</span>: king, <span class="attr">family</span>: [, ...member] &#125; = &#123; <span class="attr">jordan</span>: <span class="string">&#x27;喬丹&#x27;</span>, <span class="attr">family</span>: [<span class="string">&#x27;阿姨&#x27;</span>, <span class="string">&#x27;老媽&#x27;</span>, <span class="string">&#x27;老爸&#x27;</span>] &#125;</span><br><span class="line"><span class="built_in">console</span>.log(king, member); <span class="comment">// 請問答案是什麼？ Ans: king:&#x27;喬丹&#x27;, member: [&#x27;老媽&#x27;, &#x27;老爸&#x27;]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//p.s 其餘運算子用法 (...變數)：將陣列展開成個別值灑進去。</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="預設值"><a href="#預設值" class="headerlink" title="預設值"></a>預設值</h1><p>在等號左邊是可以給預設值的，避免未被賦值時造成undefined。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> [jordan = <span class="string">&#x27;喬丹&#x27;</span>, lebron = <span class="string">&#x27;雷霸龍&#x27;</span>] = [<span class="string">&#x27;阿明&#x27;</span>];</span><br><span class="line"><span class="comment">// jordan值為&#x27;阿明&#x27;</span></span><br><span class="line"><span class="comment">// lebron則為預設值&#x27;雷霸龍&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>陷阱題</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; a =<span class="string">&#x27;hello&#x27;</span> &#125; = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="keyword">const</span> [ b =<span class="string">&#x27;hello&#x27;</span> ] = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="comment">// 此時 a, b 分別為什麼呢？</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="函式"><a href="#函式" class="headerlink" title="函式"></a>函式</h1><p>在函式要傳參數時也可以使用解構，參數一樣能夠自訂變數名稱、順序、預設值等</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">&#123;a = <span class="number">1</span>, b&#125;</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a + b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(&#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>&#125;) <span class="comment">// 3</span></span><br><span class="line">func(&#123;<span class="attr">b</span>: <span class="number">2</span>&#125;) <span class="comment">// 3</span></span><br><span class="line">func(&#123;<span class="attr">b</span>: <span class="number">6</span>, <span class="attr">a</span>: <span class="number">3</span>&#125;) <span class="comment">// 9</span></span><br><span class="line">func(&#123;<span class="attr">a</span>: <span class="literal">null</span>, <span class="attr">b</span>: <span class="number">2</span>&#125;) <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>註：所以在函式傳入參數中作解構賦值時，給定null值時會導致預設值無用，請記住這一點。當數字運算時，null相當於0。</p>
+</blockquote>
 ]]></content>
       <tags>
-        <tag>SEO</tag>
-        <tag>Hexo</tag>
-        <tag>Google Search Console</tag>
+        <tag>javascript</tag>
+        <tag>ES6</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2021/03/17/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>為什麼Vue中的data有時候會看到return，而有時候卻沒有？</title>
@@ -207,23 +189,6 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    <span class="function"><span class="title">data</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span>&#123;</span><br><span class="line">            msg:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>而這兩邊的差異呢就在於 <strong>不使用return包覆</strong> 的資料會在全局都可見，這會造成變數污染。<br>反之 <strong>用return的資料</strong> 就只會在當前的component生效而已，不會影響到其他組件。</p>
-]]></content>
-      <tags>
-        <tag>Vue.js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>什麼時候該使用『 const vm = this 』</title>
-    <url>/2021/05/12/Vue_this/</url>
-    <content><![CDATA[<p> <strong>影響this的是在於<em>函式的呼叫方式</em></strong></p>
-<p>以下為this的範例</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">reverseText: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.text.split(<span class="string">&#x27;&#x27;</span>).reverse().join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<p>在第一個範例中，this運行後都是在這個元件底下<br>並沒有另外的函式在內（ex: forEach）<br>全部的this都是指向<strong>Vue的該元件</strong><br>因此不需要另外使用 vm = this</p>
-<p>至於使用 vm = this 可以避免內部有其他函式叫<br>導致 this 的運作不如預期。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//因為在&quot;&quot;內層函式&quot;&quot;filter的函式內使用到this，指向會跑掉，所以需要使用vm。</span></span><br><span class="line">filterArray: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> vm = <span class="built_in">this</span>;</span><br><span class="line">    <span class="keyword">return</span> vm.arrayData.filter(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> item.name.match(vm.filterText)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p> <strong>除了使用 filter/ forEach 會讓this指向window外，函式在直接呼叫的時候this也會指向window</strong></p>
 ]]></content>
       <tags>
         <tag>Vue.js</tag>
@@ -249,6 +214,41 @@
 ]]></content>
       <tags>
         <tag>vue.js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2021/03/17/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>什麼時候該使用『 const vm = this 』</title>
+    <url>/2021/05/12/Vue_this/</url>
+    <content><![CDATA[<p> <strong>影響this的是在於<em>函式的呼叫方式</em></strong></p>
+<p>以下為this的範例</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">reverseText: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.text.split(<span class="string">&#x27;&#x27;</span>).reverse().join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<p>在第一個範例中，this運行後都是在這個元件底下<br>並沒有另外的函式在內（ex: forEach）<br>全部的this都是指向<strong>Vue的該元件</strong><br>因此不需要另外使用 vm = this</p>
+<p>至於使用 vm = this 可以避免內部有其他函式叫<br>導致 this 的運作不如預期。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//因為在&quot;&quot;內層函式&quot;&quot;filter的函式內使用到this，指向會跑掉，所以需要使用vm。</span></span><br><span class="line">filterArray: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> vm = <span class="built_in">this</span>;</span><br><span class="line">    <span class="keyword">return</span> vm.arrayData.filter(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> item.name.match(vm.filterText)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> <strong>除了使用 filter/ forEach 會讓this指向window外，函式在直接呼叫的時候this也會指向window</strong></p>
+]]></content>
+      <tags>
+        <tag>Vue.js</tag>
       </tags>
   </entry>
 </search>
