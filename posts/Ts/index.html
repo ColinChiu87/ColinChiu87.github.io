@@ -20,20 +20,22 @@
     var CONFIG = {"hostname":"colinchiu87.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="前言第一次在專案裡與 TS 相遇，那就不免俗的了解囉！稍微簡介一下～TypeScript是由微軟開發的一種能用來編譯出JavaScript程式碼的程式語言，因其比JS還多了一道編譯手續，能夠在編譯階段找出語法上的問題，而且也添加了型別檢查的機制，讓程式更容易閱讀與偵錯，也更適合開發大型的專案。白話一點來說，JS可以通過TS編譯器來編譯，而且還能夠實現JavaScript的版本轉換(例如ES6轉ES">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://colinchiu87.github.io/hello-world/">
+<meta property="og:title" content="來聊聊 Type Script">
+<meta property="og:url" content="https://colinchiu87.github.io/posts/Ts/">
 <meta property="og:site_name" content="🔱 此工程師正在下潛中...🤿🐠">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="前言第一次在專案裡與 TS 相遇，那就不免俗的了解囉！稍微簡介一下～TypeScript是由微軟開發的一種能用來編譯出JavaScript程式碼的程式語言，因其比JS還多了一道編譯手續，能夠在編譯階段找出語法上的問題，而且也添加了型別檢查的機制，讓程式更容易閱讀與偵錯，也更適合開發大型的專案。白話一點來說，JS可以通過TS編譯器來編譯，而且還能夠實現JavaScript的版本轉換(例如ES6轉ES">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2021-03-17T02:21:00.000Z">
-<meta property="article:modified_time" content="2021-03-17T02:22:06.186Z">
+<meta property="og:image" content="https://colinchiu87.github.io/posts/Ts/js-ts.jpg">
+<meta property="article:published_time" content="2021-07-22T09:43:01.000Z">
+<meta property="article:modified_time" content="2022-09-17T07:40:16.612Z">
 <meta property="article:author" content="Kuan Ru">
-<meta property="article:tag" content="前端, 後端, 全端">
+<meta property="article:tag" content="ts">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://colinchiu87.github.io/posts/Ts/js-ts.jpg">
 
-<link rel="canonical" href="https://colinchiu87.github.io/hello-world/">
+<link rel="canonical" href="https://colinchiu87.github.io/posts/Ts/">
 
 
 <script id="page-configurations">
@@ -46,7 +48,7 @@
   };
 </script>
 
-  <title>Hello World | 🔱 此工程師正在下潛中...🤿🐠</title>
+  <title>來聊聊 Type Script | 🔱 此工程師正在下潛中...🤿🐠</title>
   
 
 
@@ -189,7 +191,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://colinchiu87.github.io/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://colinchiu87.github.io/posts/Ts/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.jpg">
@@ -202,7 +204,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World
+          來聊聊 Type Script
         </h1>
 
         <div class="post-meta">
@@ -211,10 +213,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2021-03-17 10:21:00 / 修改時間：10:22:06" itemprop="dateCreated datePublished" datetime="2021-03-17T10:21:00+08:00">2021-03-17</time>
+              <time title="創建時間：2021-07-22 17:43:01" itemprop="dateCreated datePublished" datetime="2021-07-22T17:43:01+08:00">2021-07-22</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2022-09-17 15:40:16" itemprop="dateModified" datetime="2022-09-17T15:40:16+08:00">2022-09-17</time>
+              </span>
 
           
             <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv" style="display: none;">
@@ -234,19 +242,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>第一次在專案裡與 TS 相遇，那就不免俗的了解囉！<br>稍微簡介一下～<br>TypeScript是由微軟開發的一種能用來編譯出JavaScript程式碼的程式語言，因其比JS還多了一道編譯手續，能夠在編譯階段找出語法上的問題，而且也添加了型別檢查的機制，讓程式更容易閱讀與偵錯，也更適合開發大型的專案。<br>白話一點來說，JS可以通過TS編譯器來編譯，而且還能夠實現JavaScript的版本轉換(例如ES6轉ES5)</p>
+<span id="more"></span>
 
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s">Writing<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<img src="/posts/Ts/js-ts.jpg" class="">
 
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=">Server<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h1 id="安裝與設定"><a href="#安裝與設定" class="headerlink" title="安裝與設定"></a>安裝與設定</h1><h2 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h2><p>我們要先設定好Node.js和npm環境，建議使用Node.js最新的LTS版本。<br>Node.js是JavaScript程式的執行環境，讓我們不需要開啟瀏覽器也可以執行JS。而npm則是JS的套件管理器，常與Node.js一同被安裝。</p>
+<p>Windows的使用者可以直接到<span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL2VuLw==">Node.js官方網站<i class="fa fa-external-link-alt"></i></span>下載，而Linux或MacOS的使用者可以參考<span class="exturl" data-url="aHR0cHM6Ly9tYWdpY2xlbi5vcmcvbGludXgtaW5zdGFsbC1ub2RlanMv">這篇文章<i class="fa fa-external-link-alt"></i></span>安裝指定版本。</p>
+<h2 id="tsc"><a href="#tsc" class="headerlink" title="tsc"></a>tsc</h2><p>tsc是TypeScript程式的編譯器，能夠將TS編譯成JS。<br>執行以下npm指令:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g typescript</span><br></pre></td></tr></table></figure>
 
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s">Generating<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>關於編譯器的設定，我就先不說明，一開始花太多時間在這會顯得有點浪費且沒意思，畢竟內容很龐大也很複雜。</p>
+<hr>
+<h1 id="簡單的範例"><a href="#簡單的範例" class="headerlink" title="簡單的範例"></a>簡單的範例</h1><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">name: <span class="built_in">string</span></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello &quot;</span> + name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(colin)</span><br></pre></td></tr></table></figure>
 
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s">Deployment<i class="fa fa-external-link-alt"></i></span></p>
+<p>這邊唯一和我們學過的JavaScript不同，就是func這個函式的傳入參數多一個 :string 的指示詞，這東西在ＴＳ裡稱做類型註解。這邊就是說傳入的參數只接受字串(string)的型態，只要是其他型別在呼叫或是執行時就會報錯。</p>
+<p>對於函式而言，會有傳入參數和回傳值兩種情況，那麼我們就要養成習慣。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">name: <span class="built_in">string</span></span>): <span class="title">string</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello &quot;</span> + name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(colin)</span><br></pre></td></tr></table></figure>
+
+<p>上面這表示回傳值的型態也是string類型，順帶一提，如果函式沒有回傳值時可以使用 void，相信很多人都有看過吧，這就是專門為沒有回傳值的函式所準備的類型。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name: <span class="built_in">string</span> | <span class="built_in">number</span> = <span class="string">&quot;Colin&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>這裡的意思是 name這個變數能接受的型態為字串(string)與數字(number)，而且預設值為 Colin字串。</p>
+<hr>
 
     </div>
 
@@ -274,16 +292,22 @@
 
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ts/" rel="tag"># ts</a>
+          </div>
 
         
 
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/Vue_this/" rel="next" title="什麼時候該使用『 const vm = this 』">
-      什麼時候該使用『 const vm = this 』 <i class="fa fa-chevron-right"></i>
+    <a href="/posts/Vue_data/" rel="prev" title="為什麼Vue中的data有時候會看到return，而有時候卻沒有？">
+      <i class="fa fa-chevron-left"></i> 為什麼Vue中的data有時候會看到return，而有時候卻沒有？
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/Html_downloadPdf/" rel="next" title="如何利用HTML直接下載pdf">
+      如何利用HTML直接下載pdf <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -343,7 +367,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D%E8%88%87%E8%A8%AD%E5%AE%9A"><span class="nav-number">2.</span> <span class="nav-text">安裝與設定</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js"><span class="nav-number">2.1.</span> <span class="nav-text">Node.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tsc"><span class="nav-number">2.2.</span> <span class="nav-text">tsc</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B0%A1%E5%96%AE%E7%9A%84%E7%AF%84%E4%BE%8B"><span class="nav-number">3.</span> <span class="nav-text">簡單的範例</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
