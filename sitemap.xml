@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://colinchiu87.github.io/posts/Ts/</loc>
+    <loc>https://colinchiu87.github.io/Ts/</loc>
     
     <lastmod>2022-09-17</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/posts/Vue_this/</loc>
+    <loc>https://colinchiu87.github.io/Vue_this/</loc>
     
     <lastmod>2022-09-17</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/posts/Vue_know/</loc>
+    <loc>https://colinchiu87.github.io/Vue_know/</loc>
     
     <lastmod>2022-09-17</lastmod>
     
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/posts/Vue_data/</loc>
+    <loc>https://colinchiu87.github.io/Vue_data/</loc>
     
     <lastmod>2022-09-17</lastmod>
     
@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/posts/Seo_robotsTxt/</loc>
+    <loc>https://colinchiu87.github.io/Seo_robotsTxt/</loc>
     
     <lastmod>2022-09-17</lastmod>
     
@@ -47,7 +47,7 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/posts/Seo_hexoByGoogleSearchConsole/</loc>
+    <loc>https://colinchiu87.github.io/Seo_hexoByGoogleSearchConsole/</loc>
     
     <lastmod>2022-09-17</lastmod>
     
@@ -56,7 +56,7 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/posts/Html_downloadPdf/</loc>
+    <loc>https://colinchiu87.github.io/Html_downloadPdf/</loc>
     
     <lastmod>2022-09-17</lastmod>
     
@@ -65,7 +65,7 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/posts/Es6_destructuringAssignment/</loc>
+    <loc>https://colinchiu87.github.io/Es6_destructuringAssignment/</loc>
     
     <lastmod>2022-09-17</lastmod>
     
@@ -110,7 +110,7 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/posts/hello-world/</loc>
+    <loc>https://colinchiu87.github.io/hello-world/</loc>
     
     <lastmod>2021-03-17</lastmod>
     
@@ -128,20 +128,6 @@
 
   
   <url>
-    <loc>https://colinchiu87.github.io/tags/javascript/</loc>
-    <lastmod>2022-09-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://colinchiu87.github.io/tags/ES6/</loc>
-    <lastmod>2022-09-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://colinchiu87.github.io/tags/html/</loc>
     <lastmod>2022-09-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -157,6 +143,41 @@
   
   <url>
     <loc>https://colinchiu87.github.io/tags/pdf/</loc>
+    <lastmod>2022-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://colinchiu87.github.io/tags/javascript/</loc>
+    <lastmod>2022-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://colinchiu87.github.io/tags/ES6/</loc>
+    <lastmod>2022-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://colinchiu87.github.io/tags/Vue-js/</loc>
+    <lastmod>2022-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://colinchiu87.github.io/tags/ts/</loc>
+    <lastmod>2022-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://colinchiu87.github.io/tags/vue-js/</loc>
     <lastmod>2022-09-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -185,27 +206,6 @@
   
   <url>
     <loc>https://colinchiu87.github.io/tags/crawler/</loc>
-    <lastmod>2022-09-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://colinchiu87.github.io/tags/ts/</loc>
-    <lastmod>2022-09-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://colinchiu87.github.io/tags/Vue-js/</loc>
-    <lastmod>2022-09-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://colinchiu87.github.io/tags/vue-js/</loc>
     <lastmod>2022-09-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
