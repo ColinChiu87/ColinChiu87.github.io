@@ -17,25 +17,25 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"colinchiu87.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"colinchiu87.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="前言第一次和Vue碰面是在我大四實習時，剛好遇到公司開始推行同仁使用框架開發，也讓我這個菜鳥搭上前端框架的順風車。趁現在有空閒之餘來整理一下當初的筆記，也順帶複習一下 Vue.js！">
+  <meta name="description" content="前言今天在嘗試利用 html的&lt;a&gt;標籤做下載檔案的功能，發現了一件事情，其他檔案能正常下載除了pdf 當你的程式是寫&lt;a href&#x3D;&quot;test.pdf&quot; &#x2F;&gt;，當點擊連結時，會使用在當前瀏覽器中打開該文件給予預覽。這就會不符合我的需求，我希望的是直接給使用者下載，不需要再打開預覽文件。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="認識三神獸之一 Vue">
-<meta property="og:url" content="https://colinchiu87.github.io/2022/01/10/Vue_know/index.html">
+<meta property="og:title" content="如何利用HTML直接下載pdf">
+<meta property="og:url" content="https://colinchiu87.github.io/Html_downloadPdf/">
 <meta property="og:site_name" content="🔱 此工程師正在下潛中...🤿🐠">
-<meta property="og:description" content="前言第一次和Vue碰面是在我大四實習時，剛好遇到公司開始推行同仁使用框架開發，也讓我這個菜鳥搭上前端框架的順風車。趁現在有空閒之餘來整理一下當初的筆記，也順帶複習一下 Vue.js！">
+<meta property="og:description" content="前言今天在嘗試利用 html的&lt;a&gt;標籤做下載檔案的功能，發現了一件事情，其他檔案能正常下載除了pdf 當你的程式是寫&lt;a href&#x3D;&quot;test.pdf&quot; &#x2F;&gt;，當點擊連結時，會使用在當前瀏覽器中打開該文件給予預覽。這就會不符合我的需求，我希望的是直接給使用者下載，不需要再打開預覽文件。">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://colinchiu87.github.io/2022/01/10/Vue_know/vue-logo.jpeg">
-<meta property="article:published_time" content="2022-01-10T05:07:23.000Z">
-<meta property="article:modified_time" content="2022-07-21T07:29:49.728Z">
+<meta property="article:published_time" content="2021-07-28T09:57:28.000Z">
+<meta property="article:modified_time" content="2022-07-21T07:29:28.772Z">
 <meta property="article:author" content="Kuan Ru">
-<meta property="article:tag" content="vue.js">
+<meta property="article:tag" content="html">
+<meta property="article:tag" content="download">
+<meta property="article:tag" content="pdf">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://colinchiu87.github.io/2022/01/10/Vue_know/vue-logo.jpeg">
 
-<link rel="canonical" href="https://colinchiu87.github.io/2022/01/10/Vue_know/">
+<link rel="canonical" href="https://colinchiu87.github.io/Html_downloadPdf/">
 
 
 <script id="page-configurations">
@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title>認識三神獸之一 Vue | 🔱 此工程師正在下潛中...🤿🐠</title>
+  <title>如何利用HTML直接下載pdf | 🔱 此工程師正在下潛中...🤿🐠</title>
   
 
 
@@ -174,8 +174,9 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
+  <div class="reading-progress-bar"></div>
 
-  <a href="https://github.com/ColinChiu87" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL0NvbGluQ2hpdTg3" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
 
 
     <main class="main">
@@ -190,7 +191,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://colinchiu87.github.io/2022/01/10/Vue_know/">
+    <link itemprop="mainEntityOfPage" href="https://colinchiu87.github.io/Html_downloadPdf/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.jpg">
@@ -203,7 +204,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          認識三神獸之一 Vue
+          如何利用HTML直接下載pdf
         </h1>
 
         <div class="post-meta">
@@ -213,17 +214,24 @@
               </span>
               <span class="post-meta-item-text">發表於</span>
 
-              <time title="創建時間：2022-01-10 13:07:23" itemprop="dateCreated datePublished" datetime="2022-01-10T13:07:23+08:00">2022-01-10</time>
+              <time title="創建時間：2021-07-28 17:57:28" itemprop="dateCreated datePublished" datetime="2021-07-28T17:57:28+08:00">2021-07-28</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2022-07-21 15:29:49" itemprop="dateModified" datetime="2022-07-21T15:29:49+08:00">2022-07-21</time>
+                <time title="修改時間：2022-07-21 15:29:28" itemprop="dateModified" datetime="2022-07-21T15:29:28+08:00">2022-07-21</time>
               </span>
 
           
+            <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
 
         </div>
       </header>
@@ -234,19 +242,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>第一次和Vue碰面是在我大四實習時，剛好遇到公司開始推行同仁使用框架開發，也讓我這個菜鳥搭上前端框架的順風車。<br>趁現在有空閒之餘來整理一下當初的筆記，也順帶複習一下 Vue.js！</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天在嘗試利用 html的<code>&lt;a&gt;</code>標籤做下載檔案的功能，發現了一件事情，其他檔案能正常下載<br><del>除了pdf</del></p>
+<p>當你的程式是寫<code>&lt;a href=&quot;test.pdf&quot; /&gt;</code>，當點擊連結時，會使用在當前瀏覽器中打開該文件給予預覽。<br>這就會不符合我的需求，我希望的是直接給使用者下載，不需要再打開預覽文件。</p>
 <span id="more"></span>
-<h1 id="何謂框架"><a href="#何謂框架" class="headerlink" title="何謂框架"></a>何謂框架</h1><p>框架(framework)，是指協助開發者能更容易地進行網頁製作的工具，將一些複雜的語法及工具以簡易的方式撰寫，進而提升效率及效能。就像是設計一台汽車，已經將模型給你了，你只需要對設計圖進行配色就可以完成，而上色這個部分和周邊的配件就是可以讓大家去精進功力地方了。<br>而現行較主流的框架為 Vue, React, Angular 等等。</p>
-<h1 id="Vue-js"><a href="#Vue-js" class="headerlink" title="Vue.js"></a>Vue.js</h1><p>Vue是一種javascript的一種漸進式(progressive)框架，是以 View(視圖層)為基礎，與其他框架不同的是，他的目標是透過簡單的API提供開發者實作資料綁定和操作網頁上的元件，也因為核心(宣告式渲染、元件系統)關注在狀態和畫面的同步層級上，所以能夠輕易地與其他 js 函式庫、前端開發工具等等的做整合。</p>
-<img src="/2022/01/10/Vue_know/vue-logo.jpeg" class="">
-
-<h1 id="特色"><a href="#特色" class="headerlink" title="特色"></a>特色</h1><ul>
-<li>輕量型框架：架構輕量、效能好</li>
-<li>提供資料綁定(Data Binding)的功能：可以將值關聯到 Html 標籤或 Attribute 上，變更資料、樣式</li>
-<li>虛擬Dom(Virtual DOM)：以 javascript 物件模擬特定的 Dom 結構而產生的樹狀節構。不直接操作 Dom 元素，而是等一個段落後，再將這些變更回真實Dom上</li>
-<li>元件化系統(Components system)：提供 Dom 強大的擴充性，也可將部分程式碼封裝起來，供開發者維護、重複使用</li>
-<li>指示詞(Directive)：內建許多指示詞(v-開頭)，用來進行程式邏輯的判斷</li>
-<li>Vue路由器(Router)：利用它建構一個基本卻完整的路由庫，來操作瀏覽器上/下一頁的流程，建立 SPA 完整單頁式應用的能力。</li>
+<h1 id="HTML-lt-a-gt-download屬性"><a href="#HTML-lt-a-gt-download屬性" class="headerlink" title="HTML &lt;a&gt; download屬性"></a>HTML <code>&lt;a&gt;</code> download屬性</h1><p>爬了一下文發現很簡單！只要在a標籤裡再加上一個download就好～<br><code>&lt;a href=&quot;yourfile.pdf&quot; download=&quot;newFileName&quot;&gt;下載檔案&lt;/a&gt;</code><br>這邊的newFileName是讓你可以指定使用者下載下來時的檔名，<br>如果留空，就會默認為伺服器端的名稱，<br>如下：<br><code>&lt;a href=&quot;test.pdf&quot; download&gt;click&lt;/a&gt;</code></p>
+<h1 id="HTML-lt-a-gt-target屬性"><a href="#HTML-lt-a-gt-target屬性" class="headerlink" title="HTML &lt;a&gt; target屬性"></a>HTML <code>&lt;a&gt;</code> target屬性</h1><p>既然都說到<code>&lt;a&gt;</code>標籤了，那就再加上一點補充～<br>利用a標籤的時候不外乎就是要開啟一個連結或是下載檔案，那我們在打開連接的方式就有分成幾種：</p>
+<ul>
+<li>直接於所在的視窗中打開（_self）</li>
+<li>另開一個視窗（_blank）</li>
+<li>開啟於父層框架（_parent）</li>
 </ul>
 
     </div>
@@ -276,7 +280,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/vue-js/" rel="tag"># vue.js</a>
+              <a href="/tags/html/" rel="tag"># html</a>
+              <a href="/tags/download/" rel="tag"># download</a>
+              <a href="/tags/pdf/" rel="tag"># pdf</a>
           </div>
 
         
@@ -285,12 +291,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/01/03/ES6_destructuringAssignment/" rel="prev" title="ES6-解構賦值">
-      <i class="fa fa-chevron-left"></i> ES6-解構賦值
+    <a href="/TS/" rel="prev" title="來聊聊 Type Script">
+      <i class="fa fa-chevron-left"></i> 來聊聊 Type Script
     </a></div>
       <div class="post-nav-item">
-    <a href="/2022/07/20/SEO_hexoByGoogleSearchConsole/" rel="next" title="Hexo-SEO Google Search Console">
-      Hexo-SEO Google Search Console <i class="fa fa-chevron-right"></i>
+    <a href="/ES6_destructuringAssignment/" rel="next" title="ES6-解構賦值">
+      ES6-解構賦值 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -350,7 +356,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%95%E8%AC%82%E6%A1%86%E6%9E%B6"><span class="nav-number">2.</span> <span class="nav-text">何謂框架</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue-js"><span class="nav-number">3.</span> <span class="nav-text">Vue.js</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%89%B9%E8%89%B2"><span class="nav-number">4.</span> <span class="nav-text">特色</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML-lt-a-gt-download%E5%B1%AC%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">HTML &lt;a&gt; download屬性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML-lt-a-gt-target%E5%B1%AC%E6%80%A7"><span class="nav-number">3.</span> <span class="nav-text">HTML &lt;a&gt; target屬性</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -380,16 +386,10 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/ColinChiu87" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ColinChiu87" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0NvbGluQ2hpdTg3" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ColinChiu87"><i class="fab fa-github fa-fw"></i>GitHub</span>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:colinchiu87@gmail.com" title="E-Mail → mailto:colinchiu87@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://www.facebook.com/yourname" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i>FB Page</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://instagram.com/yourname" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+        <span class="exturl" data-url="bWFpbHRvOmNvbGluY2hpdTg3QGdtYWlsLmNvbQ==" title="E-Mail → mailto:colinchiu87@gmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
       </span>
   </div>
 
@@ -424,7 +424,57 @@
     <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=62d7c67c53ba4a28" async="async"></script>
   </div>
 
+<!-- 瀏覽人數設定 -->
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset);
+            clearInterval(int);
+        }
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据
+            clearInterval(int); // 停止检测
+        }
+    }
+
+});
+</script>
+
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="訪客總數">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="總瀏覽次數">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 
