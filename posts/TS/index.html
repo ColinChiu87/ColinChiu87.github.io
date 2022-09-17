@@ -20,22 +20,22 @@
     var CONFIG = {"hostname":"colinchiu87.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="前言第一次在專案裡與 TS 相遇，那就不免俗的了解囉！   稍微簡介一下～TypeScript是由微軟開發的一種能用來編譯出JavaScript程式碼的程式語言，因其比JS還多了一道編譯手續，能夠在編譯階段找出語法上的問題，而且也添加了型別檢查的機制，讓程式更容易閱讀與偵錯，也更適合開發大型的專案。白話一點來說，JS可以通過TS編譯器來編譯，而且還能夠實現JavaScript的版本轉換(例如ES6">
+  <meta name="description" content="前言第一次在專案裡與 TS 相遇，那就不免俗的了解囉！稍微簡介一下～TypeScript是由微軟開發的一種能用來編譯出JavaScript程式碼的程式語言，因其比JS還多了一道編譯手續，能夠在編譯階段找出語法上的問題，而且也添加了型別檢查的機制，讓程式更容易閱讀與偵錯，也更適合開發大型的專案。白話一點來說，JS可以通過TS編譯器來編譯，而且還能夠實現JavaScript的版本轉換(例如ES6轉ES">
 <meta property="og:type" content="article">
 <meta property="og:title" content="來聊聊 Type Script">
-<meta property="og:url" content="https://colinchiu87.github.io/posts/TS/">
+<meta property="og:url" content="https://colinchiu87.github.io/posts/Ts/">
 <meta property="og:site_name" content="🔱 此工程師正在下潛中...🤿🐠">
-<meta property="og:description" content="前言第一次在專案裡與 TS 相遇，那就不免俗的了解囉！   稍微簡介一下～TypeScript是由微軟開發的一種能用來編譯出JavaScript程式碼的程式語言，因其比JS還多了一道編譯手續，能夠在編譯階段找出語法上的問題，而且也添加了型別檢查的機制，讓程式更容易閱讀與偵錯，也更適合開發大型的專案。白話一點來說，JS可以通過TS編譯器來編譯，而且還能夠實現JavaScript的版本轉換(例如ES6">
+<meta property="og:description" content="前言第一次在專案裡與 TS 相遇，那就不免俗的了解囉！稍微簡介一下～TypeScript是由微軟開發的一種能用來編譯出JavaScript程式碼的程式語言，因其比JS還多了一道編譯手續，能夠在編譯階段找出語法上的問題，而且也添加了型別檢查的機制，讓程式更容易閱讀與偵錯，也更適合開發大型的專案。白話一點來說，JS可以通過TS編譯器來編譯，而且還能夠實現JavaScript的版本轉換(例如ES6轉ES">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://colinchiu87.github.io/posts/TS/js-ts.jpg">
+<meta property="og:image" content="https://colinchiu87.github.io/posts/Ts/js-ts.jpg">
 <meta property="article:published_time" content="2021-07-22T09:43:01.000Z">
-<meta property="article:modified_time" content="2022-07-21T07:29:45.255Z">
+<meta property="article:modified_time" content="2022-09-17T07:40:16.612Z">
 <meta property="article:author" content="Kuan Ru">
 <meta property="article:tag" content="ts">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://colinchiu87.github.io/posts/TS/js-ts.jpg">
+<meta name="twitter:image" content="https://colinchiu87.github.io/posts/Ts/js-ts.jpg">
 
-<link rel="canonical" href="https://colinchiu87.github.io/posts/TS/">
+<link rel="canonical" href="https://colinchiu87.github.io/posts/Ts/">
 
 
 <script id="page-configurations">
@@ -191,7 +191,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://colinchiu87.github.io/posts/TS/">
+    <link itemprop="mainEntityOfPage" href="https://colinchiu87.github.io/posts/Ts/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.jpg">
@@ -221,7 +221,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2022-07-21 15:29:45" itemprop="dateModified" datetime="2022-07-21T15:29:45+08:00">2022-07-21</time>
+                <time title="修改時間：2022-09-17 15:40:16" itemprop="dateModified" datetime="2022-09-17T15:40:16+08:00">2022-09-17</time>
               </span>
 
           
@@ -242,11 +242,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>第一次在專案裡與 TS 相遇，那就不免俗的了解囉！</p>
-<img src="/posts/TS/js-ts.jpg" class="">
-
-<p>稍微簡介一下～<br>TypeScript是由微軟開發的一種能用來編譯出JavaScript程式碼的程式語言，因其比JS還多了一道編譯手續，能夠在編譯階段找出語法上的問題，而且也添加了型別檢查的機制，讓程式更容易閱讀與偵錯，也更適合開發大型的專案。<br>白話一點來說，JS可以通過TS編譯器來編譯，而且還能夠實現JavaScript的版本轉換(例如ES6轉ES5)</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>第一次在專案裡與 TS 相遇，那就不免俗的了解囉！<br>稍微簡介一下～<br>TypeScript是由微軟開發的一種能用來編譯出JavaScript程式碼的程式語言，因其比JS還多了一道編譯手續，能夠在編譯階段找出語法上的問題，而且也添加了型別檢查的機制，讓程式更容易閱讀與偵錯，也更適合開發大型的專案。<br>白話一點來說，JS可以通過TS編譯器來編譯，而且還能夠實現JavaScript的版本轉換(例如ES6轉ES5)</p>
 <span id="more"></span>
+
+<img src="/posts/Ts/js-ts.jpg" class="">
+
 <h1 id="安裝與設定"><a href="#安裝與設定" class="headerlink" title="安裝與設定"></a>安裝與設定</h1><h2 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h2><p>我們要先設定好Node.js和npm環境，建議使用Node.js最新的LTS版本。<br>Node.js是JavaScript程式的執行環境，讓我們不需要開啟瀏覽器也可以執行JS。而npm則是JS的套件管理器，常與Node.js一同被安裝。</p>
 <p>Windows的使用者可以直接到<span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL2VuLw==">Node.js官方網站<i class="fa fa-external-link-alt"></i></span>下載，而Linux或MacOS的使用者可以參考<span class="exturl" data-url="aHR0cHM6Ly9tYWdpY2xlbi5vcmcvbGludXgtaW5zdGFsbC1ub2RlanMv">這篇文章<i class="fa fa-external-link-alt"></i></span>安裝指定版本。</p>
 <h2 id="tsc"><a href="#tsc" class="headerlink" title="tsc"></a>tsc</h2><p>tsc是TypeScript程式的編譯器，能夠將TS編譯成JS。<br>執行以下npm指令:</p>
@@ -434,36 +434,6 @@
   <div class="addthis_inline_share_toolbox">
     <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=62d7c67c53ba4a28" async="async"></script>
   </div>
-
-<!-- 瀏覽人數設定 -->
-
-    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span id="busuanzi_container_site_pv">總訪問量<span id="busuanzi_value_site_pv"></span>次</span>
-    <span class="post-meta-divider">|</span>
-    <span id="busuanzi_container_site_uv">總訪客數<span id="busuanzi_value_site_uv"></span>人</span>
-
-<!-- 不蒜子计数初始值纠正 -->
-<script>
-$(document).ready(function() {
-
-    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
-    var countOffset = 20000;  // 初始化首次数据
-
-    function fixCount() {
-       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
-        {
-            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset);
-            clearInterval(int);
-        }
-        if ($("#busuanzi_container_site_pv").css("display") != "none")
-        {
-            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据
-            clearInterval(int); // 停止检测
-        }
-    }
-
-});
-</script>
 
         
 <div class="busuanzi-count">

@@ -2,9 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://colinchiu87.github.io/posts/SEO_robotsTxt/</loc>
+    <loc>https://colinchiu87.github.io/posts/Ts/</loc>
     
-    <lastmod>2022-08-13</lastmod>
+    <lastmod>2022-09-17</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -13,7 +13,7 @@
   <url>
     <loc>https://colinchiu87.github.io/posts/Vue_this/</loc>
     
-    <lastmod>2022-07-21</lastmod>
+    <lastmod>2022-09-17</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -22,7 +22,7 @@
   <url>
     <loc>https://colinchiu87.github.io/posts/Vue_know/</loc>
     
-    <lastmod>2022-07-21</lastmod>
+    <lastmod>2022-09-17</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -31,25 +31,25 @@
   <url>
     <loc>https://colinchiu87.github.io/posts/Vue_data/</loc>
     
-    <lastmod>2022-07-21</lastmod>
+    <lastmod>2022-09-17</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/posts/TS/</loc>
+    <loc>https://colinchiu87.github.io/posts/Seo_robotsTxt/</loc>
     
-    <lastmod>2022-07-21</lastmod>
+    <lastmod>2022-09-17</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/posts/SEO_hexoByGoogleSearchConsole/</loc>
+    <loc>https://colinchiu87.github.io/posts/Seo_hexoByGoogleSearchConsole/</loc>
     
-    <lastmod>2022-07-21</lastmod>
+    <lastmod>2022-09-17</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -58,16 +58,16 @@
   <url>
     <loc>https://colinchiu87.github.io/posts/Html_downloadPdf/</loc>
     
-    <lastmod>2022-07-21</lastmod>
+    <lastmod>2022-09-17</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/posts/ES6_destructuringAssignment/</loc>
+    <loc>https://colinchiu87.github.io/posts/Es6_destructuringAssignment/</loc>
     
-    <lastmod>2022-07-21</lastmod>
+    <lastmod>2022-09-17</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -149,20 +149,6 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/tags/javascript/</loc>
-    <lastmod>2022-09-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://colinchiu87.github.io/tags/ES6/</loc>
-    <lastmod>2022-09-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://colinchiu87.github.io/tags/Hexo/</loc>
     <lastmod>2022-09-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -178,6 +164,20 @@
   
   <url>
     <loc>https://colinchiu87.github.io/tags/Google-Search-Console/</loc>
+    <lastmod>2022-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://colinchiu87.github.io/tags/javascript/</loc>
+    <lastmod>2022-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://colinchiu87.github.io/tags/ES6/</loc>
     <lastmod>2022-09-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

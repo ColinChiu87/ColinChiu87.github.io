@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"colinchiu87.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="在簡單的vue實例中看到的data屬性如下： 123456789let app &#x3D; newVue(&amp;#123;    el: &quot;app&quot;,    data:&amp;#123;        msg:&amp;#x27;&amp;#x27;,    &amp;#125;,    methods:&amp;#123;    &amp;#125;,&amp;#125;)">
+  <meta name="description" content="前言當你在剛接觸 Vue 的時候是不是有想過一件事情，文件上或人家範例的 data 寫方式似乎不太一樣…🤔😣">
 <meta property="og:type" content="article">
 <meta property="og:title" content="為什麼Vue中的data有時候會看到return，而有時候卻沒有？">
 <meta property="og:url" content="https://colinchiu87.github.io/posts/Vue_data/">
 <meta property="og:site_name" content="🔱 此工程師正在下潛中...🤿🐠">
-<meta property="og:description" content="在簡單的vue實例中看到的data屬性如下： 123456789let app &#x3D; newVue(&amp;#123;    el: &quot;app&quot;,    data:&amp;#123;        msg:&amp;#x27;&amp;#x27;,    &amp;#125;,    methods:&amp;#123;    &amp;#125;,&amp;#125;)">
+<meta property="og:description" content="前言當你在剛接觸 Vue 的時候是不是有想過一件事情，文件上或人家範例的 data 寫方式似乎不太一樣…🤔😣">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2021-07-13T11:46:10.000Z">
-<meta property="article:modified_time" content="2022-07-21T07:29:47.360Z">
+<meta property="article:modified_time" content="2022-09-17T07:37:06.461Z">
 <meta property="article:author" content="Kuan Ru">
 <meta property="article:tag" content="Vue.js">
 <meta name="twitter:card" content="summary">
@@ -219,7 +219,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2022-07-21 15:29:47" itemprop="dateModified" datetime="2022-07-21T15:29:47+08:00">2022-07-21</time>
+                <time title="修改時間：2022-09-17 15:37:06" itemprop="dateModified" datetime="2022-09-17T15:37:06+08:00">2022-09-17</time>
               </span>
 
           
@@ -240,9 +240,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>在簡單的vue實例中看到的data屬性如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> app = newVue(&#123;</span><br><span class="line">    el: <span class="string">&quot;app&quot;</span>,</span><br><span class="line">    data:&#123;</span><br><span class="line">        msg:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>當你在剛接觸 Vue 的時候是不是有想過一件事情，文件上或人家範例的 data 寫方式似乎不太一樣…🤔😣</p>
 <span id="more"></span>
+
+<h1 id="疑難排解"><a href="#疑難排解" class="headerlink" title="疑難排解"></a>疑難排解</h1><p>在簡單的vue實例中看到的data屬性如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> app = newVue(&#123;</span><br><span class="line">    el: <span class="string">&quot;app&quot;</span>,</span><br><span class="line">    data:&#123;</span><br><span class="line">        msg:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
 <p>在使用組件化的項目中使用的形式是如下：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    <span class="function"><span class="title">data</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span>&#123;</span><br><span class="line">            msg:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -288,7 +291,7 @@
       <i class="fa fa-chevron-left"></i> 什麼時候該使用『 const vm = this 』
     </a></div>
       <div class="post-nav-item">
-    <a href="/posts/TS/" rel="next" title="來聊聊 Type Script">
+    <a href="/posts/Ts/" rel="next" title="來聊聊 Type Script">
       來聊聊 Type Script <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -349,6 +352,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%96%91%E9%9B%A3%E6%8E%92%E8%A7%A3"><span class="nav-number">2.</span> <span class="nav-text">疑難排解</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -415,36 +419,6 @@
   <div class="addthis_inline_share_toolbox">
     <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=62d7c67c53ba4a28" async="async"></script>
   </div>
-
-<!-- 瀏覽人數設定 -->
-
-    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span id="busuanzi_container_site_pv">總訪問量<span id="busuanzi_value_site_pv"></span>次</span>
-    <span class="post-meta-divider">|</span>
-    <span id="busuanzi_container_site_uv">總訪客數<span id="busuanzi_value_site_uv"></span>人</span>
-
-<!-- 不蒜子计数初始值纠正 -->
-<script>
-$(document).ready(function() {
-
-    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
-    var countOffset = 20000;  // 初始化首次数据
-
-    function fixCount() {
-       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
-        {
-            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset);
-            clearInterval(int);
-        }
-        if ($("#busuanzi_container_site_pv").css("display") != "none")
-        {
-            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据
-            clearInterval(int); // 停止检测
-        }
-    }
-
-});
-</script>
 
         
 <div class="busuanzi-count">

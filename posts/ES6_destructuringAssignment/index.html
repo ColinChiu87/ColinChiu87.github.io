@@ -20,21 +20,21 @@
     var CONFIG = {"hostname":"colinchiu87.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="說文解字解構賦值(Destructuring Assignment)是在ES6的一個新特性，讓我們在撰寫物件、陣列時可以把在裡頭的資料解開擷取成為獨立的變數，能夠更簡短並增加閱讀性。以下為他的說明：  The destructuring assignment syntax is a JavaScript expression that makes it possible to extract da">
+  <meta name="description" content="前言解構賦值(Destructuring Assignment)是在ES6的一個新特性，讓我們在撰寫物件、陣列時可以把在裡頭的資料解開擷取成為獨立的變數，能夠更簡短並增加閱讀性。以下為他的說明：  The destructuring assignment syntax is a JavaScript expression that makes it possible to extract data">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES6-解構賦值">
-<meta property="og:url" content="https://colinchiu87.github.io/posts/ES6_destructuringAssignment/">
+<meta property="og:url" content="https://colinchiu87.github.io/posts/Es6_destructuringAssignment/">
 <meta property="og:site_name" content="🔱 此工程師正在下潛中...🤿🐠">
-<meta property="og:description" content="說文解字解構賦值(Destructuring Assignment)是在ES6的一個新特性，讓我們在撰寫物件、陣列時可以把在裡頭的資料解開擷取成為獨立的變數，能夠更簡短並增加閱讀性。以下為他的說明：  The destructuring assignment syntax is a JavaScript expression that makes it possible to extract da">
+<meta property="og:description" content="前言解構賦值(Destructuring Assignment)是在ES6的一個新特性，讓我們在撰寫物件、陣列時可以把在裡頭的資料解開擷取成為獨立的變數，能夠更簡短並增加閱讀性。以下為他的說明：  The destructuring assignment syntax is a JavaScript expression that makes it possible to extract data">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-01-03T12:54:09.000Z">
-<meta property="article:modified_time" content="2022-07-21T07:29:23.963Z">
+<meta property="article:modified_time" content="2022-09-17T07:30:37.150Z">
 <meta property="article:author" content="Kuan Ru">
 <meta property="article:tag" content="javascript">
 <meta property="article:tag" content="ES6">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://colinchiu87.github.io/posts/ES6_destructuringAssignment/">
+<link rel="canonical" href="https://colinchiu87.github.io/posts/Es6_destructuringAssignment/">
 
 
 <script id="page-configurations">
@@ -190,7 +190,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://colinchiu87.github.io/posts/ES6_destructuringAssignment/">
+    <link itemprop="mainEntityOfPage" href="https://colinchiu87.github.io/posts/Es6_destructuringAssignment/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.jpg">
@@ -220,7 +220,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2022-07-21 15:29:23" itemprop="dateModified" datetime="2022-07-21T15:29:23+08:00">2022-07-21</time>
+                <time title="修改時間：2022-09-17 15:30:37" itemprop="dateModified" datetime="2022-09-17T15:30:37+08:00">2022-09-17</time>
               </span>
 
           
@@ -241,11 +241,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="說文解字"><a href="#說文解字" class="headerlink" title="說文解字"></a>說文解字</h1><p>解構賦值(Destructuring Assignment)是在ES6的一個新特性，讓我們在撰寫物件、陣列時可以把在裡頭的資料解開擷取成為獨立的變數，能夠更簡短並增加閱讀性。<br>以下為他的說明：</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>解構賦值(Destructuring Assignment)是在ES6的一個新特性，讓我們在撰寫物件、陣列時可以把在裡頭的資料解開擷取成為獨立的變數，能夠更簡短並增加閱讀性。<br>以下為他的說明：</p>
 <blockquote>
 <p>The destructuring assignment syntax is a JavaScript expression that makes it possible to extract data from arrays or objects using a syntax that mirrors the construction of array and object literals</p>
 </blockquote>
 <span id="more"></span>
+
 <p>上面所說的就是解構賦值的用法如同<strong>鏡子</strong>(mirror)般，對應陣列or物件的結構，將資料從右邊往左邊送，只不過內容的位置順序不變（鏡子會左右顛倒），也就是一種樣式對應(pattern)的方法。</p>
 <p>介紹比較常用的情況：</p>
 <ul>
@@ -382,7 +383,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AA%AA%E6%96%87%E8%A7%A3%E5%AD%97"><span class="nav-number">1.</span> <span class="nav-text">說文解字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%99%A3%E5%88%97"><span class="nav-number">2.</span> <span class="nav-text">陣列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%89%A9%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">物件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B7%B7%E5%90%88%E4%BD%BF%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">混合使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A0%90%E8%A8%AD%E5%80%BC"><span class="nav-number">5.</span> <span class="nav-text">預設值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%BD%E5%BC%8F"><span class="nav-number">6.</span> <span class="nav-text">函式</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%99%A3%E5%88%97"><span class="nav-number">2.</span> <span class="nav-text">陣列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%89%A9%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">物件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B7%B7%E5%90%88%E4%BD%BF%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">混合使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A0%90%E8%A8%AD%E5%80%BC"><span class="nav-number">5.</span> <span class="nav-text">預設值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%BD%E5%BC%8F"><span class="nav-number">6.</span> <span class="nav-text">函式</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -449,36 +450,6 @@
   <div class="addthis_inline_share_toolbox">
     <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=62d7c67c53ba4a28" async="async"></script>
   </div>
-
-<!-- 瀏覽人數設定 -->
-
-    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span id="busuanzi_container_site_pv">總訪問量<span id="busuanzi_value_site_pv"></span>次</span>
-    <span class="post-meta-divider">|</span>
-    <span id="busuanzi_container_site_uv">總訪客數<span id="busuanzi_value_site_uv"></span>人</span>
-
-<!-- 不蒜子计数初始值纠正 -->
-<script>
-$(document).ready(function() {
-
-    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
-    var countOffset = 20000;  // 初始化首次数据
-
-    function fixCount() {
-       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
-        {
-            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset);
-            clearInterval(int);
-        }
-        if ($("#busuanzi_container_site_pv").css("display") != "none")
-        {
-            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据
-            clearInterval(int); // 停止检测
-        }
-    }
-
-});
-</script>
 
         
 <div class="busuanzi-count">
