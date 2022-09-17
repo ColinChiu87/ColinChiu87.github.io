@@ -20,20 +20,21 @@
     var CONFIG = {"hostname":"colinchiu87.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="在簡單的vue實例中看到的data屬性如下： 123456789let app &#x3D; newVue(&amp;#123;    el: &quot;app&quot;,    data:&amp;#123;        msg:&amp;#x27;&amp;#x27;,    &amp;#125;,    methods:&amp;#123;    &amp;#125;,&amp;#125;)">
+  <meta name="description" content="說文解字解構賦值(Destructuring Assignment)是在ES6的一個新特性，讓我們在撰寫物件、陣列時可以把在裡頭的資料解開擷取成為獨立的變數，能夠更簡短並增加閱讀性。以下為他的說明：  The destructuring assignment syntax is a JavaScript expression that makes it possible to extract da">
 <meta property="og:type" content="article">
-<meta property="og:title" content="為什麼Vue中的data有時候會看到return，而有時候卻沒有？">
-<meta property="og:url" content="https://colinchiu87.github.io/Vue_data/">
+<meta property="og:title" content="ES6-解構賦值">
+<meta property="og:url" content="https://colinchiu87.github.io/posts/ES6_destructuringAssignment/">
 <meta property="og:site_name" content="🔱 此工程師正在下潛中...🤿🐠">
-<meta property="og:description" content="在簡單的vue實例中看到的data屬性如下： 123456789let app &#x3D; newVue(&amp;#123;    el: &quot;app&quot;,    data:&amp;#123;        msg:&amp;#x27;&amp;#x27;,    &amp;#125;,    methods:&amp;#123;    &amp;#125;,&amp;#125;)">
+<meta property="og:description" content="說文解字解構賦值(Destructuring Assignment)是在ES6的一個新特性，讓我們在撰寫物件、陣列時可以把在裡頭的資料解開擷取成為獨立的變數，能夠更簡短並增加閱讀性。以下為他的說明：  The destructuring assignment syntax is a JavaScript expression that makes it possible to extract da">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2021-07-13T11:46:10.000Z">
-<meta property="article:modified_time" content="2022-07-21T07:29:47.360Z">
+<meta property="article:published_time" content="2022-01-03T12:54:09.000Z">
+<meta property="article:modified_time" content="2022-07-21T07:29:23.963Z">
 <meta property="article:author" content="Kuan Ru">
-<meta property="article:tag" content="Vue.js">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="ES6">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://colinchiu87.github.io/Vue_data/">
+<link rel="canonical" href="https://colinchiu87.github.io/posts/ES6_destructuringAssignment/">
 
 
 <script id="page-configurations">
@@ -46,7 +47,7 @@
   };
 </script>
 
-  <title>為什麼Vue中的data有時候會看到return，而有時候卻沒有？ | 🔱 此工程師正在下潛中...🤿🐠</title>
+  <title>ES6-解構賦值 | 🔱 此工程師正在下潛中...🤿🐠</title>
   
 
 
@@ -189,7 +190,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://colinchiu87.github.io/Vue_data/">
+    <link itemprop="mainEntityOfPage" href="https://colinchiu87.github.io/posts/ES6_destructuringAssignment/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.jpg">
@@ -202,7 +203,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          為什麼Vue中的data有時候會看到return，而有時候卻沒有？
+          ES6-解構賦值
         </h1>
 
         <div class="post-meta">
@@ -212,14 +213,14 @@
               </span>
               <span class="post-meta-item-text">發表於</span>
 
-              <time title="創建時間：2021-07-13 19:46:10" itemprop="dateCreated datePublished" datetime="2021-07-13T19:46:10+08:00">2021-07-13</time>
+              <time title="創建時間：2022-01-03 20:54:09" itemprop="dateCreated datePublished" datetime="2022-01-03T20:54:09+08:00">2022-01-03</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2022-07-21 15:29:47" itemprop="dateModified" datetime="2022-07-21T15:29:47+08:00">2022-07-21</time>
+                <time title="修改時間：2022-07-21 15:29:23" itemprop="dateModified" datetime="2022-07-21T15:29:23+08:00">2022-07-21</time>
               </span>
 
           
@@ -240,13 +241,44 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>在簡單的vue實例中看到的data屬性如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> app = newVue(&#123;</span><br><span class="line">    el: <span class="string">&quot;app&quot;</span>,</span><br><span class="line">    data:&#123;</span><br><span class="line">        msg:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+        <h1 id="說文解字"><a href="#說文解字" class="headerlink" title="說文解字"></a>說文解字</h1><p>解構賦值(Destructuring Assignment)是在ES6的一個新特性，讓我們在撰寫物件、陣列時可以把在裡頭的資料解開擷取成為獨立的變數，能夠更簡短並增加閱讀性。<br>以下為他的說明：</p>
+<blockquote>
+<p>The destructuring assignment syntax is a JavaScript expression that makes it possible to extract data from arrays or objects using a syntax that mirrors the construction of array and object literals</p>
+</blockquote>
 <span id="more"></span>
-<p>在使用組件化的項目中使用的形式是如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    <span class="function"><span class="title">data</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span>&#123;</span><br><span class="line">            msg:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面所說的就是解構賦值的用法如同<strong>鏡子</strong>(mirror)般，對應陣列or物件的結構，將資料從右邊往左邊送，只不過內容的位置順序不變（鏡子會左右顛倒），也就是一種樣式對應(pattern)的方法。</p>
+<p>介紹比較常用的情況：</p>
+<ul>
+<li>從陣列解構賦值</li>
+<li>從物件解構賦值</li>
+<li>解構賦值給定預設值</li>
+<li>搭配函式的傳入參數使用</li>
+</ul>
+<h1 id="陣列"><a href="#陣列" class="headerlink" title="陣列"></a>陣列</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&#x27;hello&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> [a, b, c, , d, f] = str;</span><br><span class="line"></span><br><span class="line"><span class="comment">// a=&#x27;h&#x27;, b=&#x27;e&#x27;, c=&#x27;l&#x27;, d=&#x27;o&#x27; 留空白就會跳過</span></span><br><span class="line"><span class="comment">// f=undefined  如果左方變數多於右方，則會顯示undefined</span></span><br><span class="line"><span class="comment">// 這邊也順便帶入一個概念是分解字串</span></span><br></pre></td></tr></table></figure>
 
-<p>而這兩邊的差異呢就在於 <strong>不使用return包覆</strong> 的資料會在全局都可見，這會造成變數污染。<br>反之 <strong>用return的資料</strong> 就只會在當前的component生效而已，不會影響到其他組件。</p>
+<p>接下來要說的是我覺得很方便的用法“互換”，一般我們要互換兩個變數要多宣告一個第三變數才能完成，這邊我們可以直接完成。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>, b = <span class="number">2</span>;</span><br><span class="line">[b, a] = [a, b];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 此時的 a=2, b=1</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="物件"><a href="#物件" class="headerlink" title="物件"></a>物件</h1><p>這邊的概念和陣列一樣，不過陣列是利用順序的索引值對照，而物件是用屬性名稱來對應(所以沒有順序性)。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> family = &#123; <span class="attr">me</span>: <span class="string">&#x27;colin&#x27;</span>, <span class="attr">sis</span>: <span class="string">&#x27;candy&#x27;</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 一般寫法</span></span><br><span class="line"><span class="keyword">let</span> me = family.me;</span><br><span class="line"><span class="keyword">let</span> sis = family.sis;</span><br><span class="line"></span><br><span class="line"><span class="comment">//縮寫</span></span><br><span class="line"><span class="keyword">let</span> &#123;me, sis&#125; = family;</span><br><span class="line"></span><br><span class="line"><span class="comment">// me:colin, sis:candy</span></span><br></pre></td></tr></table></figure>
+
+<p>物件的解構還能重新賦予變數的名稱</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> player = &#123; <span class="attr">jordan</span>: <span class="string">&#x27;喬丹&#x27;</span>, <span class="attr">wade</span>: <span class="string">&#x27;偉德&#x27;</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> &#123; <span class="attr">jordan</span>: king &#125; = player;</span><br><span class="line"></span><br><span class="line"><span class="comment">//此時king的值為&#x27;喬丹&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="混合使用"><a href="#混合使用" class="headerlink" title="混合使用"></a>混合使用</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123; <span class="attr">jordan</span>: king, <span class="attr">family</span>: [, ...member] &#125; = &#123; <span class="attr">jordan</span>: <span class="string">&#x27;喬丹&#x27;</span>, <span class="attr">family</span>: [<span class="string">&#x27;阿姨&#x27;</span>, <span class="string">&#x27;老媽&#x27;</span>, <span class="string">&#x27;老爸&#x27;</span>] &#125;</span><br><span class="line"><span class="built_in">console</span>.log(king, member); <span class="comment">// 請問答案是什麼？ Ans: king:&#x27;喬丹&#x27;, member: [&#x27;老媽&#x27;, &#x27;老爸&#x27;]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//p.s 其餘運算子用法 (...變數)：將陣列展開成個別值灑進去。</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="預設值"><a href="#預設值" class="headerlink" title="預設值"></a>預設值</h1><p>在等號左邊是可以給預設值的，避免未被賦值時造成undefined。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [jordan = <span class="string">&#x27;喬丹&#x27;</span>, lebron = <span class="string">&#x27;雷霸龍&#x27;</span>] = [<span class="string">&#x27;阿明&#x27;</span>];</span><br><span class="line"><span class="comment">// jordan值為&#x27;阿明&#x27;</span></span><br><span class="line"><span class="comment">// lebron則為預設值&#x27;雷霸龍&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>陷阱題</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; a =<span class="string">&#x27;hello&#x27;</span> &#125; = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="keyword">const</span> [ b =<span class="string">&#x27;hello&#x27;</span> ] = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="comment">// 此時 a, b 分別為什麼呢？</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="函式"><a href="#函式" class="headerlink" title="函式"></a>函式</h1><p>在函式要傳參數時也可以使用解構，參數一樣能夠自訂變數名稱、順序、預設值等</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">&#123;a = <span class="number">1</span>, b&#125;</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a + b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(&#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>&#125;) <span class="comment">// 3</span></span><br><span class="line">func(&#123;<span class="attr">b</span>: <span class="number">2</span>&#125;) <span class="comment">// 3</span></span><br><span class="line">func(&#123;<span class="attr">b</span>: <span class="number">6</span>, <span class="attr">a</span>: <span class="number">3</span>&#125;) <span class="comment">// 9</span></span><br><span class="line">func(&#123;<span class="attr">a</span>: <span class="literal">null</span>, <span class="attr">b</span>: <span class="number">2</span>&#125;) <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>註：所以在函式傳入參數中作解構賦值時，給定null值時會導致預設值無用，請記住這一點。當數字運算時，null相當於0。</p>
+</blockquote>
 
     </div>
 
@@ -275,7 +307,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Vue-js/" rel="tag"># Vue.js</a>
+              <a href="/tags/javascript/" rel="tag"># javascript</a>
+              <a href="/tags/ES6/" rel="tag"># ES6</a>
           </div>
 
         
@@ -284,12 +317,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/Vue_this/" rel="prev" title="什麼時候該使用『 const vm = this 』">
-      <i class="fa fa-chevron-left"></i> 什麼時候該使用『 const vm = this 』
+    <a href="/posts/Html_downloadPdf/" rel="prev" title="如何利用HTML直接下載pdf">
+      <i class="fa fa-chevron-left"></i> 如何利用HTML直接下載pdf
     </a></div>
       <div class="post-nav-item">
-    <a href="/TS/" rel="next" title="來聊聊 Type Script">
-      來聊聊 Type Script <i class="fa fa-chevron-right"></i>
+    <a href="/posts/Vue_know/" rel="next" title="認識三神獸之一 Vue">
+      認識三神獸之一 Vue <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -349,6 +382,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AA%AA%E6%96%87%E8%A7%A3%E5%AD%97"><span class="nav-number">1.</span> <span class="nav-text">說文解字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%99%A3%E5%88%97"><span class="nav-number">2.</span> <span class="nav-text">陣列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%89%A9%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">物件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B7%B7%E5%90%88%E4%BD%BF%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">混合使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A0%90%E8%A8%AD%E5%80%BC"><span class="nav-number">5.</span> <span class="nav-text">預設值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%BD%E5%BC%8F"><span class="nav-number">6.</span> <span class="nav-text">函式</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
