@@ -1,5 +1,10 @@
 User-agent: *
 Allow: /tags
 Disallow: /about
+Disallow: /2021/07/22/typeScript/
+Disallow: /2022/01/10/認識Vue/
+Disallow: /2022/07/20/Hexo_SEOByGoogleSearchConsole/
+Disallow: /2021/07/28/如何利用HTML直接下載pdf/
+Disallow: /2021/05/12/vue-this/
 
 Sitemap: https://colinchiu87.github.io/sitemap.xml
