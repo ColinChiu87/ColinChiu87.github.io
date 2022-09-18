@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /tags
+Allow: /posts
 Disallow: /about
 Disallow: /2021/07/22/typeScript/
 Disallow: /2022/01/10/認識Vue/
