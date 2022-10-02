@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://colinchiu87.github.io/posts/js-array/</loc>
+    <loc>https://colinchiu87.github.io/posts/Js-array/</loc>
     
     <lastmod>2022-10-02</lastmod>
     
@@ -146,6 +146,20 @@
 
   
   <url>
+    <loc>https://colinchiu87.github.io/tags/javascript/</loc>
+    <lastmod>2022-10-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://colinchiu87.github.io/tags/ES6/</loc>
+    <lastmod>2022-10-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://colinchiu87.github.io/tags/html/</loc>
     <lastmod>2022-10-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -161,6 +175,27 @@
   
   <url>
     <loc>https://colinchiu87.github.io/tags/pdf/</loc>
+    <lastmod>2022-10-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://colinchiu87.github.io/tags/JavaScript/</loc>
+    <lastmod>2022-10-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://colinchiu87.github.io/tags/array/</loc>
+    <lastmod>2022-10-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://colinchiu87.github.io/tags/data-structure/</loc>
     <lastmod>2022-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -188,21 +223,7 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/tags/javascript/</loc>
-    <lastmod>2022-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://colinchiu87.github.io/tags/ES6/</loc>
-    <lastmod>2022-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://colinchiu87.github.io/tags/Vue-js/</loc>
+    <loc>https://colinchiu87.github.io/tags/vue-js/</loc>
     <lastmod>2022-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -216,14 +237,14 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/tags/crawler/</loc>
+    <loc>https://colinchiu87.github.io/tags/Vue-js/</loc>
     <lastmod>2022-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/tags/vue-js/</loc>
+    <loc>https://colinchiu87.github.io/tags/crawler/</loc>
     <lastmod>2022-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
