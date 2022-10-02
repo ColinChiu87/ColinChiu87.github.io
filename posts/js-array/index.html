@@ -20,24 +20,27 @@
     var CONFIG = {"hostname":"colinchiu87.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="前言有在使用 Hexo Blog 的朋友一定知道他有很多設定可以玩！除了一般的標題、簡介、相關連結外，還有分頁、閱讀進度、總閱覽人數…等等一大堆。今日心血來潮想要把部落格的 config 設定弄的更完整一些，沒有想到居然在之中受困數個小時…，真的覺得自己好笑又好氣😓">
+  <meta name="description" content="前言">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一失足掉進的坑 Hexo Config">
-<meta property="og:url" content="https://colinchiu87.github.io/posts/Hexo_config_permalink/">
+<meta property="og:title" content="js_array">
+<meta property="og:url" content="https://colinchiu87.github.io/posts/js-array/">
 <meta property="og:site_name" content="凹逗の工程師">
-<meta property="og:description" content="前言有在使用 Hexo Blog 的朋友一定知道他有很多設定可以玩！除了一般的標題、簡介、相關連結外，還有分頁、閱讀進度、總閱覽人數…等等一大堆。今日心血來潮想要把部落格的 config 設定弄的更完整一些，沒有想到居然在之中受困數個小時…，真的覺得自己好笑又好氣😓">
+<meta property="og:description" content="前言">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://colinchiu87.github.io/posts/Hexo_config_permalink/permalinks1.png">
-<meta property="og:image" content="https://colinchiu87.github.io/posts/Hexo_config_permalink/permalinks2.png">
-<meta property="og:image" content="https://colinchiu87.github.io/posts/Hexo_config_permalink/Permalinks.png">
-<meta property="article:published_time" content="2022-09-17T09:23:24.000Z">
-<meta property="article:modified_time" content="2022-09-17T10:59:04.753Z">
+<meta property="article:published_time" content="2022-10-02T09:27:42.000Z">
+<meta property="article:modified_time" content="2022-10-02T09:27:43.001Z">
 <meta property="article:author" content="Kuan Ru">
-<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="後端">
+<meta property="article:tag" content="全端">
+<meta property="article:tag" content="網頁">
+<meta property="article:tag" content="web">
+<meta property="article:tag" content="fullstack">
+<meta property="article:tag" content="frontend">
+<meta property="article:tag" content="backend">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://colinchiu87.github.io/posts/Hexo_config_permalink/permalinks1.png">
 
-<link rel="canonical" href="https://colinchiu87.github.io/posts/Hexo_config_permalink/">
+<link rel="canonical" href="https://colinchiu87.github.io/posts/js-array/">
 
 
 <script id="page-configurations">
@@ -50,7 +53,7 @@
   };
 </script>
 
-  <title>一失足掉進的坑 Hexo Config | 凹逗の工程師</title>
+  <title>js_array | 凹逗の工程師</title>
   
 
 
@@ -193,7 +196,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://colinchiu87.github.io/posts/Hexo_config_permalink/">
+    <link itemprop="mainEntityOfPage" href="https://colinchiu87.github.io/posts/js-array/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.jpg">
@@ -206,7 +209,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          一失足掉進的坑 Hexo Config
+          js_array
         </h1>
 
         <div class="post-meta">
@@ -217,7 +220,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2022-09-17 17:23:24 / 修改時間：18:59:04" itemprop="dateCreated datePublished" datetime="2022-09-17T17:23:24+08:00">2022-09-17</time>
+              <time title="創建時間：2022-10-02 17:27:42 / 修改時間：17:27:43" itemprop="dateCreated datePublished" datetime="2022-10-02T17:27:42+08:00">2022-10-02</time>
             </span>
 
           
@@ -238,23 +241,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>有在使用 Hexo Blog 的朋友一定知道他有很多設定可以玩！除了一般的標題、簡介、相關連結外，還有分頁、閱讀進度、總閱覽人數…等等一大堆。<br>今日心血來潮想要把部落格的 config 設定弄的更完整一些，沒有想到居然在之中受困數個小時…，真的覺得自己好笑又好氣😓</p>
-<span id="more"></span>
-
-<h1 id="permalink-永久連結"><a href="#permalink-永久連結" class="headerlink" title="permalink 永久連結"></a>permalink 永久連結</h1><p>這是設定關於網站文章的連結（ URL ），就是點進你的文章後上面所顯使的連結樣式</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span>       <span class="comment"># 預設 Ex: 2013/07/14/hello-world/</span></span><br></pre></td></tr></table></figure>
-
-<p>Hexo 文件有告訴大家說可以使用變數(文章尾端附圖)以及 Front-matter 做變化。看到這裡根本不知道不行自訂對吧！對吧！對吧…?<br>所以我就自作主張改成了以下這樣：</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:title/</span>       <span class="comment"># Ex: posts/hello-world/</span></span><br></pre></td></tr></table></figure>
-
-<p>原本想說網址太長多少會影響 SEO 的表現，所以我不想要時間在前面佔空間，還有這樣 public 資料夾的文章會被收在 posts 的資料夾裡不會散落一地，看起來才會讓我蘇湖🤤。<br>接下來 Deploy 出去就發現文章都連不進去啦啦啦😱，在改這個設定的時候，我已經有幾篇文章了，以為是動到了已發布文章的路徑才造成如此，便開始我的 Debug 之路，翻啊找啊爬啊根本沒有搜尋到什麼相關的東西，回頭重新讀了一下文件，才領悟到無法自訂呀～只能透過 permalink_defaults 改寫你想要的東西。於是我就將我的 category 預設為 posts 然後改寫。</p>
-<img src="/posts/Hexo_config_permalink/permalinks1.png" class="">
-
-<img src="/posts/Hexo_config_permalink/permalinks2.png" class="">
-
-<h1 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h1><p>不要自作聰明… 😂</p>
-<img src="/posts/Hexo_config_permalink/Permalinks.png" class="" title="[Permalink可用變數]">
-
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1>
     </div>
 
     
@@ -281,9 +268,6 @@
 
 
       <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
-          </div>
 
         
 
@@ -291,8 +275,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/Seo_robotsTxt/" rel="prev" title="讓爬蟲程式照著規則來 robots.txt">
-      <i class="fa fa-chevron-left"></i> 讓爬蟲程式照著規則來 robots.txt
+    <a href="/posts/Hexo-config-permalink/" rel="prev" title="一失足掉進的坑 Hexo Config">
+      <i class="fa fa-chevron-left"></i> 一失足掉進的坑 Hexo Config
     </a></div>
       <div class="post-nav-item"></div>
     </div>
@@ -353,7 +337,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#permalink-%E6%B0%B8%E4%B9%85%E9%80%A3%E7%B5%90"><span class="nav-number">2.</span> <span class="nav-text">permalink 永久連結</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B5%90%E8%AB%96"><span class="nav-number">3.</span> <span class="nav-text">結論</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -369,7 +353,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>

@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://colinchiu87.github.io/posts/Vue_know/</loc>
+    <loc>https://colinchiu87.github.io/posts/js-array/</loc>
     
     <lastmod>2022-10-02</lastmod>
     
@@ -11,7 +11,16 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/posts/Hexo_config_permalink/</loc>
+    <loc>https://colinchiu87.github.io/posts/Vue-know/</loc>
+    
+    <lastmod>2022-10-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://colinchiu87.github.io/posts/Hexo-config-permalink/</loc>
     
     <lastmod>2022-09-17</lastmod>
     
@@ -20,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/posts/Ts/</loc>
+    <loc>https://colinchiu87.github.io/posts/Ts-know/</loc>
     
     <lastmod>2022-09-17</lastmod>
     
@@ -29,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/posts/Vue_this/</loc>
+    <loc>https://colinchiu87.github.io/posts/Vue-this/</loc>
     
     <lastmod>2022-09-17</lastmod>
     
@@ -38,7 +47,7 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/posts/Vue_data/</loc>
+    <loc>https://colinchiu87.github.io/posts/Vue-data/</loc>
     
     <lastmod>2022-09-17</lastmod>
     
@@ -47,7 +56,7 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/posts/Seo_robotsTxt/</loc>
+    <loc>https://colinchiu87.github.io/posts/Seo-robotsTxt/</loc>
     
     <lastmod>2022-09-17</lastmod>
     
@@ -56,7 +65,7 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/posts/Seo_hexoByGoogleSearchConsole/</loc>
+    <loc>https://colinchiu87.github.io/posts/Seo-hexoByGoogleSearchConsole/</loc>
     
     <lastmod>2022-09-17</lastmod>
     
@@ -65,7 +74,7 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/posts/Html_downloadPdf/</loc>
+    <loc>https://colinchiu87.github.io/posts/Html-downloadPdf/</loc>
     
     <lastmod>2022-09-17</lastmod>
     
@@ -74,7 +83,7 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/posts/Es6_destructuringAssignment/</loc>
+    <loc>https://colinchiu87.github.io/posts/Es6-destructuringAssignment/</loc>
     
     <lastmod>2022-09-17</lastmod>
     
@@ -137,13 +146,6 @@
 
   
   <url>
-    <loc>https://colinchiu87.github.io/tags/Hexo/</loc>
-    <lastmod>2022-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://colinchiu87.github.io/tags/html/</loc>
     <lastmod>2022-10-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -159,6 +161,13 @@
   
   <url>
     <loc>https://colinchiu87.github.io/tags/pdf/</loc>
+    <lastmod>2022-10-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://colinchiu87.github.io/tags/Hexo/</loc>
     <lastmod>2022-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -193,13 +202,6 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/tags/crawler/</loc>
-    <lastmod>2022-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://colinchiu87.github.io/tags/Vue-js/</loc>
     <lastmod>2022-10-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -208,6 +210,13 @@
   
   <url>
     <loc>https://colinchiu87.github.io/tags/ts/</loc>
+    <lastmod>2022-10-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://colinchiu87.github.io/tags/crawler/</loc>
     <lastmod>2022-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

@@ -20,20 +20,23 @@
     var CONFIG = {"hostname":"colinchiu87.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="影響this的是在於函式的呼叫方式 以下為this的範例 123reverseText: function()&amp;#123;    return this.text.split(&amp;#x27;&amp;#x27;).reverse().join(&amp;#x27;&amp;#x27;);&amp;#125;">
+  <meta name="description" content="前言如果有了解過 SEO ，那你可能有聽說過『 robots.txt 』這個名字。主要用來避免網站要求太多，導致超載(要求太多會人家討厭的而簡單來說，他就是來讓爬蟲程式聽話的一個檔案，像是該爬這裡、不該走這裡，但是但是但是…有機率會不聽話失效🤫。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="什麼時候該使用『 const vm &#x3D; this 』">
-<meta property="og:url" content="https://colinchiu87.github.io/posts/Vue_this/">
+<meta property="og:title" content="讓爬蟲程式照著規則來 robots.txt">
+<meta property="og:url" content="https://colinchiu87.github.io/posts/Seo-robotsTxt/">
 <meta property="og:site_name" content="凹逗の工程師">
-<meta property="og:description" content="影響this的是在於函式的呼叫方式 以下為this的範例 123reverseText: function()&amp;#123;    return this.text.split(&amp;#x27;&amp;#x27;).reverse().join(&amp;#x27;&amp;#x27;);&amp;#125;">
+<meta property="og:description" content="前言如果有了解過 SEO ，那你可能有聽說過『 robots.txt 』這個名字。主要用來避免網站要求太多，導致超載(要求太多會人家討厭的而簡單來說，他就是來讓爬蟲程式聽話的一個檔案，像是該爬這裡、不該走這裡，但是但是但是…有機率會不聽話失效🤫。">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2021-05-12T05:28:43.000Z">
-<meta property="article:modified_time" content="2022-09-17T07:38:01.608Z">
+<meta property="og:image" content="https://webris.org/wp-content/uploads/2017/12/robots_txt_file_explained.gif">
+<meta property="article:published_time" content="2022-07-21T07:14:53.000Z">
+<meta property="article:modified_time" content="2022-09-17T07:31:27.291Z">
 <meta property="article:author" content="Kuan Ru">
-<meta property="article:tag" content="Vue.js">
+<meta property="article:tag" content="SEO">
+<meta property="article:tag" content="crawler">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://webris.org/wp-content/uploads/2017/12/robots_txt_file_explained.gif">
 
-<link rel="canonical" href="https://colinchiu87.github.io/posts/Vue_this/">
+<link rel="canonical" href="https://colinchiu87.github.io/posts/Seo-robotsTxt/">
 
 
 <script id="page-configurations">
@@ -46,7 +49,7 @@
   };
 </script>
 
-  <title>什麼時候該使用『 const vm = this 』 | 凹逗の工程師</title>
+  <title>讓爬蟲程式照著規則來 robots.txt | 凹逗の工程師</title>
   
 
 
@@ -189,7 +192,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://colinchiu87.github.io/posts/Vue_this/">
+    <link itemprop="mainEntityOfPage" href="https://colinchiu87.github.io/posts/Seo-robotsTxt/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.jpg">
@@ -202,7 +205,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          什麼時候該使用『 const vm = this 』
+          讓爬蟲程式照著規則來 robots.txt
         </h1>
 
         <div class="post-meta">
@@ -212,14 +215,14 @@
               </span>
               <span class="post-meta-item-text">發表於</span>
 
-              <time title="創建時間：2021-05-12 13:28:43" itemprop="dateCreated datePublished" datetime="2021-05-12T13:28:43+08:00">2021-05-12</time>
+              <time title="創建時間：2022-07-21 15:14:53" itemprop="dateCreated datePublished" datetime="2022-07-21T15:14:53+08:00">2022-07-21</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2022-09-17 15:38:01" itemprop="dateModified" datetime="2022-09-17T15:38:01+08:00">2022-09-17</time>
+                <time title="修改時間：2022-09-17 15:31:27" itemprop="dateModified" datetime="2022-09-17T15:31:27+08:00">2022-09-17</time>
               </span>
 
           
@@ -240,17 +243,40 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p> <strong>影響this的是在於<em>函式的呼叫方式</em></strong></p>
-<p>以下為this的範例</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">reverseText: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.text.split(<span class="string">&#x27;&#x27;</span>).reverse().join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>如果有了解過 SEO ，那你可能有聽說過『 robots.txt 』這個名字。<br>主要用來避免網站要求太多，導致超載(<del>要求太多會人家討厭的</del><br>而簡單來說，他就是來讓爬蟲程式聽話的一個檔案，像是該爬這裡、不該走這裡，<br>但是但是但是…有機率會不聽話失效🤫。</p>
+<p><img src="https://webris.org/wp-content/uploads/2017/12/robots_txt_file_explained.gif" alt="robots.txt示意圖"></p>
 <span id="more"></span>
 
-<p>在第一個範例中，this運行後都是在這個元件底下<br>並沒有另外的函式在內（ex: forEach）<br>全部的this都是指向<strong>Vue的該元件</strong><br>因此不需要另外使用 vm = this</p>
-<p>至於使用 vm = this 可以避免內部有其他函式叫<br>導致 this 的運作不如預期。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//因為在&quot;&quot;內層函式&quot;&quot;filter的函式內使用到this，指向會跑掉，所以需要使用vm。</span></span><br><span class="line">filterArray: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> vm = <span class="built_in">this</span>;</span><br><span class="line">    <span class="keyword">return</span> vm.arrayData.filter(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> item.name.match(vm.filterText)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="建議使用的理由"><a href="#建議使用的理由" class="headerlink" title="建議使用的理由"></a>建議使用的理由</h1><p>robots.txt 檔案主用途在於管理爬蟲對自己網站的流量，<strong>直接了當的與爬蟲溝通</strong>；“正常情況下”可以讓搜尋引擎的結果不顯示特定檔案。<br>以下幾種情況是建議使用的：</p>
+<ul>
+<li>網站還有未完成或需要測試時。</li>
+<li>有網頁內容重複性太高時。</li>
+<li>網站內有一些相對不重要的資訊，浪費資源。</li>
+<li>擁有機密檔案。</li>
+</ul>
+<h1 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h1><ul>
+<li><p>他網有連結到設置封鎖的網頁，索引還是會被建立。<br>只是要自己的網頁不要出現在搜尋引擎上就請不要用這個方法，就算你使用 robots.txt 來限制，只要有別的網頁有說明文字指向你，那麼即使爬蟲未造訪這裡，也會被建立成索引。以下提供其他的方法給大家：密碼保護、noindex。</p>
+</li>
+<li><p>不是所有的搜尋引擎都會支援。<br>不同的檢索器會自行決定要不要遵守，所以並不是強制性的。（Googlebot是好寶寶他會）</p>
+</li>
+<li><p>不同檢索器語法的使用不一定相同。<br>我們平時熟知的大宗搜尋引擎都聽得懂，但就是有人會理解成不同的意思，這時候我們就必須應材施教了。</p>
+</li>
+</ul>
+<h1 id="實作"><a href="#實作" class="headerlink" title="實作"></a>實作</h1><h2 id="基本規則"><a href="#基本規則" class="headerlink" title="基本規則"></a>基本規則</h2><p>一開始先介紹一些基本的規範、格式～</p>
+<ul>
+<li>一個網站只能存在一個 robots.txt 檔案。</li>
+<li>檔名只能是 robots.txt ，不能當手遊的名字一樣亂取…PikaChiu（喂🤭</li>
+<li>檔案要放在根目錄。</li>
+</ul>
+<h2 id="建立檔案並新增規則"><a href="#建立檔案並新增規則" class="headerlink" title="建立檔案並新增規則"></a>建立檔案並新增規則</h2><p>第一步先用編輯器建立一個名叫 robots.txt 的文字檔，這邊要<strong>注意</strong>的是不要用文書處理軟體，人家說有可能會有問題。<br>再來就是重頭戲了，告訴你用三個單字搞定</p>
+<ul>
+<li>User_Agent: 爬蟲的名字，例如：Googlebot。</li>
+<li>Allow: 允許人家“可以”爬的。</li>
+<li>Disallow: “不同意”人家進來爬的。</li>
+</ul>
+<p>好了教完了😂😂😂</p>
+<h2 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h2><p>用一些範例來講解，大家應該就可以很快上手。</p>
 
-<p> <strong>除了使用 filter/ forEach 會讓this指向window外，函式在直接呼叫的時候this也會指向window</strong></p>
 
     </div>
 
@@ -279,7 +305,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Vue-js/" rel="tag"># Vue.js</a>
+              <a href="/tags/SEO/" rel="tag"># SEO</a>
+              <a href="/tags/crawler/" rel="tag"># crawler</a>
           </div>
 
         
@@ -288,12 +315,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/hello-world/" rel="prev" title="Hello World">
-      <i class="fa fa-chevron-left"></i> Hello World
+    <a href="/posts/Seo-hexoByGoogleSearchConsole/" rel="prev" title="Hexo-SEO Google Search Console">
+      <i class="fa fa-chevron-left"></i> Hexo-SEO Google Search Console
     </a></div>
       <div class="post-nav-item">
-    <a href="/posts/Vue_data/" rel="next" title="為什麼Vue中的data有時候會看到return，而有時候卻沒有？">
-      為什麼Vue中的data有時候會看到return，而有時候卻沒有？ <i class="fa fa-chevron-right"></i>
+    <a href="/posts/Hexo-config-permalink/" rel="next" title="一失足掉進的坑 Hexo Config">
+      一失足掉進的坑 Hexo Config <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -353,6 +380,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BB%BA%E8%AD%B0%E4%BD%BF%E7%94%A8%E7%9A%84%E7%90%86%E7%94%B1"><span class="nav-number">2.</span> <span class="nav-text">建議使用的理由</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%99%90%E5%88%B6"><span class="nav-number">3.</span> <span class="nav-text">限制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%A6%E4%BD%9C"><span class="nav-number">4.</span> <span class="nav-text">實作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%A6%8F%E5%89%87"><span class="nav-number">4.1.</span> <span class="nav-text">基本規則</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E6%AA%94%E6%A1%88%E4%B8%A6%E6%96%B0%E5%A2%9E%E8%A6%8F%E5%89%87"><span class="nav-number">4.2.</span> <span class="nav-text">建立檔案並新增規則</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AF%84%E4%BE%8B"><span class="nav-number">4.3.</span> <span class="nav-text">範例</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -368,7 +396,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
