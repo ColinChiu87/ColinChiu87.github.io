@@ -246,7 +246,7 @@
       </tags>
   </entry>
   <entry>
-    <title>認識三神獸之一 Vue</title>
+    <title>Vue - 現今主流的 JS 框架</title>
     <url>/posts/Vue_know/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>第一次和Vue碰面是在我大四實習時，剛好遇到公司開始推行同仁使用框架開發，也讓我這個菜鳥搭上前端框架的順風車。<br>趁現在有空閒之餘來整理一下當初的筆記，也順帶複習一下 Vue.js！</p>
 <span id="more"></span>
