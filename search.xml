@@ -265,6 +265,24 @@
       </tags>
   </entry>
   <entry>
+    <title>為什麼Vue中的data有時候會看到return，而有時候卻沒有？</title>
+    <url>/posts/Vue-data/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>當你在剛接觸 Vue 的時候是不是有想過一件事情，文件上或人家範例的 data 寫方式似乎不太一樣…🤔😣</p>
+<span id="more"></span>
+
+<h1 id="疑難排解"><a href="#疑難排解" class="headerlink" title="疑難排解"></a>疑難排解</h1><p>在簡單的vue實例中看到的data屬性如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> app = newVue(&#123;</span><br><span class="line">    el: <span class="string">&quot;app&quot;</span>,</span><br><span class="line">    data:&#123;</span><br><span class="line">        msg:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>在使用組件化的項目中使用的形式是如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    <span class="function"><span class="title">data</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span>&#123;</span><br><span class="line">            msg:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>而這兩邊的差異呢就在於 <strong>不使用return包覆</strong> 的資料會在全局都可見，這會造成變數污染。<br>反之 <strong>用return的資料</strong> 就只會在當前的component生效而已，不會影響到其他組件。</p>
+]]></content>
+      <tags>
+        <tag>Vue.js</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo-SEO Google Search Console</title>
     <url>/posts/Seo-hexoByGoogleSearchConsole/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>發布了自己的部落格後，是不是發現在 Google 搜尋引擎找不著自己的網站呀！<br>難道是自己已經邊緣到被全世界排擠了嗎…QAQ<br>雖然這也有可能是一個原因啦…(XD，不鬧了</p>
@@ -306,37 +324,6 @@
       </tags>
   </entry>
   <entry>
-    <title>來聊聊 Type Script</title>
-    <url>/posts/Ts-know/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>第一次在專案裡與 TS 相遇，那就不免俗的了解囉！<br>稍微簡介一下～<br>TypeScript是由微軟開發的一種能用來編譯出JavaScript程式碼的程式語言，因其比JS還多了一道編譯手續，能夠在編譯階段找出語法上的問題，而且也添加了型別檢查的機制，讓程式更容易閱讀與偵錯，也更適合開發大型的專案。<br>白話一點來說，JS可以通過TS編譯器來編譯，而且還能夠實現JavaScript的版本轉換(例如ES6轉ES5)</p>
-<span id="more"></span>
-
-<img src="/posts/Ts-know/js-ts.jpg" class="">
-
-<h1 id="安裝與設定"><a href="#安裝與設定" class="headerlink" title="安裝與設定"></a>安裝與設定</h1><h2 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h2><p>我們要先設定好Node.js和npm環境，建議使用Node.js最新的LTS版本。<br>Node.js是JavaScript程式的執行環境，讓我們不需要開啟瀏覽器也可以執行JS。而npm則是JS的套件管理器，常與Node.js一同被安裝。</p>
-<p>Windows的使用者可以直接到<span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL2VuLw==">Node.js官方網站<i class="fa fa-external-link-alt"></i></span>下載，而Linux或MacOS的使用者可以參考<span class="exturl" data-url="aHR0cHM6Ly9tYWdpY2xlbi5vcmcvbGludXgtaW5zdGFsbC1ub2RlanMv">這篇文章<i class="fa fa-external-link-alt"></i></span>安裝指定版本。</p>
-<h2 id="tsc"><a href="#tsc" class="headerlink" title="tsc"></a>tsc</h2><p>tsc是TypeScript程式的編譯器，能夠將TS編譯成JS。<br>執行以下npm指令:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm i -g typescript</span><br></pre></td></tr></table></figure>
-
-<p>關於編譯器的設定，我就先不說明，一開始花太多時間在這會顯得有點浪費且沒意思，畢竟內容很龐大也很複雜。</p>
-<hr>
-<h1 id="簡單的範例"><a href="#簡單的範例" class="headerlink" title="簡單的範例"></a>簡單的範例</h1><figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">name: <span class="built_in">string</span></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello &quot;</span> + name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(colin)</span><br></pre></td></tr></table></figure>
-
-<p>這邊唯一和我們學過的JavaScript不同，就是func這個函式的傳入參數多一個 :string 的指示詞，這東西在ＴＳ裡稱做類型註解。這邊就是說傳入的參數只接受字串(string)的型態，只要是其他型別在呼叫或是執行時就會報錯。</p>
-<p>對於函式而言，會有傳入參數和回傳值兩種情況，那麼我們就要養成習慣。</p>
-<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">name: <span class="built_in">string</span></span>): <span class="title">string</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello &quot;</span> + name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(colin)</span><br></pre></td></tr></table></figure>
-
-<p>上面這表示回傳值的型態也是string類型，順帶一提，如果函式沒有回傳值時可以使用 void，相信很多人都有看過吧，這就是專門為沒有回傳值的函式所準備的類型。</p>
-<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line">name: <span class="built_in">string</span> | <span class="built_in">number</span> = <span class="string">&quot;Colin&quot;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>這裡的意思是 name這個變數能接受的型態為字串(string)與數字(number)，而且預設值為 Colin字串。</p>
-<hr>
-]]></content>
-      <tags>
-        <tag>ts</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Vue - 現今主流的 JS 框架之一</title>
     <url>/posts/Vue-know/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>第一次和Vue碰面是在我大四實習時，剛好遇到公司開始推行同仁使用框架開發，也讓我這個菜鳥搭上前端框架的順風車。<br>趁現在有空閒之餘來整理一下當初的筆記，也順帶複習一下 Vue.js！</p>
@@ -357,24 +344,6 @@
 ]]></content>
       <tags>
         <tag>vue.js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>為什麼Vue中的data有時候會看到return，而有時候卻沒有？</title>
-    <url>/posts/Vue-data/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>當你在剛接觸 Vue 的時候是不是有想過一件事情，文件上或人家範例的 data 寫方式似乎不太一樣…🤔😣</p>
-<span id="more"></span>
-
-<h1 id="疑難排解"><a href="#疑難排解" class="headerlink" title="疑難排解"></a>疑難排解</h1><p>在簡單的vue實例中看到的data屬性如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> app = newVue(&#123;</span><br><span class="line">    el: <span class="string">&quot;app&quot;</span>,</span><br><span class="line">    data:&#123;</span><br><span class="line">        msg:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>在使用組件化的項目中使用的形式是如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    <span class="function"><span class="title">data</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span>&#123;</span><br><span class="line">            msg:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>而這兩邊的差異呢就在於 <strong>不使用return包覆</strong> 的資料會在全局都可見，這會造成變數污染。<br>反之 <strong>用return的資料</strong> 就只會在當前的component生效而已，不會影響到其他組件。</p>
-]]></content>
-      <tags>
-        <tag>Vue.js</tag>
       </tags>
   </entry>
   <entry>
@@ -413,5 +382,36 @@
 
 <p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s">Deployment<i class="fa fa-external-link-alt"></i></span></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>來聊聊 Type Script</title>
+    <url>/posts/Ts-know/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>第一次在專案裡與 TS 相遇，那就不免俗的了解囉！<br>稍微簡介一下～<br>TypeScript是由微軟開發的一種能用來編譯出JavaScript程式碼的程式語言，因其比JS還多了一道編譯手續，能夠在編譯階段找出語法上的問題，而且也添加了型別檢查的機制，讓程式更容易閱讀與偵錯，也更適合開發大型的專案。<br>白話一點來說，JS可以通過TS編譯器來編譯，而且還能夠實現JavaScript的版本轉換(例如ES6轉ES5)</p>
+<span id="more"></span>
+
+<img src="/posts/Ts-know/js-ts.jpg" class="">
+
+<h1 id="安裝與設定"><a href="#安裝與設定" class="headerlink" title="安裝與設定"></a>安裝與設定</h1><h2 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h2><p>我們要先設定好Node.js和npm環境，建議使用Node.js最新的LTS版本。<br>Node.js是JavaScript程式的執行環境，讓我們不需要開啟瀏覽器也可以執行JS。而npm則是JS的套件管理器，常與Node.js一同被安裝。</p>
+<p>Windows的使用者可以直接到<span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL2VuLw==">Node.js官方網站<i class="fa fa-external-link-alt"></i></span>下載，而Linux或MacOS的使用者可以參考<span class="exturl" data-url="aHR0cHM6Ly9tYWdpY2xlbi5vcmcvbGludXgtaW5zdGFsbC1ub2RlanMv">這篇文章<i class="fa fa-external-link-alt"></i></span>安裝指定版本。</p>
+<h2 id="tsc"><a href="#tsc" class="headerlink" title="tsc"></a>tsc</h2><p>tsc是TypeScript程式的編譯器，能夠將TS編譯成JS。<br>執行以下npm指令:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm i -g typescript</span><br></pre></td></tr></table></figure>
+
+<p>關於編譯器的設定，我就先不說明，一開始花太多時間在這會顯得有點浪費且沒意思，畢竟內容很龐大也很複雜。</p>
+<hr>
+<h1 id="簡單的範例"><a href="#簡單的範例" class="headerlink" title="簡單的範例"></a>簡單的範例</h1><figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">name: <span class="built_in">string</span></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello &quot;</span> + name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(colin)</span><br></pre></td></tr></table></figure>
+
+<p>這邊唯一和我們學過的JavaScript不同，就是func這個函式的傳入參數多一個 :string 的指示詞，這東西在ＴＳ裡稱做類型註解。這邊就是說傳入的參數只接受字串(string)的型態，只要是其他型別在呼叫或是執行時就會報錯。</p>
+<p>對於函式而言，會有傳入參數和回傳值兩種情況，那麼我們就要養成習慣。</p>
+<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">name: <span class="built_in">string</span></span>): <span class="title">string</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello &quot;</span> + name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(colin)</span><br></pre></td></tr></table></figure>
+
+<p>上面這表示回傳值的型態也是string類型，順帶一提，如果函式沒有回傳值時可以使用 void，相信很多人都有看過吧，這就是專門為沒有回傳值的函式所準備的類型。</p>
+<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line">name: <span class="built_in">string</span> | <span class="built_in">number</span> = <span class="string">&quot;Colin&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>這裡的意思是 name這個變數能接受的型態為字串(string)與數字(number)，而且預設值為 Colin字串。</p>
+<hr>
+]]></content>
+      <tags>
+        <tag>ts</tag>
+      </tags>
   </entry>
 </search>
