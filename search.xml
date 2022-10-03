@@ -94,131 +94,44 @@
       </tags>
   </entry>
   <entry>
-    <title>JavaScript 陣列</title>
-    <url>/posts/Js-array/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>這週與前端小夥伴們發起了 JavaScript 資料結構 (data structure) 讀書會，二話不說用微薄的薪資擠出了些孔方兄購入兩本工具書規劃一下學習計畫，這週從最基礎的陣列 (Array) 走起！<br>是哪兩本書我會放在最後給大家參考，也希望有想學習這方面的小夥伴每週跟著我的腳步一起成長八 ❤️</p>
+    <title>Hexo-SEO Google Search Console</title>
+    <url>/posts/Seo-hexoByGoogleSearchConsole/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>發布了自己的部落格後，是不是發現在 Google 搜尋引擎找不著自己的網站呀！<br>難道是自己已經邊緣到被全世界排擠了嗎…QAQ<br>雖然這也有可能是一個原因啦…(XD，不鬧了</p>
 <span id="more"></span>
 
-<h2 id="陣列-Array"><a href="#陣列-Array" class="headerlink" title="陣列 Array"></a>陣列 Array</h2><p>在眾多的語言中，陣列是大家原生都有支援的類型，是最常見的負責<strong>存放一系列相同類別資料</strong>的方法。<br><del>但在 JS 裡是可以在裡頭儲存不同類型的值</del>。這部分我們就不探討了。</p>
-<h3 id="為什麼要用陣列"><a href="#為什麼要用陣列" class="headerlink" title="為什麼要用陣列"></a>為什麼要用陣列</h3><p>假設有一個需求，記錄下這星期每一天吃的熱量總數：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> calorieMon = <span class="number">3500</span>;</span><br><span class="line"><span class="keyword">var</span> calorieTue = <span class="number">5000</span>;</span><br><span class="line"><span class="keyword">var</span> calorieWed = <span class="number">2700</span>;</span><br><span class="line"><span class="keyword">var</span> calorieThu = <span class="number">3200</span>;</span><br><span class="line"><span class="keyword">var</span> calorieFri = <span class="number">2200</span>;</span><br><span class="line"><span class="keyword">var</span> calorieSat = <span class="number">3000</span>;</span><br><span class="line"><span class="keyword">var</span> calorieSun = <span class="number">4800</span>;</span><br></pre></td></tr></table></figure>
+<h1 id="Google-Search-Console"><a href="#Google-Search-Console" class="headerlink" title="Google Search Console"></a>Google Search Console</h1><p>它的前身叫做 Google Webmaster Tool，而它的作用就是專門管理你的網站在搜尋引擎的 SEO 表現，<br>如果你想知道你的網站熱門的關鍵字、曝光或點擊數量，那麼你一定要試試。</p>
+<p>要讓搜尋引擎能找到自己的網站，我們要先進入 <span class="exturl" data-url="aHR0cHM6Ly9zZWFyY2guZ29vZ2xlLmNvbS9zZWFyY2gtY29uc29sZS9hYm91dA==">Google Search Console<i class="fa fa-external-link-alt"></i></span> 註冊服務並進行一些設定。</p>
+<h1 id="實作"><a href="#實作" class="headerlink" title="實作"></a>實作</h1><h2 id="驗證網站"><a href="#驗證網站" class="headerlink" title="驗證網站"></a>驗證網站</h2><p>一開始必須先設定驗證你的網站（如下圖）。</p>
+<img src="/posts/Seo-hexoByGoogleSearchConsole/gsc.jpg" class="">
+<p>有購買網域的話，就可以使用左邊的驗證；如果像我一樣是利用 Git Page 發布的，就選擇右邊“網址前置字元”，<br>輸入完你的網址後會要去驗證，我這邊使用的是 HTML 檔案，當然你可以選擇你喜歡的方式驗證。</p>
+<ol>
+<li>點擊按鈕<strong>下載</strong>檔案。<img src="/posts/Seo-hexoByGoogleSearchConsole/gsc1.jpg" class=""></li>
+<li>直接將檔案放進來你會發現驗證是失敗的，所以我們要先<strong>編輯</strong>一下這個檔案！</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">layout: <span class="literal">false</span></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">google-site-verification: googleb6bf13d6a5baaaaaaaaa.html</span><br></pre></td></tr></table></figure>
 
-<p>方法沒有不行但肯定不是最佳。以這種方式，如果只有一週自然只有 7 個變數，那要記錄半年呢？<br>這個時候就要慶幸有陣列來幫助我們更有效率解決：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> calorieArr[<span class="number">0</span>] = <span class="number">3500</span>;</span><br><span class="line"><span class="keyword">var</span> calorieArr[<span class="number">1</span>] = <span class="number">5000</span>;</span><br><span class="line"><span class="keyword">var</span> calorieArr[<span class="number">2</span>] = <span class="number">2700</span>;</span><br><span class="line"><span class="keyword">var</span> calorieArr[<span class="number">3</span>] = <span class="number">3200</span>;</span><br><span class="line"><span class="keyword">var</span> calorieArr[<span class="number">4</span>] = <span class="number">2200</span>;</span><br><span class="line"><span class="keyword">var</span> calorieArr[<span class="number">5</span>] = <span class="number">3000</span>;</span><br><span class="line"><span class="keyword">var</span> calorieArr[<span class="number">6</span>] = <span class="number">4800</span>;</span><br><span class="line"></span><br><span class="line">calorieArr = [<span class="number">3500</span>, <span class="number">5000</span>, <span class="number">2700</span>, <span class="number">3200</span>, <span class="number">2200</span>, <span class="number">3000</span>, <span class="number">4800</span>];</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><p>將<strong>檔案放到 hexo/ source 底下</strong>。</p>
+<img src="/posts/Seo-hexoByGoogleSearchConsole/gsc2.png" class=""></li>
+<li><p>不免俗的還是要提醒一下，請記得將 Hexo <strong>部署</strong>到 GitHub Pages。</p>
+</li>
+<li><p>最後按下驗證的按鈕即可。</p>
+</li>
+</ol>
+<p>大概等待個兩三天 GSC 就會分析出你的網站有哪些關鍵字熱門、需要優化的地方，基本上你就照著他提供方向去做調整，網站的 SEO 就會大大到提升了。</p>
+<h2 id="Sitemap"><a href="#Sitemap" class="headerlink" title="Sitemap"></a>Sitemap</h2><p>說到 Google Search Conosle 那就順便提一下 Sitemap 吧~<br>以往建立一個新的網站時，如果沒有強而有力的網站互聯(ㄏㄨㄟˋ)的話，就很難被爬蟲給爬到，所以這時就要給自己的 Hexo 安裝套件是專門幫忙生成 sitemap.xml ，而這檔案是提交給搜尋引擎爬蟲使用。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
 
-<h3 id="宣告和初始化"><a href="#宣告和初始化" class="headerlink" title="宣告和初始化"></a>宣告和初始化</h3><p>宣告的方式有幾種：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">7</span>); <span class="comment">// 指定長度</span></span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">&#x27;John&#x27;</span>, <span class="string">&#x27;Jack&#x27;</span>, <span class="string">&#x27;Leo&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = []; <span class="comment">// 最常使用的宣告方式</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;John&#x27;</span>, <span class="string">&#x27;Jack&#x27;</span>, <span class="string">&#x27;Leo&#x27;</span>];</span><br></pre></td></tr></table></figure>
+<p>在終端機輸入完指令後就可以部署上去。<br>接著來到 Google Search Console 上的 “Sitemap” 頁面，並在新增欄位輸入 sitemap.xml 提交就完成囉。</p>
+<img src="/posts/Seo-hexoByGoogleSearchConsole/gsc3.png" class="">
 
-<h3 id="基本屬性"><a href="#基本屬性" class="headerlink" title="基本屬性"></a>基本屬性</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 陣列元素的數量</span></span><br><span class="line">arr.length</span><br><span class="line"></span><br><span class="line"><span class="comment">// 存取指定位置的元素可以使用中括號傳遞索引值    p.s.索引是從 0 開始</span></span><br><span class="line">arr[index]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 藉由迴圈遍歷陣列，輸出全部元素</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;arr.length; i++)&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(arr[i])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="元素的添加和刪除"><a href="#元素的添加和刪除" class="headerlink" title="元素的添加和刪除"></a>元素的添加和刪除</h3><p>以下我們就使用這個範例來做一些教學八</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br></pre></td></tr></table></figure>
-
-<p>添加元素：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="comment">// 先來個陽春直覺版</span></span><br><span class="line">arr[arr.length] = <span class="number">6</span>;</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">// arr = [0, 1, 2, 3, 4, 5, 6];</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// push 屬性(加入元素位於“尾端”)</span></span><br><span class="line">arr.push(<span class="number">7</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">// arr = [0, 1, 2, 3, 4, 5, 6, 7];</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// unshift 屬性(加入元素位於“首端”)</span></span><br><span class="line">arr.unshift(-<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">// arr = [-1, 0, 1, 2, 3, 4, 5, 6, 7];</span></span><br></pre></td></tr></table></figure>
-
-<p>刪除元素：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="comment">// pop 屬性(刪除元素位於“尾端”)</span></span><br><span class="line">arr.pop();</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">// arr = [0, 1, 2, 3, 4];</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// shift 屬性(刪除元素位於“首端”)</span></span><br><span class="line">arr.shift();</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">// arr = [1, 2, 3, 4];</span></span><br></pre></td></tr></table></figure>
-
-<p>在後面的章節裡，會藉由 push, pop 方法，模擬<strong>堆疊</strong>資料結構；而 shift 和 unshift 則模擬<strong>佇列</strong>資料結構。</p>
-<p>到這邊為止，介紹了從頭尾去新增及刪除元素，那我們要怎麼從中間去操作呢？<br>讓我們接下去看到 splice 屬性，這也是我覺得很便利的方法！</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="comment">// splice 屬性</span></span><br><span class="line"><span class="comment">// splice(要操作的索引值, 刪除的個數, 增加的元素(選填，可多個))</span></span><br><span class="line">arr.splice(<span class="number">3</span>, <span class="number">2</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">// arr = [0, 1, 2, 5]</span></span><br><span class="line"></span><br><span class="line">arr.splice(<span class="number">1</span>, <span class="number">0</span>, <span class="number">8</span>, <span class="number">8</span>); <span class="comment">// 在第三索引的地方插入兩個元素 8, 8，因為沒有要刪除所以個數寫上 0</span></span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">// arr = [0, 8, 8, 1, 2, 5]</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="二維及多維陣列"><a href="#二維及多維陣列" class="headerlink" title="二維及多維陣列"></a>二維及多維陣列</h3><p>二維用表格來解釋會相當容易理解，下方是一個 3x3 的表格也代表著一種二維陣列</p>
-<table>
-<thead>
-<tr>
-<th align="center">A1</th>
-<th align="center">A2</th>
-<th align="center">A3</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">A4</td>
-<td align="center">A5</td>
-<td align="center">A6</td>
-</tr>
-<tr>
-<td align="center">A7</td>
-<td align="center">A8</td>
-<td align="center">A9</td>
-</tr>
-</tbody></table>
-<p>A1的索引值：arr[0][0]<br>A2: arr[0][1]<br>A3: arr[0][2]…依此類推</p>
-<p>幾維陣列的遍歷就要用幾層迴圈作。</p>
-<h3 id="陣列方法"><a href="#陣列方法" class="headerlink" title="陣列方法"></a>陣列方法</h3><table>
-<thead>
-<tr>
-<th align="center">方法</th>
-<th align="left">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">concat</td>
-<td align="left">連接多個陣列，return 結果</td>
-</tr>
-<tr>
-<td align="center">every</td>
-<td align="left">對陣列每一個元素運行函數，每一個元素都是 true，才會 return true</td>
-</tr>
-<tr>
-<td align="center">filter</td>
-<td align="left">對陣列每一個元素運行函數，集合  true 的元素 return 陣列</td>
-</tr>
-<tr>
-<td align="center">forEach</td>
-<td align="left">對陣列每一個元素運行函數</td>
-</tr>
-<tr>
-<td align="center">join</td>
-<td align="left">將所有元素串成一個字串</td>
-</tr>
-<tr>
-<td align="center">indexOf</td>
-<td align="left">return 第一個相等參數的索引值，無符合 return -1</td>
-</tr>
-<tr>
-<td align="center">lastIndexOf</td>
-<td align="left">return 最後一個相等參數的索引值，無符合 return -1</td>
-</tr>
-<tr>
-<td align="center">map</td>
-<td align="left">對陣列每一個元素運行函數，return 每次函數所呼叫的結果所組成之陣列</td>
-</tr>
-<tr>
-<td align="center">reverse</td>
-<td align="left">反轉陣列裡的元素</td>
-</tr>
-<tr>
-<td align="center">slice</td>
-<td align="left">傳入索引值，return 索引範圍內的元素新陣列</td>
-</tr>
-<tr>
-<td align="center">some</td>
-<td align="left">對陣列每一個元素運行函數，有任意 true ，return true</td>
-</tr>
-<tr>
-<td align="center">sort</td>
-<td align="left">按照 ASCII 值做排序，支援傳入指定排序函數做參數</td>
-</tr>
-<tr>
-<td align="center">toString</td>
-<td align="left">return 將陣列轉字串</td>
-</tr>
-<tr>
-<td align="center">valueOf</td>
-<td align="left">和 toString 相似，return 將陣列轉字串</td>
-</tr>
-</tbody></table>
-<h2 id="工具書"><a href="#工具書" class="headerlink" title="工具書"></a>工具書</h2><ul>
-<li>JavaScript 資料結構及演算法實作 - Loiane Groner</li>
-<li>演算法圖鑑 - 石田保輝、宮崎修一</li>
-</ul>
+<p>都設定好了以後， Google 爬蟲只要定期去看 sitemap 檔案是否更新，就會去爬你的網站並做更新囉！<br>一般來說部落格要被搜尋引擎收錄大概會需要 7~14 天不等，當然也有更快的，就看運氣了😂</p>
+<p>這篇就到這，我們下次見👋🏻</p>
 ]]></content>
       <tags>
-        <tag>JavaScript</tag>
-        <tag>array</tag>
-        <tag>data structure</tag>
+        <tag>Hexo</tag>
+        <tag>SEO</tag>
+        <tag>Google Search Console</tag>
       </tags>
   </entry>
   <entry>
@@ -265,6 +178,37 @@
       </tags>
   </entry>
   <entry>
+    <title>來聊聊 Type Script</title>
+    <url>/posts/Ts-know/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>第一次在專案裡與 TS 相遇，那就不免俗的了解囉！<br>稍微簡介一下～<br>TypeScript是由微軟開發的一種能用來編譯出JavaScript程式碼的程式語言，因其比JS還多了一道編譯手續，能夠在編譯階段找出語法上的問題，而且也添加了型別檢查的機制，讓程式更容易閱讀與偵錯，也更適合開發大型的專案。<br>白話一點來說，JS可以通過TS編譯器來編譯，而且還能夠實現JavaScript的版本轉換(例如ES6轉ES5)</p>
+<span id="more"></span>
+
+<img src="/posts/Ts-know/js-ts.jpg" class="">
+
+<h1 id="安裝與設定"><a href="#安裝與設定" class="headerlink" title="安裝與設定"></a>安裝與設定</h1><h2 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h2><p>我們要先設定好Node.js和npm環境，建議使用Node.js最新的LTS版本。<br>Node.js是JavaScript程式的執行環境，讓我們不需要開啟瀏覽器也可以執行JS。而npm則是JS的套件管理器，常與Node.js一同被安裝。</p>
+<p>Windows的使用者可以直接到<span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL2VuLw==">Node.js官方網站<i class="fa fa-external-link-alt"></i></span>下載，而Linux或MacOS的使用者可以參考<span class="exturl" data-url="aHR0cHM6Ly9tYWdpY2xlbi5vcmcvbGludXgtaW5zdGFsbC1ub2RlanMv">這篇文章<i class="fa fa-external-link-alt"></i></span>安裝指定版本。</p>
+<h2 id="tsc"><a href="#tsc" class="headerlink" title="tsc"></a>tsc</h2><p>tsc是TypeScript程式的編譯器，能夠將TS編譯成JS。<br>執行以下npm指令:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm i -g typescript</span><br></pre></td></tr></table></figure>
+
+<p>關於編譯器的設定，我就先不說明，一開始花太多時間在這會顯得有點浪費且沒意思，畢竟內容很龐大也很複雜。</p>
+<hr>
+<h1 id="簡單的範例"><a href="#簡單的範例" class="headerlink" title="簡單的範例"></a>簡單的範例</h1><figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">name: <span class="built_in">string</span></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello &quot;</span> + name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(colin)</span><br></pre></td></tr></table></figure>
+
+<p>這邊唯一和我們學過的JavaScript不同，就是func這個函式的傳入參數多一個 :string 的指示詞，這東西在ＴＳ裡稱做類型註解。這邊就是說傳入的參數只接受字串(string)的型態，只要是其他型別在呼叫或是執行時就會報錯。</p>
+<p>對於函式而言，會有傳入參數和回傳值兩種情況，那麼我們就要養成習慣。</p>
+<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">name: <span class="built_in">string</span></span>): <span class="title">string</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello &quot;</span> + name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(colin)</span><br></pre></td></tr></table></figure>
+
+<p>上面這表示回傳值的型態也是string類型，順帶一提，如果函式沒有回傳值時可以使用 void，相信很多人都有看過吧，這就是專門為沒有回傳值的函式所準備的類型。</p>
+<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line">name: <span class="built_in">string</span> | <span class="built_in">number</span> = <span class="string">&quot;Colin&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>這裡的意思是 name這個變數能接受的型態為字串(string)與數字(number)，而且預設值為 Colin字串。</p>
+<hr>
+]]></content>
+      <tags>
+        <tag>ts</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>為什麼Vue中的data有時候會看到return，而有時候卻沒有？</title>
     <url>/posts/Vue-data/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>當你在剛接觸 Vue 的時候是不是有想過一件事情，文件上或人家範例的 data 寫方式似乎不太一樣…🤔😣</p>
@@ -280,47 +224,6 @@
 ]]></content>
       <tags>
         <tag>Vue.js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo-SEO Google Search Console</title>
-    <url>/posts/Seo-hexoByGoogleSearchConsole/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>發布了自己的部落格後，是不是發現在 Google 搜尋引擎找不著自己的網站呀！<br>難道是自己已經邊緣到被全世界排擠了嗎…QAQ<br>雖然這也有可能是一個原因啦…(XD，不鬧了</p>
-<span id="more"></span>
-
-<h1 id="Google-Search-Console"><a href="#Google-Search-Console" class="headerlink" title="Google Search Console"></a>Google Search Console</h1><p>它的前身叫做 Google Webmaster Tool，而它的作用就是專門管理你的網站在搜尋引擎的 SEO 表現，<br>如果你想知道你的網站熱門的關鍵字、曝光或點擊數量，那麼你一定要試試。</p>
-<p>要讓搜尋引擎能找到自己的網站，我們要先進入 <span class="exturl" data-url="aHR0cHM6Ly9zZWFyY2guZ29vZ2xlLmNvbS9zZWFyY2gtY29uc29sZS9hYm91dA==">Google Search Console<i class="fa fa-external-link-alt"></i></span> 註冊服務並進行一些設定。</p>
-<h1 id="實作"><a href="#實作" class="headerlink" title="實作"></a>實作</h1><h2 id="驗證網站"><a href="#驗證網站" class="headerlink" title="驗證網站"></a>驗證網站</h2><p>一開始必須先設定驗證你的網站（如下圖）。</p>
-<img src="/posts/Seo-hexoByGoogleSearchConsole/gsc.jpg" class="">
-<p>有購買網域的話，就可以使用左邊的驗證；如果像我一樣是利用 Git Page 發布的，就選擇右邊“網址前置字元”，<br>輸入完你的網址後會要去驗證，我這邊使用的是 HTML 檔案，當然你可以選擇你喜歡的方式驗證。</p>
-<ol>
-<li>點擊按鈕<strong>下載</strong>檔案。<img src="/posts/Seo-hexoByGoogleSearchConsole/gsc1.jpg" class=""></li>
-<li>直接將檔案放進來你會發現驗證是失敗的，所以我們要先<strong>編輯</strong>一下這個檔案！</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">layout: <span class="literal">false</span></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">google-site-verification: googleb6bf13d6a5baaaaaaaaa.html</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li><p>將<strong>檔案放到 hexo/ source 底下</strong>。</p>
-<img src="/posts/Seo-hexoByGoogleSearchConsole/gsc2.png" class=""></li>
-<li><p>不免俗的還是要提醒一下，請記得將 Hexo <strong>部署</strong>到 GitHub Pages。</p>
-</li>
-<li><p>最後按下驗證的按鈕即可。</p>
-</li>
-</ol>
-<p>大概等待個兩三天 GSC 就會分析出你的網站有哪些關鍵字熱門、需要優化的地方，基本上你就照著他提供方向去做調整，網站的 SEO 就會大大到提升了。</p>
-<h2 id="Sitemap"><a href="#Sitemap" class="headerlink" title="Sitemap"></a>Sitemap</h2><p>說到 Google Search Conosle 那就順便提一下 Sitemap 吧~<br>以往建立一個新的網站時，如果沒有強而有力的網站互聯(ㄏㄨㄟˋ)的話，就很難被爬蟲給爬到，所以這時就要給自己的 Hexo 安裝套件是專門幫忙生成 sitemap.xml ，而這檔案是提交給搜尋引擎爬蟲使用。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
-
-<p>在終端機輸入完指令後就可以部署上去。<br>接著來到 Google Search Console 上的 “Sitemap” 頁面，並在新增欄位輸入 sitemap.xml 提交就完成囉。</p>
-<img src="/posts/Seo-hexoByGoogleSearchConsole/gsc3.png" class="">
-
-<p>都設定好了以後， Google 爬蟲只要定期去看 sitemap 檔案是否更新，就會去爬你的網站並做更新囉！<br>一般來說部落格要被搜尋引擎收錄大概會需要 7~14 天不等，當然也有更快的，就看運氣了😂</p>
-<p>這篇就到這，我們下次見👋🏻</p>
-]]></content>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>SEO</tag>
-        <tag>Google Search Console</tag>
       </tags>
   </entry>
   <entry>
@@ -382,36 +285,5 @@
 
 <p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s">Deployment<i class="fa fa-external-link-alt"></i></span></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>來聊聊 Type Script</title>
-    <url>/posts/Ts-know/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>第一次在專案裡與 TS 相遇，那就不免俗的了解囉！<br>稍微簡介一下～<br>TypeScript是由微軟開發的一種能用來編譯出JavaScript程式碼的程式語言，因其比JS還多了一道編譯手續，能夠在編譯階段找出語法上的問題，而且也添加了型別檢查的機制，讓程式更容易閱讀與偵錯，也更適合開發大型的專案。<br>白話一點來說，JS可以通過TS編譯器來編譯，而且還能夠實現JavaScript的版本轉換(例如ES6轉ES5)</p>
-<span id="more"></span>
-
-<img src="/posts/Ts-know/js-ts.jpg" class="">
-
-<h1 id="安裝與設定"><a href="#安裝與設定" class="headerlink" title="安裝與設定"></a>安裝與設定</h1><h2 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h2><p>我們要先設定好Node.js和npm環境，建議使用Node.js最新的LTS版本。<br>Node.js是JavaScript程式的執行環境，讓我們不需要開啟瀏覽器也可以執行JS。而npm則是JS的套件管理器，常與Node.js一同被安裝。</p>
-<p>Windows的使用者可以直接到<span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL2VuLw==">Node.js官方網站<i class="fa fa-external-link-alt"></i></span>下載，而Linux或MacOS的使用者可以參考<span class="exturl" data-url="aHR0cHM6Ly9tYWdpY2xlbi5vcmcvbGludXgtaW5zdGFsbC1ub2RlanMv">這篇文章<i class="fa fa-external-link-alt"></i></span>安裝指定版本。</p>
-<h2 id="tsc"><a href="#tsc" class="headerlink" title="tsc"></a>tsc</h2><p>tsc是TypeScript程式的編譯器，能夠將TS編譯成JS。<br>執行以下npm指令:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm i -g typescript</span><br></pre></td></tr></table></figure>
-
-<p>關於編譯器的設定，我就先不說明，一開始花太多時間在這會顯得有點浪費且沒意思，畢竟內容很龐大也很複雜。</p>
-<hr>
-<h1 id="簡單的範例"><a href="#簡單的範例" class="headerlink" title="簡單的範例"></a>簡單的範例</h1><figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">name: <span class="built_in">string</span></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello &quot;</span> + name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(colin)</span><br></pre></td></tr></table></figure>
-
-<p>這邊唯一和我們學過的JavaScript不同，就是func這個函式的傳入參數多一個 :string 的指示詞，這東西在ＴＳ裡稱做類型註解。這邊就是說傳入的參數只接受字串(string)的型態，只要是其他型別在呼叫或是執行時就會報錯。</p>
-<p>對於函式而言，會有傳入參數和回傳值兩種情況，那麼我們就要養成習慣。</p>
-<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">name: <span class="built_in">string</span></span>): <span class="title">string</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello &quot;</span> + name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(colin)</span><br></pre></td></tr></table></figure>
-
-<p>上面這表示回傳值的型態也是string類型，順帶一提，如果函式沒有回傳值時可以使用 void，相信很多人都有看過吧，這就是專門為沒有回傳值的函式所準備的類型。</p>
-<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line">name: <span class="built_in">string</span> | <span class="built_in">number</span> = <span class="string">&quot;Colin&quot;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>這裡的意思是 name這個變數能接受的型態為字串(string)與數字(number)，而且預設值為 Colin字串。</p>
-<hr>
-]]></content>
-      <tags>
-        <tag>ts</tag>
-      </tags>
   </entry>
 </search>
