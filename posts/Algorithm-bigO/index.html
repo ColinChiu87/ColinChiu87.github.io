@@ -20,27 +20,23 @@
     var CONFIG = {"hostname":"colinchiu87.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="前言發布了自己的部落格後，是不是發現在 Google 搜尋引擎找不著自己的網站呀！難道是自己已經邊緣到被全世界排擠了嗎…QAQ雖然這也有可能是一個原因啦…(XD，不鬧了">
+  <meta name="description" content="前言同樣一個問題可以用不同的演算法解答，那我們要如何去區分當中的好與壞呢？對於這樣的疑問有人提出了一種解答 - Big O. Big O 表示法分析演算法的優劣，通常是使用資源來評量，ex: CPU 佔用量、Memory 佔用量、磁碟、網路等等。當說到 big o 時，一般考慮的就是 CPU (時間)佔用。在分析時很常會看到以下的函數：    符號 名稱    O(1) 常數型   O(log(n">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo-SEO Google Search Console">
-<meta property="og:url" content="https://colinchiu87.github.io/posts/Seo-hexoByGoogleSearchConsole/">
+<meta property="og:title" content="Big O 分析演算法好壞">
+<meta property="og:url" content="https://colinchiu87.github.io/posts/Algorithm-bigO/">
 <meta property="og:site_name" content="凹逗の工程師">
-<meta property="og:description" content="前言發布了自己的部落格後，是不是發現在 Google 搜尋引擎找不著自己的網站呀！難道是自己已經邊緣到被全世界排擠了嗎…QAQ雖然這也有可能是一個原因啦…(XD，不鬧了">
+<meta property="og:description" content="前言同樣一個問題可以用不同的演算法解答，那我們要如何去區分當中的好與壞呢？對於這樣的疑問有人提出了一種解答 - Big O. Big O 表示法分析演算法的優劣，通常是使用資源來評量，ex: CPU 佔用量、Memory 佔用量、磁碟、網路等等。當說到 big o 時，一般考慮的就是 CPU (時間)佔用。在分析時很常會看到以下的函數：    符號 名稱    O(1) 常數型   O(log(n">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://colinchiu87.github.io/posts/Seo-hexoByGoogleSearchConsole/gsc.jpg">
-<meta property="og:image" content="https://colinchiu87.github.io/posts/Seo-hexoByGoogleSearchConsole/gsc1.jpg">
-<meta property="og:image" content="https://colinchiu87.github.io/posts/Seo-hexoByGoogleSearchConsole/gsc2.png">
-<meta property="og:image" content="https://colinchiu87.github.io/posts/Seo-hexoByGoogleSearchConsole/gsc3.png">
-<meta property="article:published_time" content="2022-07-20T03:15:28.000Z">
-<meta property="article:modified_time" content="2022-10-04T09:07:09.321Z">
+<meta property="og:image" content="https://colinchiu87.github.io/posts/Algorithm-bigO/Algorithm-bigO1.png">
+<meta property="article:published_time" content="2022-10-04T03:19:07.000Z">
+<meta property="article:modified_time" content="2022-10-04T06:54:01.395Z">
 <meta property="article:author" content="Kuan Ru">
-<meta property="article:tag" content="Hexo">
-<meta property="article:tag" content="SEO">
-<meta property="article:tag" content="Google Search Console">
+<meta property="article:tag" content="Data structure">
+<meta property="article:tag" content="Algorithm">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://colinchiu87.github.io/posts/Seo-hexoByGoogleSearchConsole/gsc.jpg">
+<meta name="twitter:image" content="https://colinchiu87.github.io/posts/Algorithm-bigO/Algorithm-bigO1.png">
 
-<link rel="canonical" href="https://colinchiu87.github.io/posts/Seo-hexoByGoogleSearchConsole/">
+<link rel="canonical" href="https://colinchiu87.github.io/posts/Algorithm-bigO/">
 
 
 <script id="page-configurations">
@@ -53,7 +49,7 @@
   };
 </script>
 
-  <title>Hexo-SEO Google Search Console | 凹逗の工程師</title>
+  <title>Big O 分析演算法好壞 | 凹逗の工程師</title>
   
 
 
@@ -196,7 +192,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://colinchiu87.github.io/posts/Seo-hexoByGoogleSearchConsole/">
+    <link itemprop="mainEntityOfPage" href="https://colinchiu87.github.io/posts/Algorithm-bigO/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.jpg">
@@ -209,7 +205,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hexo-SEO Google Search Console
+          Big O 分析演算法好壞
         </h1>
 
         <div class="post-meta">
@@ -218,16 +214,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
+              
 
-              <time title="創建時間：2022-07-20 11:15:28" itemprop="dateCreated datePublished" datetime="2022-07-20T11:15:28+08:00">2022-07-20</time>
+              <time title="創建時間：2022-10-04 11:19:07 / 修改時間：14:54:01" itemprop="dateCreated datePublished" datetime="2022-10-04T11:19:07+08:00">2022-10-04</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2022-10-04 17:07:09" itemprop="dateModified" datetime="2022-10-04T17:07:09+08:00">2022-10-04</time>
-              </span>
 
           
             <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv" style="display: none;">
@@ -247,37 +237,52 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>發布了自己的部落格後，是不是發現在 Google 搜尋引擎找不著自己的網站呀！<br>難道是自己已經邊緣到被全世界排擠了嗎…QAQ<br>雖然這也有可能是一個原因啦…(XD，不鬧了</p>
-<span id="more"></span>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>同樣一個問題可以用不同的演算法解答，那我們要如何去區分當中的好與壞呢？<br>對於這樣的疑問有人提出了一種解答 - Big O.</p>
+<h2 id="Big-O-表示法"><a href="#Big-O-表示法" class="headerlink" title="Big O 表示法"></a>Big O 表示法</h2><p>分析演算法的優劣，通常是使用資源來評量，ex: CPU 佔用量、Memory 佔用量、磁碟、網路等等。<br>當說到 big o 時，一般考慮的就是 CPU (時間)佔用。在分析時很常會看到以下的函數：</p>
+<table>
+<thead>
+<tr>
+<th align="center">符號</th>
+<th align="center">名稱</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">O(1)</td>
+<td align="center">常數型</td>
+</tr>
+<tr>
+<td align="center">O(log(n))</td>
+<td align="center">對數型</td>
+</tr>
+<tr>
+<td align="center">O(log(n)c)</td>
+<td align="center">對數多項式型</td>
+</tr>
+<tr>
+<td align="center">O(n)</td>
+<td align="center">線性型</td>
+</tr>
+<tr>
+<td align="center">O(n^2)</td>
+<td align="center">二次型</td>
+</tr>
+<tr>
+<td align="center">O(n^c)</td>
+<td align="center">多項式型</td>
+</tr>
+<tr>
+<td align="center">O(c^n)</td>
+<td align="center">指數型</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>Big O 是用來描述演算法在輸入 n 個數時，總時間與 n 的關係。</p>
+</blockquote>
+<img src="/posts/Algorithm-bigO/Algorithm-bigO1.png" class="">
 
-<h2 id="Google-Search-Console"><a href="#Google-Search-Console" class="headerlink" title="Google Search Console"></a>Google Search Console</h2><p>它的前身叫做 Google Webmaster Tool，而它的作用就是專門管理你的網站在搜尋引擎的 SEO 表現，<br>如果你想知道你的網站熱門的關鍵字、曝光或點擊數量，那麼你一定要試試。</p>
-<p>要讓搜尋引擎能找到自己的網站，我們要先進入 <span class="exturl" data-url="aHR0cHM6Ly9zZWFyY2guZ29vZ2xlLmNvbS9zZWFyY2gtY29uc29sZS9hYm91dA==">Google Search Console<i class="fa fa-external-link-alt"></i></span> 註冊服務並進行一些設定。</p>
-<h2 id="實作"><a href="#實作" class="headerlink" title="實作"></a>實作</h2><h3 id="驗證網站"><a href="#驗證網站" class="headerlink" title="驗證網站"></a>驗證網站</h3><p>一開始必須先設定驗證你的網站（如下圖）。</p>
-<img src="/posts/Seo-hexoByGoogleSearchConsole/gsc.jpg" class="">
-<p>有購買網域的話，就可以使用左邊的驗證；如果像我一樣是利用 Git Page 發布的，就選擇右邊“網址前置字元”，<br>輸入完你的網址後會要去驗證，我這邊使用的是 HTML 檔案，當然你可以選擇你喜歡的方式驗證。</p>
-<ol>
-<li>點擊按鈕<strong>下載</strong>檔案。<img src="/posts/Seo-hexoByGoogleSearchConsole/gsc1.jpg" class=""></li>
-<li>直接將檔案放進來你會發現驗證是失敗的，所以我們要先<strong>編輯</strong>一下這個檔案！</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">layout: <span class="literal">false</span></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">google-site-verification: googleb6bf13d6a5baaaaaaaaa.html</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li><p>將<strong>檔案放到 hexo/ source 底下</strong>。</p>
-<img src="/posts/Seo-hexoByGoogleSearchConsole/gsc2.png" class=""></li>
-<li><p>不免俗的還是要提醒一下，請記得將 Hexo <strong>部署</strong>到 GitHub Pages。</p>
-</li>
-<li><p>最後按下驗證的按鈕即可。</p>
-</li>
-</ol>
-<p>大概等待個兩三天 GSC 就會分析出你的網站有哪些關鍵字熱門、需要優化的地方，基本上你就照著他提供方向去做調整，網站的 SEO 就會大大到提升了。</p>
-<h3 id="Sitemap"><a href="#Sitemap" class="headerlink" title="Sitemap"></a>Sitemap</h3><p>說到 Google Search Conosle 那就順便提一下 Sitemap 吧~<br>以往建立一個新的網站時，如果沒有強而有力的網站互聯(ㄏㄨㄟˋ)的話，就很難被爬蟲給爬到，所以這時就要給自己的 Hexo 安裝套件是專門幫忙生成 sitemap.xml ，而這檔案是提交給搜尋引擎爬蟲使用。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
-
-<p>在終端機輸入完指令後就可以部署上去。<br>接著來到 Google Search Console 上的 “Sitemap” 頁面，並在新增欄位輸入 sitemap.xml 提交就完成囉。</p>
-<img src="/posts/Seo-hexoByGoogleSearchConsole/gsc3.png" class="">
-
-<p>都設定好了以後， Google 爬蟲只要定期去看 sitemap 檔案是否更新，就會去爬你的網站並做更新囉！<br>一般來說部落格要被搜尋引擎收錄大概會需要 7~14 天不等，當然也有更快的，就看運氣了😂</p>
-<p>這篇就到這，我們下次見👋🏻</p>
+<blockquote>
+<p>常見排序： 1(常數) &lt; log n &lt; n &lt; n log n &lt; n^2 &lt; 2^n &lt; n!</p>
+</blockquote>
 
     </div>
 
@@ -306,9 +311,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
-              <a href="/tags/SEO/" rel="tag"># SEO</a>
-              <a href="/tags/Google-Search-Console/" rel="tag"># Google Search Console</a>
+              <a href="/tags/Data-structure/" rel="tag"># Data structure</a>
+              <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
           </div>
 
         
@@ -317,13 +321,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/Vue-know/" rel="prev" title="Vue - 現今主流的 JS 框架之一">
-      <i class="fa fa-chevron-left"></i> Vue - 現今主流的 JS 框架之一
+    <a href="/posts/Js-array/" rel="prev" title="JavaScript 陣列">
+      <i class="fa fa-chevron-left"></i> JavaScript 陣列
     </a></div>
-      <div class="post-nav-item">
-    <a href="/posts/Seo-robotsTxt/" rel="next" title="讓爬蟲程式照著規則來 robots.txt">
-      讓爬蟲程式照著規則來 robots.txt <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -382,7 +383,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Google-Search-Console"><span class="nav-number">2.</span> <span class="nav-text">Google Search Console</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%A6%E4%BD%9C"><span class="nav-number">3.</span> <span class="nav-text">實作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A9%97%E8%AD%89%E7%B6%B2%E7%AB%99"><span class="nav-number">3.1.</span> <span class="nav-text">驗證網站</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sitemap"><span class="nav-number">3.2.</span> <span class="nav-text">Sitemap</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Big-O-%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">Big O 表示法</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
