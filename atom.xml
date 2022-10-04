@@ -6,7 +6,7 @@
   <link href="https://colinchiu87.github.io/atom.xml" rel="self"/>
   
   <link href="https://colinchiu87.github.io/"/>
-  <updated>2022-10-04T06:54:01.395Z</updated>
+  <updated>2022-10-04T09:29:12.370Z</updated>
   <id>https://colinchiu87.github.io/</id>
   
   <author>
@@ -17,20 +17,35 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Mac 中文輸入法無法顯示選字框？</title>
+    <link href="https://colinchiu87.github.io/posts/Mac-bug-inputMethod/"/>
+    <id>https://colinchiu87.github.io/posts/Mac-bug-inputMethod/</id>
+    <published>2022-10-04T09:05:15.000Z</published>
+    <updated>2022-10-04T09:29:12.370Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有一天在輸入文字的時候，感覺上好像有點怪怪的…，但是又說不出是什麼，打著打著要選字就發現怎麼只能用鍵盤的上下左右盲選字！<br>不知道是不是我自己很少重新開機。<br>趕忙爬文，還以為電腦要壽終正寢了(才用一年多…QAQ</p><span id="more"></span><h2 id="解決辦法"><a href="#解決辦法" class="headerlink" title="解決辦法"></a>解決辦法</h2><p>本人的電腦是 2021 M1 Mac Pro<br>在網路上查到解決的辦法是在終端機上輸入：</p><blockquote><p>killall TCIM_Extension</p></blockquote><p>這個指令是將注音這隻殺掉，然後系統會將殺掉的程式重新開啟，之後就不需要針對單一問題重新開機了。</p>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;有一天在輸入文字的時候，感覺上好像有點怪怪的…，但是又說不出是什麼，打著打著要選字就發現怎麼只能用鍵盤的上下左右盲選字！&lt;br&gt;不知道是不是我自己很少重新開機。&lt;br&gt;趕忙爬文，還以為電腦要壽終正寢了(才用一年多…QAQ&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Mac" scheme="https://colinchiu87.github.io/tags/Mac/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Big O 分析演算法好壞</title>
     <link href="https://colinchiu87.github.io/posts/Algorithm-bigO/"/>
     <id>https://colinchiu87.github.io/posts/Algorithm-bigO/</id>
     <published>2022-10-04T03:19:07.000Z</published>
-    <updated>2022-10-04T06:54:01.395Z</updated>
+    <updated>2022-10-04T09:26:41.365Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>同樣一個問題可以用不同的演算法解答，那我們要如何去區分當中的好與壞呢？<br>對於這樣的疑問有人提出了一種解答 - Big O.</p><h2 id="Big-O-表示法"><a href="#Big-O-表示法" class="headerlink" title="Big O 表示法"></a>Big O 表示法</h2><p>分析演算法的優劣，通常是使用資源來評量，ex: CPU 佔用量、Memory 佔用量、磁碟、網路等等。<br>當說到 big o 時，一般考慮的就是 CPU (時間)佔用。在分析時很常會看到以下的函數：</p><table><thead><tr><th align="center">符號</th><th align="center">名稱</th></tr></thead><tbody><tr><td align="center">O(1)</td><td align="center">常數型</td></tr><tr><td align="center">O(log(n))</td><td align="center">對數型</td></tr><tr><td align="center">O(log(n)c)</td><td align="center">對數多項式型</td></tr><tr><td align="center">O(n)</td><td align="center">線性型</td></tr><tr><td align="center">O(n^2)</td><td align="center">二次型</td></tr><tr><td align="center">O(n^c)</td><td align="center">多項式型</td></tr><tr><td align="center">O(c^n)</td><td align="center">指數型</td></tr></tbody></table><blockquote><p>Big O 是用來描述演算法在輸入 n 個數時，總時間與 n 的關係。</p></blockquote><img src="/posts/Algorithm-bigO/Algorithm-bigO1.png" class=""><blockquote><p>常見排序： 1(常數) &lt; log n &lt; n &lt; n log n &lt; n^2 &lt; 2^n &lt; n!</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>同樣一個問題可以用不同的演算法解答，那我們要如何去區分當中的好與壞呢？<br>對於這樣的疑問有人提出了一種解答 - Big O.</p><span id="more"></span><h2 id="Big-O-表示法"><a href="#Big-O-表示法" class="headerlink" title="Big O 表示法"></a>Big O 表示法</h2><p>分析演算法的優劣，通常是使用資源來評量，ex: CPU 佔用量、Memory 佔用量、磁碟、網路等等。<br>當說到 big o 時，一般考慮的就是 CPU (時間)佔用。在分析時很常會看到以下的函數：</p><table><thead><tr><th align="center">符號</th><th align="center">名稱</th></tr></thead><tbody><tr><td align="center">O(1)</td><td align="center">常數型</td></tr><tr><td align="center">O(log(n))</td><td align="center">對數型</td></tr><tr><td align="center">O(log(n)c)</td><td align="center">對數多項式型</td></tr><tr><td align="center">O(n)</td><td align="center">線性型</td></tr><tr><td align="center">O(n^2)</td><td align="center">二次型</td></tr><tr><td align="center">O(n^c)</td><td align="center">多項式型</td></tr><tr><td align="center">O(c^n)</td><td align="center">指數型</td></tr></tbody></table><blockquote><p>Big O 是用來描述演算法在輸入 n 個數時，總時間與 n 的關係。</p></blockquote><img src="/posts/Algorithm-bigO/Algorithm-bigO1.png" class=""><blockquote><p>常見排序： 1(常數) &lt; log n &lt; n &lt; n log n &lt; n^2 &lt; 2^n &lt; n!</p></blockquote>]]></content>
     
     
-      
-      
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;同樣一個問題可以用不同的演算法解答，那我們要如何去區分當中的好與壞呢？&lt;br&gt;對於這樣的疑問有人提出了一種解答 - Big O.&lt;/p&gt;
-&lt;</summary>
-      
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;同樣一個問題可以用不同的演算法解答，那我們要如何去區分當中的好與壞呢？&lt;br&gt;對於這樣的疑問有人提出了一種解答 - Big O.&lt;/p&gt;</summary>
     
     
     

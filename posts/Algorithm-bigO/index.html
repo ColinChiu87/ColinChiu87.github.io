@@ -20,16 +20,16 @@
     var CONFIG = {"hostname":"colinchiu87.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="前言同樣一個問題可以用不同的演算法解答，那我們要如何去區分當中的好與壞呢？對於這樣的疑問有人提出了一種解答 - Big O. Big O 表示法分析演算法的優劣，通常是使用資源來評量，ex: CPU 佔用量、Memory 佔用量、磁碟、網路等等。當說到 big o 時，一般考慮的就是 CPU (時間)佔用。在分析時很常會看到以下的函數：    符號 名稱    O(1) 常數型   O(log(n">
+  <meta name="description" content="前言同樣一個問題可以用不同的演算法解答，那我們要如何去區分當中的好與壞呢？對於這樣的疑問有人提出了一種解答 - Big O.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Big O 分析演算法好壞">
 <meta property="og:url" content="https://colinchiu87.github.io/posts/Algorithm-bigO/">
 <meta property="og:site_name" content="凹逗の工程師">
-<meta property="og:description" content="前言同樣一個問題可以用不同的演算法解答，那我們要如何去區分當中的好與壞呢？對於這樣的疑問有人提出了一種解答 - Big O. Big O 表示法分析演算法的優劣，通常是使用資源來評量，ex: CPU 佔用量、Memory 佔用量、磁碟、網路等等。當說到 big o 時，一般考慮的就是 CPU (時間)佔用。在分析時很常會看到以下的函數：    符號 名稱    O(1) 常數型   O(log(n">
+<meta property="og:description" content="前言同樣一個問題可以用不同的演算法解答，那我們要如何去區分當中的好與壞呢？對於這樣的疑問有人提出了一種解答 - Big O.">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://colinchiu87.github.io/posts/Algorithm-bigO/Algorithm-bigO1.png">
 <meta property="article:published_time" content="2022-10-04T03:19:07.000Z">
-<meta property="article:modified_time" content="2022-10-04T06:54:01.395Z">
+<meta property="article:modified_time" content="2022-10-04T09:26:41.365Z">
 <meta property="article:author" content="Kuan Ru">
 <meta property="article:tag" content="Data structure">
 <meta property="article:tag" content="Algorithm">
@@ -216,7 +216,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2022-10-04 11:19:07 / 修改時間：14:54:01" itemprop="dateCreated datePublished" datetime="2022-10-04T11:19:07+08:00">2022-10-04</time>
+              <time title="創建時間：2022-10-04 11:19:07 / 修改時間：17:26:41" itemprop="dateCreated datePublished" datetime="2022-10-04T11:19:07+08:00">2022-10-04</time>
             </span>
 
           
@@ -238,6 +238,8 @@
 
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>同樣一個問題可以用不同的演算法解答，那我們要如何去區分當中的好與壞呢？<br>對於這樣的疑問有人提出了一種解答 - Big O.</p>
+<span id="more"></span>
+
 <h2 id="Big-O-表示法"><a href="#Big-O-表示法" class="headerlink" title="Big O 表示法"></a>Big O 表示法</h2><p>分析演算法的優劣，通常是使用資源來評量，ex: CPU 佔用量、Memory 佔用量、磁碟、網路等等。<br>當說到 big o 時，一般考慮的就是 CPU (時間)佔用。在分析時很常會看到以下的函數：</p>
 <table>
 <thead>
@@ -324,7 +326,10 @@
     <a href="/posts/Js-array/" rel="prev" title="JavaScript 陣列">
       <i class="fa fa-chevron-left"></i> JavaScript 陣列
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/posts/Mac-bug-inputMethod/" rel="next" title="Mac 中文輸入法無法顯示選字框？">
+      Mac 中文輸入法無法顯示選字框？ <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -399,14 +404,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>

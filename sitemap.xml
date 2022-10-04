@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://colinchiu87.github.io/posts/Mac-bug-inputMethod/</loc>
+    
+    <lastmod>2022-10-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://colinchiu87.github.io/posts/Algorithm-bigO/</loc>
+    
+    <lastmod>2022-10-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://colinchiu87.github.io/posts/Vue-know/</loc>
     
     <lastmod>2022-10-04</lastmod>
@@ -66,15 +84,6 @@
   
   <url>
     <loc>https://colinchiu87.github.io/posts/Hexo-config-permalink/</loc>
-    
-    <lastmod>2022-10-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://colinchiu87.github.io/posts/Algorithm-bigO/</loc>
     
     <lastmod>2022-10-04</lastmod>
     
@@ -190,13 +199,6 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/tags/Hexo/</loc>
-    <lastmod>2022-10-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://colinchiu87.github.io/tags/Html/</loc>
     <lastmod>2022-10-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -212,6 +214,20 @@
   
   <url>
     <loc>https://colinchiu87.github.io/tags/PDF/</loc>
+    <lastmod>2022-10-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://colinchiu87.github.io/tags/Mac/</loc>
+    <lastmod>2022-10-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://colinchiu87.github.io/tags/Hexo/</loc>
     <lastmod>2022-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
