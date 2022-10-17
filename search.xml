@@ -58,6 +58,65 @@
       </tags>
   </entry>
   <entry>
+    <title>『 資料結構 』堆疊 Stack</title>
+    <url>/posts/DataStructure-stack/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>準備好歡迎我們第二週的主題“堆疊”了嗎！<br>在電腦科學的江湖上流傳著一句話：</p>
+<blockquote>
+<p>程式設計 ＝ 資料結構 ＋ 演算法</p>
+</blockquote>
+<p>在各大專院校裡，這幾門課都列為必修課之一，但是大多缺乏語言的基礎，反而在這裡頭迷失了，學完就好像睡了一覺，模模糊糊迷迷茫茫…，我就是這樣😂</p>
+<p>本篇將使用 JavaScript 來學習堆疊(Stack)的資料結構。</p>
+<span id="more"></span>
+
+<h2 id="堆疊是什麼？"><a href="#堆疊是什麼？" class="headerlink" title="堆疊是什麼？"></a>堆疊是什麼？</h2><p>堆疊是一種按照<em>後進先出</em> (LIFO, Last In First Out)的有序結構，舉個例子：日常生活中的疊盤子。先疊的盤子會在最下面，後面開始會疊在上方，一層一層往上，當要拿盤子時一定是從最上面拿。</p>
+<p><img src="https://i0.wp.com/studyalgorithms.com/wp-content/uploads/2020/12/stack-of-plates_0.png?ssl=1" alt="疊盤子"></p>
+<h2 id="建立堆疊"><a href="#建立堆疊" class="headerlink" title="建立堆疊"></a>建立堆疊</h2><p>開始進入實作的階段，GOGO🤟🏻</p>
+<h3 id="類別"><a href="#類別" class="headerlink" title="類別"></a>類別</h3><p>首先，建立一個類別為 Stack:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Stack</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">//宣告內部屬性和方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="屬性"><a href="#屬性" class="headerlink" title="屬性"></a>屬性</h3><p>我們下面會用 Array 的方式進行，所以宣告起來。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> items = [];</span><br></pre></td></tr></table></figure>
+
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ul>
+<li>新增 push(element)、刪除 pop()</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 新增元素</span></span><br><span class="line"><span class="built_in">this</span>.push = <span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">  items.push(element);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 刪除元素：會返回被移除的元素</span></span><br><span class="line"><span class="built_in">this</span>.pop = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items.pop();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>最上方元素為何 peek(), top()</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 返回最上方元素</span></span><br><span class="line"><span class="built_in">this</span>.peek = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items[items.length - <span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>堆疊還有元素嗎 isEmpty()</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 堆疊內部是否還有元素存在 true, false</span></span><br><span class="line"><span class="built_in">this</span>.isEmpty = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items.length === <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>元素共有幾個 size()</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 堆疊內部有多少元素</span></span><br><span class="line"><span class="built_in">this</span>.size = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items.length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>清空堆疊 clear()</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 堆疊清空</span></span><br><span class="line"><span class="built_in">this</span>.clear = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items = [];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Stack</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> items = [];</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.push = <span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">    items.push(element);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.pop = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items.pop();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.peek = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items[items.length - <span class="number">1</span>];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.isEmpty = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items.length === <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.size = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items.length;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.clear = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items = [];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="動手做做看"><a href="#動手做做看" class="headerlink" title="動手做做看"></a>動手做做看</h2><p>快速測試可以打開 chrome 的 console 操作看看。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> stack = <span class="keyword">new</span> Stack();</span><br><span class="line"></span><br><span class="line">stack.push(<span class="string">&#x27;plateA&#x27;</span>);</span><br><span class="line">stack.push(<span class="string">&#x27;plateB&#x27;</span>);</span><br><span class="line">stack.push(<span class="string">&#x27;plateC&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(stack); <span class="comment">// [&#x27;plateA&#x27;, &#x27;plateB&#x27;, &#x27;plateC&#x27;]</span></span><br><span class="line"></span><br><span class="line">stack.pop()</span><br><span class="line"><span class="built_in">console</span>.log(stack); <span class="comment">// [&#x27;plateA&#x27;, &#x27;plateB&#x27;]</span></span><br><span class="line"></span><br><span class="line">stack.size() <span class="comment">// 2</span></span><br><span class="line">stack.peek() <span class="comment">// &#x27;plantB&#x27;</span></span><br><span class="line">stack.clear() <span class="comment">// []</span></span><br><span class="line">stack.isEmpty() <span class="comment">// true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>最後到 leetcode 驗收一下自己學習的成果吧！<br><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvaW1wbGVtZW50LXF1ZXVlLXVzaW5nLXN0YWNrcy8=">232. Implement Queue using Stacks<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvdmFsaWQtcGFyZW50aGVzZXMv">20. Valid Parentheses<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h2><p><span class="exturl" data-url="aHR0cHM6Ly9zdHVkeWFsZ29yaXRobXMuY29tL3RoZW9yeS9zdGFjay1kYXRhLXN0cnVjdHVyZS8=">What is a Stack?<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDIxNTExOA==">前端工程師用 javaScript 學演算法<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3poLXR3LyVFNSVBMCU4NiVFNiVBMCU4OA==">堆疊- 維基百科，自由的百科全書 - Wikipedia<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <tags>
+        <tag>Data structure</tag>
+        <tag>Algorithm</tag>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ES6-解構賦值</title>
     <url>/posts/Es6-destructuringAssignment/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>解構賦值(Destructuring Assignment)是在ES6的一個新特性，讓我們在撰寫物件、陣列時可以把在裡頭的資料解開擷取成為獨立的變數，能夠更簡短並增加閱讀性。<br>以下為他的說明：</p>
@@ -107,44 +166,6 @@
       </tags>
   </entry>
   <entry>
-    <title>如何利用HTML直接下載pdf</title>
-    <url>/posts/Html-downloadPdf/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天在嘗試利用 html的<code>&lt;a&gt;</code>標籤做下載檔案的功能，發現了一件事情，其他檔案能正常下載<br><del>除了pdf</del></p>
-<p>當你的程式是寫<code>&lt;a href=&quot;test.pdf&quot; /&gt;</code>，當點擊連結時，會使用在當前瀏覽器中打開該文件給予預覽。<br>這就會不符合我的需求，我希望的是直接給使用者下載，不需要再打開預覽文件。</p>
-<span id="more"></span>
-
-<h2 id="HTML-lt-a-gt-download屬性"><a href="#HTML-lt-a-gt-download屬性" class="headerlink" title="HTML &lt;a&gt; download屬性"></a>HTML <code>&lt;a&gt;</code> download屬性</h2><p>爬了一下文發現很簡單！只要在a標籤裡再加上一個download就好～<br><code>&lt;a href=&quot;yourfile.pdf&quot; download=&quot;newFileName&quot;&gt;下載檔案&lt;/a&gt;</code><br>這邊的newFileName是讓你可以指定使用者下載下來時的檔名，<br>如果留空，就會默認為伺服器端的名稱，<br>如下：<br><code>&lt;a href=&quot;test.pdf&quot; download&gt;click&lt;/a&gt;</code></p>
-<h2 id="HTML-lt-a-gt-target屬性"><a href="#HTML-lt-a-gt-target屬性" class="headerlink" title="HTML &lt;a&gt; target屬性"></a>HTML <code>&lt;a&gt;</code> target屬性</h2><p>既然都說到<code>&lt;a&gt;</code>標籤了，那就再加上一點補充～<br>利用a標籤的時候不外乎就是要開啟一個連結或是下載檔案，那我們在打開連接的方式就有分成幾種：</p>
-<ul>
-<li>直接於所在的視窗中打開（_self）</li>
-<li>另開一個視窗（_blank）</li>
-<li>開啟於父層框架（_parent）</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Frontend</tag>
-        <tag>Html</tag>
-        <tag>Download</tag>
-        <tag>PDF</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mac 中文輸入法無法顯示選字框？</title>
-    <url>/posts/Mac-bug-inputMethod/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有一天在輸入文字的時候，感覺上好像有點怪怪的…，但是又說不出是什麼，打著打著要選字就發現怎麼只能用鍵盤的上下左右盲選字！<br>不知道是不是我自己很少重新開機。<br>趕忙爬文，還以為電腦要壽終正寢了(才用一年多…QAQ</p>
-<span id="more"></span>
-
-<h2 id="解決辦法"><a href="#解決辦法" class="headerlink" title="解決辦法"></a>解決辦法</h2><p>本人的電腦是 2021 M1 Mac Pro<br>在網路上查到解決的辦法是在終端機上輸入：</p>
-<blockquote>
-<p>killall TCIM_Extension</p>
-</blockquote>
-<p>這個指令是將注音這隻殺掉，然後系統會將殺掉的程式重新開啟，之後就不需要針對單一問題重新開機了。</p>
-]]></content>
-      <tags>
-        <tag>Mac</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>一失足掉進的坑 Hexo Config</title>
     <url>/posts/Hexo-config-permalink/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有在使用 Hexo Blog 的朋友一定知道他有很多設定可以玩！除了一般的標題、簡介、相關連結外，還有分頁、閱讀進度、總閱覽人數…等等一大堆。<br>今日心血來潮想要把部落格的 config 設定弄的更完整一些，沒有想到居然在之中受困數個小時…，真的覺得自己好笑又好氣😓</p>
@@ -169,7 +190,29 @@
       </tags>
   </entry>
   <entry>
-    <title>JavaScript 陣列</title>
+    <title>如何利用HTML直接下載pdf</title>
+    <url>/posts/Html-downloadPdf/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天在嘗試利用 html的<code>&lt;a&gt;</code>標籤做下載檔案的功能，發現了一件事情，其他檔案能正常下載<br><del>除了pdf</del></p>
+<p>當你的程式是寫<code>&lt;a href=&quot;test.pdf&quot; /&gt;</code>，當點擊連結時，會使用在當前瀏覽器中打開該文件給予預覽。<br>這就會不符合我的需求，我希望的是直接給使用者下載，不需要再打開預覽文件。</p>
+<span id="more"></span>
+
+<h2 id="HTML-lt-a-gt-download屬性"><a href="#HTML-lt-a-gt-download屬性" class="headerlink" title="HTML &lt;a&gt; download屬性"></a>HTML <code>&lt;a&gt;</code> download屬性</h2><p>爬了一下文發現很簡單！只要在a標籤裡再加上一個download就好～<br><code>&lt;a href=&quot;yourfile.pdf&quot; download=&quot;newFileName&quot;&gt;下載檔案&lt;/a&gt;</code><br>這邊的newFileName是讓你可以指定使用者下載下來時的檔名，<br>如果留空，就會默認為伺服器端的名稱，<br>如下：<br><code>&lt;a href=&quot;test.pdf&quot; download&gt;click&lt;/a&gt;</code></p>
+<h2 id="HTML-lt-a-gt-target屬性"><a href="#HTML-lt-a-gt-target屬性" class="headerlink" title="HTML &lt;a&gt; target屬性"></a>HTML <code>&lt;a&gt;</code> target屬性</h2><p>既然都說到<code>&lt;a&gt;</code>標籤了，那就再加上一點補充～<br>利用a標籤的時候不外乎就是要開啟一個連結或是下載檔案，那我們在打開連接的方式就有分成幾種：</p>
+<ul>
+<li>直接於所在的視窗中打開（_self）</li>
+<li>另開一個視窗（_blank）</li>
+<li>開啟於父層框架（_parent）</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Frontend</tag>
+        <tag>Html</tag>
+        <tag>Download</tag>
+        <tag>PDF</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>『 資料結構 』陣列 Array By JavaScript</title>
     <url>/posts/Js-array/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>這週與前端小夥伴們發起了 JavaScript 資料結構 (data structure) 讀書會，二話不說用微薄的薪資擠出了些孔方兄購入兩本工具書規劃一下學習計畫，這週從最基礎的陣列 (Array) 走起！<br>是哪兩本書我會放在最後給大家參考，也希望有想學習這方面的小夥伴每週跟著我的腳步一起成長八 ❤️</p>
 <span id="more"></span>
@@ -293,8 +336,8 @@
       <tags>
         <tag>Data structure</tag>
         <tag>Algorithm</tag>
-        <tag>Frontend</tag>
         <tag>JavaScript</tag>
+        <tag>Frontend</tag>
         <tag>Array</tag>
       </tags>
   </entry>
@@ -337,6 +380,22 @@
         <tag>Hexo</tag>
         <tag>SEO</tag>
         <tag>Google Search Console</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mac 中文輸入法無法顯示選字框？</title>
+    <url>/posts/Mac-bug-inputMethod/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有一天在輸入文字的時候，感覺上好像有點怪怪的…，但是又說不出是什麼，打著打著要選字就發現怎麼只能用鍵盤的上下左右盲選字！<br>不知道是不是我自己很少重新開機。<br>趕忙爬文，還以為電腦要壽終正寢了(才用一年多…QAQ</p>
+<span id="more"></span>
+
+<h2 id="解決辦法"><a href="#解決辦法" class="headerlink" title="解決辦法"></a>解決辦法</h2><p>本人的電腦是 2021 M1 Mac Pro<br>在網路上查到解決的辦法是在終端機上輸入：</p>
+<blockquote>
+<p>killall TCIM_Extension</p>
+</blockquote>
+<p>這個指令是將注音這隻殺掉，然後系統會將殺掉的程式重新開啟，之後就不需要針對單一問題重新開機了。</p>
+]]></content>
+      <tags>
+        <tag>Mac</tag>
       </tags>
   </entry>
   <entry>
@@ -434,44 +493,6 @@
       </tags>
   </entry>
   <entry>
-    <title>什麼時候該使用『 const vm = this 』</title>
-    <url>/posts/Vue-this/</url>
-    <content><![CDATA[<p> <strong>影響this的是在於<em>函式的呼叫方式</em></strong></p>
-<p>以下為this的範例</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">reverseText: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.text.split(<span class="string">&#x27;&#x27;</span>).reverse().join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-
-<p>在第一個範例中，this運行後都是在這個元件底下<br>並沒有另外的函式在內（ex: forEach）<br>全部的this都是指向<strong>Vue的該元件</strong><br>因此不需要另外使用 vm = this</p>
-<p>至於使用 vm = this 可以避免內部有其他函式叫<br>導致 this 的運作不如預期。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//因為在&quot;&quot;內層函式&quot;&quot;filter的函式內使用到this，指向會跑掉，所以需要使用vm。</span></span><br><span class="line">filterArray: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> vm = <span class="built_in">this</span>;</span><br><span class="line">    <span class="keyword">return</span> vm.arrayData.filter(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> item.name.match(vm.filterText)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p> <strong>除了使用 filter/ forEach 會讓this指向window外，函式在直接呼叫的時候this也會指向window</strong></p>
-]]></content>
-      <tags>
-        <tag>Frontend</tag>
-        <tag>Vue.js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/posts/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s">Writing<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=">Server<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s">Generating<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s">Deployment<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Vue - 現今主流的 JS 框架之一</title>
     <url>/posts/Vue-know/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>第一次和Vue碰面是在我大四實習時，剛好遇到公司開始推行同仁使用框架開發，也讓我這個菜鳥搭上前端框架的順風車。<br>趁現在有空閒之餘來整理一下當初的筆記，也順帶複習一下 Vue.js！</p>
@@ -489,6 +510,26 @@
 <li>指示詞(Directive)：內建許多指示詞(v-開頭)，用來進行程式邏輯的判斷</li>
 <li>Vue路由器(Router)：利用它建構一個基本卻完整的路由庫，來操作瀏覽器上/下一頁的流程，建立 SPA 完整單頁式應用的能力。</li>
 </ul>
+]]></content>
+      <tags>
+        <tag>Frontend</tag>
+        <tag>Vue.js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>什麼時候該使用『 const vm = this 』</title>
+    <url>/posts/Vue-this/</url>
+    <content><![CDATA[<p> <strong>影響this的是在於<em>函式的呼叫方式</em></strong></p>
+<p>以下為this的範例</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">reverseText: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.text.split(<span class="string">&#x27;&#x27;</span>).reverse().join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p>在第一個範例中，this運行後都是在這個元件底下<br>並沒有另外的函式在內（ex: forEach）<br>全部的this都是指向<strong>Vue的該元件</strong><br>因此不需要另外使用 vm = this</p>
+<p>至於使用 vm = this 可以避免內部有其他函式叫<br>導致 this 的運作不如預期。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//因為在&quot;&quot;內層函式&quot;&quot;filter的函式內使用到this，指向會跑掉，所以需要使用vm。</span></span><br><span class="line">filterArray: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> vm = <span class="built_in">this</span>;</span><br><span class="line">    <span class="keyword">return</span> vm.arrayData.filter(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> item.name.match(vm.filterText)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> <strong>除了使用 filter/ forEach 會讓this指向window外，函式在直接呼叫的時候this也會指向window</strong></p>
 ]]></content>
       <tags>
         <tag>Frontend</tag>
