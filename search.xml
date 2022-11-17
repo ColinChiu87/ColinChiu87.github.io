@@ -1,63 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Big O 分析演算法好壞</title>
-    <url>/posts/Algorithm-bigO/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>同樣一個問題可以用不同的演算法解答，那我們要如何去區分當中的好與壞呢？<br>對於這樣的疑問有人提出了一種解答 - Big O.</p>
-<span id="more"></span>
-
-<h2 id="Big-O-表示法"><a href="#Big-O-表示法" class="headerlink" title="Big O 表示法"></a>Big O 表示法</h2><p>分析演算法的優劣，通常是使用資源來評量，ex: CPU 佔用量、Memory 佔用量、磁碟、網路等等。<br>當說到 big o 時，一般考慮的就是 CPU (時間)佔用。在分析時很常會看到以下的函數：</p>
-<table>
-<thead>
-<tr>
-<th align="center">符號</th>
-<th align="center">名稱</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">O(1)</td>
-<td align="center">常數型</td>
-</tr>
-<tr>
-<td align="center">O(log(n))</td>
-<td align="center">對數型</td>
-</tr>
-<tr>
-<td align="center">O(log(n)c)</td>
-<td align="center">對數多項式型</td>
-</tr>
-<tr>
-<td align="center">O(n)</td>
-<td align="center">線性型</td>
-</tr>
-<tr>
-<td align="center">O(n^2)</td>
-<td align="center">二次型</td>
-</tr>
-<tr>
-<td align="center">O(n^c)</td>
-<td align="center">多項式型</td>
-</tr>
-<tr>
-<td align="center">O(c^n)</td>
-<td align="center">指數型</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>Big O 是用來描述演算法在輸入 n 個數時，總時間與 n 的關係。</p>
-</blockquote>
-<img src="/posts/Algorithm-bigO/Algorithm-bigO1.png" class="">
-
-<blockquote>
-<p>常見排序： 1(常數) &lt; log n &lt; n &lt; n log n &lt; n^2 &lt; 2^n &lt; n!</p>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>Data structure</tag>
-        <tag>Algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>『 資料結構 』佇列 Queue</title>
     <url>/posts/DataStructure-queue/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>第三週我們歡迎「 Queue 佇列 」，上週我們學會了 stack ，這兩個東西非常相似，但是原則不同！<br>佇列在尾端新增元素，在頂部移除，在現實中就像是我們在排隊一樣，排在前面的人會優先被服務到，因此也有一個別稱叫做「 隊列 」。</p>
@@ -140,9 +83,68 @@
 <p>接下來我們將學習鏈結串列，比陣列更加複雜的資料結構呦！</p>
 ]]></content>
       <tags>
-        <tag>Data structure</tag>
+        <tag>data structure</tag>
+        <tag>javascript</tag>
         <tag>Algorithm</tag>
-        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>『 資料結構 』堆疊 Stack</title>
+    <url>/posts/DataStructure-stack/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>準備好歡迎我們第二週的主題“堆疊”了嗎！<br>在電腦科學的江湖上流傳著一句話：</p>
+<blockquote>
+<p>程式設計 ＝ 資料結構 ＋ 演算法</p>
+</blockquote>
+<p>在各大專院校裡，這幾門課都列為必修課之一，但是大多缺乏語言的基礎，反而在這裡頭迷失了，學完就好像睡了一覺，模模糊糊迷迷茫茫…，我就是這樣😂</p>
+<p>本篇將使用 JavaScript 來學習堆疊(Stack)的資料結構。</p>
+<span id="more"></span>
+
+<h2 id="堆疊是什麼？"><a href="#堆疊是什麼？" class="headerlink" title="堆疊是什麼？"></a>堆疊是什麼？</h2><p>堆疊是一種按照<em>後進先出</em> (LIFO, Last In First Out)的有序結構，舉個例子：日常生活中的疊盤子。先疊的盤子會在最下面，後面開始會疊在上方，一層一層往上，當要拿盤子時一定是從最上面拿。</p>
+<p><img src="https://i0.wp.com/studyalgorithms.com/wp-content/uploads/2020/12/stack-of-plates_0.png?ssl=1" alt="疊盤子"></p>
+<h2 id="建立堆疊"><a href="#建立堆疊" class="headerlink" title="建立堆疊"></a>建立堆疊</h2><p>開始進入實作的階段，GOGO🤟🏻</p>
+<h3 id="類別"><a href="#類別" class="headerlink" title="類別"></a>類別</h3><p>首先，建立一個類別為 Stack:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Stack</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">//宣告內部屬性和方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="屬性"><a href="#屬性" class="headerlink" title="屬性"></a>屬性</h3><p>我們下面會用 Array 的方式進行，所以宣告起來。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> items = [];</span><br></pre></td></tr></table></figure>
+
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ul>
+<li>新增 push(element)、刪除 pop()</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 新增元素</span></span><br><span class="line"><span class="built_in">this</span>.push = <span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">  items.push(element);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 刪除元素：會返回被移除的元素</span></span><br><span class="line"><span class="built_in">this</span>.pop = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items.pop();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>最上方元素為何 peek(), top()</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 返回最上方元素</span></span><br><span class="line"><span class="built_in">this</span>.peek = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items[items.length - <span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>堆疊還有元素嗎 isEmpty()</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 堆疊內部是否還有元素存在 true, false</span></span><br><span class="line"><span class="built_in">this</span>.isEmpty = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items.length === <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>元素共有幾個 size()</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 堆疊內部有多少元素</span></span><br><span class="line"><span class="built_in">this</span>.size = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items.length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>清空堆疊 clear()</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 堆疊清空</span></span><br><span class="line"><span class="built_in">this</span>.clear = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items = [];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Stack</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> items = [];</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.push = <span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">    items.push(element);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.pop = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items.pop();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.peek = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items[items.length - <span class="number">1</span>];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.isEmpty = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items.length === <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.size = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items.length;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.clear = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items = [];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="動手做做看"><a href="#動手做做看" class="headerlink" title="動手做做看"></a>動手做做看</h2><p>快速測試可以打開 chrome 的 console 操作看看。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> stack = <span class="keyword">new</span> Stack();</span><br><span class="line"></span><br><span class="line">stack.push(<span class="string">&#x27;plateA&#x27;</span>);</span><br><span class="line">stack.push(<span class="string">&#x27;plateB&#x27;</span>);</span><br><span class="line">stack.push(<span class="string">&#x27;plateC&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(stack); <span class="comment">// [&#x27;plateA&#x27;, &#x27;plateB&#x27;, &#x27;plateC&#x27;]</span></span><br><span class="line"></span><br><span class="line">stack.pop()</span><br><span class="line"><span class="built_in">console</span>.log(stack); <span class="comment">// [&#x27;plateA&#x27;, &#x27;plateB&#x27;]</span></span><br><span class="line"></span><br><span class="line">stack.size() <span class="comment">// 2</span></span><br><span class="line">stack.peek() <span class="comment">// &#x27;plantB&#x27;</span></span><br><span class="line">stack.clear() <span class="comment">// []</span></span><br><span class="line">stack.isEmpty() <span class="comment">// true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>最後到 leetcode 驗收一下自己學習的成果吧！<br><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvaW1wbGVtZW50LXF1ZXVlLXVzaW5nLXN0YWNrcy8=">232. Implement Queue using Stacks<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvdmFsaWQtcGFyZW50aGVzZXMv">20. Valid Parentheses<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h2><p><span class="exturl" data-url="aHR0cHM6Ly9zdHVkeWFsZ29yaXRobXMuY29tL3RoZW9yeS9zdGFjay1kYXRhLXN0cnVjdHVyZS8=">What is a Stack?<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDIxNTExOA==">前端工程師用 javaScript 學演算法<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3poLXR3LyVFNSVBMCU4NiVFNiVBMCU4OA==">堆疊- 維基百科，自由的百科全書 - Wikipedia<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <tags>
+        <tag>data structure</tag>
+        <tag>javascript</tag>
+        <tag>Algorithm</tag>
       </tags>
   </entry>
   <entry>
@@ -189,9 +191,88 @@
 </blockquote>
 ]]></content>
       <tags>
-        <tag>JavaScript</tag>
+        <tag>javascript</tag>
         <tag>ES6</tag>
         <tag>Frontend</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Big O 分析演算法好壞</title>
+    <url>/posts/Algorithm-bigO/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>同樣一個問題可以用不同的演算法解答，那我們要如何去區分當中的好與壞呢？<br>對於這樣的疑問有人提出了一種解答 - Big O.</p>
+<span id="more"></span>
+
+<h2 id="Big-O-表示法"><a href="#Big-O-表示法" class="headerlink" title="Big O 表示法"></a>Big O 表示法</h2><p>分析演算法的優劣，通常是使用資源來評量，ex: CPU 佔用量、Memory 佔用量、磁碟、網路等等。<br>當說到 big o 時，一般考慮的就是 CPU (時間)佔用。在分析時很常會看到以下的函數：</p>
+<table>
+<thead>
+<tr>
+<th align="center">符號</th>
+<th align="center">名稱</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">O(1)</td>
+<td align="center">常數型</td>
+</tr>
+<tr>
+<td align="center">O(log(n))</td>
+<td align="center">對數型</td>
+</tr>
+<tr>
+<td align="center">O(log(n)c)</td>
+<td align="center">對數多項式型</td>
+</tr>
+<tr>
+<td align="center">O(n)</td>
+<td align="center">線性型</td>
+</tr>
+<tr>
+<td align="center">O(n^2)</td>
+<td align="center">二次型</td>
+</tr>
+<tr>
+<td align="center">O(n^c)</td>
+<td align="center">多項式型</td>
+</tr>
+<tr>
+<td align="center">O(c^n)</td>
+<td align="center">指數型</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>Big O 是用來描述演算法在輸入 n 個數時，總時間與 n 的關係。</p>
+</blockquote>
+<img src="/posts/Algorithm-bigO/Algorithm-bigO1.png" class="">
+
+<blockquote>
+<p>常見排序： 1(常數) &lt; log n &lt; n &lt; n log n &lt; n^2 &lt; 2^n &lt; n!</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>data structure</tag>
+        <tag>Algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何利用HTML直接下載pdf</title>
+    <url>/posts/Html-downloadPdf/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天在嘗試利用 html的<code>&lt;a&gt;</code>標籤做下載檔案的功能，發現了一件事情，其他檔案能正常下載<br><del>除了pdf</del></p>
+<p>當你的程式是寫<code>&lt;a href=&quot;test.pdf&quot; /&gt;</code>，當點擊連結時，會使用在當前瀏覽器中打開該文件給予預覽。<br>這就會不符合我的需求，我希望的是直接給使用者下載，不需要再打開預覽文件。</p>
+<span id="more"></span>
+
+<h2 id="HTML-lt-a-gt-download屬性"><a href="#HTML-lt-a-gt-download屬性" class="headerlink" title="HTML &lt;a&gt; download屬性"></a>HTML <code>&lt;a&gt;</code> download屬性</h2><p>爬了一下文發現很簡單！只要在a標籤裡再加上一個download就好～<br><code>&lt;a href=&quot;yourfile.pdf&quot; download=&quot;newFileName&quot;&gt;下載檔案&lt;/a&gt;</code><br>這邊的newFileName是讓你可以指定使用者下載下來時的檔名，<br>如果留空，就會默認為伺服器端的名稱，<br>如下：<br><code>&lt;a href=&quot;test.pdf&quot; download&gt;click&lt;/a&gt;</code></p>
+<h2 id="HTML-lt-a-gt-target屬性"><a href="#HTML-lt-a-gt-target屬性" class="headerlink" title="HTML &lt;a&gt; target屬性"></a>HTML <code>&lt;a&gt;</code> target屬性</h2><p>既然都說到<code>&lt;a&gt;</code>標籤了，那就再加上一點補充～<br>利用a標籤的時候不外乎就是要開啟一個連結或是下載檔案，那我們在打開連接的方式就有分成幾種：</p>
+<ul>
+<li>直接於所在的視窗中打開（_self）</li>
+<li>另開一個視窗（_blank）</li>
+<li>開啟於父層框架（_parent）</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Frontend</tag>
+        <tag>html</tag>
+        <tag>download</tag>
+        <tag>pdf</tag>
       </tags>
   </entry>
   <entry>
@@ -341,70 +422,43 @@
 </ul>
 ]]></content>
       <tags>
-        <tag>Data structure</tag>
+        <tag>data structure</tag>
+        <tag>javascript</tag>
         <tag>Algorithm</tag>
-        <tag>JavaScript</tag>
         <tag>Frontend</tag>
-        <tag>Array</tag>
+        <tag>array</tag>
       </tags>
   </entry>
   <entry>
-    <title>『 資料結構 』堆疊 Stack</title>
-    <url>/posts/DataStructure-stack/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>準備好歡迎我們第二週的主題“堆疊”了嗎！<br>在電腦科學的江湖上流傳著一句話：</p>
-<blockquote>
-<p>程式設計 ＝ 資料結構 ＋ 演算法</p>
-</blockquote>
-<p>在各大專院校裡，這幾門課都列為必修課之一，但是大多缺乏語言的基礎，反而在這裡頭迷失了，學完就好像睡了一覺，模模糊糊迷迷茫茫…，我就是這樣😂</p>
-<p>本篇將使用 JavaScript 來學習堆疊(Stack)的資料結構。</p>
+    <title>來聊聊 Type Script</title>
+    <url>/posts/Ts-know/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>第一次在專案裡與 TS 相遇，那就不免俗的了解囉！<br>稍微簡介一下～<br>TypeScript是由微軟開發的一種能用來編譯出JavaScript程式碼的程式語言，因其比JS還多了一道編譯手續，能夠在編譯階段找出語法上的問題，而且也添加了型別檢查的機制，讓程式更容易閱讀與偵錯，也更適合開發大型的專案。<br>白話一點來說，JS可以通過TS編譯器來編譯，而且還能夠實現JavaScript的版本轉換(例如ES6轉ES5)</p>
 <span id="more"></span>
 
-<h2 id="堆疊是什麼？"><a href="#堆疊是什麼？" class="headerlink" title="堆疊是什麼？"></a>堆疊是什麼？</h2><p>堆疊是一種按照<em>後進先出</em> (LIFO, Last In First Out)的有序結構，舉個例子：日常生活中的疊盤子。先疊的盤子會在最下面，後面開始會疊在上方，一層一層往上，當要拿盤子時一定是從最上面拿。</p>
-<p><img src="https://i0.wp.com/studyalgorithms.com/wp-content/uploads/2020/12/stack-of-plates_0.png?ssl=1" alt="疊盤子"></p>
-<h2 id="建立堆疊"><a href="#建立堆疊" class="headerlink" title="建立堆疊"></a>建立堆疊</h2><p>開始進入實作的階段，GOGO🤟🏻</p>
-<h3 id="類別"><a href="#類別" class="headerlink" title="類別"></a>類別</h3><p>首先，建立一個類別為 Stack:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Stack</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">//宣告內部屬性和方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<img src="/posts/Ts-know/js-ts.jpg" class="">
 
-<h3 id="屬性"><a href="#屬性" class="headerlink" title="屬性"></a>屬性</h3><p>我們下面會用 Array 的方式進行，所以宣告起來。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> items = [];</span><br></pre></td></tr></table></figure>
+<h2 id="安裝與設定"><a href="#安裝與設定" class="headerlink" title="安裝與設定"></a>安裝與設定</h2><h3 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h3><p>我們要先設定好Node.js和npm環境，建議使用Node.js最新的LTS版本。<br>Node.js是JavaScript程式的執行環境，讓我們不需要開啟瀏覽器也可以執行JS。而npm則是JS的套件管理器，常與Node.js一同被安裝。</p>
+<p>Windows的使用者可以直接到<span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL2VuLw==">Node.js官方網站<i class="fa fa-external-link-alt"></i></span>下載，而Linux或MacOS的使用者可以參考<span class="exturl" data-url="aHR0cHM6Ly9tYWdpY2xlbi5vcmcvbGludXgtaW5zdGFsbC1ub2RlanMv">這篇文章<i class="fa fa-external-link-alt"></i></span>安裝指定版本。</p>
+<h3 id="tsc"><a href="#tsc" class="headerlink" title="tsc"></a>tsc</h3><p>tsc是TypeScript程式的編譯器，能夠將TS編譯成JS。<br>執行以下npm指令:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm i -g typescript</span><br></pre></td></tr></table></figure>
 
-<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ul>
-<li>新增 push(element)、刪除 pop()</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 新增元素</span></span><br><span class="line"><span class="built_in">this</span>.push = <span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">  items.push(element);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 刪除元素：會返回被移除的元素</span></span><br><span class="line"><span class="built_in">this</span>.pop = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items.pop();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>關於編譯器的設定，我就先不說明，一開始花太多時間在這會顯得有點浪費且沒意思，畢竟內容很龐大也很複雜。</p>
+<hr>
+<h2 id="簡單的範例"><a href="#簡單的範例" class="headerlink" title="簡單的範例"></a>簡單的範例</h2><figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">name: <span class="built_in">string</span></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello &quot;</span> + name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(colin)</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>最上方元素為何 peek(), top()</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 返回最上方元素</span></span><br><span class="line"><span class="built_in">this</span>.peek = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items[items.length - <span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>這邊唯一和我們學過的JavaScript不同，就是func這個函式的傳入參數多一個 :string 的指示詞，這東西在ＴＳ裡稱做類型註解。這邊就是說傳入的參數只接受字串(string)的型態，只要是其他型別在呼叫或是執行時就會報錯。</p>
+<p>對於函式而言，會有傳入參數和回傳值兩種情況，那麼我們就要養成習慣。</p>
+<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">name: <span class="built_in">string</span></span>): <span class="title">string</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello &quot;</span> + name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(colin)</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>堆疊還有元素嗎 isEmpty()</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 堆疊內部是否還有元素存在 true, false</span></span><br><span class="line"><span class="built_in">this</span>.isEmpty = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items.length === <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面這表示回傳值的型態也是string類型，順帶一提，如果函式沒有回傳值時可以使用 void，相信很多人都有看過吧，這就是專門為沒有回傳值的函式所準備的類型。</p>
+<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line">name: <span class="built_in">string</span> | <span class="built_in">number</span> = <span class="string">&quot;Colin&quot;</span>;</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>元素共有幾個 size()</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 堆疊內部有多少元素</span></span><br><span class="line"><span class="built_in">this</span>.size = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items.length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>清空堆疊 clear()</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 堆疊清空</span></span><br><span class="line"><span class="built_in">this</span>.clear = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items = [];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Stack</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> items = [];</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.push = <span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">    items.push(element);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.pop = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items.pop();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.peek = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items[items.length - <span class="number">1</span>];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.isEmpty = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items.length === <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.size = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items.length;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.clear = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items = [];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="動手做做看"><a href="#動手做做看" class="headerlink" title="動手做做看"></a>動手做做看</h2><p>快速測試可以打開 chrome 的 console 操作看看。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> stack = <span class="keyword">new</span> Stack();</span><br><span class="line"></span><br><span class="line">stack.push(<span class="string">&#x27;plateA&#x27;</span>);</span><br><span class="line">stack.push(<span class="string">&#x27;plateB&#x27;</span>);</span><br><span class="line">stack.push(<span class="string">&#x27;plateC&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(stack); <span class="comment">// [&#x27;plateA&#x27;, &#x27;plateB&#x27;, &#x27;plateC&#x27;]</span></span><br><span class="line"></span><br><span class="line">stack.pop()</span><br><span class="line"><span class="built_in">console</span>.log(stack); <span class="comment">// [&#x27;plateA&#x27;, &#x27;plateB&#x27;]</span></span><br><span class="line"></span><br><span class="line">stack.size() <span class="comment">// 2</span></span><br><span class="line">stack.peek() <span class="comment">// &#x27;plantB&#x27;</span></span><br><span class="line">stack.clear() <span class="comment">// []</span></span><br><span class="line">stack.isEmpty() <span class="comment">// true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>最後到 leetcode 驗收一下自己學習的成果吧！<br><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvaW1wbGVtZW50LXF1ZXVlLXVzaW5nLXN0YWNrcy8=">232. Implement Queue using Stacks<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvdmFsaWQtcGFyZW50aGVzZXMv">20. Valid Parentheses<i class="fa fa-external-link-alt"></i></span></p>
-<h2 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h2><p><span class="exturl" data-url="aHR0cHM6Ly9zdHVkeWFsZ29yaXRobXMuY29tL3RoZW9yeS9zdGFjay1kYXRhLXN0cnVjdHVyZS8=">What is a Stack?<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDIxNTExOA==">前端工程師用 javaScript 學演算法<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3poLXR3LyVFNSVBMCU4NiVFNiVBMCU4OA==">堆疊- 維基百科，自由的百科全書 - Wikipedia<i class="fa fa-external-link-alt"></i></span></p>
+<p>這裡的意思是 name這個變數能接受的型態為字串(string)與數字(number)，而且預設值為 Colin字串。</p>
+<hr>
 ]]></content>
       <tags>
-        <tag>Data structure</tag>
-        <tag>Algorithm</tag>
-        <tag>JavaScript</tag>
+        <tag>Frontend</tag>
+        <tag>TypeScript</tag>
       </tags>
   </entry>
   <entry>
@@ -465,25 +519,22 @@
       </tags>
   </entry>
   <entry>
-    <title>如何利用HTML直接下載pdf</title>
-    <url>/posts/Html-downloadPdf/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天在嘗試利用 html的<code>&lt;a&gt;</code>標籤做下載檔案的功能，發現了一件事情，其他檔案能正常下載<br><del>除了pdf</del></p>
-<p>當你的程式是寫<code>&lt;a href=&quot;test.pdf&quot; /&gt;</code>，當點擊連結時，會使用在當前瀏覽器中打開該文件給予預覽。<br>這就會不符合我的需求，我希望的是直接給使用者下載，不需要再打開預覽文件。</p>
+    <title>為什麼Vue中的data有時候會看到return，而有時候卻沒有？</title>
+    <url>/posts/Vue-data/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>當你在剛接觸 Vue 的時候是不是有想過一件事情，文件上或人家範例的 data 寫方式似乎不太一樣…🤔😣</p>
 <span id="more"></span>
 
-<h2 id="HTML-lt-a-gt-download屬性"><a href="#HTML-lt-a-gt-download屬性" class="headerlink" title="HTML &lt;a&gt; download屬性"></a>HTML <code>&lt;a&gt;</code> download屬性</h2><p>爬了一下文發現很簡單！只要在a標籤裡再加上一個download就好～<br><code>&lt;a href=&quot;yourfile.pdf&quot; download=&quot;newFileName&quot;&gt;下載檔案&lt;/a&gt;</code><br>這邊的newFileName是讓你可以指定使用者下載下來時的檔名，<br>如果留空，就會默認為伺服器端的名稱，<br>如下：<br><code>&lt;a href=&quot;test.pdf&quot; download&gt;click&lt;/a&gt;</code></p>
-<h2 id="HTML-lt-a-gt-target屬性"><a href="#HTML-lt-a-gt-target屬性" class="headerlink" title="HTML &lt;a&gt; target屬性"></a>HTML <code>&lt;a&gt;</code> target屬性</h2><p>既然都說到<code>&lt;a&gt;</code>標籤了，那就再加上一點補充～<br>利用a標籤的時候不外乎就是要開啟一個連結或是下載檔案，那我們在打開連接的方式就有分成幾種：</p>
-<ul>
-<li>直接於所在的視窗中打開（_self）</li>
-<li>另開一個視窗（_blank）</li>
-<li>開啟於父層框架（_parent）</li>
-</ul>
+<h2 id="疑難排解"><a href="#疑難排解" class="headerlink" title="疑難排解"></a>疑難排解</h2><p>在簡單的vue實例中看到的data屬性如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> app = newVue(&#123;</span><br><span class="line">    el: <span class="string">&quot;app&quot;</span>,</span><br><span class="line">    data:&#123;</span><br><span class="line">        msg:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>在使用組件化的項目中使用的形式是如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    <span class="function"><span class="title">data</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span>&#123;</span><br><span class="line">            msg:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>而這兩邊的差異呢就在於 <strong>不使用return包覆</strong> 的資料會在全局都可見，這會造成變數污染。<br>反之 <strong>用return的資料</strong> 就只會在當前的component生效而已，不會影響到其他組件。</p>
 ]]></content>
       <tags>
         <tag>Frontend</tag>
-        <tag>Html</tag>
-        <tag>Download</tag>
-        <tag>PDF</tag>
+        <tag>Vue.js</tag>
       </tags>
   </entry>
   <entry>
@@ -526,78 +577,7 @@
 ]]></content>
       <tags>
         <tag>SEO</tag>
-        <tag>Crawler</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>來聊聊 Type Script</title>
-    <url>/posts/Ts-know/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>第一次在專案裡與 TS 相遇，那就不免俗的了解囉！<br>稍微簡介一下～<br>TypeScript是由微軟開發的一種能用來編譯出JavaScript程式碼的程式語言，因其比JS還多了一道編譯手續，能夠在編譯階段找出語法上的問題，而且也添加了型別檢查的機制，讓程式更容易閱讀與偵錯，也更適合開發大型的專案。<br>白話一點來說，JS可以通過TS編譯器來編譯，而且還能夠實現JavaScript的版本轉換(例如ES6轉ES5)</p>
-<span id="more"></span>
-
-<img src="/posts/Ts-know/js-ts.jpg" class="">
-
-<h2 id="安裝與設定"><a href="#安裝與設定" class="headerlink" title="安裝與設定"></a>安裝與設定</h2><h3 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h3><p>我們要先設定好Node.js和npm環境，建議使用Node.js最新的LTS版本。<br>Node.js是JavaScript程式的執行環境，讓我們不需要開啟瀏覽器也可以執行JS。而npm則是JS的套件管理器，常與Node.js一同被安裝。</p>
-<p>Windows的使用者可以直接到<span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL2VuLw==">Node.js官方網站<i class="fa fa-external-link-alt"></i></span>下載，而Linux或MacOS的使用者可以參考<span class="exturl" data-url="aHR0cHM6Ly9tYWdpY2xlbi5vcmcvbGludXgtaW5zdGFsbC1ub2RlanMv">這篇文章<i class="fa fa-external-link-alt"></i></span>安裝指定版本。</p>
-<h3 id="tsc"><a href="#tsc" class="headerlink" title="tsc"></a>tsc</h3><p>tsc是TypeScript程式的編譯器，能夠將TS編譯成JS。<br>執行以下npm指令:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm i -g typescript</span><br></pre></td></tr></table></figure>
-
-<p>關於編譯器的設定，我就先不說明，一開始花太多時間在這會顯得有點浪費且沒意思，畢竟內容很龐大也很複雜。</p>
-<hr>
-<h2 id="簡單的範例"><a href="#簡單的範例" class="headerlink" title="簡單的範例"></a>簡單的範例</h2><figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">name: <span class="built_in">string</span></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello &quot;</span> + name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(colin)</span><br></pre></td></tr></table></figure>
-
-<p>這邊唯一和我們學過的JavaScript不同，就是func這個函式的傳入參數多一個 :string 的指示詞，這東西在ＴＳ裡稱做類型註解。這邊就是說傳入的參數只接受字串(string)的型態，只要是其他型別在呼叫或是執行時就會報錯。</p>
-<p>對於函式而言，會有傳入參數和回傳值兩種情況，那麼我們就要養成習慣。</p>
-<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">name: <span class="built_in">string</span></span>): <span class="title">string</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello &quot;</span> + name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(colin)</span><br></pre></td></tr></table></figure>
-
-<p>上面這表示回傳值的型態也是string類型，順帶一提，如果函式沒有回傳值時可以使用 void，相信很多人都有看過吧，這就是專門為沒有回傳值的函式所準備的類型。</p>
-<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line">name: <span class="built_in">string</span> | <span class="built_in">number</span> = <span class="string">&quot;Colin&quot;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>這裡的意思是 name這個變數能接受的型態為字串(string)與數字(number)，而且預設值為 Colin字串。</p>
-<hr>
-]]></content>
-      <tags>
-        <tag>Frontend</tag>
-        <tag>TypeScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>為什麼Vue中的data有時候會看到return，而有時候卻沒有？</title>
-    <url>/posts/Vue-data/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>當你在剛接觸 Vue 的時候是不是有想過一件事情，文件上或人家範例的 data 寫方式似乎不太一樣…🤔😣</p>
-<span id="more"></span>
-
-<h2 id="疑難排解"><a href="#疑難排解" class="headerlink" title="疑難排解"></a>疑難排解</h2><p>在簡單的vue實例中看到的data屬性如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> app = newVue(&#123;</span><br><span class="line">    el: <span class="string">&quot;app&quot;</span>,</span><br><span class="line">    data:&#123;</span><br><span class="line">        msg:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>在使用組件化的項目中使用的形式是如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    <span class="function"><span class="title">data</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span>&#123;</span><br><span class="line">            msg:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>而這兩邊的差異呢就在於 <strong>不使用return包覆</strong> 的資料會在全局都可見，這會造成變數污染。<br>反之 <strong>用return的資料</strong> 就只會在當前的component生效而已，不會影響到其他組件。</p>
-]]></content>
-      <tags>
-        <tag>Frontend</tag>
-        <tag>Vue.js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>什麼時候該使用『 const vm = this 』</title>
-    <url>/posts/Vue-this/</url>
-    <content><![CDATA[<p> <strong>影響this的是在於<em>函式的呼叫方式</em></strong></p>
-<p>以下為this的範例</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">reverseText: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.text.split(<span class="string">&#x27;&#x27;</span>).reverse().join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-
-<p>在第一個範例中，this運行後都是在這個元件底下<br>並沒有另外的函式在內（ex: forEach）<br>全部的this都是指向<strong>Vue的該元件</strong><br>因此不需要另外使用 vm = this</p>
-<p>至於使用 vm = this 可以避免內部有其他函式叫<br>導致 this 的運作不如預期。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//因為在&quot;&quot;內層函式&quot;&quot;filter的函式內使用到this，指向會跑掉，所以需要使用vm。</span></span><br><span class="line">filterArray: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> vm = <span class="built_in">this</span>;</span><br><span class="line">    <span class="keyword">return</span> vm.arrayData.filter(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> item.name.match(vm.filterText)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p> <strong>除了使用 filter/ forEach 會讓this指向window外，函式在直接呼叫的時候this也會指向window</strong></p>
-]]></content>
-      <tags>
-        <tag>Frontend</tag>
-        <tag>Vue.js</tag>
+        <tag>crawler</tag>
       </tags>
   </entry>
   <entry>
@@ -618,6 +598,26 @@
 <li>指示詞(Directive)：內建許多指示詞(v-開頭)，用來進行程式邏輯的判斷</li>
 <li>Vue路由器(Router)：利用它建構一個基本卻完整的路由庫，來操作瀏覽器上/下一頁的流程，建立 SPA 完整單頁式應用的能力。</li>
 </ul>
+]]></content>
+      <tags>
+        <tag>Frontend</tag>
+        <tag>Vue.js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>什麼時候該使用『 const vm = this 』</title>
+    <url>/posts/Vue-this/</url>
+    <content><![CDATA[<p> <strong>影響this的是在於<em>函式的呼叫方式</em></strong></p>
+<p>以下為this的範例</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">reverseText: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.text.split(<span class="string">&#x27;&#x27;</span>).reverse().join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p>在第一個範例中，this運行後都是在這個元件底下<br>並沒有另外的函式在內（ex: forEach）<br>全部的this都是指向<strong>Vue的該元件</strong><br>因此不需要另外使用 vm = this</p>
+<p>至於使用 vm = this 可以避免內部有其他函式叫<br>導致 this 的運作不如預期。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//因為在&quot;&quot;內層函式&quot;&quot;filter的函式內使用到this，指向會跑掉，所以需要使用vm。</span></span><br><span class="line">filterArray: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> vm = <span class="built_in">this</span>;</span><br><span class="line">    <span class="keyword">return</span> vm.arrayData.filter(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> item.name.match(vm.filterText)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> <strong>除了使用 filter/ forEach 會讓this指向window外，函式在直接呼叫的時候this也會指向window</strong></p>
 ]]></content>
       <tags>
         <tag>Frontend</tag>
