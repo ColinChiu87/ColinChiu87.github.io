@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"colinchiu87.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="前言這週要帶各位認識的資料結構是「集合 Set」。在深入探索它之前先讓我們看一下他的數學概念，在裡頭集合是一組不同的物件（的集合）。 比如說，一個由大於或等於零的整數組成的自然數集合：Ｎ &#x3D; {0, 1, 2, 3, 4, 5, …}。集合中的物件列表用{}包圍起來。 另一個概念為「空集」，不包含任何元素的集合。比如說： 20, 23 這兩個數字之間的質數集合，由於這兩數之間沒有質數（除了 1 和">
+<meta property="og:type" content="article">
+<meta property="og:title" content="『 資料結構 』集合 Set">
+<meta property="og:url" content="https://colinchiu87.github.io/posts/DataStructure-set/">
+<meta property="og:site_name" content="凹逗の工程師">
+<meta property="og:description" content="前言這週要帶各位認識的資料結構是「集合 Set」。在深入探索它之前先讓我們看一下他的數學概念，在裡頭集合是一組不同的物件（的集合）。 比如說，一個由大於或等於零的整數組成的自然數集合：Ｎ &#x3D; {0, 1, 2, 3, 4, 5, …}。集合中的物件列表用{}包圍起來。 另一個概念為「空集」，不包含任何元素的集合。比如說： 20, 23 這兩個數字之間的質數集合，由於這兩數之間沒有質數（除了 1 和">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://colinchiu87.github.io/posts/DataStructure-set/set_union.png">
+<meta property="og:image" content="https://colinchiu87.github.io/posts/DataStructure-set/Set_intersection.png">
+<meta property="og:image" content="https://colinchiu87.github.io/posts/DataStructure-set/Set_difference.png">
+<meta property="og:image" content="https://colinchiu87.github.io/posts/DataStructure-set/subset.png">
+<meta property="article:published_time" content="2022-11-21T08:07:35.000Z">
+<meta property="article:modified_time" content="2022-11-22T10:45:22.434Z">
+<meta property="article:author" content="Kuan Ru">
+<meta property="article:tag" content="data structure">
+<meta property="article:tag" content="Algorithm">
+<meta property="article:tag" content="javascript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://colinchiu87.github.io/posts/DataStructure-set/set_union.png">
+
+<link rel="canonical" href="https://colinchiu87.github.io/posts/DataStructure-set/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>『 資料結構 』集合 Set | 凹逗の工程師</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="凹逗の工程師" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">凹逗の工程師</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">成為一個更好的人</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL0NvbGluQ2hpdTg3" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://colinchiu87.github.io/posts/DataStructure-set/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="Kuan Ru">
+      <meta itemprop="description" content="I don't care if you suck at writing. I don't care if nobody reads your blog. I don't care if you have nothing interesting to say.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="凹逗の工程師">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          『 資料結構 』集合 Set
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2022-11-21 16:07:35" itemprop="dateCreated datePublished" datetime="2022-11-21T16:07:35+08:00">2022-11-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2022-11-22 18:45:22" itemprop="dateModified" datetime="2022-11-22T18:45:22+08:00">2022-11-22</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>這週要帶各位認識的資料結構是「集合 Set」。在深入探索它之前先讓我們看一下他的數學概念，在裡頭集合是一組不同的物件（的集合）。</p>
+<p>比如說，一個由大於或等於零的整數組成的自然數集合：Ｎ = {0, 1, 2, 3, 4, 5, …}。集合中的物件列表用{}包圍起來。</p>
+<p>另一個概念為「空集」，不包含任何元素的集合。比如說： 20, 23 這兩個數字之間的質數集合，由於這兩數之間沒有質數（除了 1 和本身，沒有其他正因數的大於一的自然數），這個集合就是空集合。用 { } 表示。個人覺得本章節在資料結構中蠻重要的，特別是對於後端在資料庫存取時常用到這一個概念。</p>
+<span id="more"></span>
+
+<h2 id="什麼是集合？"><a href="#什麼是集合？" class="headerlink" title="什麼是集合？"></a>什麼是集合？</h2><p>集合是由一組無序且唯一的項目組成的。這個資料結構使用了與有限集合相同的概念，但應用在電腦科學的資料結構中。你也可以把集合想成一個既沒有元素，也沒有順序的陣列。在數學中，集合也有聯集、焦急、差集，在接下來也會一一介紹操作。</p>
+<h2 id="建立一個集合"><a href="#建立一個集合" class="headerlink" title="建立一個集合"></a>建立一個集合</h2><p>在 ES6 中，已經有 Set 的類別，<del>終於遇到原生的資料結構了</del>QAQ<br>不過以下我們還是自己寫一個會比較印象深刻！</p>
+<p>這是我們的 Set 類別骨架：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Set</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> items = &#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>這裡有一個細節，我們使用的不是陣列而是物件，原因是 Java Script 的物件是不允許一個鍵指向兩個不同屬性，保證了元素都是唯一的。</p>
+<p>開始宣告一些集合可用的方法：</p>
+<ul>
+<li>add(value)：向集合添加一個新的項目。</li>
+<li>remove(value)：從一個集合移除一個值。</li>
+<li>has(value)：如果值在集合中，返回 true，反之 false。</li>
+<li>clear()：移除集合中所有項目。</li>
+<li>size()：返回集合所包含元素的數量。與陣列 length 相同。</li>
+<li>values()：返回一個包含集合中所有值的陣列。</li>
+</ul>
+<h3 id="has-value"><a href="#has-value" class="headerlink" title="has(value)"></a>has(value)</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.has(value) = <span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value <span class="keyword">in</span> items;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>既然我們用物件來存放集合的值，就可以使用 JS 的 in 運算子來驗證是否是物件的屬性。</p>
+<p>==補充一個方法 obj.hasOwnProperty(prop)，它會返回一個布林值，指示物件自身屬性中（非繼承屬性）是否具有指定的屬性。==</p>
+<h3 id="add-value"><a href="#add-value" class="headerlink" title="add(value)"></a>add(value)</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.add = <span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(!<span class="built_in">this</span>.has(value))&#123;</span><br><span class="line">    items[value] = value;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>新增項目時，先檢查它是否存在於集合中。</p>
+<p>==添加一個值的時候，把它同時當作鍵和值儲存，因為這樣有利於尋找這個值==</p>
+<h3 id="remove-value-amp-clear"><a href="#remove-value-amp-clear" class="headerlink" title="remove(value) &amp; clear()"></a>remove(value) &amp; clear()</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.remove = <span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="built_in">this</span>.has(value))&#123;</span><br><span class="line">    <span class="keyword">delete</span> items[value];</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>remove 方法中，我們會驗證給定的 value 是否存在於集合中。如果存在，就從集合中移除 value，返回 true，表示值被移除；否則返回 false。</p>
+<p>既然用物件來存放集合的 items 物件，就可以使用 delete 運算子從 items 物件中移除屬性。</p>
+<p>使用 Set 類別的範例如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> set = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line">set.add(<span class="number">1</span>);</span><br><span class="line">set.add(<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>出於好奇，如果執行以上程式碼之後，在主控台（ console.log ）輸出 items 變數，Google Chrome 就會輸出如下內容：<br>  Object{ 1: 1, 2: 2 }<br>可以看到，這是一個有兩個屬性的物件。屬性名就是添加到集合的值同時它也是屬性值</p>
+</blockquote>
+<p>如果想移除集合中的所有值，可以用 clear 方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.clear = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  items = &#123;&#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>要重設 items 物件，需要做的只是把一個空物件重新賦值給它。</p>
+<h3 id="size"><a href="#size" class="headerlink" title="size()"></a>size()</h3><p>這裡會有三種實作方法。</p>
+<p>第一種是使用一個 length 變數，每當使用 add 或 remove 方法時控制它。</p>
+<p>第二種方法，使用 JavaScript 內建的 Object 類別的一個內建函數（ ECMAScript 5 以上版本 ）：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.size = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.keys(items).length;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>第三種方法是手動提取 items 物件的每一個屬性，紀錄屬性的個數並返回這個數字。這可以運行在每個瀏覽器，和之前的程式碼是等價的：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.sizeLegacy = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> prop <span class="keyword">in</span> items)&#123;</span><br><span class="line">    <span class="keyword">if</span>(items.hasOwnProperty(prop))&#123;</span><br><span class="line">      ++count;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> count;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>遍歷 items 物件的所有屬性，檢查它們是否是物件本身的屬性。如果是，就遞增 count 值，最後在方法結束再返回這數字。</p>
+<blockquote>
+<p>不能簡單地使用 for-in 語句遍歷 items 物件的屬性，遞增 count 變數的值。還需要使用 has 方法，因為物件的原型包含了額外的屬性。</p>
+</blockquote>
+<h3 id="values"><a href="#values" class="headerlink" title="values()"></a>values()</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.values = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.keys(items);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用-Set-類別"><a href="#使用-Set-類別" class="headerlink" title="使用 Set 類別"></a>使用 Set 類別</h3><p>資料結構已經完成囉，看看怎麼使用它吧！</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> set = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line"></span><br><span class="line">set.add(<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(set.values()); <span class="comment">// [&quot;1&quot;]</span></span><br><span class="line"><span class="built_in">console</span>.log(set.has(<span class="number">1</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(set.size()); <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line">set.add(<span class="number">2</span>);</span><br><span class="line"><span class="built_in">console</span>.log(set.values()); <span class="comment">// [&quot;1&quot;, &quot;2&quot;]</span></span><br><span class="line"><span class="built_in">console</span>.log(set.has(<span class="number">2</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(set.size()); <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line">set.remove(<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(set.values()); <span class="comment">// [&quot;2&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="集合操作"><a href="#集合操作" class="headerlink" title="集合操作"></a>集合操作</h2><p>對集合可以進行的操作如下：</p>
+<ul>
+<li>聯集：給定的兩集合，返回一個包含兩個集合中所有元素的新集合。</li>
+<li>交集：給定的兩集合，返回一個包含兩個集合中共有元素的新集合。</li>
+<li>差集：給定的兩集合，返回一個包含所有存在於第一個集合且不存在於第二個集合的元素的新集合。</li>
+<li>子集：驗證一個給定集合是否是另一集合的子集。</li>
+</ul>
+<h3 id="聯集"><a href="#聯集" class="headerlink" title="聯集"></a>聯集</h3><p>集合 A 和 B 的聯集，表示為 $ A\bigcup B $ ，定義如下：</p>
+<p>$$ A\bigcup B = { x | x \in A \bigvee x \in B } $$</p>
+<p>意思是 x （元素）存在於 A 中，或 x 存在於 B 中。</p>
+<img src="/posts/DataStructure-set/set_union.png" class="">
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.union = <span class="function"><span class="keyword">function</span>(<span class="params">otherSet</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> unionSet = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> values = <span class="built_in">this</span>.values();</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;values.length; i++)&#123;</span><br><span class="line">    unionSet.add(values[i]);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  values = otherSet.values();</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;values.length; i++)&#123;</span><br><span class="line">    unionSet.add(values[i]);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> unionSet;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="交集"><a href="#交集" class="headerlink" title="交集"></a>交集</h3><p>意思是 x （元素）存在於 A 中，且 x 存在於 B 中。</p>
+<img src="/posts/DataStructure-set/Set_intersection.png" class="">
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.intersection = <span class="function"><span class="keyword">function</span>(<span class="params">otherSet</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> intersectionSet = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> values = <span class="built_in">this</span>.values();</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;values.length; i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(otherSet.has(values[i]))&#123;</span><br><span class="line">      intersectionSet.add(values.[i]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> intersectionSet;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="差集"><a href="#差集" class="headerlink" title="差集"></a>差集</h3><p>意思是 x （元素）存在於 A 中，且 x 不存在於 B 中。</p>
+<img src="/posts/DataStructure-set/Set_difference.png" class="">
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.difference = <span class="function"><span class="keyword">function</span>(<span class="params">otherSet</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> differenceSet = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> values = <span class="built_in">this</span>.values();</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;values.length; i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(!otherSet.has(values[i]))&#123;</span><br><span class="line">      differenceSet.add(values[i]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> differenceSet;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="子集"><a href="#子集" class="headerlink" title="子集"></a>子集</h3><p>意思是集合 A 中的每一個 x （元素），也需要存在於 B 中。</p>
+<img src="/posts/DataStructure-set/subset.png" class="">
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.subset = <span class="function"><span class="keyword">function</span>(<span class="params">otherSet</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="built_in">this</span>.size() &gt; otherSet.size())&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> values = <span class="built_in">this</span>.values();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;values.length; i++)&#123;</span><br><span class="line">      <span class="keyword">if</span>(!otherSet.has(values[i]))&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h2><p>這章學習了如何從頭實作與 ES6 中定義的類似的 Set 類別。我們還介紹了在其他程式語言的集合結構的實作中不常見的一些方法，例如：連擊、交集、差集..等。</p>
+
+    </div>
+
+    
+    
+    
+        
+
+  <div class="followme">
+    <p>歡迎關注我的其它發布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/data-structure/" rel="tag"># data structure</a>
+              <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+              <a href="/tags/javascript/" rel="tag"># javascript</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/DataStructure-linkedList/" rel="prev" title="DataStructure-linkedList">
+      <i class="fa fa-chevron-left"></i> DataStructure-linkedList
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF%E9%9B%86%E5%90%88%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">什麼是集合？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E4%B8%80%E5%80%8B%E9%9B%86%E5%90%88"><span class="nav-number">3.</span> <span class="nav-text">建立一個集合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#has-value"><span class="nav-number">3.1.</span> <span class="nav-text">has(value)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#add-value"><span class="nav-number">3.2.</span> <span class="nav-text">add(value)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#remove-value-amp-clear"><span class="nav-number">3.3.</span> <span class="nav-text">remove(value) &amp; clear()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#size"><span class="nav-number">3.4.</span> <span class="nav-text">size()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#values"><span class="nav-number">3.5.</span> <span class="nav-text">values()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-Set-%E9%A1%9E%E5%88%A5"><span class="nav-number">3.6.</span> <span class="nav-text">使用 Set 類別</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E6%93%8D%E4%BD%9C"><span class="nav-number">4.</span> <span class="nav-text">集合操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%81%AF%E9%9B%86"><span class="nav-number">4.1.</span> <span class="nav-text">聯集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A4%E9%9B%86"><span class="nav-number">4.2.</span> <span class="nav-text">交集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%AE%E9%9B%86"><span class="nav-number">4.3.</span> <span class="nav-text">差集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E9%9B%86"><span class="nav-number">4.4.</span> <span class="nav-text">子集</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%B5%90"><span class="nav-number">5.</span> <span class="nav-text">小結</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Kuan Ru"
+      src="/uploads/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Kuan Ru</p>
+  <div class="site-description" itemprop="description">I don't care if you suck at writing. I don't care if nobody reads your blog. I don't care if you have nothing interesting to say.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0NvbGluQ2hpdTg3" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ColinChiu87"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOmNvbGluY2hpdTg3QGdtYWlsLmNvbQ==" title="E-Mail → mailto:colinchiu87@gmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">若要轉載文章，麻煩請保留原作者名稱及原始連結</span>
+</div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=62d7c67c53ba4a28" async="async"></script>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="訪客總數">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="總瀏覽次數">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
