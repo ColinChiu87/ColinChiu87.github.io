@@ -32,11 +32,11 @@
 <meta property="og:image" content="https://colinchiu87.github.io/posts/DataStructure-set/Set_difference.png">
 <meta property="og:image" content="https://colinchiu87.github.io/posts/DataStructure-set/subset.png">
 <meta property="article:published_time" content="2022-11-21T08:07:35.000Z">
-<meta property="article:modified_time" content="2022-11-22T10:45:22.434Z">
+<meta property="article:modified_time" content="2022-12-05T12:54:03.556Z">
 <meta property="article:author" content="Kuan Ru">
 <meta property="article:tag" content="data structure">
-<meta property="article:tag" content="Algorithm">
 <meta property="article:tag" content="javascript">
+<meta property="article:tag" content="Algorithm">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://colinchiu87.github.io/posts/DataStructure-set/set_union.png">
 
@@ -226,7 +226,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2022-11-22 18:45:22" itemprop="dateModified" datetime="2022-11-22T18:45:22+08:00">2022-11-22</time>
+                <time title="修改時間：2022-12-05 20:54:03" itemprop="dateModified" datetime="2022-12-05T20:54:03+08:00">2022-12-05</time>
               </span>
 
           
@@ -335,7 +335,7 @@
 
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.subset = <span class="function"><span class="keyword">function</span>(<span class="params">otherSet</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="built_in">this</span>.size() &gt; otherSet.size())&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> values = <span class="built_in">this</span>.values();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;values.length; i++)&#123;</span><br><span class="line">      <span class="keyword">if</span>(!otherSet.has(values[i]))&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<h2 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h2><p>這章學習了如何從頭實作與 ES6 中定義的類似的 Set 類別。我們還介紹了在其他程式語言的集合結構的實作中不常見的一些方法，例如：連擊、交集、差集..等。</p>
+<h2 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h2><p>這章學習了如何從頭實作與 ES6 中定義的類似的 Set 類別。我們還介紹了在其他程式語言的集合結構的實作中不常見的一些方法，例如：連擊、交集、差集..等。相較於前幾個主題，我們完成了較完善的實例！給自己一個掌聲 👏🏻</p>
 
     </div>
 
@@ -365,8 +365,8 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/data-structure/" rel="tag"># data structure</a>
-              <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
               <a href="/tags/javascript/" rel="tag"># javascript</a>
+              <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
           </div>
 
         
