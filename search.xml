@@ -1,63 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Big O 分析演算法好壞</title>
-    <url>/posts/Algorithm-bigO/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>同樣一個問題可以用不同的演算法解答，那我們要如何去區分當中的好與壞呢？<br>對於這樣的疑問有人提出了一種解答 - Big O.</p>
-<span id="more"></span>
-
-<h2 id="Big-O-表示法"><a href="#Big-O-表示法" class="headerlink" title="Big O 表示法"></a>Big O 表示法</h2><p>分析演算法的優劣，通常是使用資源來評量，ex: CPU 佔用量、Memory 佔用量、磁碟、網路等等。<br>當說到 big o 時，一般考慮的就是 CPU (時間)佔用。在分析時很常會看到以下的函數：</p>
-<table>
-<thead>
-<tr>
-<th align="center">符號</th>
-<th align="center">名稱</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">O(1)</td>
-<td align="center">常數型</td>
-</tr>
-<tr>
-<td align="center">O(log(n))</td>
-<td align="center">對數型</td>
-</tr>
-<tr>
-<td align="center">O(log(n)c)</td>
-<td align="center">對數多項式型</td>
-</tr>
-<tr>
-<td align="center">O(n)</td>
-<td align="center">線性型</td>
-</tr>
-<tr>
-<td align="center">O(n^2)</td>
-<td align="center">二次型</td>
-</tr>
-<tr>
-<td align="center">O(n^c)</td>
-<td align="center">多項式型</td>
-</tr>
-<tr>
-<td align="center">O(c^n)</td>
-<td align="center">指數型</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>Big O 是用來描述演算法在輸入 n 個數時，總時間與 n 的關係。</p>
-</blockquote>
-<img src="/posts/Algorithm-bigO/Algorithm-bigO1.png" class="">
-
-<blockquote>
-<p>常見排序： 1(常數) &lt; log n &lt; n &lt; n log n &lt; n^2 &lt; 2^n &lt; n!</p>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>data structure</tag>
-        <tag>Algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>『 資料結構 』鏈結串列 Linked-List</title>
     <url>/posts/DataStructure-linkedList/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>這週要帶各位認識的資料結構是「 鏈結串列 Linked-List 」，一開始所學的陣列（串列）是一種非常簡易能讓我們存放資料序列的資料結構，而鏈結串列則是一種動態的，我們進行新增或刪減元素，就會依照需求進行擴充。陣列應該是大家最常用的資料結構，每種語言都支持它，但是卻有一個隱憂：在大多數的語言中，<strong>陣列的大小是固定的</strong>，從起點或中間插入、移除元素是非常耗成本的。</p>
@@ -142,179 +85,65 @@
 ]]></content>
       <tags>
         <tag>data structure</tag>
-        <tag>Algorithm</tag>
         <tag>javascript</tag>
+        <tag>Algorithm</tag>
       </tags>
   </entry>
   <entry>
-    <title>『 資料結構 』佇列 Queue</title>
-    <url>/posts/DataStructure-queue/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>第三週我們歡迎「 Queue 佇列 」，上週我們學會了 stack ，這兩個東西非常相似，但是原則不同！<br>佇列在尾端新增元素，在頂部移除，在現實中就像是我們在排隊一樣，排在前面的人會優先被服務到，因此也有一個別稱叫做「 隊列 」。</p>
-<img src="/posts/DataStructure-queue/queue.webp" class="">
-
+    <title>Big O 分析演算法好壞</title>
+    <url>/posts/Algorithm-bigO/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>同樣一個問題可以用不同的演算法解答，那我們要如何去區分當中的好與壞呢？<br>對於這樣的疑問有人提出了一種解答 - Big O.</p>
 <span id="more"></span>
 
-<h2 id="佇列什麼來頭？"><a href="#佇列什麼來頭？" class="headerlink" title="佇列什麼來頭？"></a>佇列什麼來頭？</h2><p>佇列是遵守著 FIFO (First In First Out, 先進先出) 原則的有序項目。</p>
-<ul>
-<li>一群相同性質元素的組合</li>
-<li>具有 FIFO 特性</li>
-<li>加入元素發生在尾端</li>
-<li>刪除元素發生在頂端</li>
-</ul>
-<p>在 Computer Science 中，最常看到的例子就是列印佇列。假如我們要列印三份文件，會開啟檔案並按下列印的按鈕，每個文件都會被發送至列印佇列，第一個發送到的文件會首先被列印出來，直到所有文件都列印完成。</p>
-<h2 id="建立佇列"><a href="#建立佇列" class="headerlink" title="建立佇列"></a>建立佇列</h2><h3 id="宣告類別"><a href="#宣告類別" class="headerlink" title="宣告類別"></a>宣告類別</h3><p>首先來宣告一個類別來建立自己的佇列：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Queue</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 寫入屬性和方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>我們需要一個用於存放元素的結構，這邊可以使用陣列，就像上一篇 Stack 那樣做。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> items = []</span><br></pre></td></tr></table></figure>
-
-<h3 id="宣告方法"><a href="#宣告方法" class="headerlink" title="宣告方法"></a>宣告方法</h3><p>接下來讓我們開始宣告方法吧！以下是佇列可用的幾種方法：</p>
-<ul>
-<li>enqueue(element(s)): 向佇列尾端增加一個(或多個)新元素。</li>
-<li>dequeue(): 刪除佇列第一個元素(即排在最前面的)，並返回該元素。</li>
-<li>front(): 返回佇列第一個元素－－最先加入的。（與 Stack 的 peek 方法極為相似）</li>
-<li>isEmpty(): 如果佇列中不包含任何元素，返回 true，反之返回 false。</li>
-<li>size(): 返回佇列裡的元素個數，與陣列的 length 相同。</li>
-</ul>
-<p>第一個就是我們的‘新增’，記住佇列只能從未端添加！</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.enqueue = <span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">  items.push(element);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>實作佇列移除元素。由於只能遵循先進先出原則，最先加入的也是最先移除的。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.dequeue = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items.shift();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>只有 enqueue, dequeue 兩種方法可以新增及刪除元素，這樣確保了 Queue 類別先進先出的規則。</p>
-<p>接著就是屬於比較輔助的方法。<br>如果想知道佇列最前面的元素是什麼，可以用 front 方法，將返回佇列 index 為 0 的元素。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.front = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items[<span class="number">0</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>isEmpty 如果佇列為空，返回 true，反之 false。常用於驗證。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.isEmpty = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items.length == <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>最後我們可以讓 Queue 類別實作類似 Array 類別的 length 屬性的方法。size 方法也和 Stack 裡的一樣：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.size = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items.length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>到這邊，我們完成了！</p>
-<h3 id="完整-Queue-類別"><a href="#完整-Queue-類別" class="headerlink" title="完整 Queue 類別"></a>完整 Queue 類別</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Queue</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> items = [];</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.enqueue = <span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">    items.push(element);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.dequue = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items.shift();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.front = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items[<span class="number">0</span>];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.isEmpty = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items.length == <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.size = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)[</span></span><br><span class="line"><span class="function">    <span class="title">return</span> <span class="title">items</span>.<span class="title">length</span></span>;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="與-Stack-不同之處"><a href="#與-Stack-不同之處" class="headerlink" title="與 Stack 不同之處"></a>與 Stack 不同之處</h2><p>唯一的區別是 dequeue 方法和 front 方法，這是由於先進先出和後進先出原則的不同所造成的。</p>
-<h2 id="使用-Queue-類別"><a href="#使用-Queue-類別" class="headerlink" title="使用 Queue 類別"></a>使用 Queue 類別</h2><p>第一步：實例化 Queue。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> queue = <span class="keyword">new</span> Queue();</span><br><span class="line"><span class="built_in">console</span>.log(queue.isEmpty()); <span class="comment">// 輸出 true</span></span><br></pre></td></tr></table></figure>
-
-<p>新增一些元素：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">queue.enqueue(<span class="string">&#x27;Jack&#x27;</span>);</span><br><span class="line">queue.enqueue(<span class="string">&#x27;Mike&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>可以玩一玩其他的方法～</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">queue.dequeue();</span><br><span class="line">queue.size(); <span class="comment">// 1</span></span><br><span class="line">queue.isEmpty();  <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="特殊佇列"><a href="#特殊佇列" class="headerlink" title="特殊佇列"></a>特殊佇列</h2><h3 id="優先佇列"><a href="#優先佇列" class="headerlink" title="優先佇列"></a>優先佇列</h3><p>佇列大量的應用在我們的生活中和電腦科學中，我們在之前的實作原型佇列中，也有其他的延伸。<br>其中一個就是「優先佇列」。元素的添加、移除是基於優先級別的。機場的登機順序就是一個現實的例子，頭等艙和商務艙的優先級要高於經濟艙的乘客。有些國家，老人和孕婦也擁有高於其他乘客的級別。</p>
-<p>另一個例子是醫院的急診室，醫生會優先處理重症患者，而護士通常會先行分類並決定次序。</p>
-<img src="/posts/DataStructure-queue/queue1.jpg" class="">
-<p><em>取自<span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9tL2FydGljbGVzLzEwMjY2OTgw">https://ithelp.ithome.com.tw/m/articles/10266980<i class="fa fa-external-link-alt"></i></span></em></p>
-<p>實作一個優先佇列，有兩個選項：</p>
-<ul>
-<li>一是設定優先級，然後在正確的位置增加元素。</li>
-<li>二是用入列操作新增元素，然候依照優先級移除它們。</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PriorityQueue</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> items = [];</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">QueueElement</span>(<span class="params">element, priority</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.element = element;</span><br><span class="line">    <span class="built_in">this</span>.priority = priority;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.enqueue = <span class="function"><span class="keyword">function</span>(<span class="params">element, priority</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> queueElement = newQueueElement(element, priority);</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">this</span>.isEmpty())&#123;</span><br><span class="line">      items.push(queueElement);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">var</span> added = <span class="literal">false</span>;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;items.length; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(queueElement.priority &lt; items[i].priority)&#123;</span><br><span class="line">          items.splice(i, <span class="number">0</span>, queueElement);</span><br><span class="line">          added = <span class="literal">true</span>;</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span>(!added)&#123;</span><br><span class="line">        items.push(queueElement);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 其他方法和預設的 Queue 實作相同</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>預設的類別和優先級佇列類別實作上的區別是，要向 PriorityQueue 新增元素，需要建立一個特殊元素。這個元素包含了要添加到佇列的元素（它可以是任意類型）及其在佇列中的優先級。</p>
-<p>如果佇列為空，可以直接加入。否則，就需要先比較該元素與其他元素的優先級。當找到一個比要添加元素還要大的 priority 項目時，就把新元素插入到它之前（根據這個邏輯，相同優先級通樣要遵循先進先出原則）。</p>
-<p>補充一點，這裡實作的稱為最小優先佇列，因為優先級較小被放置在最前面（ 1 表示更高優先 ）。最大優先佇列則與之相反。</p>
-<h3 id="環狀佇列"><a href="#環狀佇列" class="headerlink" title="環狀佇列"></a>環狀佇列</h3><p>另一個延伸就是「環狀佇列」。遊戲燙手山芋（ Hot Potato ）就是一個很好的例子。<br>遊戲中，玩家圍成一個圈，把物品盡快地遞給旁邊的人，某一時刻傳遞停止，而這時候物品在誰手上，誰就退出圓圈結束遊戲。重複這個過程，直到一位勝者出爐。</p>
-<img src="/posts/DataStructure-queue/queue2.webp" class="">
-<p><em>取自<span class="exturl" data-url="aHR0cHM6Ly93d3cuMTIzcmYuY29tL3Bob3RvXzEwOTE4MTAwX3Bhc3Npbmctb24tdGhlLWhvdC1wb3RhdG8tYS1jb25jZXB0Lmh0bWw=">https://www.123rf.com/photo_10918100_passing-on-the-hot-potato-a-concept.html<i class="fa fa-external-link-alt"></i></span></em></p>
-<p>實作：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hotPotato</span>(<span class="params">nameList, num</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> queue = <span class="keyword">new</span> Queue();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;nameList.length; i++)&#123;</span><br><span class="line">    queue.enqueue(nameList[i]);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> eliminated = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="keyword">while</span>(queue.size() &gt; <span class="number">1</span>)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;num; i++)&#123;</span><br><span class="line">      queue.enqueue(queue.dequeue());</span><br><span class="line">    &#125;</span><br><span class="line">    eliminated = queue.dequeue();</span><br><span class="line">    <span class="built_in">console</span>.log(eliminated + <span class="string">&#x27;在遊戲中被淘汰。&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> queue.dequeue();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> names = [<span class="string">&#x27;John&#x27;</span>, <span class="string">&#x27;Colin&#x27;</span>, <span class="string">&#x27;Alice&#x27;</span>, <span class="string">&#x27;Eileen&#x27;</span>, <span class="string">&#x27;Jack&#x27;</span>];</span><br><span class="line"><span class="keyword">var</span> winner = hotPotato(names, <span class="number">7</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;勝利者&#x27;</span> + winner);</span><br></pre></td></tr></table></figure>
-
-<h2 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h2><p>我們這次學習了佇列的資料結構，自己實作佇列的演算法，學習如何透過 enqueue, dequeue 方法增加和刪除元素。還有兩種著名的特殊佇列實作：優先佇列、環狀佇列。</p>
-<p>接下來我們將學習鏈結串列，比陣列更加複雜的資料結構呦！</p>
-]]></content>
-      <tags>
-        <tag>data structure</tag>
-        <tag>Algorithm</tag>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>『 資料結構 』堆疊 Stack</title>
-    <url>/posts/DataStructure-stack/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>準備好歡迎我們第二週的主題“堆疊”了嗎！<br>在電腦科學的江湖上流傳著一句話：</p>
+<h2 id="Big-O-表示法"><a href="#Big-O-表示法" class="headerlink" title="Big O 表示法"></a>Big O 表示法</h2><p>分析演算法的優劣，通常是使用資源來評量，ex: CPU 佔用量、Memory 佔用量、磁碟、網路等等。<br>當說到 big o 時，一般考慮的就是 CPU (時間)佔用。在分析時很常會看到以下的函數：</p>
+<table>
+<thead>
+<tr>
+<th align="center">符號</th>
+<th align="center">名稱</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">O(1)</td>
+<td align="center">常數型</td>
+</tr>
+<tr>
+<td align="center">O(log(n))</td>
+<td align="center">對數型</td>
+</tr>
+<tr>
+<td align="center">O(log(n)c)</td>
+<td align="center">對數多項式型</td>
+</tr>
+<tr>
+<td align="center">O(n)</td>
+<td align="center">線性型</td>
+</tr>
+<tr>
+<td align="center">O(n^2)</td>
+<td align="center">二次型</td>
+</tr>
+<tr>
+<td align="center">O(n^c)</td>
+<td align="center">多項式型</td>
+</tr>
+<tr>
+<td align="center">O(c^n)</td>
+<td align="center">指數型</td>
+</tr>
+</tbody></table>
 <blockquote>
-<p>程式設計 ＝ 資料結構 ＋ 演算法</p>
+<p>Big O 是用來描述演算法在輸入 n 個數時，總時間與 n 的關係。</p>
 </blockquote>
-<p>在各大專院校裡，這幾門課都列為必修課之一，但是大多缺乏語言的基礎，反而在這裡頭迷失了，學完就好像睡了一覺，模模糊糊迷迷茫茫…，我就是這樣😂</p>
-<p>本篇將使用 JavaScript 來學習堆疊(Stack)的資料結構。</p>
-<span id="more"></span>
+<img src="/posts/Algorithm-bigO/Algorithm-bigO1.png" class="">
 
-<h2 id="堆疊是什麼？"><a href="#堆疊是什麼？" class="headerlink" title="堆疊是什麼？"></a>堆疊是什麼？</h2><p>堆疊是一種按照<em>後進先出</em> (LIFO, Last In First Out)的有序結構，舉個例子：日常生活中的疊盤子。先疊的盤子會在最下面，後面開始會疊在上方，一層一層往上，當要拿盤子時一定是從最上面拿。</p>
-<p><img src="https://i0.wp.com/studyalgorithms.com/wp-content/uploads/2020/12/stack-of-plates_0.png?ssl=1" alt="疊盤子"></p>
-<h2 id="建立堆疊"><a href="#建立堆疊" class="headerlink" title="建立堆疊"></a>建立堆疊</h2><p>開始進入實作的階段，GOGO🤟🏻</p>
-<h3 id="類別"><a href="#類別" class="headerlink" title="類別"></a>類別</h3><p>首先，建立一個類別為 Stack:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Stack</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">//宣告內部屬性和方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="屬性"><a href="#屬性" class="headerlink" title="屬性"></a>屬性</h3><p>我們下面會用 Array 的方式進行，所以宣告起來。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> items = [];</span><br></pre></td></tr></table></figure>
-
-<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ul>
-<li>新增 push(element)、刪除 pop()</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 新增元素</span></span><br><span class="line"><span class="built_in">this</span>.push = <span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">  items.push(element);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 刪除元素：會返回被移除的元素</span></span><br><span class="line"><span class="built_in">this</span>.pop = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items.pop();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>最上方元素為何 peek(), top()</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 返回最上方元素</span></span><br><span class="line"><span class="built_in">this</span>.peek = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items[items.length - <span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>堆疊還有元素嗎 isEmpty()</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 堆疊內部是否還有元素存在 true, false</span></span><br><span class="line"><span class="built_in">this</span>.isEmpty = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items.length === <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>元素共有幾個 size()</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 堆疊內部有多少元素</span></span><br><span class="line"><span class="built_in">this</span>.size = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items.length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>清空堆疊 clear()</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 堆疊清空</span></span><br><span class="line"><span class="built_in">this</span>.clear = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items = [];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Stack</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> items = [];</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.push = <span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">    items.push(element);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.pop = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items.pop();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.peek = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items[items.length - <span class="number">1</span>];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.isEmpty = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items.length === <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.size = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items.length;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.clear = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items = [];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="動手做做看"><a href="#動手做做看" class="headerlink" title="動手做做看"></a>動手做做看</h2><p>快速測試可以打開 chrome 的 console 操作看看。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> stack = <span class="keyword">new</span> Stack();</span><br><span class="line"></span><br><span class="line">stack.push(<span class="string">&#x27;plateA&#x27;</span>);</span><br><span class="line">stack.push(<span class="string">&#x27;plateB&#x27;</span>);</span><br><span class="line">stack.push(<span class="string">&#x27;plateC&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(stack); <span class="comment">// [&#x27;plateA&#x27;, &#x27;plateB&#x27;, &#x27;plateC&#x27;]</span></span><br><span class="line"></span><br><span class="line">stack.pop()</span><br><span class="line"><span class="built_in">console</span>.log(stack); <span class="comment">// [&#x27;plateA&#x27;, &#x27;plateB&#x27;]</span></span><br><span class="line"></span><br><span class="line">stack.size() <span class="comment">// 2</span></span><br><span class="line">stack.peek() <span class="comment">// &#x27;plantB&#x27;</span></span><br><span class="line">stack.clear() <span class="comment">// []</span></span><br><span class="line">stack.isEmpty() <span class="comment">// true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>最後到 leetcode 驗收一下自己學習的成果吧！<br><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvaW1wbGVtZW50LXF1ZXVlLXVzaW5nLXN0YWNrcy8=">232. Implement Queue using Stacks<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvdmFsaWQtcGFyZW50aGVzZXMv">20. Valid Parentheses<i class="fa fa-external-link-alt"></i></span></p>
-<h2 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h2><p><span class="exturl" data-url="aHR0cHM6Ly9zdHVkeWFsZ29yaXRobXMuY29tL3RoZW9yeS9zdGFjay1kYXRhLXN0cnVjdHVyZS8=">What is a Stack?<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDIxNTExOA==">前端工程師用 javaScript 學演算法<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3poLXR3LyVFNSVBMCU4NiVFNiVBMCU4OA==">堆疊- 維基百科，自由的百科全書 - Wikipedia<i class="fa fa-external-link-alt"></i></span></p>
+<blockquote>
+<p>常見排序： 1(常數) &lt; log n &lt; n &lt; n log n &lt; n^2 &lt; 2^n &lt; n!</p>
+</blockquote>
 ]]></content>
       <tags>
         <tag>data structure</tag>
         <tag>Algorithm</tag>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一失足掉進的坑 Hexo Config</title>
-    <url>/posts/Hexo-config-permalink/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有在使用 Hexo Blog 的朋友一定知道他有很多設定可以玩！除了一般的標題、簡介、相關連結外，還有分頁、閱讀進度、總閱覽人數…等等一大堆。<br>今日心血來潮想要把部落格的 config 設定弄的更完整一些，沒有想到居然在之中受困數個小時…，真的覺得自己好笑又好氣😓</p>
-<span id="more"></span>
-
-<h2 id="permalink-永久連結"><a href="#permalink-永久連結" class="headerlink" title="permalink 永久連結"></a>permalink 永久連結</h2><p>這是設定關於網站文章的連結（ URL ），就是點進你的文章後上面所顯使的連結樣式</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span>       <span class="comment"># 預設 Ex: 2013/07/14/hello-world/</span></span><br></pre></td></tr></table></figure>
-
-<p>Hexo 文件有告訴大家說可以使用變數(文章尾端附圖)以及 Front-matter 做變化。看到這裡根本不知道不行自訂對吧！對吧！對吧…?<br>所以我就自作主張改成了以下這樣：</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:title/</span>       <span class="comment"># Ex: posts/hello-world/</span></span><br></pre></td></tr></table></figure>
-
-<p>原本想說網址太長多少會影響 SEO 的表現，所以我不想要時間在前面佔空間，還有這樣 public 資料夾的文章會被收在 posts 的資料夾裡不會散落一地，看起來才會讓我蘇湖🤤。<br>接下來 Deploy 出去就發現文章都連不進去啦啦啦😱，在改這個設定的時候，我已經有幾篇文章了，以為是動到了已發布文章的路徑才造成如此，便開始我的 Debug 之路，翻啊找啊爬啊根本沒有搜尋到什麼相關的東西，回頭重新讀了一下文件，才領悟到無法自訂呀～只能透過 permalink_defaults 改寫你想要的東西。於是我就將我的 category 預設為 posts 然後改寫。</p>
-<img src="/posts/Hexo-config-permalink/permalinks1.png" class="">
-
-<img src="/posts/Hexo-config-permalink/permalinks2.png" class="">
-
-<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>不要自作聰明… 😂</p>
-<img src="/posts/Hexo-config-permalink/Permalinks.png" class="" title="[Permalink可用變數]">
-]]></content>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -412,30 +241,228 @@
 ]]></content>
       <tags>
         <tag>data structure</tag>
-        <tag>Algorithm</tag>
         <tag>javascript</tag>
+        <tag>Algorithm</tag>
       </tags>
   </entry>
   <entry>
-    <title>如何利用HTML直接下載pdf</title>
-    <url>/posts/Html-downloadPdf/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天在嘗試利用 html的<code>&lt;a&gt;</code>標籤做下載檔案的功能，發現了一件事情，其他檔案能正常下載<br><del>除了pdf</del></p>
-<p>當你的程式是寫<code>&lt;a href=&quot;test.pdf&quot; /&gt;</code>，當點擊連結時，會使用在當前瀏覽器中打開該文件給予預覽。<br>這就會不符合我的需求，我希望的是直接給使用者下載，不需要再打開預覽文件。</p>
+    <title>ES6-解構賦值</title>
+    <url>/posts/Es6-destructuringAssignment/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>解構賦值(Destructuring Assignment)是在ES6的一個新特性，讓我們在撰寫物件、陣列時可以把在裡頭的資料解開擷取成為獨立的變數，能夠更簡短並增加閱讀性。<br>以下為他的說明：</p>
+<blockquote>
+<p>The destructuring assignment syntax is a JavaScript expression that makes it possible to extract data from arrays or objects using a syntax that mirrors the construction of array and object literals</p>
+</blockquote>
 <span id="more"></span>
 
-<h2 id="HTML-lt-a-gt-download屬性"><a href="#HTML-lt-a-gt-download屬性" class="headerlink" title="HTML &lt;a&gt; download屬性"></a>HTML <code>&lt;a&gt;</code> download屬性</h2><p>爬了一下文發現很簡單！只要在a標籤裡再加上一個download就好～<br><code>&lt;a href=&quot;yourfile.pdf&quot; download=&quot;newFileName&quot;&gt;下載檔案&lt;/a&gt;</code><br>這邊的newFileName是讓你可以指定使用者下載下來時的檔名，<br>如果留空，就會默認為伺服器端的名稱，<br>如下：<br><code>&lt;a href=&quot;test.pdf&quot; download&gt;click&lt;/a&gt;</code></p>
-<h2 id="HTML-lt-a-gt-target屬性"><a href="#HTML-lt-a-gt-target屬性" class="headerlink" title="HTML &lt;a&gt; target屬性"></a>HTML <code>&lt;a&gt;</code> target屬性</h2><p>既然都說到<code>&lt;a&gt;</code>標籤了，那就再加上一點補充～<br>利用a標籤的時候不外乎就是要開啟一個連結或是下載檔案，那我們在打開連接的方式就有分成幾種：</p>
+<p>上面所說的就是解構賦值的用法如同<strong>鏡子</strong>(mirror)般，對應陣列or物件的結構，將資料從右邊往左邊送，只不過內容的位置順序不變（鏡子會左右顛倒），也就是一種樣式對應(pattern)的方法。</p>
+<p>介紹比較常用的情況：</p>
 <ul>
-<li>直接於所在的視窗中打開（_self）</li>
-<li>另開一個視窗（_blank）</li>
-<li>開啟於父層框架（_parent）</li>
+<li>從陣列解構賦值</li>
+<li>從物件解構賦值</li>
+<li>解構賦值給定預設值</li>
+<li>搭配函式的傳入參數使用</li>
 </ul>
+<h2 id="陣列"><a href="#陣列" class="headerlink" title="陣列"></a>陣列</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&#x27;hello&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> [a, b, c, , d, f] = str;</span><br><span class="line"></span><br><span class="line"><span class="comment">// a=&#x27;h&#x27;, b=&#x27;e&#x27;, c=&#x27;l&#x27;, d=&#x27;o&#x27; 留空白就會跳過</span></span><br><span class="line"><span class="comment">// f=undefined  如果左方變數多於右方，則會顯示undefined</span></span><br><span class="line"><span class="comment">// 這邊也順便帶入一個概念是分解字串</span></span><br></pre></td></tr></table></figure>
+
+<p>接下來要說的是我覺得很方便的用法“互換”，一般我們要互換兩個變數要多宣告一個第三變數才能完成，這邊我們可以直接完成。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>, b = <span class="number">2</span>;</span><br><span class="line">[b, a] = [a, b];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 此時的 a=2, b=1</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="物件"><a href="#物件" class="headerlink" title="物件"></a>物件</h2><p>這邊的概念和陣列一樣，不過陣列是利用順序的索引值對照，而物件是用屬性名稱來對應(所以沒有順序性)。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> family = &#123; <span class="attr">me</span>: <span class="string">&#x27;colin&#x27;</span>, <span class="attr">sis</span>: <span class="string">&#x27;candy&#x27;</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 一般寫法</span></span><br><span class="line"><span class="keyword">let</span> me = family.me;</span><br><span class="line"><span class="keyword">let</span> sis = family.sis;</span><br><span class="line"></span><br><span class="line"><span class="comment">//縮寫</span></span><br><span class="line"><span class="keyword">let</span> &#123;me, sis&#125; = family;</span><br><span class="line"></span><br><span class="line"><span class="comment">// me:colin, sis:candy</span></span><br></pre></td></tr></table></figure>
+
+<p>物件的解構還能重新賦予變數的名稱</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> player = &#123; <span class="attr">jordan</span>: <span class="string">&#x27;喬丹&#x27;</span>, <span class="attr">wade</span>: <span class="string">&#x27;偉德&#x27;</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> &#123; <span class="attr">jordan</span>: king &#125; = player;</span><br><span class="line"></span><br><span class="line"><span class="comment">//此時king的值為&#x27;喬丹&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="混合使用"><a href="#混合使用" class="headerlink" title="混合使用"></a>混合使用</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123; <span class="attr">jordan</span>: king, <span class="attr">family</span>: [, ...member] &#125; = &#123; <span class="attr">jordan</span>: <span class="string">&#x27;喬丹&#x27;</span>, <span class="attr">family</span>: [<span class="string">&#x27;阿姨&#x27;</span>, <span class="string">&#x27;老媽&#x27;</span>, <span class="string">&#x27;老爸&#x27;</span>] &#125;</span><br><span class="line"><span class="built_in">console</span>.log(king, member); <span class="comment">// 請問答案是什麼？ Ans: king:&#x27;喬丹&#x27;, member: [&#x27;老媽&#x27;, &#x27;老爸&#x27;]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//p.s 其餘運算子用法 (...變數)：將陣列展開成個別值灑進去。</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="預設值"><a href="#預設值" class="headerlink" title="預設值"></a>預設值</h2><p>在等號左邊是可以給預設值的，避免未被賦值時造成undefined。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> [jordan = <span class="string">&#x27;喬丹&#x27;</span>, lebron = <span class="string">&#x27;雷霸龍&#x27;</span>] = [<span class="string">&#x27;阿明&#x27;</span>];</span><br><span class="line"><span class="comment">// jordan值為&#x27;阿明&#x27;</span></span><br><span class="line"><span class="comment">// lebron則為預設值&#x27;雷霸龍&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>陷阱題</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; a =<span class="string">&#x27;hello&#x27;</span> &#125; = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="keyword">const</span> [ b =<span class="string">&#x27;hello&#x27;</span> ] = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="comment">// 此時 a, b 分別為什麼呢？</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="函式"><a href="#函式" class="headerlink" title="函式"></a>函式</h2><p>在函式要傳參數時也可以使用解構，參數一樣能夠自訂變數名稱、順序、預設值等</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">&#123;a = <span class="number">1</span>, b&#125;</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a + b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(&#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>&#125;) <span class="comment">// 3</span></span><br><span class="line">func(&#123;<span class="attr">b</span>: <span class="number">2</span>&#125;) <span class="comment">// 3</span></span><br><span class="line">func(&#123;<span class="attr">b</span>: <span class="number">6</span>, <span class="attr">a</span>: <span class="number">3</span>&#125;) <span class="comment">// 9</span></span><br><span class="line">func(&#123;<span class="attr">a</span>: <span class="literal">null</span>, <span class="attr">b</span>: <span class="number">2</span>&#125;) <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>註：所以在函式傳入參數中作解構賦值時，給定null值時會導致預設值無用，請記住這一點。當數字運算時，null相當於0。</p>
+</blockquote>
 ]]></content>
       <tags>
-        <tag>html</tag>
-        <tag>download</tag>
-        <tag>pdf</tag>
+        <tag>javascript</tag>
+        <tag>ES6</tag>
         <tag>Frontend</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>『 資料結構 』佇列 Queue</title>
+    <url>/posts/DataStructure-queue/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>第三週我們歡迎「 Queue 佇列 」，上週我們學會了 stack ，這兩個東西非常相似，但是原則不同！<br>佇列在尾端新增元素，在頂部移除，在現實中就像是我們在排隊一樣，排在前面的人會優先被服務到，因此也有一個別稱叫做「 隊列 」。</p>
+<img src="/posts/DataStructure-queue/queue.webp" class="">
+
+<span id="more"></span>
+
+<h2 id="佇列什麼來頭？"><a href="#佇列什麼來頭？" class="headerlink" title="佇列什麼來頭？"></a>佇列什麼來頭？</h2><p>佇列是遵守著 FIFO (First In First Out, 先進先出) 原則的有序項目。</p>
+<ul>
+<li>一群相同性質元素的組合</li>
+<li>具有 FIFO 特性</li>
+<li>加入元素發生在尾端</li>
+<li>刪除元素發生在頂端</li>
+</ul>
+<p>在 Computer Science 中，最常看到的例子就是列印佇列。假如我們要列印三份文件，會開啟檔案並按下列印的按鈕，每個文件都會被發送至列印佇列，第一個發送到的文件會首先被列印出來，直到所有文件都列印完成。</p>
+<h2 id="建立佇列"><a href="#建立佇列" class="headerlink" title="建立佇列"></a>建立佇列</h2><h3 id="宣告類別"><a href="#宣告類別" class="headerlink" title="宣告類別"></a>宣告類別</h3><p>首先來宣告一個類別來建立自己的佇列：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Queue</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 寫入屬性和方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我們需要一個用於存放元素的結構，這邊可以使用陣列，就像上一篇 Stack 那樣做。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> items = []</span><br></pre></td></tr></table></figure>
+
+<h3 id="宣告方法"><a href="#宣告方法" class="headerlink" title="宣告方法"></a>宣告方法</h3><p>接下來讓我們開始宣告方法吧！以下是佇列可用的幾種方法：</p>
+<ul>
+<li>enqueue(element(s)): 向佇列尾端增加一個(或多個)新元素。</li>
+<li>dequeue(): 刪除佇列第一個元素(即排在最前面的)，並返回該元素。</li>
+<li>front(): 返回佇列第一個元素－－最先加入的。（與 Stack 的 peek 方法極為相似）</li>
+<li>isEmpty(): 如果佇列中不包含任何元素，返回 true，反之返回 false。</li>
+<li>size(): 返回佇列裡的元素個數，與陣列的 length 相同。</li>
+</ul>
+<p>第一個就是我們的‘新增’，記住佇列只能從未端添加！</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.enqueue = <span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">  items.push(element);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>實作佇列移除元素。由於只能遵循先進先出原則，最先加入的也是最先移除的。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.dequeue = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items.shift();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>只有 enqueue, dequeue 兩種方法可以新增及刪除元素，這樣確保了 Queue 類別先進先出的規則。</p>
+<p>接著就是屬於比較輔助的方法。<br>如果想知道佇列最前面的元素是什麼，可以用 front 方法，將返回佇列 index 為 0 的元素。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.front = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items[<span class="number">0</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>isEmpty 如果佇列為空，返回 true，反之 false。常用於驗證。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.isEmpty = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items.length == <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最後我們可以讓 Queue 類別實作類似 Array 類別的 length 屬性的方法。size 方法也和 Stack 裡的一樣：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.size = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items.length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>到這邊，我們完成了！</p>
+<h3 id="完整-Queue-類別"><a href="#完整-Queue-類別" class="headerlink" title="完整 Queue 類別"></a>完整 Queue 類別</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Queue</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> items = [];</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.enqueue = <span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">    items.push(element);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.dequue = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items.shift();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.front = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items[<span class="number">0</span>];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.isEmpty = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items.length == <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.size = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)[</span></span><br><span class="line"><span class="function">    <span class="title">return</span> <span class="title">items</span>.<span class="title">length</span></span>;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="與-Stack-不同之處"><a href="#與-Stack-不同之處" class="headerlink" title="與 Stack 不同之處"></a>與 Stack 不同之處</h2><p>唯一的區別是 dequeue 方法和 front 方法，這是由於先進先出和後進先出原則的不同所造成的。</p>
+<h2 id="使用-Queue-類別"><a href="#使用-Queue-類別" class="headerlink" title="使用 Queue 類別"></a>使用 Queue 類別</h2><p>第一步：實例化 Queue。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> queue = <span class="keyword">new</span> Queue();</span><br><span class="line"><span class="built_in">console</span>.log(queue.isEmpty()); <span class="comment">// 輸出 true</span></span><br></pre></td></tr></table></figure>
+
+<p>新增一些元素：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">queue.enqueue(<span class="string">&#x27;Jack&#x27;</span>);</span><br><span class="line">queue.enqueue(<span class="string">&#x27;Mike&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>可以玩一玩其他的方法～</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">queue.dequeue();</span><br><span class="line">queue.size(); <span class="comment">// 1</span></span><br><span class="line">queue.isEmpty();  <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="特殊佇列"><a href="#特殊佇列" class="headerlink" title="特殊佇列"></a>特殊佇列</h2><h3 id="優先佇列"><a href="#優先佇列" class="headerlink" title="優先佇列"></a>優先佇列</h3><p>佇列大量的應用在我們的生活中和電腦科學中，我們在之前的實作原型佇列中，也有其他的延伸。<br>其中一個就是「優先佇列」。元素的添加、移除是基於優先級別的。機場的登機順序就是一個現實的例子，頭等艙和商務艙的優先級要高於經濟艙的乘客。有些國家，老人和孕婦也擁有高於其他乘客的級別。</p>
+<p>另一個例子是醫院的急診室，醫生會優先處理重症患者，而護士通常會先行分類並決定次序。</p>
+<img src="/posts/DataStructure-queue/queue1.jpg" class="">
+<p><em>取自<span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9tL2FydGljbGVzLzEwMjY2OTgw">https://ithelp.ithome.com.tw/m/articles/10266980<i class="fa fa-external-link-alt"></i></span></em></p>
+<p>實作一個優先佇列，有兩個選項：</p>
+<ul>
+<li>一是設定優先級，然後在正確的位置增加元素。</li>
+<li>二是用入列操作新增元素，然候依照優先級移除它們。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PriorityQueue</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> items = [];</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">QueueElement</span>(<span class="params">element, priority</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.element = element;</span><br><span class="line">    <span class="built_in">this</span>.priority = priority;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.enqueue = <span class="function"><span class="keyword">function</span>(<span class="params">element, priority</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> queueElement = newQueueElement(element, priority);</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">this</span>.isEmpty())&#123;</span><br><span class="line">      items.push(queueElement);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">var</span> added = <span class="literal">false</span>;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;items.length; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(queueElement.priority &lt; items[i].priority)&#123;</span><br><span class="line">          items.splice(i, <span class="number">0</span>, queueElement);</span><br><span class="line">          added = <span class="literal">true</span>;</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span>(!added)&#123;</span><br><span class="line">        items.push(queueElement);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 其他方法和預設的 Queue 實作相同</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>預設的類別和優先級佇列類別實作上的區別是，要向 PriorityQueue 新增元素，需要建立一個特殊元素。這個元素包含了要添加到佇列的元素（它可以是任意類型）及其在佇列中的優先級。</p>
+<p>如果佇列為空，可以直接加入。否則，就需要先比較該元素與其他元素的優先級。當找到一個比要添加元素還要大的 priority 項目時，就把新元素插入到它之前（根據這個邏輯，相同優先級通樣要遵循先進先出原則）。</p>
+<p>補充一點，這裡實作的稱為最小優先佇列，因為優先級較小被放置在最前面（ 1 表示更高優先 ）。最大優先佇列則與之相反。</p>
+<h3 id="環狀佇列"><a href="#環狀佇列" class="headerlink" title="環狀佇列"></a>環狀佇列</h3><p>另一個延伸就是「環狀佇列」。遊戲燙手山芋（ Hot Potato ）就是一個很好的例子。<br>遊戲中，玩家圍成一個圈，把物品盡快地遞給旁邊的人，某一時刻傳遞停止，而這時候物品在誰手上，誰就退出圓圈結束遊戲。重複這個過程，直到一位勝者出爐。</p>
+<img src="/posts/DataStructure-queue/queue2.webp" class="">
+<p><em>取自<span class="exturl" data-url="aHR0cHM6Ly93d3cuMTIzcmYuY29tL3Bob3RvXzEwOTE4MTAwX3Bhc3Npbmctb24tdGhlLWhvdC1wb3RhdG8tYS1jb25jZXB0Lmh0bWw=">https://www.123rf.com/photo_10918100_passing-on-the-hot-potato-a-concept.html<i class="fa fa-external-link-alt"></i></span></em></p>
+<p>實作：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hotPotato</span>(<span class="params">nameList, num</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> queue = <span class="keyword">new</span> Queue();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;nameList.length; i++)&#123;</span><br><span class="line">    queue.enqueue(nameList[i]);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> eliminated = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="keyword">while</span>(queue.size() &gt; <span class="number">1</span>)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;num; i++)&#123;</span><br><span class="line">      queue.enqueue(queue.dequeue());</span><br><span class="line">    &#125;</span><br><span class="line">    eliminated = queue.dequeue();</span><br><span class="line">    <span class="built_in">console</span>.log(eliminated + <span class="string">&#x27;在遊戲中被淘汰。&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> queue.dequeue();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> names = [<span class="string">&#x27;John&#x27;</span>, <span class="string">&#x27;Colin&#x27;</span>, <span class="string">&#x27;Alice&#x27;</span>, <span class="string">&#x27;Eileen&#x27;</span>, <span class="string">&#x27;Jack&#x27;</span>];</span><br><span class="line"><span class="keyword">var</span> winner = hotPotato(names, <span class="number">7</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;勝利者&#x27;</span> + winner);</span><br></pre></td></tr></table></figure>
+
+<h2 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h2><p>我們這次學習了佇列的資料結構，自己實作佇列的演算法，學習如何透過 enqueue, dequeue 方法增加和刪除元素。還有兩種著名的特殊佇列實作：優先佇列、環狀佇列。</p>
+<p>接下來我們將學習鏈結串列，比陣列更加複雜的資料結構呦！</p>
+]]></content>
+      <tags>
+        <tag>data structure</tag>
+        <tag>javascript</tag>
+        <tag>Algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一失足掉進的坑 Hexo Config</title>
+    <url>/posts/Hexo-config-permalink/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有在使用 Hexo Blog 的朋友一定知道他有很多設定可以玩！除了一般的標題、簡介、相關連結外，還有分頁、閱讀進度、總閱覽人數…等等一大堆。<br>今日心血來潮想要把部落格的 config 設定弄的更完整一些，沒有想到居然在之中受困數個小時…，真的覺得自己好笑又好氣😓</p>
+<span id="more"></span>
+
+<h2 id="permalink-永久連結"><a href="#permalink-永久連結" class="headerlink" title="permalink 永久連結"></a>permalink 永久連結</h2><p>這是設定關於網站文章的連結（ URL ），就是點進你的文章後上面所顯使的連結樣式</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span>       <span class="comment"># 預設 Ex: 2013/07/14/hello-world/</span></span><br></pre></td></tr></table></figure>
+
+<p>Hexo 文件有告訴大家說可以使用變數(文章尾端附圖)以及 Front-matter 做變化。看到這裡根本不知道不行自訂對吧！對吧！對吧…?<br>所以我就自作主張改成了以下這樣：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:title/</span>       <span class="comment"># Ex: posts/hello-world/</span></span><br></pre></td></tr></table></figure>
+
+<p>原本想說網址太長多少會影響 SEO 的表現，所以我不想要時間在前面佔空間，還有這樣 public 資料夾的文章會被收在 posts 的資料夾裡不會散落一地，看起來才會讓我蘇湖🤤。<br>接下來 Deploy 出去就發現文章都連不進去啦啦啦😱，在改這個設定的時候，我已經有幾篇文章了，以為是動到了已發布文章的路徑才造成如此，便開始我的 Debug 之路，翻啊找啊爬啊根本沒有搜尋到什麼相關的東西，回頭重新讀了一下文件，才領悟到無法自訂呀～只能透過 permalink_defaults 改寫你想要的東西。於是我就將我的 category 預設為 posts 然後改寫。</p>
+<img src="/posts/Hexo-config-permalink/permalinks1.png" class="">
+
+<img src="/posts/Hexo-config-permalink/permalinks2.png" class="">
+
+<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>不要自作聰明… 😂</p>
+<img src="/posts/Hexo-config-permalink/Permalinks.png" class="" title="[Permalink可用變數]">
+]]></content>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>『 資料結構 』堆疊 Stack</title>
+    <url>/posts/DataStructure-stack/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>準備好歡迎我們第二週的主題“堆疊”了嗎！<br>在電腦科學的江湖上流傳著一句話：</p>
+<blockquote>
+<p>程式設計 ＝ 資料結構 ＋ 演算法</p>
+</blockquote>
+<p>在各大專院校裡，這幾門課都列為必修課之一，但是大多缺乏語言的基礎，反而在這裡頭迷失了，學完就好像睡了一覺，模模糊糊迷迷茫茫…，我就是這樣😂</p>
+<p>本篇將使用 JavaScript 來學習堆疊(Stack)的資料結構。</p>
+<span id="more"></span>
+
+<h2 id="堆疊是什麼？"><a href="#堆疊是什麼？" class="headerlink" title="堆疊是什麼？"></a>堆疊是什麼？</h2><p>堆疊是一種按照<em>後進先出</em> (LIFO, Last In First Out)的有序結構，舉個例子：日常生活中的疊盤子。先疊的盤子會在最下面，後面開始會疊在上方，一層一層往上，當要拿盤子時一定是從最上面拿。</p>
+<p><img src="https://i0.wp.com/studyalgorithms.com/wp-content/uploads/2020/12/stack-of-plates_0.png?ssl=1" alt="疊盤子"></p>
+<h2 id="建立堆疊"><a href="#建立堆疊" class="headerlink" title="建立堆疊"></a>建立堆疊</h2><p>開始進入實作的階段，GOGO🤟🏻</p>
+<h3 id="類別"><a href="#類別" class="headerlink" title="類別"></a>類別</h3><p>首先，建立一個類別為 Stack:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Stack</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">//宣告內部屬性和方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="屬性"><a href="#屬性" class="headerlink" title="屬性"></a>屬性</h3><p>我們下面會用 Array 的方式進行，所以宣告起來。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> items = [];</span><br></pre></td></tr></table></figure>
+
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ul>
+<li>新增 push(element)、刪除 pop()</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 新增元素</span></span><br><span class="line"><span class="built_in">this</span>.push = <span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">  items.push(element);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 刪除元素：會返回被移除的元素</span></span><br><span class="line"><span class="built_in">this</span>.pop = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items.pop();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>最上方元素為何 peek(), top()</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 返回最上方元素</span></span><br><span class="line"><span class="built_in">this</span>.peek = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items[items.length - <span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>堆疊還有元素嗎 isEmpty()</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 堆疊內部是否還有元素存在 true, false</span></span><br><span class="line"><span class="built_in">this</span>.isEmpty = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items.length === <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>元素共有幾個 size()</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 堆疊內部有多少元素</span></span><br><span class="line"><span class="built_in">this</span>.size = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items.length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>清空堆疊 clear()</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 堆疊清空</span></span><br><span class="line"><span class="built_in">this</span>.clear = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items = [];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Stack</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> items = [];</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.push = <span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">    items.push(element);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.pop = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items.pop();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.peek = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items[items.length - <span class="number">1</span>];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.isEmpty = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items.length === <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.size = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items.length;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.clear = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items = [];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="動手做做看"><a href="#動手做做看" class="headerlink" title="動手做做看"></a>動手做做看</h2><p>快速測試可以打開 chrome 的 console 操作看看。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> stack = <span class="keyword">new</span> Stack();</span><br><span class="line"></span><br><span class="line">stack.push(<span class="string">&#x27;plateA&#x27;</span>);</span><br><span class="line">stack.push(<span class="string">&#x27;plateB&#x27;</span>);</span><br><span class="line">stack.push(<span class="string">&#x27;plateC&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(stack); <span class="comment">// [&#x27;plateA&#x27;, &#x27;plateB&#x27;, &#x27;plateC&#x27;]</span></span><br><span class="line"></span><br><span class="line">stack.pop()</span><br><span class="line"><span class="built_in">console</span>.log(stack); <span class="comment">// [&#x27;plateA&#x27;, &#x27;plateB&#x27;]</span></span><br><span class="line"></span><br><span class="line">stack.size() <span class="comment">// 2</span></span><br><span class="line">stack.peek() <span class="comment">// &#x27;plantB&#x27;</span></span><br><span class="line">stack.clear() <span class="comment">// []</span></span><br><span class="line">stack.isEmpty() <span class="comment">// true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>最後到 leetcode 驗收一下自己學習的成果吧！<br><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvaW1wbGVtZW50LXF1ZXVlLXVzaW5nLXN0YWNrcy8=">232. Implement Queue using Stacks<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvdmFsaWQtcGFyZW50aGVzZXMv">20. Valid Parentheses<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h2><p><span class="exturl" data-url="aHR0cHM6Ly9zdHVkeWFsZ29yaXRobXMuY29tL3RoZW9yeS9zdGFjay1kYXRhLXN0cnVjdHVyZS8=">What is a Stack?<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDIxNTExOA==">前端工程師用 javaScript 學演算法<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3poLXR3LyVFNSVBMCU4NiVFNiVBMCU4OA==">堆疊- 維基百科，自由的百科全書 - Wikipedia<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <tags>
+        <tag>data structure</tag>
+        <tag>javascript</tag>
+        <tag>Algorithm</tag>
       </tags>
   </entry>
   <entry>
@@ -562,10 +589,32 @@
 ]]></content>
       <tags>
         <tag>data structure</tag>
-        <tag>Algorithm</tag>
         <tag>javascript</tag>
+        <tag>Algorithm</tag>
         <tag>Frontend</tag>
         <tag>array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何利用HTML直接下載pdf</title>
+    <url>/posts/Html-downloadPdf/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天在嘗試利用 html的<code>&lt;a&gt;</code>標籤做下載檔案的功能，發現了一件事情，其他檔案能正常下載<br><del>除了pdf</del></p>
+<p>當你的程式是寫<code>&lt;a href=&quot;test.pdf&quot; /&gt;</code>，當點擊連結時，會使用在當前瀏覽器中打開該文件給予預覽。<br>這就會不符合我的需求，我希望的是直接給使用者下載，不需要再打開預覽文件。</p>
+<span id="more"></span>
+
+<h2 id="HTML-lt-a-gt-download屬性"><a href="#HTML-lt-a-gt-download屬性" class="headerlink" title="HTML &lt;a&gt; download屬性"></a>HTML <code>&lt;a&gt;</code> download屬性</h2><p>爬了一下文發現很簡單！只要在a標籤裡再加上一個download就好～<br><code>&lt;a href=&quot;yourfile.pdf&quot; download=&quot;newFileName&quot;&gt;下載檔案&lt;/a&gt;</code><br>這邊的newFileName是讓你可以指定使用者下載下來時的檔名，<br>如果留空，就會默認為伺服器端的名稱，<br>如下：<br><code>&lt;a href=&quot;test.pdf&quot; download&gt;click&lt;/a&gt;</code></p>
+<h2 id="HTML-lt-a-gt-target屬性"><a href="#HTML-lt-a-gt-target屬性" class="headerlink" title="HTML &lt;a&gt; target屬性"></a>HTML <code>&lt;a&gt;</code> target屬性</h2><p>既然都說到<code>&lt;a&gt;</code>標籤了，那就再加上一點補充～<br>利用a標籤的時候不外乎就是要開啟一個連結或是下載檔案，那我們在打開連接的方式就有分成幾種：</p>
+<ul>
+<li>直接於所在的視窗中打開（_self）</li>
+<li>另開一個視窗（_blank）</li>
+<li>開啟於父層框架（_parent）</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Frontend</tag>
+        <tag>html</tag>
+        <tag>download</tag>
+        <tag>pdf</tag>
       </tags>
   </entry>
   <entry>
@@ -582,55 +631,6 @@
 ]]></content>
       <tags>
         <tag>Mac</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ES6-解構賦值</title>
-    <url>/posts/Es6-destructuringAssignment/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>解構賦值(Destructuring Assignment)是在ES6的一個新特性，讓我們在撰寫物件、陣列時可以把在裡頭的資料解開擷取成為獨立的變數，能夠更簡短並增加閱讀性。<br>以下為他的說明：</p>
-<blockquote>
-<p>The destructuring assignment syntax is a JavaScript expression that makes it possible to extract data from arrays or objects using a syntax that mirrors the construction of array and object literals</p>
-</blockquote>
-<span id="more"></span>
-
-<p>上面所說的就是解構賦值的用法如同<strong>鏡子</strong>(mirror)般，對應陣列or物件的結構，將資料從右邊往左邊送，只不過內容的位置順序不變（鏡子會左右顛倒），也就是一種樣式對應(pattern)的方法。</p>
-<p>介紹比較常用的情況：</p>
-<ul>
-<li>從陣列解構賦值</li>
-<li>從物件解構賦值</li>
-<li>解構賦值給定預設值</li>
-<li>搭配函式的傳入參數使用</li>
-</ul>
-<h2 id="陣列"><a href="#陣列" class="headerlink" title="陣列"></a>陣列</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&#x27;hello&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> [a, b, c, , d, f] = str;</span><br><span class="line"></span><br><span class="line"><span class="comment">// a=&#x27;h&#x27;, b=&#x27;e&#x27;, c=&#x27;l&#x27;, d=&#x27;o&#x27; 留空白就會跳過</span></span><br><span class="line"><span class="comment">// f=undefined  如果左方變數多於右方，則會顯示undefined</span></span><br><span class="line"><span class="comment">// 這邊也順便帶入一個概念是分解字串</span></span><br></pre></td></tr></table></figure>
-
-<p>接下來要說的是我覺得很方便的用法“互換”，一般我們要互換兩個變數要多宣告一個第三變數才能完成，這邊我們可以直接完成。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>, b = <span class="number">2</span>;</span><br><span class="line">[b, a] = [a, b];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 此時的 a=2, b=1</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="物件"><a href="#物件" class="headerlink" title="物件"></a>物件</h2><p>這邊的概念和陣列一樣，不過陣列是利用順序的索引值對照，而物件是用屬性名稱來對應(所以沒有順序性)。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> family = &#123; <span class="attr">me</span>: <span class="string">&#x27;colin&#x27;</span>, <span class="attr">sis</span>: <span class="string">&#x27;candy&#x27;</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 一般寫法</span></span><br><span class="line"><span class="keyword">let</span> me = family.me;</span><br><span class="line"><span class="keyword">let</span> sis = family.sis;</span><br><span class="line"></span><br><span class="line"><span class="comment">//縮寫</span></span><br><span class="line"><span class="keyword">let</span> &#123;me, sis&#125; = family;</span><br><span class="line"></span><br><span class="line"><span class="comment">// me:colin, sis:candy</span></span><br></pre></td></tr></table></figure>
-
-<p>物件的解構還能重新賦予變數的名稱</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> player = &#123; <span class="attr">jordan</span>: <span class="string">&#x27;喬丹&#x27;</span>, <span class="attr">wade</span>: <span class="string">&#x27;偉德&#x27;</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> &#123; <span class="attr">jordan</span>: king &#125; = player;</span><br><span class="line"></span><br><span class="line"><span class="comment">//此時king的值為&#x27;喬丹&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="混合使用"><a href="#混合使用" class="headerlink" title="混合使用"></a>混合使用</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123; <span class="attr">jordan</span>: king, <span class="attr">family</span>: [, ...member] &#125; = &#123; <span class="attr">jordan</span>: <span class="string">&#x27;喬丹&#x27;</span>, <span class="attr">family</span>: [<span class="string">&#x27;阿姨&#x27;</span>, <span class="string">&#x27;老媽&#x27;</span>, <span class="string">&#x27;老爸&#x27;</span>] &#125;</span><br><span class="line"><span class="built_in">console</span>.log(king, member); <span class="comment">// 請問答案是什麼？ Ans: king:&#x27;喬丹&#x27;, member: [&#x27;老媽&#x27;, &#x27;老爸&#x27;]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//p.s 其餘運算子用法 (...變數)：將陣列展開成個別值灑進去。</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="預設值"><a href="#預設值" class="headerlink" title="預設值"></a>預設值</h2><p>在等號左邊是可以給預設值的，避免未被賦值時造成undefined。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> [jordan = <span class="string">&#x27;喬丹&#x27;</span>, lebron = <span class="string">&#x27;雷霸龍&#x27;</span>] = [<span class="string">&#x27;阿明&#x27;</span>];</span><br><span class="line"><span class="comment">// jordan值為&#x27;阿明&#x27;</span></span><br><span class="line"><span class="comment">// lebron則為預設值&#x27;雷霸龍&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>陷阱題</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; a =<span class="string">&#x27;hello&#x27;</span> &#125; = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="keyword">const</span> [ b =<span class="string">&#x27;hello&#x27;</span> ] = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="comment">// 此時 a, b 分別為什麼呢？</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="函式"><a href="#函式" class="headerlink" title="函式"></a>函式</h2><p>在函式要傳參數時也可以使用解構，參數一樣能夠自訂變數名稱、順序、預設值等</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">&#123;a = <span class="number">1</span>, b&#125;</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a + b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(&#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>&#125;) <span class="comment">// 3</span></span><br><span class="line">func(&#123;<span class="attr">b</span>: <span class="number">2</span>&#125;) <span class="comment">// 3</span></span><br><span class="line">func(&#123;<span class="attr">b</span>: <span class="number">6</span>, <span class="attr">a</span>: <span class="number">3</span>&#125;) <span class="comment">// 9</span></span><br><span class="line">func(&#123;<span class="attr">a</span>: <span class="literal">null</span>, <span class="attr">b</span>: <span class="number">2</span>&#125;) <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>註：所以在函式傳入參數中作解構賦值時，給定null值時會導致預設值無用，請記住這一點。當數字運算時，null相當於0。</p>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>javascript</tag>
-        <tag>Frontend</tag>
-        <tag>ES6</tag>
       </tags>
   </entry>
   <entry>
