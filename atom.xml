@@ -6,7 +6,7 @@
   <link href="https://colinchiu87.github.io/atom.xml" rel="self"/>
   
   <link href="https://colinchiu87.github.io/"/>
-  <updated>2023-02-06T11:04:20.954Z</updated>
+  <updated>2023-04-09T07:25:53.985Z</updated>
   <id>https://colinchiu87.github.io/</id>
   
   <author>
@@ -17,11 +17,30 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>『 LeetCode 技巧 』Prefix Sum 前綴和</title>
+    <link href="https://colinchiu87.github.io/posts/Leetcode-prefixSum/"/>
+    <id>https://colinchiu87.github.io/posts/Leetcode-prefixSum/</id>
+    <published>2023-04-09T07:25:53.000Z</published>
+    <updated>2023-04-09T07:25:53.985Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><span id="more"></span><h2 id="前言-1"><a href="#前言-1" class="headerlink" title="前言"></a>前言</h2><p>最近開始學習資料結構，搭配著 LeetCode 進行練習，發現有很多解題的觀念都可以通用！<br>這次就來説說這次解到的題目，有錯誤的地方還請多多指教 &gt;_&lt;<br>以下為題目連結：<span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvcmVtb3ZlLXplcm8tc3VtLWNvbnNlY3V0aXZlLW5vZGVzLWZyb20tbGlua2VkLWxpc3Qv">1171. Remove Zero Sum Consecutive Nodes from Linked List<i class="fa fa-external-link-alt"></i></span></p><h2 id="Prefix-Sum-前綴和"><a href="#Prefix-Sum-前綴和" class="headerlink" title="Prefix Sum 前綴和"></a>Prefix Sum 前綴和</h2><p>什麼是前綴和呢？簡單來說，就是將前面的數相加得到的一個新的和陣列。<br>而得到的新陣列可以讓我們做一些事，求區間和（subarray）就是基礎應用之一。</p><p>當題目是整數列而且出現需要”子數列”或”連續的子數列”時，就能利用這著概念去解題，效果可說是相當不錯。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">3</span>, <span class="number">5</span>];</span><br><span class="line"><span class="comment">// 取得前綴和，累加 array[0:i-1] 得到 prefixSumArray[i]</span></span><br><span class="line"><span class="keyword">let</span> prefixSumArray = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">14</span>, <span class="number">17</span>, <span class="number">22</span>];</span><br></pre></td></tr></table></figure><p>在實作上，我們就可以直接使用這個數列進行累加，就不用再去遍歷一次 array。</p><h2 id="解題絲路"><a href="#解題絲路" class="headerlink" title="解題絲路"></a>解題絲路</h2><h3 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h3><p>先來看題目~<br>在給定的鏈結裡面，重複扣除總和為 0 的<strong>連續數列</strong>，直到沒有這類的數列為止。<br>最後返回剩餘的鏈結。</p><p>寫之前再到最下面看一下”條件(Constraints)”，這很重要呦！</p><h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p>看到”連續數列”，我們就可以試著利用 Prefix Sum。<br>另外補充，一般來說，前綴和會和 Map 一起做使用。</p><ol><li><p>建構一個 MAP 來儲存具有同累加值的最後節點的累積和。<br>因為最後一個節點的下一個數值是我們要建造和連結輸出的地方。</p></li><li><p>將 MAP 給實作出來</p></li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> removeZeroSumSublists = <span class="function"><span class="keyword">function</span> (<span class="params">head</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 如果 head == false，return head</span></span><br><span class="line">  <span class="keyword">if</span> (!head) &#123;</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 概念 prefix sum map</span></span><br><span class="line">  <span class="keyword">let</span> newNode = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">  newNode.next = head;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> current = newNode,</span><br><span class="line">    prefixSumMap = <span class="keyword">new</span> <span class="built_in">Map</span>(),</span><br><span class="line">    sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (current) &#123;</span><br><span class="line">    sum += current.val;</span><br><span class="line">    prefixSumMap.set(sum, current);</span><br><span class="line">    current = current.next;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  current = newNode;</span><br><span class="line">  sum = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span> (current) &#123;</span><br><span class="line">    sum += current.val;</span><br><span class="line">    current.next = prefixSumMap.get(sum).next;</span><br><span class="line">    current = current.next;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> newNode.next;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="類似題型"><a href="#類似題型" class="headerlink" title="類似題型"></a>類似題型</h2><p><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvc3ViYXJyYXktc3VtLWVxdWFscy1rLw==">560. Subarray Sum Equals K<i class="fa fa-external-link-alt"></i></span></p><p><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvbWF4aW11bS1hdmVyYWdlLXN1YmFycmF5LWkv">643. Maximum Average Subarray I<i class="fa fa-external-link-alt"></i></span></p>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;</summary>
+    
+    
+    
+    
+    <category term="LeetCode" scheme="https://colinchiu87.github.io/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Python 分割字串的幾種方式</title>
     <link href="https://colinchiu87.github.io/posts/Python-splitString/"/>
     <id>https://colinchiu87.github.io/posts/Python-splitString/</id>
     <published>2023-02-06T11:00:09.000Z</published>
-    <updated>2023-02-06T11:04:20.954Z</updated>
+    <updated>2023-03-21T12:07:32.106Z</updated>
     
     <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在做資料處理時，是不是很常遇到要做字串分割的時候呢？<br>這幾天本人剛好有遇到要擷取字串，就想研究一下，到底有哪些方法能滿足我的需求！</p><span id="more"></span><h2 id="擷取字串"><a href="#擷取字串" class="headerlink" title="擷取字串"></a>擷取字串</h2><h3 id="Slicing-分割"><a href="#Slicing-分割" class="headerlink" title="Slicing 分割"></a>Slicing 分割</h3><p>這個方法就像陣列以索引取值一樣，短到字元、長到字段。</p><ul><li>字元<br>語法：字串[索引]</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">some_string = <span class="string">&quot;apple&quot;</span></span><br><span class="line">print(some_string[<span class="number">1</span>]) <span class="comment"># &quot;p&quot;</span></span><br></pre></td></tr></table></figure><ul><li>字串中的子字串(substring)<br>語法：字串[起始:結束:間隔]<br>參數介紹：索引值是由計算是由 0 開始，所以起始值要 +1 取值，例如起始值 2 代表要由第 3 個字元開始；結束值要取值時自己不能算。例如結束等於 5，所以取到第 5 個值；間隔值不是必填，預設是 1。起始值不填就代表由最前方開始，結束值如果不填就代表算到底。</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fruit = <span class="string">&quot;peach&quot;</span></span><br><span class="line">print(fruit[<span class="number">2</span>:<span class="number">4</span>]) <span class="comment"># &quot;ac&quot;</span></span><br><span class="line">print(fruit[<span class="number">0</span>:<span class="number">5</span>:<span class="number">2</span>]) <span class="comment"># &quot;pah&quot;</span></span><br><span class="line"></span><br><span class="line">print(fruit[::-<span class="number">1</span>]) <span class="comment"># 反轉字串 &quot;hcaep&quot;</span></span><br></pre></td></tr></table></figure><h3 id="Split-分割字串為陣列"><a href="#Split-分割字串為陣列" class="headerlink" title="Split 分割字串為陣列"></a>Split 分割字串為陣列</h3><p>你有時候會遇到資料是利用 “,” “、” “空格” “-“ 等符號來區分每一筆資料。</p><p>這時候就需要把這些字串做處理，讓它變成陣列方便我們使用。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fruit = <span class="string">&quot;apple,banana,peach&quot;</span></span><br><span class="line">data_arr = fruit.split(<span class="string">&quot;,&quot;</span>)  <span class="comment"># - 使用逗號分割</span></span><br><span class="line">print(fruit)</span><br><span class="line">print(data_arr)  <span class="comment"># - [apple, banana, peach]</span></span><br><span class="line">print(data_arr[<span class="number">0</span>])  <span class="comment"># - apple</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># - 適用任何符號！</span></span><br><span class="line"><span class="comment"># - 多多研究要處理的資料有什麼特性或規律，在處理上能有較好的效率。</span></span><br></pre></td></tr></table></figure><h3 id="Regexes-正規表達式"><a href="#Regexes-正規表達式" class="headerlink" title="Regexes 正規表達式"></a>Regexes 正規表達式</h3><p>又稱作正則表達式。Python 支援的介面存放在 re 的模組裡，所以要使用記得要引用(import re)</p><p>正規表達式是很適合用來匹配字串極好用的工具，有獨立的語法，並能透過特定的語句規則（Pattern），達到搜尋、匹配、替代等等的需求。</p><ul><li><p>reg.split()<br>我們可以編譯一個正則表達式，用它來分割字串，和 python.split 一樣，返回一個包含子字串的列表。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">fruit = <span class="string">&quot;apple banana peach&quot;</span></span><br><span class="line">regex = re.complie(<span class="string">&#x27;\s+&#x27;</span>)  <span class="comment"># - \s 是一個特殊字元，包含所有的空白字元（空白、TAB、換行符號），而＋則代表一個或多個空格。</span></span><br><span class="line">result = regex.split(fruit)</span><br><span class="line"></span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure><p>推薦一個網站，<span class="exturl" data-url="aHR0cHM6Ly9yZWdleDEwMS5jb20v">https://regex101.com/<i class="fa fa-external-link-alt"></i></span>能即時將你輸入的字串比對你的正規表達式語法。</p></li></ul>]]></content>
     
@@ -54,9 +73,9 @@
     
     <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
     
-    <category term="Algorithm" scheme="https://colinchiu87.github.io/tags/Algorithm/"/>
-    
     <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
+    
+    <category term="Algorithm" scheme="https://colinchiu87.github.io/tags/Algorithm/"/>
     
   </entry>
   
@@ -77,9 +96,9 @@
     
     <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
     
-    <category term="Algorithm" scheme="https://colinchiu87.github.io/tags/Algorithm/"/>
-    
     <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
+    
+    <category term="Algorithm" scheme="https://colinchiu87.github.io/tags/Algorithm/"/>
     
   </entry>
   
@@ -101,9 +120,9 @@
     
     <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
     
-    <category term="Algorithm" scheme="https://colinchiu87.github.io/tags/Algorithm/"/>
-    
     <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
+    
+    <category term="Algorithm" scheme="https://colinchiu87.github.io/tags/Algorithm/"/>
     
   </entry>
   
@@ -129,9 +148,9 @@
     
     <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
     
-    <category term="Algorithm" scheme="https://colinchiu87.github.io/tags/Algorithm/"/>
-    
     <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
+    
+    <category term="Algorithm" scheme="https://colinchiu87.github.io/tags/Algorithm/"/>
     
   </entry>
   
@@ -192,9 +211,9 @@
     
     <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
     
-    <category term="Algorithm" scheme="https://colinchiu87.github.io/tags/Algorithm/"/>
-    
     <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
+    
+    <category term="Algorithm" scheme="https://colinchiu87.github.io/tags/Algorithm/"/>
     
     <category term="Frontend" scheme="https://colinchiu87.github.io/tags/Frontend/"/>
     

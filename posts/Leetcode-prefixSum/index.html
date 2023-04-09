@@ -20,25 +20,20 @@
     var CONFIG = {"hostname":"colinchiu87.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="I don&#39;t care if you suck at writing. I don&#39;t care if nobody reads your blog. I don&#39;t care if you have nothing interesting to say.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="凹逗工程師">
-<meta property="og:url" content="https://colinchiu87.github.io/tags/javascript/">
+  <meta name="description" content="前言">
+<meta property="og:type" content="article">
+<meta property="og:title" content="『 LeetCode 技巧 』Prefix Sum 前綴和">
+<meta property="og:url" content="https://colinchiu87.github.io/posts/Leetcode-prefixSum/">
 <meta property="og:site_name" content="凹逗工程師">
-<meta property="og:description" content="I don&#39;t care if you suck at writing. I don&#39;t care if nobody reads your blog. I don&#39;t care if you have nothing interesting to say.">
+<meta property="og:description" content="前言">
 <meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2023-04-09T07:25:53.000Z">
+<meta property="article:modified_time" content="2023-04-09T07:25:53.985Z">
 <meta property="article:author" content="Kuan Ru">
-<meta property="article:tag" content="前端">
-<meta property="article:tag" content="後端">
-<meta property="article:tag" content="全端">
-<meta property="article:tag" content="網頁">
-<meta property="article:tag" content="web">
-<meta property="article:tag" content="fullstack">
-<meta property="article:tag" content="frontend">
-<meta property="article:tag" content="backend">
+<meta property="article:tag" content="LeetCode">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://colinchiu87.github.io/tags/javascript/">
+<link rel="canonical" href="https://colinchiu87.github.io/posts/Leetcode-prefixSum/">
 
 
 <script id="page-configurations">
@@ -46,12 +41,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-TW'
   };
 </script>
 
-  <title>標籤: javascript | 凹逗工程師</title>
+  <title>『 LeetCode 技巧 』Prefix Sum 前綴和 | 凹逗工程師</title>
   
 
 
@@ -187,151 +182,126 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">javascript
-          <small>標籤</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://colinchiu87.github.io/posts/Leetcode-prefixSum/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="Kuan Ru">
+      <meta itemprop="description" content="I don't care if you suck at writing. I don't care if nobody reads your blog. I don't care if you have nothing interesting to say.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="凹逗工程師">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          『 LeetCode 技巧 』Prefix Sum 前綴和
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2023-04-09 15:25:53" itemprop="dateCreated datePublished" datetime="2023-04-09T15:25:53+08:00">2023-04-09</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><span id="more"></span>
+
+
+<h2 id="前言-1"><a href="#前言-1" class="headerlink" title="前言"></a>前言</h2><p>最近開始學習資料結構，搭配著 LeetCode 進行練習，發現有很多解題的觀念都可以通用！<br>這次就來説說這次解到的題目，有錯誤的地方還請多多指教 &gt;_&lt;<br>以下為題目連結：<span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvcmVtb3ZlLXplcm8tc3VtLWNvbnNlY3V0aXZlLW5vZGVzLWZyb20tbGlua2VkLWxpc3Qv">1171. Remove Zero Sum Consecutive Nodes from Linked List<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="Prefix-Sum-前綴和"><a href="#Prefix-Sum-前綴和" class="headerlink" title="Prefix Sum 前綴和"></a>Prefix Sum 前綴和</h2><p>什麼是前綴和呢？簡單來說，就是將前面的數相加得到的一個新的和陣列。<br>而得到的新陣列可以讓我們做一些事，求區間和（subarray）就是基礎應用之一。</p>
+<p>當題目是整數列而且出現需要”子數列”或”連續的子數列”時，就能利用這著概念去解題，效果可說是相當不錯。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">3</span>, <span class="number">5</span>];</span><br><span class="line"><span class="comment">// 取得前綴和，累加 array[0:i-1] 得到 prefixSumArray[i]</span></span><br><span class="line"><span class="keyword">let</span> prefixSumArray = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">14</span>, <span class="number">17</span>, <span class="number">22</span>];</span><br></pre></td></tr></table></figure>
+
+<p>在實作上，我們就可以直接使用這個數列進行累加，就不用再去遍歷一次 array。</p>
+<h2 id="解題絲路"><a href="#解題絲路" class="headerlink" title="解題絲路"></a>解題絲路</h2><h3 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h3><p>先來看題目~<br>在給定的鏈結裡面，重複扣除總和為 0 的<strong>連續數列</strong>，直到沒有這類的數列為止。<br>最後返回剩餘的鏈結。</p>
+<p>寫之前再到最下面看一下”條件(Constraints)”，這很重要呦！</p>
+<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p>看到”連續數列”，我們就可以試著利用 Prefix Sum。<br>另外補充，一般來說，前綴和會和 Map 一起做使用。</p>
+<ol>
+<li><p>建構一個 MAP 來儲存具有同累加值的最後節點的累積和。<br>因為最後一個節點的下一個數值是我們要建造和連結輸出的地方。</p>
+</li>
+<li><p>將 MAP 給實作出來</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> removeZeroSumSublists = <span class="function"><span class="keyword">function</span> (<span class="params">head</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 如果 head == false，return head</span></span><br><span class="line">  <span class="keyword">if</span> (!head) &#123;</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 概念 prefix sum map</span></span><br><span class="line">  <span class="keyword">let</span> newNode = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">  newNode.next = head;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> current = newNode,</span><br><span class="line">    prefixSumMap = <span class="keyword">new</span> <span class="built_in">Map</span>(),</span><br><span class="line">    sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (current) &#123;</span><br><span class="line">    sum += current.val;</span><br><span class="line">    prefixSumMap.set(sum, current);</span><br><span class="line">    current = current.next;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  current = newNode;</span><br><span class="line">  sum = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span> (current) &#123;</span><br><span class="line">    sum += current.val;</span><br><span class="line">    current.next = prefixSumMap.get(sum).next;</span><br><span class="line">    current = current.next;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> newNode.next;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="類似題型"><a href="#類似題型" class="headerlink" title="類似題型"></a>類似題型</h2><p><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvc3ViYXJyYXktc3VtLWVxdWFscy1rLw==">560. Subarray Sum Equals K<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvbWF4aW11bS1hdmVyYWdlLXN1YmFycmF5LWkv">643. Maximum Average Subarray I<i class="fa fa-external-link-alt"></i></span></p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
+        
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-11-21T16:07:35+08:00"
-              content="2022-11-21">
-          11-21
-        </time>
-      </div>
+  <div class="followme">
+    <p>歡迎關注我的其它發布渠道</p>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/DataStructure-set/" itemprop="url">
-            <span itemprop="name">『 資料結構 』集合 Set</span>
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
           </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-11-21T15:36:21+08:00"
-              content="2022-11-21">
-          11-21
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/DataStructure-linkedList/" itemprop="url">
-            <span itemprop="name">『 資料結構 』鏈結串列 Linked-List</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-10-25T10:17:23+08:00"
-              content="2022-10-25">
-          10-25
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/DataStructure-queue/" itemprop="url">
-            <span itemprop="name">『 資料結構 』佇列 Queue</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-10-14T16:39:51+08:00"
-              content="2022-10-14">
-          10-14
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/DataStructure-stack/" itemprop="url">
-            <span itemprop="name">『 資料結構 』堆疊 Stack</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-10-02T17:27:42+08:00"
-              content="2022-10-02">
-          10-02
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/Js-array/" itemprop="url">
-            <span itemprop="name">『 資料結構 』陣列 Array By JavaScript</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-01-03T20:54:09+08:00"
-              content="2022-01-03">
-          01-03
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/Es6-destructuringAssignment/" itemprop="url">
-            <span itemprop="name">ES6-解構賦值</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+        </div>
     </div>
   </div>
-  
-  
-  
 
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/Python-splitString/" rel="prev" title="Python 分割字串的幾種方式">
+      <i class="fa fa-chevron-left"></i> Python 分割字串的幾種方式
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
@@ -384,6 +354,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80-1"><span class="nav-number">2.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Prefix-Sum-%E5%89%8D%E7%B6%B4%E5%92%8C"><span class="nav-number">3.</span> <span class="nav-text">Prefix Sum 前綴和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A1%8C%E7%B5%B2%E8%B7%AF"><span class="nav-number">4.</span> <span class="nav-text">解題絲路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%8C%E7%9B%AE"><span class="nav-number">4.1.</span> <span class="nav-text">題目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95"><span class="nav-number">4.2.</span> <span class="nav-text">算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%9E%E4%BC%BC%E9%A1%8C%E5%9E%8B"><span class="nav-number">5.</span> <span class="nav-text">類似題型</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
