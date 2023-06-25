@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://colinchiu87.github.io/posts/DataStructure-dictionaryAndHashmap/</loc>
+    
+    <lastmod>2023-06-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://colinchiu87.github.io/posts/Leetcode-prefixSum/</loc>
     
     <lastmod>2023-06-25</lastmod>
@@ -230,13 +239,6 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/tags/Hexo/</loc>
-    <lastmod>2023-06-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://colinchiu87.github.io/tags/ES6/</loc>
     <lastmod>2023-06-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -245,6 +247,13 @@
   
   <url>
     <loc>https://colinchiu87.github.io/tags/Frontend/</loc>
+    <lastmod>2023-06-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://colinchiu87.github.io/tags/Hexo/</loc>
     <lastmod>2023-06-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -279,13 +288,6 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/tags/LeetCode/</loc>
-    <lastmod>2023-06-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://colinchiu87.github.io/tags/Mac/</loc>
     <lastmod>2023-06-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -293,7 +295,7 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/tags/Python/</loc>
+    <loc>https://colinchiu87.github.io/tags/LeetCode/</loc>
     <lastmod>2023-06-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -307,14 +309,21 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/tags/Google-Search-Console/</loc>
+    <loc>https://colinchiu87.github.io/tags/crawler/</loc>
     <lastmod>2023-06-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/tags/TypeScript/</loc>
+    <loc>https://colinchiu87.github.io/tags/Python/</loc>
+    <lastmod>2023-06-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://colinchiu87.github.io/tags/Google-Search-Console/</loc>
     <lastmod>2023-06-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -328,7 +337,7 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/tags/crawler/</loc>
+    <loc>https://colinchiu87.github.io/tags/TypeScript/</loc>
     <lastmod>2023-06-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
