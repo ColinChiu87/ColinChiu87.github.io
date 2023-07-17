@@ -60,13 +60,10 @@
   <entry>
     <title>『 資料結構 』字典和雜湊表 Dictionary and HashMap</title>
     <url>/posts/DataStructure-dictionaryAndHashmap/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><span id="more"></span>
-
-
-<h2 id="前言-1"><a href="#前言-1" class="headerlink" title="前言"></a>前言</h2><p>JavaScript 中的字典和雜湊表是非常有用的資料結構，可以用來快速查找鍵值對應的值。在 JavaScript 中，字典通常是用物件來實現，而雜湊表則可以使用 Map 來實現。這些資料結構非常常見，因此學習如何使用它們是很重要的。</p>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>JavaScript 中的字典和雜湊表是非常有用的資料結構，可以用來快速查找鍵值對應的值。在 JavaScript 中，字典通常是用物件來實現，而雜湊表則可以使用 Map 來實現。這些資料結構非常常見，因此學習如何使用它們是很重要的。</p>
 <p>順道提一下，集合(Set) [值：值]所關注的是值的本體，而字典(Dictionary)、雜湊表(HashMap) [鍵：值]關注的是兩者的 Mapping 關聯，這樣就可以簡單區分開來了。</p>
 <p>在本篇文章中，我們將介紹如何在 JavaScript 中使用字典和雜湊表。我們將會討論它們的特性、如何使用它們來解決問題，以及它們的複雜度和效能。如果你對 JavaScript 的資料結構和算法感到興趣，這篇文章將會對你有所幫助。</p>
-<!-- more -->
+<span id="more"></span>
 
 <h2 id="字典-Dictionary"><a href="#字典-Dictionary" class="headerlink" title="字典 Dictionary"></a>字典 Dictionary</h2><p>想必大家都已經知道，集合代表的是一組互不重複的元素。在字典中，儲存的是「鍵：值」，鍵名用來查詢特定元素。<br>也稱作映射。</p>
 <h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ul>
@@ -139,6 +136,94 @@
 <li>需要注意的地方就是陣列的空間有機會被使用完。</li>
 </ul>
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/HASHTB12.svg/2560px-HASHTB12.svg.png" alt="來自wiki"></p>
+]]></content>
+      <tags>
+        <tag>data structure</tag>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>『 資料結構 』鏈結串列 Linked-List</title>
+    <url>/posts/DataStructure-linkedList/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>這週要帶各位認識的資料結構是「 鏈結串列 Linked-List 」，一開始所學的陣列（串列）是一種非常簡易能讓我們存放資料序列的資料結構，而鏈結串列則是一種動態的，我們進行新增或刪減元素，就會依照需求進行擴充。陣列應該是大家最常用的資料結構，每種語言都支持它，但是卻有一個隱憂：在大多數的語言中，<strong>陣列的大小是固定的</strong>，從起點或中間插入、移除元素是非常耗成本的。</p>
+<span id="more"></span>
+
+<h2 id="鏈結串列-Linked-List"><a href="#鏈結串列-Linked-List" class="headerlink" title="鏈結串列(Linked-List)"></a>鏈結串列(Linked-List)</h2><p>鏈結串列存放著有序的資料，但與陣列不同的是，其中的元素在記憶體中並不是連續放置的，每個元素是由一個節點和一個指向下一個元素的鏈結組成。</p>
+<p><a href="https://miro.medium.com/max/970/1*ZsQoOXgnSpaEDlUEVOoKgA.png"><img src="https://miro.medium.com/max/970/1*ZsQoOXgnSpaEDlUEVOoKgA.png" alt="鏈結串列"></a></p>
+<h3 id="優劣之處"><a href="#優劣之處" class="headerlink" title="優劣之處"></a>優劣之處</h3><p>優點顯而易見，在我們新增元素或刪除時並不需要去移動其他的元素，只需要注意將鏈結重新調整就好。<br>上帝開了一扇窗給你，就會關你一扇門。<br>你還記得陣列可以隨意存取任何位置的任何元素嗎？而鏈結串列只能從起點也就是 head 開始迭代下去。如果你在考慮要使用陣列還是鏈結串列時，不妨可以針對你的需求來做出較佳的選擇。</p>
+<h3 id="現實中的實例"><a href="#現實中的實例" class="headerlink" title="現實中的實例"></a>現實中的實例</h3><ul>
+<li>尋寶遊戲<br>依照線索一道一道往下解謎。<br><a href="https://www.suloves.com/ckfinder/userfiles/images/depositphotos_10772916-stock-photo-treasure-map.jpg"><img src="https://www.suloves.com/ckfinder/userfiles/images/depositphotos_10772916-stock-photo-treasure-map.jpg" alt="尋寶"></a></li>
+<li>火車<br>由一節一節的車廂連結而成，很容易將其分開。<br><a href="https://taiwan.sharelife.tw/tw-news-img/50859/e277220720385717.jpg"><img src="https://taiwan.sharelife.tw/tw-news-img/50859/e277220720385717.jpg" alt="火車"></a></li>
+</ul>
+<h3 id="建立鏈結串列"><a href="#建立鏈結串列" class="headerlink" title="建立鏈結串列"></a>建立鏈結串列</h3><p>瞭解 Linked-List 後，我們就要用程式來實作啦。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">LinkedList</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> Node = <span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.element = element;</span><br><span class="line">    <span class="built_in">this</span>.next = <span class="literal">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> length = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> head = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 向串列尾部添加一個新元素</span></span><br><span class="line">  <span class="built_in">this</span>.append = <span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> node = <span class="keyword">new</span> Node(element),</span><br><span class="line">        current;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(head === <span class="literal">null</span>)&#123;</span><br><span class="line">      head = node;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      current = head;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 串列迴圈，直到找到最後一個</span></span><br><span class="line">      <span class="keyword">while</span>(current.next)&#123;</span><br><span class="line">        current = current.next;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 找到最後一項，將其 next 指向 node ，建立鏈結</span></span><br><span class="line">      current.next = node;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    length++; <span class="comment">// 更新串列長度</span></span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 向串列的特定位置插入一個新元素</span></span><br><span class="line">  <span class="built_in">this</span>.insert = <span class="function"><span class="keyword">function</span>(<span class="params">position, element</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 檢查越界值</span></span><br><span class="line">    <span class="keyword">if</span>(position &gt;= <span class="number">0</span> &amp;&amp; position &lt;= length)&#123;</span><br><span class="line">      <span class="keyword">let</span> node = <span class="keyword">new</span> Node(element),</span><br><span class="line">          previous,</span><br><span class="line">          index = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span>(position === <span class="number">0</span>)&#123;</span><br><span class="line">        node.next = current;</span><br><span class="line">        head = node;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">while</span>(index++ &lt; position)&#123;</span><br><span class="line">          previous = current;</span><br><span class="line">          current = current.next;</span><br><span class="line">        &#125;</span><br><span class="line">        node.next = current;</span><br><span class="line">        previous = node;</span><br><span class="line">      &#125;</span><br><span class="line">      length++;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 從特定位置移除一項</span></span><br><span class="line">  <span class="built_in">this</span>.removeAt = <span class="function"><span class="keyword">function</span>(<span class="params">position</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 檢查越界值</span></span><br><span class="line">    <span class="keyword">if</span>(position &gt; -<span class="number">1</span> &amp;&amp; position &lt; length)&#123;</span><br><span class="line">      <span class="keyword">let</span> current = head,</span><br><span class="line">          previous,</span><br><span class="line">          index = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 移除第一項</span></span><br><span class="line">      <span class="keyword">if</span>(position === <span class="number">0</span>)&#123;</span><br><span class="line">        head = current.next;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">while</span>(index++ &lt; position)&#123;</span><br><span class="line">          previous = current;</span><br><span class="line">          current = current.next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 將 previous 與 current 的下一項鏈結起來：跳過 current ，進而移除它 previous.next = current.next;</span></span><br><span class="line">      &#125;</span><br><span class="line">      length--;</span><br><span class="line">      <span class="keyword">return</span> current.element;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 從串列中移除一項</span></span><br><span class="line">  <span class="built_in">this</span>.remove = <span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> index = <span class="built_in">this</span>.indexOf(element);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.removeAt(index);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 返回元素在串列中的索引。如果串列中沒有該元素則返回 -1</span></span><br><span class="line">  <span class="built_in">this</span>.indexOf = <span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> current = head,</span><br><span class="line">        index = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(current)&#123;</span><br><span class="line">      <span class="keyword">if</span>(element === current.element)&#123;</span><br><span class="line">        <span class="keyword">return</span> index;</span><br><span class="line">      &#125;</span><br><span class="line">      index++;</span><br><span class="line">      current = current.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 鏈結串列中不含任何元素，返回 true。</span></span><br><span class="line">  <span class="built_in">this</span>.isEmpty = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> length === <span class="number">0</span>;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 返回鏈結串列包含的元素個數。</span></span><br><span class="line">  <span class="built_in">this</span>.size = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> length;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 由於使用了 Node 類別，就需要覆寫繼承自 Js 物件預設的方法，讓其只輸出元素的值</span></span><br><span class="line">  <span class="built_in">this</span>.toString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> current = head,</span><br><span class="line">        string = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="keyword">while</span>(current)&#123;</span><br><span class="line">      string += current.element;</span><br><span class="line">      current = current.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> string;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.print = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Linked-List 還需要一個 Node 類別來輔助，表示要加入串列的項目。它包含一個值 (element) ，和 指向串列中下一個節點的指位器 next 屬性。另一個重點是，我們還要一個用來存放第一個節點的引用(head)。</p>
+<h3 id="方法詳述"><a href="#方法詳述" class="headerlink" title="方法詳述"></a>方法詳述</h3><p>相關的程式碼都在上方，這邊就不再多打一次了，我們直接說明邏輯的部份！</p>
+<h4 id="添加：在鏈結串列尾部追加元素"><a href="#添加：在鏈結串列尾部追加元素" class="headerlink" title="添加：在鏈結串列尾部追加元素"></a>添加：在鏈結串列尾部追加元素</h4><p>append(element)，這邊有兩種情況，一是串列為空；二是不為空。</p>
+<ul>
+<li>向空串列添加一個元素</li>
+</ul>
+<img src="/posts/DataStructure-linkedList/linkedlist4.jpg" class="">
+
+<p>如果 head 的值為 null，就意味著在向串列添加第一個元素，所以要做的是將 head 指向 node 元素。而 node.next == null。</p>
+<ul>
+<li>向一個不為空的串列尾部添加元素</li>
+</ul>
+<img src="/posts/DataStructure-linkedList/linkedlist5.jpg" class="">
+
+<p>首先，要先找到最後一個元素。<br>⚠️ 要注意的是我們只知道第一個元素，因此需要迴圈存取串列，直到找出最後一個。<br>為此我們要一個變數是指向串列中 current 項目，當 current.next 為 null 時，就知道我們到達串列尾端了。接下來要做的就是讓當前（也就是最後一個）元素的 next 指位器指向想要添加的串列節點上。</p>
+<h4 id="移除：從鏈結串列中移除元素"><a href="#移除：從鏈結串列中移除元素" class="headerlink" title="移除：從鏈結串列中移除元素"></a>移除：從鏈結串列中移除元素</h4><p>removeAt(position)，該方法要得到移除元素的位置，就需要先驗證這個位置是有效的。從 0 到串列長度都是有效位置。如果不是有效，就 return null（意即沒從串列移除元素）。</p>
+<p>兩種情況：一是移除第一個元素；二是移除第一個以外的任意元素。</p>
+<ul>
+<li>從串列中移除第一個元素</li>
+</ul>
+<img src="/posts/DataStructure-linkedList/linkedlist6.jpg" class="">
+
+<p>要做的是讓 head 指向串列第二個元素。我們將用 current 變數建立一個對串列中第一個元素引用。將 head 賦為 current.next，就完成了。</p>
+<ul>
+<li>從串列中移除中間元素</li>
+</ul>
+<p>需要依靠一個細節迭代串列，直到到達目標位置（使用一個用於內部控制和遞增的 index 變數）：current 變數總是為對串列迴圈的當前元素的引用；他被命名為 previous。</p>
+<p>因此，要從串列中移除當前元素，要做的就是將 previous.next 和 current.next 鏈結起來。這樣當前元素就會被丟棄在電腦記憶體中，等著被垃圾回收桶清除。</p>
+<ul>
+<li>從串列中移除最後一個元素</li>
+</ul>
+<img src="/posts/DataStructure-linkedList/linkedlist7.jpg" class="">
+
+<p>當我們跳出迴圈，current 是對串列中最後一個元素（要移除的項目），current.next 為 null（因為他是最後一元素）。由於還保留著 previous 元素引用，要做的就是把 previous.next 的值改成 current.next。</p>
+<h4 id="插入：在串列任意位置插入一個元素"><a href="#插入：在串列任意位置插入一個元素" class="headerlink" title="插入：在串列任意位置插入一個元素"></a>插入：在串列任意位置插入一個元素</h4><p>insert(position, element)，由於要處理到位置，就必須在一開始檢查臨界值，如果越界了就 return false，表示沒有完成添加。</p>
+<ul>
+<li>在串列起點添加一個元素</li>
+</ul>
+<img src="/posts/DataStructure-linkedList/linkedlist.jpg" class="">
+
+<p>current 是對串列第一個數的引用。我們要做的是把 node.next 的值設成 current。現在 head 和 node.next 都指向 current。接著就是將 head 改成 node，這樣串列就多一個元素了。</p>
+<ul>
+<li>在串列尾部添加元素</li>
+</ul>
+<p>首先，需要用迴圈存取串列，找到目標的 position。當跳出迴圈時，就是 current 到達我們想要插入新元素位置的後一個元素，而 previuos 是對想要插入新元素的位置之前一個元素的引用。在這情況下，我們要在 current, previous 之間添加，因此，首先要把新項目(node)和當前項目鏈結起來，然後再改變 previous 和 current 之間的鏈結，我們還要將 previous.next 指向 node。</p>
+<img src="/posts/DataStructure-linkedList/linkedlist2.jpg" class="">
+
+<p>如果我們試圖向最後一位添加新項目，previous 將會是串列最後一個，而 current 將會是 null。在這情況，node.next 將指向 current，而 previous.next 指向 node。</p>
+<ul>
+<li>在串列中間添加元素</li>
+</ul>
+<img src="/posts/DataStructure-linkedList/linkedlist3.jpg" class="">
+
+<p>試著將 node 插入到 prev, curr 之間。首先，我們要把 node.next 指向 curr。然後把 prev.next 的值設為 node，這樣就完成囉。</p>
+<h2 id="雙向鏈結串列-Double-Linked-List"><a href="#雙向鏈結串列-Double-Linked-List" class="headerlink" title="雙向鏈結串列 (Double Linked List)"></a>雙向鏈結串列 (Double Linked List)</h2><img src="/posts/DataStructure-linkedList/linkedlist8.png" class="">
+
+<p>相較原型，雙向鏈結的串列 node 多了一個 prev，而 list 也多了一個 tail。<br>我們可想而知，多了向前的鏈結，讓我們可以解開單向迭代的枷鎖，不只可以從頭到尾，也可以反過來。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">DoublyLinkedList</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> Node = <span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.element = element;</span><br><span class="line">    <span class="built_in">this</span>.next = <span class="literal">null</span>;</span><br><span class="line">    <span class="built_in">this</span>.prev = <span class="literal">null</span>; <span class="comment">// 雙向串列才有</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> length = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> head = <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">let</span> tail = <span class="literal">null</span>; <span class="comment">// 雙向串列才有</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// methods</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="在任意位置添加新元素"><a href="#在任意位置添加新元素" class="headerlink" title="在任意位置添加新元素"></a>在任意位置添加新元素</h3><p>和單向的鏈結串列的區別在於，雙向鏈結串列需要同時控制 next, prev 兩個指位器。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.insert = <span class="function"><span class="keyword">function</span>(<span class="params">element, position</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 檢查是否越界</span></span><br><span class="line">  <span class="keyword">if</span> (position &gt;= <span class="number">0</span> &amp;&amp; position &lt;= length) &#123;</span><br><span class="line">    <span class="keyword">let</span> node = <span class="keyword">new</span> Node(element),</span><br><span class="line">        current = head,</span><br><span class="line">        previous,</span><br><span class="line">        index = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 項目添加在第一個位置</span></span><br><span class="line">    <span class="keyword">if</span> (position === <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="comment">// 空串列</span></span><br><span class="line">      <span class="keyword">if</span> (!head) &#123; <span class="comment">// new</span></span><br><span class="line">        head = node;</span><br><span class="line">        tail = node;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        node.next = current;</span><br><span class="line">        current.prev = node; <span class="comment">// new</span></span><br><span class="line">        head = node;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (position === length)&#123; <span class="comment">// 添加在最後一項 // new</span></span><br><span class="line">      current = tail;</span><br><span class="line">      current.next = node;</span><br><span class="line">      node.prev = current;</span><br><span class="line">      tail = node;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">while</span> (index++ &lt; position) &#123;</span><br><span class="line">        previous = current;</span><br><span class="line">        current = current.next;</span><br><span class="line">      &#125;</span><br><span class="line">      node.next = current;</span><br><span class="line">      previous.next = node;</span><br><span class="line"></span><br><span class="line">      current.prev = node; <span class="comment">// new</span></span><br><span class="line">      node.prev = previous; <span class="comment">// new</span></span><br><span class="line">    &#125;</span><br><span class="line">    length++;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="環狀鏈結串列"><a href="#環狀鏈結串列" class="headerlink" title="環狀鏈結串列"></a>環狀鏈結串列</h2><p>環狀鏈結串列可以單向也可以雙向。和鏈結串列不同的是，最後尾端指向的不是 null，而是第一個元素 (head)。</p>
+<img src="/posts/DataStructure-linkedList/linkedlist9.jpg" class="">
+
+<h2 id="結"><a href="#結" class="headerlink" title="結"></a>結</h2><p>我們今天學到了鏈結串列這個結構，和陣列相比最重要的優點就是無需移動鏈結串列中的元素，就能輕輕鬆鬆添加或移除元素。<br>當你需要添加和移除很多元素時，最好的選擇非鏈結串列(Linked-List)莫屬！</p>
 ]]></content>
       <tags>
         <tag>data structure</tag>
@@ -438,94 +523,6 @@
       </tags>
   </entry>
   <entry>
-    <title>『 資料結構 』鏈結串列 Linked-List</title>
-    <url>/posts/DataStructure-linkedList/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>這週要帶各位認識的資料結構是「 鏈結串列 Linked-List 」，一開始所學的陣列（串列）是一種非常簡易能讓我們存放資料序列的資料結構，而鏈結串列則是一種動態的，我們進行新增或刪減元素，就會依照需求進行擴充。陣列應該是大家最常用的資料結構，每種語言都支持它，但是卻有一個隱憂：在大多數的語言中，<strong>陣列的大小是固定的</strong>，從起點或中間插入、移除元素是非常耗成本的。</p>
-<span id="more"></span>
-
-<h2 id="鏈結串列-Linked-List"><a href="#鏈結串列-Linked-List" class="headerlink" title="鏈結串列(Linked-List)"></a>鏈結串列(Linked-List)</h2><p>鏈結串列存放著有序的資料，但與陣列不同的是，其中的元素在記憶體中並不是連續放置的，每個元素是由一個節點和一個指向下一個元素的鏈結組成。</p>
-<p><a href="https://miro.medium.com/max/970/1*ZsQoOXgnSpaEDlUEVOoKgA.png"><img src="https://miro.medium.com/max/970/1*ZsQoOXgnSpaEDlUEVOoKgA.png" alt="鏈結串列"></a></p>
-<h3 id="優劣之處"><a href="#優劣之處" class="headerlink" title="優劣之處"></a>優劣之處</h3><p>優點顯而易見，在我們新增元素或刪除時並不需要去移動其他的元素，只需要注意將鏈結重新調整就好。<br>上帝開了一扇窗給你，就會關你一扇門。<br>你還記得陣列可以隨意存取任何位置的任何元素嗎？而鏈結串列只能從起點也就是 head 開始迭代下去。如果你在考慮要使用陣列還是鏈結串列時，不妨可以針對你的需求來做出較佳的選擇。</p>
-<h3 id="現實中的實例"><a href="#現實中的實例" class="headerlink" title="現實中的實例"></a>現實中的實例</h3><ul>
-<li>尋寶遊戲<br>依照線索一道一道往下解謎。<br><a href="https://www.suloves.com/ckfinder/userfiles/images/depositphotos_10772916-stock-photo-treasure-map.jpg"><img src="https://www.suloves.com/ckfinder/userfiles/images/depositphotos_10772916-stock-photo-treasure-map.jpg" alt="尋寶"></a></li>
-<li>火車<br>由一節一節的車廂連結而成，很容易將其分開。<br><a href="https://taiwan.sharelife.tw/tw-news-img/50859/e277220720385717.jpg"><img src="https://taiwan.sharelife.tw/tw-news-img/50859/e277220720385717.jpg" alt="火車"></a></li>
-</ul>
-<h3 id="建立鏈結串列"><a href="#建立鏈結串列" class="headerlink" title="建立鏈結串列"></a>建立鏈結串列</h3><p>瞭解 Linked-List 後，我們就要用程式來實作啦。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">LinkedList</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> Node = <span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.element = element;</span><br><span class="line">    <span class="built_in">this</span>.next = <span class="literal">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> length = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> head = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 向串列尾部添加一個新元素</span></span><br><span class="line">  <span class="built_in">this</span>.append = <span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> node = <span class="keyword">new</span> Node(element),</span><br><span class="line">        current;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(head === <span class="literal">null</span>)&#123;</span><br><span class="line">      head = node;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      current = head;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 串列迴圈，直到找到最後一個</span></span><br><span class="line">      <span class="keyword">while</span>(current.next)&#123;</span><br><span class="line">        current = current.next;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 找到最後一項，將其 next 指向 node ，建立鏈結</span></span><br><span class="line">      current.next = node;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    length++; <span class="comment">// 更新串列長度</span></span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 向串列的特定位置插入一個新元素</span></span><br><span class="line">  <span class="built_in">this</span>.insert = <span class="function"><span class="keyword">function</span>(<span class="params">position, element</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 檢查越界值</span></span><br><span class="line">    <span class="keyword">if</span>(position &gt;= <span class="number">0</span> &amp;&amp; position &lt;= length)&#123;</span><br><span class="line">      <span class="keyword">let</span> node = <span class="keyword">new</span> Node(element),</span><br><span class="line">          previous,</span><br><span class="line">          index = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span>(position === <span class="number">0</span>)&#123;</span><br><span class="line">        node.next = current;</span><br><span class="line">        head = node;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">while</span>(index++ &lt; position)&#123;</span><br><span class="line">          previous = current;</span><br><span class="line">          current = current.next;</span><br><span class="line">        &#125;</span><br><span class="line">        node.next = current;</span><br><span class="line">        previous = node;</span><br><span class="line">      &#125;</span><br><span class="line">      length++;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 從特定位置移除一項</span></span><br><span class="line">  <span class="built_in">this</span>.removeAt = <span class="function"><span class="keyword">function</span>(<span class="params">position</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 檢查越界值</span></span><br><span class="line">    <span class="keyword">if</span>(position &gt; -<span class="number">1</span> &amp;&amp; position &lt; length)&#123;</span><br><span class="line">      <span class="keyword">let</span> current = head,</span><br><span class="line">          previous,</span><br><span class="line">          index = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 移除第一項</span></span><br><span class="line">      <span class="keyword">if</span>(position === <span class="number">0</span>)&#123;</span><br><span class="line">        head = current.next;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">while</span>(index++ &lt; position)&#123;</span><br><span class="line">          previous = current;</span><br><span class="line">          current = current.next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 將 previous 與 current 的下一項鏈結起來：跳過 current ，進而移除它 previous.next = current.next;</span></span><br><span class="line">      &#125;</span><br><span class="line">      length--;</span><br><span class="line">      <span class="keyword">return</span> current.element;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 從串列中移除一項</span></span><br><span class="line">  <span class="built_in">this</span>.remove = <span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> index = <span class="built_in">this</span>.indexOf(element);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.removeAt(index);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 返回元素在串列中的索引。如果串列中沒有該元素則返回 -1</span></span><br><span class="line">  <span class="built_in">this</span>.indexOf = <span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> current = head,</span><br><span class="line">        index = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(current)&#123;</span><br><span class="line">      <span class="keyword">if</span>(element === current.element)&#123;</span><br><span class="line">        <span class="keyword">return</span> index;</span><br><span class="line">      &#125;</span><br><span class="line">      index++;</span><br><span class="line">      current = current.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 鏈結串列中不含任何元素，返回 true。</span></span><br><span class="line">  <span class="built_in">this</span>.isEmpty = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> length === <span class="number">0</span>;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 返回鏈結串列包含的元素個數。</span></span><br><span class="line">  <span class="built_in">this</span>.size = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> length;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 由於使用了 Node 類別，就需要覆寫繼承自 Js 物件預設的方法，讓其只輸出元素的值</span></span><br><span class="line">  <span class="built_in">this</span>.toString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> current = head,</span><br><span class="line">        string = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="keyword">while</span>(current)&#123;</span><br><span class="line">      string += current.element;</span><br><span class="line">      current = current.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> string;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.print = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Linked-List 還需要一個 Node 類別來輔助，表示要加入串列的項目。它包含一個值 (element) ，和 指向串列中下一個節點的指位器 next 屬性。另一個重點是，我們還要一個用來存放第一個節點的引用(head)。</p>
-<h3 id="方法詳述"><a href="#方法詳述" class="headerlink" title="方法詳述"></a>方法詳述</h3><p>相關的程式碼都在上方，這邊就不再多打一次了，我們直接說明邏輯的部份！</p>
-<h4 id="添加：在鏈結串列尾部追加元素"><a href="#添加：在鏈結串列尾部追加元素" class="headerlink" title="添加：在鏈結串列尾部追加元素"></a>添加：在鏈結串列尾部追加元素</h4><p>append(element)，這邊有兩種情況，一是串列為空；二是不為空。</p>
-<ul>
-<li>向空串列添加一個元素</li>
-</ul>
-<img src="/posts/DataStructure-linkedList/linkedlist4.jpg" class="">
-
-<p>如果 head 的值為 null，就意味著在向串列添加第一個元素，所以要做的是將 head 指向 node 元素。而 node.next == null。</p>
-<ul>
-<li>向一個不為空的串列尾部添加元素</li>
-</ul>
-<img src="/posts/DataStructure-linkedList/linkedlist5.jpg" class="">
-
-<p>首先，要先找到最後一個元素。<br>⚠️ 要注意的是我們只知道第一個元素，因此需要迴圈存取串列，直到找出最後一個。<br>為此我們要一個變數是指向串列中 current 項目，當 current.next 為 null 時，就知道我們到達串列尾端了。接下來要做的就是讓當前（也就是最後一個）元素的 next 指位器指向想要添加的串列節點上。</p>
-<h4 id="移除：從鏈結串列中移除元素"><a href="#移除：從鏈結串列中移除元素" class="headerlink" title="移除：從鏈結串列中移除元素"></a>移除：從鏈結串列中移除元素</h4><p>removeAt(position)，該方法要得到移除元素的位置，就需要先驗證這個位置是有效的。從 0 到串列長度都是有效位置。如果不是有效，就 return null（意即沒從串列移除元素）。</p>
-<p>兩種情況：一是移除第一個元素；二是移除第一個以外的任意元素。</p>
-<ul>
-<li>從串列中移除第一個元素</li>
-</ul>
-<img src="/posts/DataStructure-linkedList/linkedlist6.jpg" class="">
-
-<p>要做的是讓 head 指向串列第二個元素。我們將用 current 變數建立一個對串列中第一個元素引用。將 head 賦為 current.next，就完成了。</p>
-<ul>
-<li>從串列中移除中間元素</li>
-</ul>
-<p>需要依靠一個細節迭代串列，直到到達目標位置（使用一個用於內部控制和遞增的 index 變數）：current 變數總是為對串列迴圈的當前元素的引用；他被命名為 previous。</p>
-<p>因此，要從串列中移除當前元素，要做的就是將 previous.next 和 current.next 鏈結起來。這樣當前元素就會被丟棄在電腦記憶體中，等著被垃圾回收桶清除。</p>
-<ul>
-<li>從串列中移除最後一個元素</li>
-</ul>
-<img src="/posts/DataStructure-linkedList/linkedlist7.jpg" class="">
-
-<p>當我們跳出迴圈，current 是對串列中最後一個元素（要移除的項目），current.next 為 null（因為他是最後一元素）。由於還保留著 previous 元素引用，要做的就是把 previous.next 的值改成 current.next。</p>
-<h4 id="插入：在串列任意位置插入一個元素"><a href="#插入：在串列任意位置插入一個元素" class="headerlink" title="插入：在串列任意位置插入一個元素"></a>插入：在串列任意位置插入一個元素</h4><p>insert(position, element)，由於要處理到位置，就必須在一開始檢查臨界值，如果越界了就 return false，表示沒有完成添加。</p>
-<ul>
-<li>在串列起點添加一個元素</li>
-</ul>
-<img src="/posts/DataStructure-linkedList/linkedlist.jpg" class="">
-
-<p>current 是對串列第一個數的引用。我們要做的是把 node.next 的值設成 current。現在 head 和 node.next 都指向 current。接著就是將 head 改成 node，這樣串列就多一個元素了。</p>
-<ul>
-<li>在串列尾部添加元素</li>
-</ul>
-<p>首先，需要用迴圈存取串列，找到目標的 position。當跳出迴圈時，就是 current 到達我們想要插入新元素位置的後一個元素，而 previuos 是對想要插入新元素的位置之前一個元素的引用。在這情況下，我們要在 current, previous 之間添加，因此，首先要把新項目(node)和當前項目鏈結起來，然後再改變 previous 和 current 之間的鏈結，我們還要將 previous.next 指向 node。</p>
-<img src="/posts/DataStructure-linkedList/linkedlist2.jpg" class="">
-
-<p>如果我們試圖向最後一位添加新項目，previous 將會是串列最後一個，而 current 將會是 null。在這情況，node.next 將指向 current，而 previous.next 指向 node。</p>
-<ul>
-<li>在串列中間添加元素</li>
-</ul>
-<img src="/posts/DataStructure-linkedList/linkedlist3.jpg" class="">
-
-<p>試著將 node 插入到 prev, curr 之間。首先，我們要把 node.next 指向 curr。然後把 prev.next 的值設為 node，這樣就完成囉。</p>
-<h2 id="雙向鏈結串列-Double-Linked-List"><a href="#雙向鏈結串列-Double-Linked-List" class="headerlink" title="雙向鏈結串列 (Double Linked List)"></a>雙向鏈結串列 (Double Linked List)</h2><img src="/posts/DataStructure-linkedList/linkedlist8.png" class="">
-
-<p>相較原型，雙向鏈結的串列 node 多了一個 prev，而 list 也多了一個 tail。<br>我們可想而知，多了向前的鏈結，讓我們可以解開單向迭代的枷鎖，不只可以從頭到尾，也可以反過來。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">DoublyLinkedList</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> Node = <span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.element = element;</span><br><span class="line">    <span class="built_in">this</span>.next = <span class="literal">null</span>;</span><br><span class="line">    <span class="built_in">this</span>.prev = <span class="literal">null</span>; <span class="comment">// 雙向串列才有</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> length = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> head = <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">let</span> tail = <span class="literal">null</span>; <span class="comment">// 雙向串列才有</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// methods</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="在任意位置添加新元素"><a href="#在任意位置添加新元素" class="headerlink" title="在任意位置添加新元素"></a>在任意位置添加新元素</h3><p>和單向的鏈結串列的區別在於，雙向鏈結串列需要同時控制 next, prev 兩個指位器。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.insert = <span class="function"><span class="keyword">function</span>(<span class="params">element, position</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 檢查是否越界</span></span><br><span class="line">  <span class="keyword">if</span> (position &gt;= <span class="number">0</span> &amp;&amp; position &lt;= length) &#123;</span><br><span class="line">    <span class="keyword">let</span> node = <span class="keyword">new</span> Node(element),</span><br><span class="line">        current = head,</span><br><span class="line">        previous,</span><br><span class="line">        index = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 項目添加在第一個位置</span></span><br><span class="line">    <span class="keyword">if</span> (position === <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="comment">// 空串列</span></span><br><span class="line">      <span class="keyword">if</span> (!head) &#123; <span class="comment">// new</span></span><br><span class="line">        head = node;</span><br><span class="line">        tail = node;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        node.next = current;</span><br><span class="line">        current.prev = node; <span class="comment">// new</span></span><br><span class="line">        head = node;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (position === length)&#123; <span class="comment">// 添加在最後一項 // new</span></span><br><span class="line">      current = tail;</span><br><span class="line">      current.next = node;</span><br><span class="line">      node.prev = current;</span><br><span class="line">      tail = node;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">while</span> (index++ &lt; position) &#123;</span><br><span class="line">        previous = current;</span><br><span class="line">        current = current.next;</span><br><span class="line">      &#125;</span><br><span class="line">      node.next = current;</span><br><span class="line">      previous.next = node;</span><br><span class="line"></span><br><span class="line">      current.prev = node; <span class="comment">// new</span></span><br><span class="line">      node.prev = previous; <span class="comment">// new</span></span><br><span class="line">    &#125;</span><br><span class="line">    length++;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="環狀鏈結串列"><a href="#環狀鏈結串列" class="headerlink" title="環狀鏈結串列"></a>環狀鏈結串列</h2><p>環狀鏈結串列可以單向也可以雙向。和鏈結串列不同的是，最後尾端指向的不是 null，而是第一個元素 (head)。</p>
-<img src="/posts/DataStructure-linkedList/linkedlist9.jpg" class="">
-
-<h2 id="結"><a href="#結" class="headerlink" title="結"></a>結</h2><p>我們今天學到了鏈結串列這個結構，和陣列相比最重要的優點就是無需移動鏈結串列中的元素，就能輕輕鬆鬆添加或移除元素。<br>當你需要添加和移除很多元素時，最好的選擇非鏈結串列(Linked-List)莫屬！</p>
-]]></content>
-      <tags>
-        <tag>data structure</tag>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>一失足掉進的坑 Hexo Config</title>
     <url>/posts/Hexo-config-permalink/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有在使用 Hexo Blog 的朋友一定知道他有很多設定可以玩！除了一般的標題、簡介、相關連結外，還有分頁、閱讀進度、總閱覽人數…等等一大堆。<br>今日心血來潮想要把部落格的 config 設定弄的更完整一些，沒有想到居然在之中受困數個小時…，真的覺得自己好笑又好氣😓</p>
@@ -569,6 +566,35 @@
         <tag>html</tag>
         <tag>download</tag>
         <tag>pdf</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>『 LeetCode 技巧 』Prefix Sum 前綴和</title>
+    <url>/posts/Leetcode-prefixSum/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近開始學習資料結構，搭配著 LeetCode 進行練習，發現有很多解題的觀念都可以通用！<br>這次就來説說這次解到的題目，有錯誤的地方還請多多指教 &gt;_&lt;<br>以下為題目連結：<span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvcmVtb3ZlLXplcm8tc3VtLWNvbnNlY3V0aXZlLW5vZGVzLWZyb20tbGlua2VkLWxpc3Qv">1171. Remove Zero Sum Consecutive Nodes from Linked List<i class="fa fa-external-link-alt"></i></span></p>
+<span id="more"></span>
+
+<h2 id="Prefix-Sum-前綴和"><a href="#Prefix-Sum-前綴和" class="headerlink" title="Prefix Sum 前綴和"></a>Prefix Sum 前綴和</h2><p>什麼是前綴和呢？簡單來說，就是將前面的數相加得到的一個新的和陣列。<br>而得到的新陣列可以讓我們做一些事，求區間和（subarray）就是基礎應用之一。</p>
+<p>當題目是整數列而且出現需要”子數列”或”連續的子數列”時，就能利用這著概念去解題，效果可說是相當不錯。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">3</span>, <span class="number">5</span>];</span><br><span class="line"><span class="comment">// 取得前綴和，累加 array[0:i-1] 得到 prefixSumArray[i]</span></span><br><span class="line"><span class="keyword">let</span> prefixSumArray = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">14</span>, <span class="number">17</span>, <span class="number">22</span>];</span><br></pre></td></tr></table></figure>
+
+<p>在實作上，我們就可以直接使用這個數列進行累加，就不用再去遍歷一次 array。</p>
+<h2 id="解題絲路"><a href="#解題絲路" class="headerlink" title="解題絲路"></a>解題絲路</h2><h3 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h3><p>先來看題目~<br>在給定的鏈結裡面，重複扣除總和為 0 的<strong>連續數列</strong>，直到沒有這類的數列為止。<br>最後返回剩餘的鏈結。</p>
+<p>寫之前再到最下面看一下”條件(Constraints)”，這很重要呦！</p>
+<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p>看到”連續數列”，我們就可以試著利用 Prefix Sum。<br>另外補充，一般來說，前綴和會和 Map 一起做使用。</p>
+<ol>
+<li><p>建構一個 MAP 來儲存具有同累加值的最後節點的累積和。<br>因為最後一個節點的下一個數值是我們要建造和連結輸出的地方。</p>
+</li>
+<li><p>將 MAP 給實作出來</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> removeZeroSumSublists = <span class="function"><span class="keyword">function</span> (<span class="params">head</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 如果 head == false，return head</span></span><br><span class="line">  <span class="keyword">if</span> (!head) &#123;</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 概念 prefix sum map</span></span><br><span class="line">  <span class="keyword">let</span> newNode = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">  newNode.next = head;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> current = newNode,</span><br><span class="line">    prefixSumMap = <span class="keyword">new</span> <span class="built_in">Map</span>(),</span><br><span class="line">    sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (current) &#123;</span><br><span class="line">    sum += current.val;</span><br><span class="line">    prefixSumMap.set(sum, current);</span><br><span class="line">    current = current.next;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  current = newNode;</span><br><span class="line">  sum = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span> (current) &#123;</span><br><span class="line">    sum += current.val;</span><br><span class="line">    current.next = prefixSumMap.get(sum).next;</span><br><span class="line">    current = current.next;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> newNode.next;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="類似題型"><a href="#類似題型" class="headerlink" title="類似題型"></a>類似題型</h2><p><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvc3ViYXJyYXktc3VtLWVxdWFscy1rLw==">560. Subarray Sum Equals K<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvbWF4aW11bS1hdmVyYWdlLXN1YmFycmF5LWkv">643. Maximum Average Subarray I<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <tags>
+        <tag>LeetCode</tag>
       </tags>
   </entry>
   <entry>
@@ -718,78 +744,6 @@
       </tags>
   </entry>
   <entry>
-    <title>『 LeetCode 技巧 』Prefix Sum 前綴和</title>
-    <url>/posts/Leetcode-prefixSum/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近開始學習資料結構，搭配著 LeetCode 進行練習，發現有很多解題的觀念都可以通用！<br>這次就來説說這次解到的題目，有錯誤的地方還請多多指教 &gt;_&lt;<br>以下為題目連結：<span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvcmVtb3ZlLXplcm8tc3VtLWNvbnNlY3V0aXZlLW5vZGVzLWZyb20tbGlua2VkLWxpc3Qv">1171. Remove Zero Sum Consecutive Nodes from Linked List<i class="fa fa-external-link-alt"></i></span></p>
-<span id="more"></span>
-
-<h2 id="Prefix-Sum-前綴和"><a href="#Prefix-Sum-前綴和" class="headerlink" title="Prefix Sum 前綴和"></a>Prefix Sum 前綴和</h2><p>什麼是前綴和呢？簡單來說，就是將前面的數相加得到的一個新的和陣列。<br>而得到的新陣列可以讓我們做一些事，求區間和（subarray）就是基礎應用之一。</p>
-<p>當題目是整數列而且出現需要”子數列”或”連續的子數列”時，就能利用這著概念去解題，效果可說是相當不錯。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">3</span>, <span class="number">5</span>];</span><br><span class="line"><span class="comment">// 取得前綴和，累加 array[0:i-1] 得到 prefixSumArray[i]</span></span><br><span class="line"><span class="keyword">let</span> prefixSumArray = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">14</span>, <span class="number">17</span>, <span class="number">22</span>];</span><br></pre></td></tr></table></figure>
-
-<p>在實作上，我們就可以直接使用這個數列進行累加，就不用再去遍歷一次 array。</p>
-<h2 id="解題絲路"><a href="#解題絲路" class="headerlink" title="解題絲路"></a>解題絲路</h2><h3 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h3><p>先來看題目~<br>在給定的鏈結裡面，重複扣除總和為 0 的<strong>連續數列</strong>，直到沒有這類的數列為止。<br>最後返回剩餘的鏈結。</p>
-<p>寫之前再到最下面看一下”條件(Constraints)”，這很重要呦！</p>
-<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p>看到”連續數列”，我們就可以試著利用 Prefix Sum。<br>另外補充，一般來說，前綴和會和 Map 一起做使用。</p>
-<ol>
-<li><p>建構一個 MAP 來儲存具有同累加值的最後節點的累積和。<br>因為最後一個節點的下一個數值是我們要建造和連結輸出的地方。</p>
-</li>
-<li><p>將 MAP 給實作出來</p>
-</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> removeZeroSumSublists = <span class="function"><span class="keyword">function</span> (<span class="params">head</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 如果 head == false，return head</span></span><br><span class="line">  <span class="keyword">if</span> (!head) &#123;</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 概念 prefix sum map</span></span><br><span class="line">  <span class="keyword">let</span> newNode = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">  newNode.next = head;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> current = newNode,</span><br><span class="line">    prefixSumMap = <span class="keyword">new</span> <span class="built_in">Map</span>(),</span><br><span class="line">    sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (current) &#123;</span><br><span class="line">    sum += current.val;</span><br><span class="line">    prefixSumMap.set(sum, current);</span><br><span class="line">    current = current.next;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  current = newNode;</span><br><span class="line">  sum = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span> (current) &#123;</span><br><span class="line">    sum += current.val;</span><br><span class="line">    current.next = prefixSumMap.get(sum).next;</span><br><span class="line">    current = current.next;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> newNode.next;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="類似題型"><a href="#類似題型" class="headerlink" title="類似題型"></a>類似題型</h2><p><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvc3ViYXJyYXktc3VtLWVxdWFscy1rLw==">560. Subarray Sum Equals K<i class="fa fa-external-link-alt"></i></span></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvbWF4aW11bS1hdmVyYWdlLXN1YmFycmF5LWkv">643. Maximum Average Subarray I<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <tags>
-        <tag>LeetCode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>讓爬蟲程式照著規則來 robots.txt</title>
-    <url>/posts/Seo-robotsTxt/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>如果有了解過 SEO ，那你可能有聽說過『 robots.txt 』這個名字。<br>主要用來避免網站要求太多，導致超載(<del>要求太多會人家討厭的</del><br>而簡單來說，他就是來讓爬蟲程式聽話的一個檔案，像是該爬這裡、不該走這裡，<br>但是但是但是…有機率會不聽話失效🤫。</p>
-<p><img src="https://webris.org/wp-content/uploads/2017/12/robots_txt_file_explained.gif" alt="robots.txt示意圖"></p>
-<span id="more"></span>
-
-<h2 id="建議使用的理由"><a href="#建議使用的理由" class="headerlink" title="建議使用的理由"></a>建議使用的理由</h2><p>robots.txt 檔案主用途在於管理爬蟲對自己網站的流量，<strong>直接了當的與爬蟲溝通</strong>；“正常情況下”可以讓搜尋引擎的結果不顯示特定檔案。<br>以下幾種情況是建議使用的：</p>
-<ul>
-<li>網站還有未完成或需要測試時。</li>
-<li>有網頁內容重複性太高時。</li>
-<li>網站內有一些相對不重要的資訊，浪費資源。</li>
-<li>擁有機密檔案。</li>
-</ul>
-<h2 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h2><ul>
-<li><p>他網有連結到設置封鎖的網頁，索引還是會被建立。<br>只是要自己的網頁不要出現在搜尋引擎上就請不要用這個方法，就算你使用 robots.txt 來限制，只要有別的網頁有說明文字指向你，那麼即使爬蟲未造訪這裡，也會被建立成索引。以下提供其他的方法給大家：密碼保護、noindex。</p>
-</li>
-<li><p>不是所有的搜尋引擎都會支援。<br>不同的檢索器會自行決定要不要遵守，所以並不是強制性的。（Googlebot是好寶寶他會）</p>
-</li>
-<li><p>不同檢索器語法的使用不一定相同。<br>我們平時熟知的大宗搜尋引擎都聽得懂，但就是有人會理解成不同的意思，這時候我們就必須應材施教了。</p>
-</li>
-</ul>
-<h2 id="實作"><a href="#實作" class="headerlink" title="實作"></a>實作</h2><h3 id="基本規則"><a href="#基本規則" class="headerlink" title="基本規則"></a>基本規則</h3><p>一開始先介紹一些基本的規範、格式～</p>
-<ul>
-<li>一個網站只能存在一個 robots.txt 檔案。</li>
-<li>檔名只能是 robots.txt ，不能當手遊的名字一樣亂取…PikaChiu（喂🤭</li>
-<li>檔案要放在根目錄。</li>
-</ul>
-<h3 id="建立檔案並新增規則"><a href="#建立檔案並新增規則" class="headerlink" title="建立檔案並新增規則"></a>建立檔案並新增規則</h3><p>第一步先用編輯器建立一個名叫 robots.txt 的文字檔，這邊要<strong>注意</strong>的是不要用文書處理軟體，人家說有可能會有問題。<br>再來就是重頭戲了，告訴你用三個單字搞定</p>
-<ul>
-<li>User_Agent: 爬蟲的名字，例如：Googlebot。</li>
-<li>Allow: 允許人家“可以”爬的。</li>
-<li>Disallow: “不同意”人家進來爬的。</li>
-</ul>
-<p>好了教完了😂😂😂</p>
-<h3 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h3><p>用一些範例來講解，大家應該就可以很快上手。</p>
-
-]]></content>
-      <tags>
-        <tag>SEO</tag>
-        <tag>crawler</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python 分割字串的幾種方式</title>
     <url>/posts/Python-splitString/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在做資料處理時，是不是很常遇到要做字串分割的時候呢？<br>這幾天本人剛好有遇到要擷取字串，就想研究一下，到底有哪些方法能滿足我的需求！</p>
@@ -866,27 +820,46 @@
       </tags>
   </entry>
   <entry>
-    <title>Vue - 現今主流的 JS 框架之一</title>
-    <url>/posts/Vue-know/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>第一次和Vue碰面是在我大四實習時，剛好遇到公司開始推行同仁使用框架開發，也讓我這個菜鳥搭上前端框架的順風車。<br>趁現在有空閒之餘來整理一下當初的筆記，也順帶複習一下 Vue.js！</p>
+    <title>讓爬蟲程式照著規則來 robots.txt</title>
+    <url>/posts/Seo-robotsTxt/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>如果有了解過 SEO ，那你可能有聽說過『 robots.txt 』這個名字。<br>主要用來避免網站要求太多，導致超載(<del>要求太多會人家討厭的</del><br>而簡單來說，他就是來讓爬蟲程式聽話的一個檔案，像是該爬這裡、不該走這裡，<br>但是但是但是…有機率會不聽話失效🤫。</p>
+<p><img src="https://webris.org/wp-content/uploads/2017/12/robots_txt_file_explained.gif" alt="robots.txt示意圖"></p>
 <span id="more"></span>
 
-<h2 id="何謂框架"><a href="#何謂框架" class="headerlink" title="何謂框架"></a>何謂框架</h2><p>框架(framework)，是指協助開發者能更容易地進行網頁製作的工具，將一些複雜的語法及工具以簡易的方式撰寫，進而提升效率及效能。就像是設計一台汽車，已經將模型給你了，你只需要對設計圖進行配色就可以完成，而上色這個部分和周邊的配件就是可以讓大家去精進功力地方了。<br>而現行較主流的框架為 Vue, React, Angular 等等。</p>
-<h2 id="Vue-js"><a href="#Vue-js" class="headerlink" title="Vue.js"></a>Vue.js</h2><p>Vue是一種javascript的一種漸進式(progressive)框架，是以 View(視圖層)為基礎，與其他框架不同的是，他的目標是透過簡單的API提供開發者實作資料綁定和操作網頁上的元件，也因為核心(宣告式渲染、元件系統)關注在狀態和畫面的同步層級上，所以能夠輕易地與其他 js 函式庫、前端開發工具等等的做整合。</p>
-<img src="/posts/Vue-know/vue-logo.jpeg" class="">
-
-<h3 id="特色"><a href="#特色" class="headerlink" title="特色"></a>特色</h3><ul>
-<li>輕量型框架：架構輕量、效能好</li>
-<li>提供資料綁定(Data Binding)的功能：可以將值關聯到 Html 標籤或 Attribute 上，變更資料、樣式</li>
-<li>虛擬Dom(Virtual DOM)：以 javascript 物件模擬特定的 Dom 結構而產生的樹狀節構。不直接操作 Dom 元素，而是等一個段落後，再將這些變更回真實Dom上</li>
-<li>元件化系統(Components system)：提供 Dom 強大的擴充性，也可將部分程式碼封裝起來，供開發者維護、重複使用</li>
-<li>指示詞(Directive)：內建許多指示詞(v-開頭)，用來進行程式邏輯的判斷</li>
-<li>Vue路由器(Router)：利用它建構一個基本卻完整的路由庫，來操作瀏覽器上/下一頁的流程，建立 SPA 完整單頁式應用的能力。</li>
+<h2 id="建議使用的理由"><a href="#建議使用的理由" class="headerlink" title="建議使用的理由"></a>建議使用的理由</h2><p>robots.txt 檔案主用途在於管理爬蟲對自己網站的流量，<strong>直接了當的與爬蟲溝通</strong>；“正常情況下”可以讓搜尋引擎的結果不顯示特定檔案。<br>以下幾種情況是建議使用的：</p>
+<ul>
+<li>網站還有未完成或需要測試時。</li>
+<li>有網頁內容重複性太高時。</li>
+<li>網站內有一些相對不重要的資訊，浪費資源。</li>
+<li>擁有機密檔案。</li>
 </ul>
+<h2 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h2><ul>
+<li><p>他網有連結到設置封鎖的網頁，索引還是會被建立。<br>只是要自己的網頁不要出現在搜尋引擎上就請不要用這個方法，就算你使用 robots.txt 來限制，只要有別的網頁有說明文字指向你，那麼即使爬蟲未造訪這裡，也會被建立成索引。以下提供其他的方法給大家：密碼保護、noindex。</p>
+</li>
+<li><p>不是所有的搜尋引擎都會支援。<br>不同的檢索器會自行決定要不要遵守，所以並不是強制性的。（Googlebot是好寶寶他會）</p>
+</li>
+<li><p>不同檢索器語法的使用不一定相同。<br>我們平時熟知的大宗搜尋引擎都聽得懂，但就是有人會理解成不同的意思，這時候我們就必須應材施教了。</p>
+</li>
+</ul>
+<h2 id="實作"><a href="#實作" class="headerlink" title="實作"></a>實作</h2><h3 id="基本規則"><a href="#基本規則" class="headerlink" title="基本規則"></a>基本規則</h3><p>一開始先介紹一些基本的規範、格式～</p>
+<ul>
+<li>一個網站只能存在一個 robots.txt 檔案。</li>
+<li>檔名只能是 robots.txt ，不能當手遊的名字一樣亂取…PikaChiu（喂🤭</li>
+<li>檔案要放在根目錄。</li>
+</ul>
+<h3 id="建立檔案並新增規則"><a href="#建立檔案並新增規則" class="headerlink" title="建立檔案並新增規則"></a>建立檔案並新增規則</h3><p>第一步先用編輯器建立一個名叫 robots.txt 的文字檔，這邊要<strong>注意</strong>的是不要用文書處理軟體，人家說有可能會有問題。<br>再來就是重頭戲了，告訴你用三個單字搞定</p>
+<ul>
+<li>User_Agent: 爬蟲的名字，例如：Googlebot。</li>
+<li>Allow: 允許人家“可以”爬的。</li>
+<li>Disallow: “不同意”人家進來爬的。</li>
+</ul>
+<p>好了教完了😂😂😂</p>
+<h3 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h3><p>用一些範例來講解，大家應該就可以很快上手。</p>
+
 ]]></content>
       <tags>
-        <tag>Frontend</tag>
-        <tag>Vue.js</tag>
+        <tag>SEO</tag>
+        <tag>crawler</tag>
       </tags>
   </entry>
   <entry>
@@ -934,6 +907,30 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    <span class="function"><span class="title">data</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span>&#123;</span><br><span class="line">            msg:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>而這兩邊的差異呢就在於 <strong>不使用return包覆</strong> 的資料會在全局都可見，這會造成變數污染。<br>反之 <strong>用return的資料</strong> 就只會在當前的component生效而已，不會影響到其他組件。</p>
+]]></content>
+      <tags>
+        <tag>Frontend</tag>
+        <tag>Vue.js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue - 現今主流的 JS 框架之一</title>
+    <url>/posts/Vue-know/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>第一次和Vue碰面是在我大四實習時，剛好遇到公司開始推行同仁使用框架開發，也讓我這個菜鳥搭上前端框架的順風車。<br>趁現在有空閒之餘來整理一下當初的筆記，也順帶複習一下 Vue.js！</p>
+<span id="more"></span>
+
+<h2 id="何謂框架"><a href="#何謂框架" class="headerlink" title="何謂框架"></a>何謂框架</h2><p>框架(framework)，是指協助開發者能更容易地進行網頁製作的工具，將一些複雜的語法及工具以簡易的方式撰寫，進而提升效率及效能。就像是設計一台汽車，已經將模型給你了，你只需要對設計圖進行配色就可以完成，而上色這個部分和周邊的配件就是可以讓大家去精進功力地方了。<br>而現行較主流的框架為 Vue, React, Angular 等等。</p>
+<h2 id="Vue-js"><a href="#Vue-js" class="headerlink" title="Vue.js"></a>Vue.js</h2><p>Vue是一種javascript的一種漸進式(progressive)框架，是以 View(視圖層)為基礎，與其他框架不同的是，他的目標是透過簡單的API提供開發者實作資料綁定和操作網頁上的元件，也因為核心(宣告式渲染、元件系統)關注在狀態和畫面的同步層級上，所以能夠輕易地與其他 js 函式庫、前端開發工具等等的做整合。</p>
+<img src="/posts/Vue-know/vue-logo.jpeg" class="">
+
+<h3 id="特色"><a href="#特色" class="headerlink" title="特色"></a>特色</h3><ul>
+<li>輕量型框架：架構輕量、效能好</li>
+<li>提供資料綁定(Data Binding)的功能：可以將值關聯到 Html 標籤或 Attribute 上，變更資料、樣式</li>
+<li>虛擬Dom(Virtual DOM)：以 javascript 物件模擬特定的 Dom 結構而產生的樹狀節構。不直接操作 Dom 元素，而是等一個段落後，再將這些變更回真實Dom上</li>
+<li>元件化系統(Components system)：提供 Dom 強大的擴充性，也可將部分程式碼封裝起來，供開發者維護、重複使用</li>
+<li>指示詞(Directive)：內建許多指示詞(v-開頭)，用來進行程式邏輯的判斷</li>
+<li>Vue路由器(Router)：利用它建構一個基本卻完整的路由庫，來操作瀏覽器上/下一頁的流程，建立 SPA 完整單頁式應用的能力。</li>
+</ul>
 ]]></content>
       <tags>
         <tag>Frontend</tag>
