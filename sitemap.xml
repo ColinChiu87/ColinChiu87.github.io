@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://colinchiu87.github.io/posts/DataStructure-graph/</loc>
+    
+    <lastmod>2023-07-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://colinchiu87.github.io/posts/DataStructure-dictionaryAndHashmap/</loc>
     
     <lastmod>2023-07-17</lastmod>
@@ -225,6 +234,13 @@
   </url>
   
   <url>
+    <loc>https://colinchiu87.github.io/tags/Algorithm/</loc>
+    <lastmod>2023-07-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://colinchiu87.github.io/tags/javascript/</loc>
     <lastmod>2023-07-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -232,7 +248,7 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/tags/Algorithm/</loc>
+    <loc>https://colinchiu87.github.io/tags/Hexo/</loc>
     <lastmod>2023-07-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -247,13 +263,6 @@
   
   <url>
     <loc>https://colinchiu87.github.io/tags/Frontend/</loc>
-    <lastmod>2023-07-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://colinchiu87.github.io/tags/Hexo/</loc>
     <lastmod>2023-07-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -288,13 +297,6 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/tags/array/</loc>
-    <lastmod>2023-07-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://colinchiu87.github.io/tags/Mac/</loc>
     <lastmod>2023-07-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -302,7 +304,7 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/tags/Python/</loc>
+    <loc>https://colinchiu87.github.io/tags/array/</loc>
     <lastmod>2023-07-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -323,7 +325,7 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/tags/crawler/</loc>
+    <loc>https://colinchiu87.github.io/tags/Python/</loc>
     <lastmod>2023-07-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -331,6 +333,13 @@
   
   <url>
     <loc>https://colinchiu87.github.io/tags/TypeScript/</loc>
+    <lastmod>2023-07-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://colinchiu87.github.io/tags/crawler/</loc>
     <lastmod>2023-07-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
