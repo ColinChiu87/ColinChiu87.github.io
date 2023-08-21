@@ -6,7 +6,7 @@
   <link href="https://colinchiu87.github.io/atom.xml" rel="self"/>
   
   <link href="https://colinchiu87.github.io/"/>
-  <updated>2023-07-17T13:52:55.265Z</updated>
+  <updated>2023-08-21T11:26:17.198Z</updated>
   <id>https://colinchiu87.github.io/</id>
   
   <author>
@@ -17,11 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>貪婪演算法 Greedy Algorithm</title>
+    <link href="https://colinchiu87.github.io/posts/Algorithm-greedy/"/>
+    <id>https://colinchiu87.github.io/posts/Algorithm-greedy/</id>
+    <published>2023-08-21T11:10:44.000Z</published>
+    <updated>2023-08-21T11:26:17.198Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>從前有個小村莊，村民們過著平靜而樸實的生活。然而，他們面臨一個困境：村莊周圍的土地資源有限，每位村民都想要在這些土地上種植作物和建造房屋。因此，土地的分配成了一個問題。</p><p>村莊的首領考慮到了這個問題，他決定請來了一位聰明的專家幫助他們找到一個公平的土地分配方案。這位專家告訴首領，他可以使用一種叫做「貪婪演算法」的方法來解決這個問題。</p><img src="/posts/Algorithm-greedy/img1.avif" class=""><span id="more"></span><h2 id="貪婪演算法"><a href="#貪婪演算法" class="headerlink" title="貪婪演算法"></a>貪婪演算法</h2><p>貪婪演算法（Greedy Algorithm）是一種求解最優化問題的方法，該方法在每一個步驟都選擇當前狀態下的最佳解，並希望通過這種方式最終能夠獲得全局最優解。</p><p>貪婪演算法通常用於求解最優化問題，例如最小生成樹、最短路徑、背包問題等。這些問題可以被描述為一個圖，其中節點代表問題中的元素，邊代表元素之間的關係，權重代表成本或價值。</p><p>貪婪演算法的核心思想是在每個步驟中選擇當前狀態下最佳的解決方案。貪婪演算法不考慮整體最優解，而是通過局部最優解的選擇，希望最終能夠獲得全局最優解。貪婪演算法通常比較簡單且高效，但不能保證一定能獲得最優解。</p><p>那麼回到前言所提的例子，專家建議首領這樣做：首先，從村莊周圍的土地中選擇一塊最大的空地，讓第一位村民在那裡種植作物。然後，在剩餘的土地中，再選擇下一塊最大的空地，讓第二位村民使用，以此類推，直到所有的村民都分到土地為止。</p><h2 id="可能引發的問題"><a href="#可能引發的問題" class="headerlink" title="可能引發的問題"></a>可能引發的問題</h2><p>聽取了專家的建議，開始實施這個方案。一開始，村民們對這種分配方法感到滿意，因為每個人都能獲得相對寬敞的土地。然而，隨著時間的推移，一些村民開始注意到一個問題：雖然他們每個人都有了自己的土地，但其中一些土地可能位於較遠的地點，不太適合種植作物，或者地勢較差。於是，他們開始嘗試交換土地，希望找到更好的選擇。</p><h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>雖然貪婪演算法可以在短期內找到看似最佳的選擇，但它有時會忽略全局的信息，導致最終結果可能不盡如人意。<br>這個故事告訴我們，在解決問題時，我們需要考慮長遠的影響和全局的因素，而不僅僅是眼前的表面利益。</p><img src="/posts/Algorithm-greedy/img2.jfif" class="">]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;從前有個小村莊，村民們過著平靜而樸實的生活。然而，他們面臨一個困境：村莊周圍的土地資源有限，每位村民都想要在這些土地上種植作物和建造房屋。因此，土地的分配成了一個問題。&lt;/p&gt;
+&lt;p&gt;村莊的首領考慮到了這個問題，他決定請來了一位聰明的專家幫助他們找到一個公平的土地分配方案。這位專家告訴首領，他可以使用一種叫做「貪婪演算法」的方法來解決這個問題。&lt;/p&gt;
+&lt;img src=&quot;/posts/Algorithm-greedy/img1.avif&quot; class=&quot;&quot;&gt;</summary>
+    
+    
+    
+    
+    <category term="Algorithm" scheme="https://colinchiu87.github.io/tags/Algorithm/"/>
+    
+    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
+    
+  </entry>
+  
+  <entry>
     <title>『 資料結構 』圖形 Graph</title>
     <link href="https://colinchiu87.github.io/posts/DataStructure-graph/"/>
     <id>https://colinchiu87.github.io/posts/DataStructure-graph/</id>
     <published>2023-07-17T13:15:14.000Z</published>
-    <updated>2023-07-17T13:52:55.265Z</updated>
+    <updated>2023-08-21T11:10:56.979Z</updated>
     
     <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>大家好～ 在文章開始之前，我們先讓各位看一下名詞提要。</p><ul><li>頂點 Vertex or Node</li><li>邊 Edge：兩個頂點間的連線</li><li>無向性 Undirected：邊無方向性，表示兩點之間為雙向關係。 / 有向性 Directed：邊有方向性，表示兩點之間為單向關係。</li><li>加權 Weighted：邊加上權重，代表兩點之間的關係；點加上權重，代表狀態</li></ul><p>以上都是我們在圖形這個章節會時常看到的名詞，那我們正是開始囉 GoGo。</p><span id="more"></span><h2 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h2><ol><li>無向圖<img src="/posts/DataStructure-graph/graph1.png" class=""></li><li>有向圖<img src="/posts/DataStructure-graph/graph2.png" class=""></li><li>權重圖<img src="/posts/DataStructure-graph/graph3.png" class=""></li></ol><h2 id="圖形遍歷-Graph-Traversal"><a href="#圖形遍歷-Graph-Traversal" class="headerlink" title="圖形遍歷 Graph Traversal"></a>圖形遍歷 Graph Traversal</h2><h3 id="廣度搜尋-Breadth-First-Search"><a href="#廣度搜尋-Breadth-First-Search" class="headerlink" title="廣度搜尋 Breadth First Search"></a>廣度搜尋 Breadth First Search</h3><p>廣度優先的搜尋順序會是先走訪相鄰節點，都走訪完了，就往下一層繼續走訪，廣度優先搜尋採用queue來實作，因為queue具有先進先出的特性，可以確保先搜尋到的節點，會優先成為下一個搜尋起點。</p><img src="/posts/DataStructure-graph/graph4.png" class=""><p>程式範例：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UnweightedGraph</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">val</span>)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.value = val;</span><br><span class="line">        <span class="built_in">this</span>.neighbors = [];</span><br><span class="line">        <span class="built_in">this</span>.visited = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">addNeighbor</span>(<span class="params">n</span>)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.neighbors.push(n);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> A = <span class="keyword">new</span> UnweightedGraph(<span class="string">&quot;A&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> B = <span class="keyword">new</span> UnweightedGraph(<span class="string">&quot;B&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> C = <span class="keyword">new</span> UnweightedGraph(<span class="string">&quot;C&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> D = <span class="keyword">new</span> UnweightedGraph(<span class="string">&quot;D&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> E = <span class="keyword">new</span> UnweightedGraph(<span class="string">&quot;E&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> F = <span class="keyword">new</span> UnweightedGraph(<span class="string">&quot;F&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> G = <span class="keyword">new</span> UnweightedGraph(<span class="string">&quot;G&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> H = <span class="keyword">new</span> UnweightedGraph(<span class="string">&quot;H&quot;</span>);</span><br><span class="line">A.addNeighbor(B);</span><br><span class="line">A.addNeighbor(C);</span><br><span class="line">A.addNeighbor(D);</span><br><span class="line">B.addNeighbor(E);</span><br><span class="line">B.addNeighbor(F);</span><br><span class="line">D.addNeighbor(G);</span><br><span class="line">D.addNeighbor(H);</span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> BFS = <span class="function">(<span class="params">starter</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> queue = [],</span><br><span class="line">    result = [];</span><br><span class="line">  queue.push(starter);</span><br><span class="line">  <span class="keyword">while</span> (queue.length !== <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> firstNode = queue.shift();</span><br><span class="line">      <span class="keyword">if</span> (!firstNode.visited) &#123;</span><br><span class="line">    firstNode.visited = <span class="literal">true</span>;</span><br><span class="line">        result.push(firstNode.value);</span><br><span class="line">        firstNode.neighbors.forEach(<span class="function">(<span class="params">element</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">if</span> (!element.visited) &#123;</span><br><span class="line">      queue.push(element);</span><br><span class="line">    &#125;</span><br><span class="line">   &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">BFS(A);</span><br><span class="line"><span class="comment">//輸出結果 [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot;, &quot;G&quot;, &quot;H&quot;]</span></span><br></pre></td></tr></table></figure><h3 id="深度搜尋-Depth-First-Search"><a href="#深度搜尋-Depth-First-Search" class="headerlink" title="深度搜尋 Depth First Search"></a>深度搜尋 Depth First Search</h3><p>會先從一邊開始走訪，概念類似於走迷宮摸著牆走的概念，走到底了就折返，繼續往沒走過的節點探索</p><img src="/posts/DataStructure-graph/graph5.png" class=""><p>程式範例：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> result = [];</span><br><span class="line"><span class="keyword">const</span> DFT = <span class="function">(<span class="params">starter</span>) =&gt;</span> &#123;</span><br><span class="line">    starter.visited = <span class="literal">true</span>;</span><br><span class="line">    result.push(starter.value);</span><br><span class="line">    starter.neighbors.forEach(<span class="function">(<span class="params">element</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (!element.visited) DFT(element);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">DFT(A);</span><br><span class="line"></span><br><span class="line"><span class="comment">//輸出結果 [&quot;A&quot;, &quot;B&quot;, &quot;E&quot;, &quot;F&quot;, &quot;C&quot;, &quot;D&quot;, &quot;G&quot;, &quot;H&quot;]</span></span><br></pre></td></tr></table></figure><h2 id="延伸"><a href="#延伸" class="headerlink" title="延伸"></a>延伸</h2><h3 id="最短距離"><a href="#最短距離" class="headerlink" title="最短距離"></a>最短距離</h3><p><span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0B5aW5pbmcxMjA0LyVFNiVCQyU5NCVFNyVBRSU5NyVFNiVCMyU5NSVFNSU5QyU5NiVFOSU5MSU5MSVFOCVBRSU4MCVFNiU5QiVCOCVFNyVBRCU4NiVFOCVBOCU5OC0lRTclQUMlQUMlRTglODIlODYlRTclQUIlQTAtJUU1JTlDJTk2JUU1JUJEJUEyJUU2JTkwJTlDJUU1JUIwJThCLSVFNCVCOCVBRC02MWU5MTkwMzI5ZTA=">延伸一<i class="fa fa-external-link-alt"></i></span></p><p><span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0BhbWJlci5mcmFnbWVudHMvJUU2JUJDJTk0JUU3JUFFJTk3JUU2JUIzJTk1LSVFNSVBRCVCOCVFNyVCRiU5MiVFNyVBRCU4NiVFOCVBOCU5OC0xNC1kaWprc3RyYS1hbGdvcml0aG0tJUU2JTlDJTgwJUU3JTlGJUFEJUU4JUI3JUFGJUU1JUJFJTkxJUU2JUJDJTk0JUU3JUFFJTk3JUU2JUIzJTk1LTc0NTk4M2RkNDMzMg==">延伸二<i class="fa fa-external-link-alt"></i></span></p><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2Vla3Nmb3JnZWVrcy5vcmcvYmVsbG1hbi1mb3JkLWFsZ29yaXRobS1kcC0yMy8=">延伸三<i class="fa fa-external-link-alt"></i></span></p>]]></content>
     
@@ -38,9 +61,9 @@
     
     
     
-    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
-    
     <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
+    
+    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
     
   </entry>
   
@@ -61,9 +84,9 @@
     
     
     
-    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
-    
     <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
+    
+    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
     
   </entry>
   
@@ -122,9 +145,9 @@
     
     
     
-    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
-    
     <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
+    
+    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
     
   </entry>
   
@@ -143,9 +166,9 @@
     
     
     
-    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
-    
     <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
+    
+    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
     
   </entry>
   
@@ -165,9 +188,9 @@
     
     
     
-    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
-    
     <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
+    
+    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
     
   </entry>
   
@@ -191,9 +214,9 @@
     
     
     
-    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
-    
     <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
+    
+    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
     
   </entry>
   
@@ -231,9 +254,9 @@
     
     
     
-    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
-    
     <category term="Algorithm" scheme="https://colinchiu87.github.io/tags/Algorithm/"/>
+    
+    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
     
   </entry>
   
@@ -252,11 +275,11 @@
     
     
     
-    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
+    <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
     
     <category term="Algorithm" scheme="https://colinchiu87.github.io/tags/Algorithm/"/>
     
-    <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
+    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
     
     <category term="Frontend" scheme="https://colinchiu87.github.io/tags/Frontend/"/>
     
@@ -433,29 +456,6 @@
     
     
     <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;當你在剛接觸 Vue 的時候是不是有想過一件事情，文件上或人家範例的 data 寫方式似乎不太一樣…🤔😣&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Frontend" scheme="https://colinchiu87.github.io/tags/Frontend/"/>
-    
-    <category term="Vue.js" scheme="https://colinchiu87.github.io/tags/Vue-js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>什麼時候該使用『 const vm = this 』</title>
-    <link href="https://colinchiu87.github.io/posts/Vue-this/"/>
-    <id>https://colinchiu87.github.io/posts/Vue-this/</id>
-    <published>2021-05-12T05:28:43.000Z</published>
-    <updated>2022-10-17T09:26:05.013Z</updated>
-    
-    <content type="html"><![CDATA[<p> <strong>影響this的是在於<em>函式的呼叫方式</em></strong></p><p>以下為this的範例</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">reverseText: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.text.split(<span class="string">&#x27;&#x27;</span>).reverse().join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><span id="more"></span><p>在第一個範例中，this運行後都是在這個元件底下<br>並沒有另外的函式在內（ex: forEach）<br>全部的this都是指向<strong>Vue的該元件</strong><br>因此不需要另外使用 vm = this</p><p>至於使用 vm = this 可以避免內部有其他函式叫<br>導致 this 的運作不如預期。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//因為在&quot;&quot;內層函式&quot;&quot;filter的函式內使用到this，指向會跑掉，所以需要使用vm。</span></span><br><span class="line">filterArray: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> vm = <span class="built_in">this</span>;</span><br><span class="line">    <span class="keyword">return</span> vm.arrayData.filter(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> item.name.match(vm.filterText)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p> <strong>除了使用 filter/ forEach 會讓this指向window外，函式在直接呼叫的時候this也會指向window</strong></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt; &lt;strong&gt;影響this的是在於&lt;em&gt;函式的呼叫方式&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;以下為this的範例&lt;/p&gt;
-&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;reverseText: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;this&lt;/span&gt;.text.split(&lt;span class=&quot;string&quot;&gt;&amp;#x27;&amp;#x27;&lt;/span&gt;).reverse().join(&lt;span class=&quot;string&quot;&gt;&amp;#x27;&amp;#x27;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
     
     
     

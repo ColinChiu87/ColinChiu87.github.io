@@ -53,136 +53,8 @@
 </blockquote>
 ]]></content>
       <tags>
-        <tag>data structure</tag>
         <tag>Algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>『 資料結構 』圖形 Graph</title>
-    <url>/posts/DataStructure-graph/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>大家好～ 在文章開始之前，我們先讓各位看一下名詞提要。</p>
-<ul>
-<li>頂點 Vertex or Node</li>
-<li>邊 Edge：兩個頂點間的連線</li>
-<li>無向性 Undirected：邊無方向性，表示兩點之間為雙向關係。 / 有向性 Directed：邊有方向性，表示兩點之間為單向關係。</li>
-<li>加權 Weighted：邊加上權重，代表兩點之間的關係；點加上權重，代表狀態</li>
-</ul>
-<p>以上都是我們在圖形這個章節會時常看到的名詞，那我們正是開始囉 GoGo。</p>
-<span id="more"></span>
-
-<h2 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h2><ol>
-<li>無向圖<img src="/posts/DataStructure-graph/graph1.png" class=""></li>
-<li>有向圖<img src="/posts/DataStructure-graph/graph2.png" class=""></li>
-<li>權重圖<img src="/posts/DataStructure-graph/graph3.png" class=""></li>
-</ol>
-<h2 id="圖形遍歷-Graph-Traversal"><a href="#圖形遍歷-Graph-Traversal" class="headerlink" title="圖形遍歷 Graph Traversal"></a>圖形遍歷 Graph Traversal</h2><h3 id="廣度搜尋-Breadth-First-Search"><a href="#廣度搜尋-Breadth-First-Search" class="headerlink" title="廣度搜尋 Breadth First Search"></a>廣度搜尋 Breadth First Search</h3><p>廣度優先的搜尋順序會是先走訪相鄰節點，都走訪完了，就往下一層繼續走訪，廣度優先搜尋採用queue來實作，因為queue具有先進先出的特性，可以確保先搜尋到的節點，會優先成為下一個搜尋起點。</p>
-<img src="/posts/DataStructure-graph/graph4.png" class="">
-
-<p>程式範例：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UnweightedGraph</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">val</span>)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.value = val;</span><br><span class="line">        <span class="built_in">this</span>.neighbors = [];</span><br><span class="line">        <span class="built_in">this</span>.visited = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">addNeighbor</span>(<span class="params">n</span>)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.neighbors.push(n);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> A = <span class="keyword">new</span> UnweightedGraph(<span class="string">&quot;A&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> B = <span class="keyword">new</span> UnweightedGraph(<span class="string">&quot;B&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> C = <span class="keyword">new</span> UnweightedGraph(<span class="string">&quot;C&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> D = <span class="keyword">new</span> UnweightedGraph(<span class="string">&quot;D&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> E = <span class="keyword">new</span> UnweightedGraph(<span class="string">&quot;E&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> F = <span class="keyword">new</span> UnweightedGraph(<span class="string">&quot;F&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> G = <span class="keyword">new</span> UnweightedGraph(<span class="string">&quot;G&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> H = <span class="keyword">new</span> UnweightedGraph(<span class="string">&quot;H&quot;</span>);</span><br><span class="line">A.addNeighbor(B);</span><br><span class="line">A.addNeighbor(C);</span><br><span class="line">A.addNeighbor(D);</span><br><span class="line">B.addNeighbor(E);</span><br><span class="line">B.addNeighbor(F);</span><br><span class="line">D.addNeighbor(G);</span><br><span class="line">D.addNeighbor(H);</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> BFS = <span class="function">(<span class="params">starter</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> queue = [],</span><br><span class="line">    result = [];</span><br><span class="line">  queue.push(starter);</span><br><span class="line">  <span class="keyword">while</span> (queue.length !== <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> firstNode = queue.shift();</span><br><span class="line">      <span class="keyword">if</span> (!firstNode.visited) &#123;</span><br><span class="line">    firstNode.visited = <span class="literal">true</span>;</span><br><span class="line">        result.push(firstNode.value);</span><br><span class="line">        firstNode.neighbors.forEach(<span class="function">(<span class="params">element</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">if</span> (!element.visited) &#123;</span><br><span class="line">      queue.push(element);</span><br><span class="line">    &#125;</span><br><span class="line">   &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">BFS(A);</span><br><span class="line"><span class="comment">//輸出結果 [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot;, &quot;G&quot;, &quot;H&quot;]</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="深度搜尋-Depth-First-Search"><a href="#深度搜尋-Depth-First-Search" class="headerlink" title="深度搜尋 Depth First Search"></a>深度搜尋 Depth First Search</h3><p>會先從一邊開始走訪，概念類似於走迷宮摸著牆走的概念，走到底了就折返，繼續往沒走過的節點探索</p>
-<img src="/posts/DataStructure-graph/graph5.png" class="">
-
-<p>程式範例：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> result = [];</span><br><span class="line"><span class="keyword">const</span> DFT = <span class="function">(<span class="params">starter</span>) =&gt;</span> &#123;</span><br><span class="line">    starter.visited = <span class="literal">true</span>;</span><br><span class="line">    result.push(starter.value);</span><br><span class="line">    starter.neighbors.forEach(<span class="function">(<span class="params">element</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (!element.visited) DFT(element);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">DFT(A);</span><br><span class="line"></span><br><span class="line"><span class="comment">//輸出結果 [&quot;A&quot;, &quot;B&quot;, &quot;E&quot;, &quot;F&quot;, &quot;C&quot;, &quot;D&quot;, &quot;G&quot;, &quot;H&quot;]</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="延伸"><a href="#延伸" class="headerlink" title="延伸"></a>延伸</h2><h3 id="最短距離"><a href="#最短距離" class="headerlink" title="最短距離"></a>最短距離</h3><p><span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0B5aW5pbmcxMjA0LyVFNiVCQyU5NCVFNyVBRSU5NyVFNiVCMyU5NSVFNSU5QyU5NiVFOSU5MSU5MSVFOCVBRSU4MCVFNiU5QiVCOCVFNyVBRCU4NiVFOCVBOCU5OC0lRTclQUMlQUMlRTglODIlODYlRTclQUIlQTAtJUU1JTlDJTk2JUU1JUJEJUEyJUU2JTkwJTlDJUU1JUIwJThCLSVFNCVCOCVBRC02MWU5MTkwMzI5ZTA=">延伸一<i class="fa fa-external-link-alt"></i></span></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0BhbWJlci5mcmFnbWVudHMvJUU2JUJDJTk0JUU3JUFFJTk3JUU2JUIzJTk1LSVFNSVBRCVCOCVFNyVCRiU5MiVFNyVBRCU4NiVFOCVBOCU5OC0xNC1kaWprc3RyYS1hbGdvcml0aG0tJUU2JTlDJTgwJUU3JTlGJUFEJUU4JUI3JUFGJUU1JUJFJTkxJUU2JUJDJTk0JUU3JUFFJTk3JUU2JUIzJTk1LTc0NTk4M2RkNDMzMg==">延伸二<i class="fa fa-external-link-alt"></i></span></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2Vla3Nmb3JnZWVrcy5vcmcvYmVsbG1hbi1mb3JkLWFsZ29yaXRobS1kcC0yMy8=">延伸三<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <tags>
         <tag>data structure</tag>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>『 資料結構 』字典和雜湊表 Dictionary and HashMap</title>
-    <url>/posts/DataStructure-dictionaryAndHashmap/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>JavaScript 中的字典和雜湊表是非常有用的資料結構，可以用來快速查找鍵值對應的值。在 JavaScript 中，字典通常是用物件來實現，而雜湊表則可以使用 Map 來實現。這些資料結構非常常見，因此學習如何使用它們是很重要的。</p>
-<p>順道提一下，集合(Set) [值：值]所關注的是值的本體，而字典(Dictionary)、雜湊表(HashMap) [鍵：值]關注的是兩者的 Mapping 關聯，這樣就可以簡單區分開來了。</p>
-<p>在本篇文章中，我們將介紹如何在 JavaScript 中使用字典和雜湊表。我們將會討論它們的特性、如何使用它們來解決問題，以及它們的複雜度和效能。如果你對 JavaScript 的資料結構和算法感到興趣，這篇文章將會對你有所幫助。</p>
-<span id="more"></span>
-
-<h2 id="字典-Dictionary"><a href="#字典-Dictionary" class="headerlink" title="字典 Dictionary"></a>字典 Dictionary</h2><p>想必大家都已經知道，集合代表的是一組互不重複的元素。在字典中，儲存的是「鍵：值」，鍵名用來查詢特定元素。<br>也稱作映射。</p>
-<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ul>
-<li>set(key, value): 添加新的元素。</li>
-<li>remove(key): 移除對應鍵值的元素。</li>
-<li>has(key): 如果該鍵值存在此字典中，則回傳 true; 反之，回傳 false。</li>
-<li>get(key): 利用鍵值尋找特定數值並回傳。</li>
-<li>clear(): 清空此字典的所有元素。</li>
-<li>size(): 返回字典所含的元素數量。</li>
-<li>keys(): 回傳一個陣列，包含所有鍵。</li>
-<li>values(): 回傳一個陣列，包含所有值。</li>
-</ul>
-<h3 id="實作"><a href="#實作" class="headerlink" title="實作"></a>實作</h3><p>這次實作的類別是以 ECMAScript 6 中的 Map 做基礎。會明顯的發現和 Set 類別雷同。</p>
-<h4 id="骨架"><a href="#骨架" class="headerlink" title="骨架"></a>骨架</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dictionary</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> items = &#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="has-set"><a href="#has-set" class="headerlink" title="has, set"></a>has, set</h4><p>第一步先建立 has, set 方法，而這邊會要先做 has()，是因為它會被 set, remove 其他的方法呼叫。<br>而 set(key, value)，可以用來添加一個新的值，或是將原有的值做更新。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.has = <span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> key <span class="keyword">in</span> items;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">this</span>.set = <span class="function"><span class="keyword">function</span>(<span class="params">key, value</span>)</span>&#123;</span><br><span class="line">  items[key] = value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="remove"><a href="#remove" class="headerlink" title="remove"></a>remove</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.remove = <span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">this</span>.has(key))&#123;</span><br><span class="line">    <span class="keyword">delete</span> items[key];</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="get-values"><a href="#get-values" class="headerlink" title="get, values"></a>get, values</h4><p>如果想要在字典搜尋特定的一個元素，就可以使用 get 和 values。<br><code>values() 不能僅僅使用 for-in 遍歷整個 items 物件的屬性，還需要使用 has() 驗證是否包含該屬性。 因為物件的原型會含其它屬性在裡面( Js 基本的物件屬性是會被繼承的，並會存在當前的物件中 )</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.get = <span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">this</span>.has(key) ? items[key] : <span class="literal">undefined</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">this</span>.values = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> values = [];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> k <span class="keyword">in</span> items)&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">this</span>.has(k))&#123;</span><br><span class="line">      values.push(k);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> values;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="clear-size-keys-getItems"><a href="#clear-size-keys-getItems" class="headerlink" title="clear, size, keys, getItems"></a>clear, size, keys, getItems</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.clear = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  items = &#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">this</span>.size = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.keys(items).length;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">this</span>.keys = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.keys(items);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">this</span>.getItems = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="使用-Dictionary-類別-郵件通訊錄"><a href="#使用-Dictionary-類別-郵件通訊錄" class="headerlink" title="使用 Dictionary 類別 (郵件通訊錄)"></a>使用 Dictionary 類別 (郵件通訊錄)</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> dictionary = <span class="keyword">new</span> Dictionary();</span><br><span class="line">dictionary.set(<span class="string">&#x27;Colin&#x27;</span>, <span class="string">&#x27;colin1225@email.com&#x27;</span>)</span><br><span class="line">dictionary.set(<span class="string">&#x27;Jake&#x27;</span>, <span class="string">&#x27;jake0305@email.com&#x27;</span>)</span><br><span class="line">dictionary.set(<span class="string">&#x27;Rick&#x27;</span>, <span class="string">&#x27;rick1010@email.com&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(dictionary.has(<span class="string">&#x27;Colin&#x27;</span>)) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(dictionary.size()) <span class="comment">// 3</span></span><br><span class="line"><span class="built_in">console</span>.log(dictionary.keys()) <span class="comment">// [&quot;Colin&quot;, &quot;Jake&quot;, &quot;Rick&quot;]</span></span><br><span class="line"><span class="built_in">console</span>.log(dictionary.values()) <span class="comment">// [&#x27;colin1225@email.com&#x27;, &#x27;jake0305@email.com&#x27;, &#x27;rick1010@email.com&#x27;]</span></span><br><span class="line"><span class="built_in">console</span>.log(dictionary.get(<span class="string">&#x27;Rick&#x27;</span>)) <span class="comment">// &#x27;rick1010@email.com&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="雜湊表-HashMap"><a href="#雜湊表-HashMap" class="headerlink" title="雜湊表 HashMap"></a>雜湊表 HashMap</h2><p>HashTable 也稱作 HashMap，是 Dictionary 類別的一種實作方式。<br>使用雜湊演算法是為了更快更精準的在資料中找到一個值。以往我們要在資料結構中獲得一個值，要經過遍歷整個資料集。<br>雜湊讓我們利用函數就能得到資料的具體位置，因而達到快速檢索的效果。</p>
-<p><img src="https://miro.medium.com/v2/resize:fit:1336/format:webp/0*0xeEq-iJDrVAU0zG.png" alt="HashMap"></p>
-<h3 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h3><ul>
-<li>雜湊函數: 給定一個鍵值，返回值在表中的地址。</li>
-<li>put(key, value): 向雜湊表增加一個新資料。</li>
-<li>remove(key): 根據鍵值從表中移除值。</li>
-<li>get(key): 根據鍵值檢索特定值，返回。</li>
-</ul>
-<h3 id="實作-1"><a href="#實作-1" class="headerlink" title="實作"></a>實作</h3><h4 id="雜湊函數"><a href="#雜湊函數" class="headerlink" title="雜湊函數"></a>雜湊函數</h4><p>順序第一位為雜湊函式，是 HashTable 中一個私有的函數。<br>這邊使用一個最常見的 – 「雙輸」(lose lose)，將每一個鍵值中的每個字母的 ASCII 值相加。<br>在函式的最後常會使用 hash 值和任意數做除法的餘數(mod)。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> loseloseHashCode = <span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> hash = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;key.length; i++)&#123;</span><br><span class="line">    hash += key.charCodeAt(i);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> hash % <span class="number">37</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="put"><a href="#put" class="headerlink" title="put"></a>put</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.put = <span class="function"><span class="keyword">function</span>(<span class="params">key, value</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> position = loseloseHashCode(key);</span><br><span class="line">  <span class="built_in">console</span>.log(position + <span class="string">&#x27;-&#x27;</span> + key);</span><br><span class="line">  table[position] = value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="get"><a href="#get" class="headerlink" title="get"></a>get</h4><p>使用雜湊函式求出 key 值所對應位置，並回傳 position。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.get = <span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> table[loseloseHashCode(key)];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="remove-1"><a href="#remove-1" class="headerlink" title="remove"></a>remove</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.remove = <span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">  table[loseloseHashCode(key)] = <span class="literal">undefined</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="使用-HashTable-類別"><a href="#使用-HashTable-類別" class="headerlink" title="使用 HashTable 類別"></a>使用 HashTable 類別</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> hash = <span class="keyword">new</span> HashTable()</span><br><span class="line">hash.put(<span class="string">&#x27;Colin&#x27;</span>, <span class="string">&#x27;colin1225@email.com&#x27;</span>)</span><br><span class="line">hash.put(<span class="string">&#x27;Jake&#x27;</span>, <span class="string">&#x27;jake0305@email.com&#x27;</span>)</span><br><span class="line">hash.put(<span class="string">&#x27;Rick&#x27;</span>, <span class="string">&#x27;rick1010@email.com&#x27;</span>)</span><br><span class="line"><span class="comment">/* Output</span></span><br><span class="line"><span class="comment">  20 - Colin</span></span><br><span class="line"><span class="comment">  9 - Jake</span></span><br><span class="line"><span class="comment">  23 - Rick</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<p>使用 get()</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(hash.get(<span class="string">&#x27;Colin&#x27;</span>));</span><br><span class="line"><span class="built_in">console</span>.log(hash.get(<span class="string">&#x27;Eileen&#x27;</span>));</span><br><span class="line"><span class="comment">/* Output</span></span><br><span class="line"><span class="comment">  colin1225@eamil.com</span></span><br><span class="line"><span class="comment">  undefined</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<p>由於 Colin 是存在表中的鍵，所以會返回它的值。但 Eileen 並不在裡面，當我們試著取出值時，回傳將為 undefined（不存在）。<br>如果對 Colin 執行 remove()，那理所當然也會 return undefined。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">hash.remove(<span class="string">&#x27;Colin&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(hash.get(<span class="string">&#x27;Colin&#x27;</span>));</span><br><span class="line"><span class="comment">/* Output</span></span><br><span class="line"><span class="comment">  undefined</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="雜湊集合"><a href="#雜湊集合" class="headerlink" title="雜湊集合"></a>雜湊集合</h2><p>接著，我們來說明一下『雜湊集合』這個專有名詞。<br>在某些程式語言中，你會發現有這樣的一個實作。我們可以從名稱中了解到這是由集合所構成，但是新增、插入、刪除，是使用雜湊函數。<br>與剛才我們的實作不同之處，不添加「鍵值對」，只插入值。例如存放水果種類，但不賦予它們定義。</p>
-<h2 id="雜湊表的衝突"><a href="#雜湊表的衝突" class="headerlink" title="雜湊表的衝突"></a>雜湊表的衝突</h2><p>有時候，會遇到有相同雜湊值的情況。不同的值在表中相同的位置，稱之為衝突。<br>在正常程式執行的情況下，最後添加的值將會佔據該位置，也就是會覆蓋掉。<br>當然，我們的目的就是要將所有的資料存放進來，這樣的話不就達不到初衷了嗎？</p>
-<h3 id="面對衝突的處理"><a href="#面對衝突的處理" class="headerlink" title="面對衝突的處理"></a>面對衝突的處理</h3><p>在遇到衝突時，有兩個方法：</p>
-<ol>
-<li>Separate Chaining</li>
-<li>Linear Probing</li>
-</ol>
-<h4 id="Separate-Chaining"><a href="#Separate-Chaining" class="headerlink" title="Separate Chaining"></a>Separate Chaining</h4><ul>
-<li>一個(Key)位置允許放入多個值</li>
-<li>每一個位置(Point)都指向一個 Linked List，以存放多個值</li>
-<li>如果一個位置沒有放置任一值，Pointer 會被視為 null</li>
-</ul>
-<p><img src="https://lh3.googleusercontent.com/pw/ACtC-3cUZn32yJu7Z-fnDhf1ICMJkZH-tUU_dYd-pxmJ1Wk5tVqLa6cKsJ_xm9zbop5Btzof6I0da_7Z0R9m0Fr-cveDGT6HI360YuNKxQ936-vpEUz1DJefDp8L7vlchhTyS3fAD3Lq5yb8zB4hwOVLSZGt=s480-no?authuser=0" alt="此圖片源自網路"></p>
-<h4 id="Linear-Probing"><a href="#Linear-Probing" class="headerlink" title="Linear Probing"></a>Linear Probing</h4><ul>
-<li>如果該 key 對應的位置已經佔用（衝突），則會存入下一個 point(index+1)。</li>
-<li>can provide high performance because of its good locality of reference</li>
-<li>需要注意的地方就是陣列的空間有機會被使用完。</li>
-</ul>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/HASHTB12.svg/2560px-HASHTB12.svg.png" alt="來自wiki"></p>
-]]></content>
-      <tags>
-        <tag>data structure</tag>
-        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -269,8 +141,202 @@
 <h2 id="結"><a href="#結" class="headerlink" title="結"></a>結</h2><p>我們今天學到了鏈結串列這個結構，和陣列相比最重要的優點就是無需移動鏈結串列中的元素，就能輕輕鬆鬆添加或移除元素。<br>當你需要添加和移除很多元素時，最好的選擇非鏈結串列(Linked-List)莫屬！</p>
 ]]></content>
       <tags>
-        <tag>data structure</tag>
         <tag>javascript</tag>
+        <tag>data structure</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>貪婪演算法 Greedy Algorithm</title>
+    <url>/posts/Algorithm-greedy/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>從前有個小村莊，村民們過著平靜而樸實的生活。然而，他們面臨一個困境：村莊周圍的土地資源有限，每位村民都想要在這些土地上種植作物和建造房屋。因此，土地的分配成了一個問題。</p>
+<p>村莊的首領考慮到了這個問題，他決定請來了一位聰明的專家幫助他們找到一個公平的土地分配方案。這位專家告訴首領，他可以使用一種叫做「貪婪演算法」的方法來解決這個問題。</p>
+<img src="/posts/Algorithm-greedy/img1.avif" class="">
+
+<span id="more"></span>
+
+<h2 id="貪婪演算法"><a href="#貪婪演算法" class="headerlink" title="貪婪演算法"></a>貪婪演算法</h2><p>貪婪演算法（Greedy Algorithm）是一種求解最優化問題的方法，該方法在每一個步驟都選擇當前狀態下的最佳解，並希望通過這種方式最終能夠獲得全局最優解。</p>
+<p>貪婪演算法通常用於求解最優化問題，例如最小生成樹、最短路徑、背包問題等。這些問題可以被描述為一個圖，其中節點代表問題中的元素，邊代表元素之間的關係，權重代表成本或價值。</p>
+<p>貪婪演算法的核心思想是在每個步驟中選擇當前狀態下最佳的解決方案。貪婪演算法不考慮整體最優解，而是通過局部最優解的選擇，希望最終能夠獲得全局最優解。貪婪演算法通常比較簡單且高效，但不能保證一定能獲得最優解。</p>
+<p>那麼回到前言所提的例子，專家建議首領這樣做：首先，從村莊周圍的土地中選擇一塊最大的空地，讓第一位村民在那裡種植作物。然後，在剩餘的土地中，再選擇下一塊最大的空地，讓第二位村民使用，以此類推，直到所有的村民都分到土地為止。</p>
+<h2 id="可能引發的問題"><a href="#可能引發的問題" class="headerlink" title="可能引發的問題"></a>可能引發的問題</h2><p>聽取了專家的建議，開始實施這個方案。一開始，村民們對這種分配方法感到滿意，因為每個人都能獲得相對寬敞的土地。然而，隨著時間的推移，一些村民開始注意到一個問題：雖然他們每個人都有了自己的土地，但其中一些土地可能位於較遠的地點，不太適合種植作物，或者地勢較差。於是，他們開始嘗試交換土地，希望找到更好的選擇。</p>
+<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>雖然貪婪演算法可以在短期內找到看似最佳的選擇，但它有時會忽略全局的信息，導致最終結果可能不盡如人意。<br>這個故事告訴我們，在解決問題時，我們需要考慮長遠的影響和全局的因素，而不僅僅是眼前的表面利益。</p>
+<img src="/posts/Algorithm-greedy/img2.jfif" class="">
+]]></content>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>data structure</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>『 資料結構 』字典和雜湊表 Dictionary and HashMap</title>
+    <url>/posts/DataStructure-dictionaryAndHashmap/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>JavaScript 中的字典和雜湊表是非常有用的資料結構，可以用來快速查找鍵值對應的值。在 JavaScript 中，字典通常是用物件來實現，而雜湊表則可以使用 Map 來實現。這些資料結構非常常見，因此學習如何使用它們是很重要的。</p>
+<p>順道提一下，集合(Set) [值：值]所關注的是值的本體，而字典(Dictionary)、雜湊表(HashMap) [鍵：值]關注的是兩者的 Mapping 關聯，這樣就可以簡單區分開來了。</p>
+<p>在本篇文章中，我們將介紹如何在 JavaScript 中使用字典和雜湊表。我們將會討論它們的特性、如何使用它們來解決問題，以及它們的複雜度和效能。如果你對 JavaScript 的資料結構和算法感到興趣，這篇文章將會對你有所幫助。</p>
+<span id="more"></span>
+
+<h2 id="字典-Dictionary"><a href="#字典-Dictionary" class="headerlink" title="字典 Dictionary"></a>字典 Dictionary</h2><p>想必大家都已經知道，集合代表的是一組互不重複的元素。在字典中，儲存的是「鍵：值」，鍵名用來查詢特定元素。<br>也稱作映射。</p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ul>
+<li>set(key, value): 添加新的元素。</li>
+<li>remove(key): 移除對應鍵值的元素。</li>
+<li>has(key): 如果該鍵值存在此字典中，則回傳 true; 反之，回傳 false。</li>
+<li>get(key): 利用鍵值尋找特定數值並回傳。</li>
+<li>clear(): 清空此字典的所有元素。</li>
+<li>size(): 返回字典所含的元素數量。</li>
+<li>keys(): 回傳一個陣列，包含所有鍵。</li>
+<li>values(): 回傳一個陣列，包含所有值。</li>
+</ul>
+<h3 id="實作"><a href="#實作" class="headerlink" title="實作"></a>實作</h3><p>這次實作的類別是以 ECMAScript 6 中的 Map 做基礎。會明顯的發現和 Set 類別雷同。</p>
+<h4 id="骨架"><a href="#骨架" class="headerlink" title="骨架"></a>骨架</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dictionary</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> items = &#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="has-set"><a href="#has-set" class="headerlink" title="has, set"></a>has, set</h4><p>第一步先建立 has, set 方法，而這邊會要先做 has()，是因為它會被 set, remove 其他的方法呼叫。<br>而 set(key, value)，可以用來添加一個新的值，或是將原有的值做更新。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.has = <span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> key <span class="keyword">in</span> items;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">this</span>.set = <span class="function"><span class="keyword">function</span>(<span class="params">key, value</span>)</span>&#123;</span><br><span class="line">  items[key] = value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="remove"><a href="#remove" class="headerlink" title="remove"></a>remove</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.remove = <span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">this</span>.has(key))&#123;</span><br><span class="line">    <span class="keyword">delete</span> items[key];</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="get-values"><a href="#get-values" class="headerlink" title="get, values"></a>get, values</h4><p>如果想要在字典搜尋特定的一個元素，就可以使用 get 和 values。<br><code>values() 不能僅僅使用 for-in 遍歷整個 items 物件的屬性，還需要使用 has() 驗證是否包含該屬性。 因為物件的原型會含其它屬性在裡面( Js 基本的物件屬性是會被繼承的，並會存在當前的物件中 )</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.get = <span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">this</span>.has(key) ? items[key] : <span class="literal">undefined</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">this</span>.values = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> values = [];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> k <span class="keyword">in</span> items)&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">this</span>.has(k))&#123;</span><br><span class="line">      values.push(k);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> values;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="clear-size-keys-getItems"><a href="#clear-size-keys-getItems" class="headerlink" title="clear, size, keys, getItems"></a>clear, size, keys, getItems</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.clear = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  items = &#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">this</span>.size = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.keys(items).length;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">this</span>.keys = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.keys(items);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">this</span>.getItems = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用-Dictionary-類別-郵件通訊錄"><a href="#使用-Dictionary-類別-郵件通訊錄" class="headerlink" title="使用 Dictionary 類別 (郵件通訊錄)"></a>使用 Dictionary 類別 (郵件通訊錄)</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> dictionary = <span class="keyword">new</span> Dictionary();</span><br><span class="line">dictionary.set(<span class="string">&#x27;Colin&#x27;</span>, <span class="string">&#x27;colin1225@email.com&#x27;</span>)</span><br><span class="line">dictionary.set(<span class="string">&#x27;Jake&#x27;</span>, <span class="string">&#x27;jake0305@email.com&#x27;</span>)</span><br><span class="line">dictionary.set(<span class="string">&#x27;Rick&#x27;</span>, <span class="string">&#x27;rick1010@email.com&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(dictionary.has(<span class="string">&#x27;Colin&#x27;</span>)) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(dictionary.size()) <span class="comment">// 3</span></span><br><span class="line"><span class="built_in">console</span>.log(dictionary.keys()) <span class="comment">// [&quot;Colin&quot;, &quot;Jake&quot;, &quot;Rick&quot;]</span></span><br><span class="line"><span class="built_in">console</span>.log(dictionary.values()) <span class="comment">// [&#x27;colin1225@email.com&#x27;, &#x27;jake0305@email.com&#x27;, &#x27;rick1010@email.com&#x27;]</span></span><br><span class="line"><span class="built_in">console</span>.log(dictionary.get(<span class="string">&#x27;Rick&#x27;</span>)) <span class="comment">// &#x27;rick1010@email.com&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="雜湊表-HashMap"><a href="#雜湊表-HashMap" class="headerlink" title="雜湊表 HashMap"></a>雜湊表 HashMap</h2><p>HashTable 也稱作 HashMap，是 Dictionary 類別的一種實作方式。<br>使用雜湊演算法是為了更快更精準的在資料中找到一個值。以往我們要在資料結構中獲得一個值，要經過遍歷整個資料集。<br>雜湊讓我們利用函數就能得到資料的具體位置，因而達到快速檢索的效果。</p>
+<p><img src="https://miro.medium.com/v2/resize:fit:1336/format:webp/0*0xeEq-iJDrVAU0zG.png" alt="HashMap"></p>
+<h3 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h3><ul>
+<li>雜湊函數: 給定一個鍵值，返回值在表中的地址。</li>
+<li>put(key, value): 向雜湊表增加一個新資料。</li>
+<li>remove(key): 根據鍵值從表中移除值。</li>
+<li>get(key): 根據鍵值檢索特定值，返回。</li>
+</ul>
+<h3 id="實作-1"><a href="#實作-1" class="headerlink" title="實作"></a>實作</h3><h4 id="雜湊函數"><a href="#雜湊函數" class="headerlink" title="雜湊函數"></a>雜湊函數</h4><p>順序第一位為雜湊函式，是 HashTable 中一個私有的函數。<br>這邊使用一個最常見的 – 「雙輸」(lose lose)，將每一個鍵值中的每個字母的 ASCII 值相加。<br>在函式的最後常會使用 hash 值和任意數做除法的餘數(mod)。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> loseloseHashCode = <span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> hash = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;key.length; i++)&#123;</span><br><span class="line">    hash += key.charCodeAt(i);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> hash % <span class="number">37</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="put"><a href="#put" class="headerlink" title="put"></a>put</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.put = <span class="function"><span class="keyword">function</span>(<span class="params">key, value</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> position = loseloseHashCode(key);</span><br><span class="line">  <span class="built_in">console</span>.log(position + <span class="string">&#x27;-&#x27;</span> + key);</span><br><span class="line">  table[position] = value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="get"><a href="#get" class="headerlink" title="get"></a>get</h4><p>使用雜湊函式求出 key 值所對應位置，並回傳 position。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.get = <span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> table[loseloseHashCode(key)];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="remove-1"><a href="#remove-1" class="headerlink" title="remove"></a>remove</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.remove = <span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">  table[loseloseHashCode(key)] = <span class="literal">undefined</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用-HashTable-類別"><a href="#使用-HashTable-類別" class="headerlink" title="使用 HashTable 類別"></a>使用 HashTable 類別</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> hash = <span class="keyword">new</span> HashTable()</span><br><span class="line">hash.put(<span class="string">&#x27;Colin&#x27;</span>, <span class="string">&#x27;colin1225@email.com&#x27;</span>)</span><br><span class="line">hash.put(<span class="string">&#x27;Jake&#x27;</span>, <span class="string">&#x27;jake0305@email.com&#x27;</span>)</span><br><span class="line">hash.put(<span class="string">&#x27;Rick&#x27;</span>, <span class="string">&#x27;rick1010@email.com&#x27;</span>)</span><br><span class="line"><span class="comment">/* Output</span></span><br><span class="line"><span class="comment">  20 - Colin</span></span><br><span class="line"><span class="comment">  9 - Jake</span></span><br><span class="line"><span class="comment">  23 - Rick</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p>使用 get()</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(hash.get(<span class="string">&#x27;Colin&#x27;</span>));</span><br><span class="line"><span class="built_in">console</span>.log(hash.get(<span class="string">&#x27;Eileen&#x27;</span>));</span><br><span class="line"><span class="comment">/* Output</span></span><br><span class="line"><span class="comment">  colin1225@eamil.com</span></span><br><span class="line"><span class="comment">  undefined</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p>由於 Colin 是存在表中的鍵，所以會返回它的值。但 Eileen 並不在裡面，當我們試著取出值時，回傳將為 undefined（不存在）。<br>如果對 Colin 執行 remove()，那理所當然也會 return undefined。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">hash.remove(<span class="string">&#x27;Colin&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(hash.get(<span class="string">&#x27;Colin&#x27;</span>));</span><br><span class="line"><span class="comment">/* Output</span></span><br><span class="line"><span class="comment">  undefined</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="雜湊集合"><a href="#雜湊集合" class="headerlink" title="雜湊集合"></a>雜湊集合</h2><p>接著，我們來說明一下『雜湊集合』這個專有名詞。<br>在某些程式語言中，你會發現有這樣的一個實作。我們可以從名稱中了解到這是由集合所構成，但是新增、插入、刪除，是使用雜湊函數。<br>與剛才我們的實作不同之處，不添加「鍵值對」，只插入值。例如存放水果種類，但不賦予它們定義。</p>
+<h2 id="雜湊表的衝突"><a href="#雜湊表的衝突" class="headerlink" title="雜湊表的衝突"></a>雜湊表的衝突</h2><p>有時候，會遇到有相同雜湊值的情況。不同的值在表中相同的位置，稱之為衝突。<br>在正常程式執行的情況下，最後添加的值將會佔據該位置，也就是會覆蓋掉。<br>當然，我們的目的就是要將所有的資料存放進來，這樣的話不就達不到初衷了嗎？</p>
+<h3 id="面對衝突的處理"><a href="#面對衝突的處理" class="headerlink" title="面對衝突的處理"></a>面對衝突的處理</h3><p>在遇到衝突時，有兩個方法：</p>
+<ol>
+<li>Separate Chaining</li>
+<li>Linear Probing</li>
+</ol>
+<h4 id="Separate-Chaining"><a href="#Separate-Chaining" class="headerlink" title="Separate Chaining"></a>Separate Chaining</h4><ul>
+<li>一個(Key)位置允許放入多個值</li>
+<li>每一個位置(Point)都指向一個 Linked List，以存放多個值</li>
+<li>如果一個位置沒有放置任一值，Pointer 會被視為 null</li>
+</ul>
+<p><img src="https://lh3.googleusercontent.com/pw/ACtC-3cUZn32yJu7Z-fnDhf1ICMJkZH-tUU_dYd-pxmJ1Wk5tVqLa6cKsJ_xm9zbop5Btzof6I0da_7Z0R9m0Fr-cveDGT6HI360YuNKxQ936-vpEUz1DJefDp8L7vlchhTyS3fAD3Lq5yb8zB4hwOVLSZGt=s480-no?authuser=0" alt="此圖片源自網路"></p>
+<h4 id="Linear-Probing"><a href="#Linear-Probing" class="headerlink" title="Linear Probing"></a>Linear Probing</h4><ul>
+<li>如果該 key 對應的位置已經佔用（衝突），則會存入下一個 point(index+1)。</li>
+<li>can provide high performance because of its good locality of reference</li>
+<li>需要注意的地方就是陣列的空間有機會被使用完。</li>
+</ul>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/HASHTB12.svg/2560px-HASHTB12.svg.png" alt="來自wiki"></p>
+]]></content>
+      <tags>
+        <tag>javascript</tag>
+        <tag>data structure</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>『 資料結構 』佇列 Queue</title>
+    <url>/posts/DataStructure-queue/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>第三週我們歡迎「 Queue 佇列 」，上週我們學會了 stack ，這兩個東西非常相似，但是原則不同！<br>佇列在尾端新增元素，在頂部移除，在現實中就像是我們在排隊一樣，排在前面的人會優先被服務到，因此也有一個別稱叫做「 隊列 」。</p>
+<img src="/posts/DataStructure-queue/queue.webp" class="">
+
+<span id="more"></span>
+
+<h2 id="佇列什麼來頭？"><a href="#佇列什麼來頭？" class="headerlink" title="佇列什麼來頭？"></a>佇列什麼來頭？</h2><p>佇列是遵守著 FIFO (First In First Out, 先進先出) 原則的有序項目。</p>
+<ul>
+<li>一群相同性質元素的組合</li>
+<li>具有 FIFO 特性</li>
+<li>加入元素發生在尾端</li>
+<li>刪除元素發生在頂端</li>
+</ul>
+<p>在 Computer Science 中，最常看到的例子就是列印佇列。假如我們要列印三份文件，會開啟檔案並按下列印的按鈕，每個文件都會被發送至列印佇列，第一個發送到的文件會首先被列印出來，直到所有文件都列印完成。</p>
+<h2 id="建立佇列"><a href="#建立佇列" class="headerlink" title="建立佇列"></a>建立佇列</h2><h3 id="宣告類別"><a href="#宣告類別" class="headerlink" title="宣告類別"></a>宣告類別</h3><p>首先來宣告一個類別來建立自己的佇列：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Queue</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 寫入屬性和方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我們需要一個用於存放元素的結構，這邊可以使用陣列，就像上一篇 Stack 那樣做。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> items = []</span><br></pre></td></tr></table></figure>
+
+<h3 id="宣告方法"><a href="#宣告方法" class="headerlink" title="宣告方法"></a>宣告方法</h3><p>接下來讓我們開始宣告方法吧！以下是佇列可用的幾種方法：</p>
+<ul>
+<li>enqueue(element(s)): 向佇列尾端增加一個(或多個)新元素。</li>
+<li>dequeue(): 刪除佇列第一個元素(即排在最前面的)，並返回該元素。</li>
+<li>front(): 返回佇列第一個元素－－最先加入的。（與 Stack 的 peek 方法極為相似）</li>
+<li>isEmpty(): 如果佇列中不包含任何元素，返回 true，反之返回 false。</li>
+<li>size(): 返回佇列裡的元素個數，與陣列的 length 相同。</li>
+</ul>
+<p>第一個就是我們的‘新增’，記住佇列只能從未端添加！</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.enqueue = <span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">  items.push(element);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>實作佇列移除元素。由於只能遵循先進先出原則，最先加入的也是最先移除的。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.dequeue = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items.shift();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>只有 enqueue, dequeue 兩種方法可以新增及刪除元素，這樣確保了 Queue 類別先進先出的規則。</p>
+<p>接著就是屬於比較輔助的方法。<br>如果想知道佇列最前面的元素是什麼，可以用 front 方法，將返回佇列 index 為 0 的元素。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.front = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items[<span class="number">0</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>isEmpty 如果佇列為空，返回 true，反之 false。常用於驗證。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.isEmpty = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items.length == <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最後我們可以讓 Queue 類別實作類似 Array 類別的 length 屬性的方法。size 方法也和 Stack 裡的一樣：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.size = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items.length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>到這邊，我們完成了！</p>
+<h3 id="完整-Queue-類別"><a href="#完整-Queue-類別" class="headerlink" title="完整 Queue 類別"></a>完整 Queue 類別</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Queue</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> items = [];</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.enqueue = <span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">    items.push(element);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.dequue = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items.shift();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.front = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items[<span class="number">0</span>];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.isEmpty = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items.length == <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.size = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)[</span></span><br><span class="line"><span class="function">    <span class="title">return</span> <span class="title">items</span>.<span class="title">length</span></span>;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="與-Stack-不同之處"><a href="#與-Stack-不同之處" class="headerlink" title="與 Stack 不同之處"></a>與 Stack 不同之處</h2><p>唯一的區別是 dequeue 方法和 front 方法，這是由於先進先出和後進先出原則的不同所造成的。</p>
+<h2 id="使用-Queue-類別"><a href="#使用-Queue-類別" class="headerlink" title="使用 Queue 類別"></a>使用 Queue 類別</h2><p>第一步：實例化 Queue。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> queue = <span class="keyword">new</span> Queue();</span><br><span class="line"><span class="built_in">console</span>.log(queue.isEmpty()); <span class="comment">// 輸出 true</span></span><br></pre></td></tr></table></figure>
+
+<p>新增一些元素：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">queue.enqueue(<span class="string">&#x27;Jack&#x27;</span>);</span><br><span class="line">queue.enqueue(<span class="string">&#x27;Mike&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>可以玩一玩其他的方法～</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">queue.dequeue();</span><br><span class="line">queue.size(); <span class="comment">// 1</span></span><br><span class="line">queue.isEmpty();  <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="特殊佇列"><a href="#特殊佇列" class="headerlink" title="特殊佇列"></a>特殊佇列</h2><h3 id="優先佇列"><a href="#優先佇列" class="headerlink" title="優先佇列"></a>優先佇列</h3><p>佇列大量的應用在我們的生活中和電腦科學中，我們在之前的實作原型佇列中，也有其他的延伸。<br>其中一個就是「優先佇列」。元素的添加、移除是基於優先級別的。機場的登機順序就是一個現實的例子，頭等艙和商務艙的優先級要高於經濟艙的乘客。有些國家，老人和孕婦也擁有高於其他乘客的級別。</p>
+<p>另一個例子是醫院的急診室，醫生會優先處理重症患者，而護士通常會先行分類並決定次序。</p>
+<img src="/posts/DataStructure-queue/queue1.jpg" class="">
+<p><em>取自<span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9tL2FydGljbGVzLzEwMjY2OTgw">https://ithelp.ithome.com.tw/m/articles/10266980<i class="fa fa-external-link-alt"></i></span></em></p>
+<p>實作一個優先佇列，有兩個選項：</p>
+<ul>
+<li>一是設定優先級，然後在正確的位置增加元素。</li>
+<li>二是用入列操作新增元素，然候依照優先級移除它們。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PriorityQueue</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> items = [];</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">QueueElement</span>(<span class="params">element, priority</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.element = element;</span><br><span class="line">    <span class="built_in">this</span>.priority = priority;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.enqueue = <span class="function"><span class="keyword">function</span>(<span class="params">element, priority</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> queueElement = newQueueElement(element, priority);</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">this</span>.isEmpty())&#123;</span><br><span class="line">      items.push(queueElement);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">var</span> added = <span class="literal">false</span>;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;items.length; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(queueElement.priority &lt; items[i].priority)&#123;</span><br><span class="line">          items.splice(i, <span class="number">0</span>, queueElement);</span><br><span class="line">          added = <span class="literal">true</span>;</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span>(!added)&#123;</span><br><span class="line">        items.push(queueElement);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 其他方法和預設的 Queue 實作相同</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>預設的類別和優先級佇列類別實作上的區別是，要向 PriorityQueue 新增元素，需要建立一個特殊元素。這個元素包含了要添加到佇列的元素（它可以是任意類型）及其在佇列中的優先級。</p>
+<p>如果佇列為空，可以直接加入。否則，就需要先比較該元素與其他元素的優先級。當找到一個比要添加元素還要大的 priority 項目時，就把新元素插入到它之前（根據這個邏輯，相同優先級通樣要遵循先進先出原則）。</p>
+<p>補充一點，這裡實作的稱為最小優先佇列，因為優先級較小被放置在最前面（ 1 表示更高優先 ）。最大優先佇列則與之相反。</p>
+<h3 id="環狀佇列"><a href="#環狀佇列" class="headerlink" title="環狀佇列"></a>環狀佇列</h3><p>另一個延伸就是「環狀佇列」。遊戲燙手山芋（ Hot Potato ）就是一個很好的例子。<br>遊戲中，玩家圍成一個圈，把物品盡快地遞給旁邊的人，某一時刻傳遞停止，而這時候物品在誰手上，誰就退出圓圈結束遊戲。重複這個過程，直到一位勝者出爐。</p>
+<img src="/posts/DataStructure-queue/queue2.webp" class="">
+<p><em>取自<span class="exturl" data-url="aHR0cHM6Ly93d3cuMTIzcmYuY29tL3Bob3RvXzEwOTE4MTAwX3Bhc3Npbmctb24tdGhlLWhvdC1wb3RhdG8tYS1jb25jZXB0Lmh0bWw=">https://www.123rf.com/photo_10918100_passing-on-the-hot-potato-a-concept.html<i class="fa fa-external-link-alt"></i></span></em></p>
+<p>實作：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hotPotato</span>(<span class="params">nameList, num</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> queue = <span class="keyword">new</span> Queue();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;nameList.length; i++)&#123;</span><br><span class="line">    queue.enqueue(nameList[i]);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> eliminated = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="keyword">while</span>(queue.size() &gt; <span class="number">1</span>)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;num; i++)&#123;</span><br><span class="line">      queue.enqueue(queue.dequeue());</span><br><span class="line">    &#125;</span><br><span class="line">    eliminated = queue.dequeue();</span><br><span class="line">    <span class="built_in">console</span>.log(eliminated + <span class="string">&#x27;在遊戲中被淘汰。&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> queue.dequeue();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> names = [<span class="string">&#x27;John&#x27;</span>, <span class="string">&#x27;Colin&#x27;</span>, <span class="string">&#x27;Alice&#x27;</span>, <span class="string">&#x27;Eileen&#x27;</span>, <span class="string">&#x27;Jack&#x27;</span>];</span><br><span class="line"><span class="keyword">var</span> winner = hotPotato(names, <span class="number">7</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;勝利者&#x27;</span> + winner);</span><br></pre></td></tr></table></figure>
+
+<h2 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h2><p>我們這次學習了佇列的資料結構，自己實作佇列的演算法，學習如何透過 enqueue, dequeue 方法增加和刪除元素。還有兩種著名的特殊佇列實作：優先佇列、環狀佇列。</p>
+<p>接下來我們將學習鏈結串列，比陣列更加複雜的資料結構呦！</p>
+]]></content>
+      <tags>
+        <tag>javascript</tag>
+        <tag>data structure</tag>
       </tags>
   </entry>
   <entry>
@@ -367,8 +433,8 @@
 <h2 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h2><p>這章學習了如何從頭實作與 ES6 中定義的類似的 Set 類別。我們還介紹了在其他程式語言的集合結構的實作中不常見的一些方法，例如：連擊、交集、差集..等。相較於前幾個主題，我們完成了較完善的實例！給自己一個掌聲 👏🏻</p>
 ]]></content>
       <tags>
-        <tag>data structure</tag>
         <tag>javascript</tag>
+        <tag>data structure</tag>
       </tags>
   </entry>
   <entry>
@@ -425,32 +491,51 @@
 <h2 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h2><p><span class="exturl" data-url="aHR0cHM6Ly9zdHVkeWFsZ29yaXRobXMuY29tL3RoZW9yeS9zdGFjay1kYXRhLXN0cnVjdHVyZS8=">What is a Stack?<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDIxNTExOA==">前端工程師用 javaScript 學演算法<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3poLXR3LyVFNSVBMCU4NiVFNiVBMCU4OA==">堆疊- 維基百科，自由的百科全書 - Wikipedia<i class="fa fa-external-link-alt"></i></span></p>
 ]]></content>
       <tags>
-        <tag>data structure</tag>
         <tag>javascript</tag>
+        <tag>data structure</tag>
       </tags>
   </entry>
   <entry>
-    <title>一失足掉進的坑 Hexo Config</title>
-    <url>/posts/Hexo-config-permalink/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有在使用 Hexo Blog 的朋友一定知道他有很多設定可以玩！除了一般的標題、簡介、相關連結外，還有分頁、閱讀進度、總閱覽人數…等等一大堆。<br>今日心血來潮想要把部落格的 config 設定弄的更完整一些，沒有想到居然在之中受困數個小時…，真的覺得自己好笑又好氣😓</p>
+    <title>『 資料結構 』圖形 Graph</title>
+    <url>/posts/DataStructure-graph/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>大家好～ 在文章開始之前，我們先讓各位看一下名詞提要。</p>
+<ul>
+<li>頂點 Vertex or Node</li>
+<li>邊 Edge：兩個頂點間的連線</li>
+<li>無向性 Undirected：邊無方向性，表示兩點之間為雙向關係。 / 有向性 Directed：邊有方向性，表示兩點之間為單向關係。</li>
+<li>加權 Weighted：邊加上權重，代表兩點之間的關係；點加上權重，代表狀態</li>
+</ul>
+<p>以上都是我們在圖形這個章節會時常看到的名詞，那我們正是開始囉 GoGo。</p>
 <span id="more"></span>
 
-<h2 id="permalink-永久連結"><a href="#permalink-永久連結" class="headerlink" title="permalink 永久連結"></a>permalink 永久連結</h2><p>這是設定關於網站文章的連結（ URL ），就是點進你的文章後上面所顯使的連結樣式</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span>       <span class="comment"># 預設 Ex: 2013/07/14/hello-world/</span></span><br></pre></td></tr></table></figure>
+<h2 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h2><ol>
+<li>無向圖<img src="/posts/DataStructure-graph/graph1.png" class=""></li>
+<li>有向圖<img src="/posts/DataStructure-graph/graph2.png" class=""></li>
+<li>權重圖<img src="/posts/DataStructure-graph/graph3.png" class=""></li>
+</ol>
+<h2 id="圖形遍歷-Graph-Traversal"><a href="#圖形遍歷-Graph-Traversal" class="headerlink" title="圖形遍歷 Graph Traversal"></a>圖形遍歷 Graph Traversal</h2><h3 id="廣度搜尋-Breadth-First-Search"><a href="#廣度搜尋-Breadth-First-Search" class="headerlink" title="廣度搜尋 Breadth First Search"></a>廣度搜尋 Breadth First Search</h3><p>廣度優先的搜尋順序會是先走訪相鄰節點，都走訪完了，就往下一層繼續走訪，廣度優先搜尋採用queue來實作，因為queue具有先進先出的特性，可以確保先搜尋到的節點，會優先成為下一個搜尋起點。</p>
+<img src="/posts/DataStructure-graph/graph4.png" class="">
 
-<p>Hexo 文件有告訴大家說可以使用變數(文章尾端附圖)以及 Front-matter 做變化。看到這裡根本不知道不行自訂對吧！對吧！對吧…?<br>所以我就自作主張改成了以下這樣：</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:title/</span>       <span class="comment"># Ex: posts/hello-world/</span></span><br></pre></td></tr></table></figure>
+<p>程式範例：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UnweightedGraph</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">val</span>)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.value = val;</span><br><span class="line">        <span class="built_in">this</span>.neighbors = [];</span><br><span class="line">        <span class="built_in">this</span>.visited = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">addNeighbor</span>(<span class="params">n</span>)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.neighbors.push(n);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>原本想說網址太長多少會影響 SEO 的表現，所以我不想要時間在前面佔空間，還有這樣 public 資料夾的文章會被收在 posts 的資料夾裡不會散落一地，看起來才會讓我蘇湖🤤。<br>接下來 Deploy 出去就發現文章都連不進去啦啦啦😱，在改這個設定的時候，我已經有幾篇文章了，以為是動到了已發布文章的路徑才造成如此，便開始我的 Debug 之路，翻啊找啊爬啊根本沒有搜尋到什麼相關的東西，回頭重新讀了一下文件，才領悟到無法自訂呀～只能透過 permalink_defaults 改寫你想要的東西。於是我就將我的 category 預設為 posts 然後改寫。</p>
-<img src="/posts/Hexo-config-permalink/permalinks1.png" class="">
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> A = <span class="keyword">new</span> UnweightedGraph(<span class="string">&quot;A&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> B = <span class="keyword">new</span> UnweightedGraph(<span class="string">&quot;B&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> C = <span class="keyword">new</span> UnweightedGraph(<span class="string">&quot;C&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> D = <span class="keyword">new</span> UnweightedGraph(<span class="string">&quot;D&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> E = <span class="keyword">new</span> UnweightedGraph(<span class="string">&quot;E&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> F = <span class="keyword">new</span> UnweightedGraph(<span class="string">&quot;F&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> G = <span class="keyword">new</span> UnweightedGraph(<span class="string">&quot;G&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> H = <span class="keyword">new</span> UnweightedGraph(<span class="string">&quot;H&quot;</span>);</span><br><span class="line">A.addNeighbor(B);</span><br><span class="line">A.addNeighbor(C);</span><br><span class="line">A.addNeighbor(D);</span><br><span class="line">B.addNeighbor(E);</span><br><span class="line">B.addNeighbor(F);</span><br><span class="line">D.addNeighbor(G);</span><br><span class="line">D.addNeighbor(H);</span><br></pre></td></tr></table></figure>
 
-<img src="/posts/Hexo-config-permalink/permalinks2.png" class="">
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> BFS = <span class="function">(<span class="params">starter</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> queue = [],</span><br><span class="line">    result = [];</span><br><span class="line">  queue.push(starter);</span><br><span class="line">  <span class="keyword">while</span> (queue.length !== <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> firstNode = queue.shift();</span><br><span class="line">      <span class="keyword">if</span> (!firstNode.visited) &#123;</span><br><span class="line">    firstNode.visited = <span class="literal">true</span>;</span><br><span class="line">        result.push(firstNode.value);</span><br><span class="line">        firstNode.neighbors.forEach(<span class="function">(<span class="params">element</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">if</span> (!element.visited) &#123;</span><br><span class="line">      queue.push(element);</span><br><span class="line">    &#125;</span><br><span class="line">   &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">BFS(A);</span><br><span class="line"><span class="comment">//輸出結果 [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot;, &quot;G&quot;, &quot;H&quot;]</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>不要自作聰明… 😂</p>
-<img src="/posts/Hexo-config-permalink/Permalinks.png" class="" title="[Permalink可用變數]">
+<h3 id="深度搜尋-Depth-First-Search"><a href="#深度搜尋-Depth-First-Search" class="headerlink" title="深度搜尋 Depth First Search"></a>深度搜尋 Depth First Search</h3><p>會先從一邊開始走訪，概念類似於走迷宮摸著牆走的概念，走到底了就折返，繼續往沒走過的節點探索</p>
+<img src="/posts/DataStructure-graph/graph5.png" class="">
+
+<p>程式範例：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> result = [];</span><br><span class="line"><span class="keyword">const</span> DFT = <span class="function">(<span class="params">starter</span>) =&gt;</span> &#123;</span><br><span class="line">    starter.visited = <span class="literal">true</span>;</span><br><span class="line">    result.push(starter.value);</span><br><span class="line">    starter.neighbors.forEach(<span class="function">(<span class="params">element</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (!element.visited) DFT(element);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">DFT(A);</span><br><span class="line"></span><br><span class="line"><span class="comment">//輸出結果 [&quot;A&quot;, &quot;B&quot;, &quot;E&quot;, &quot;F&quot;, &quot;C&quot;, &quot;D&quot;, &quot;G&quot;, &quot;H&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="延伸"><a href="#延伸" class="headerlink" title="延伸"></a>延伸</h2><h3 id="最短距離"><a href="#最短距離" class="headerlink" title="最短距離"></a>最短距離</h3><p><span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0B5aW5pbmcxMjA0LyVFNiVCQyU5NCVFNyVBRSU5NyVFNiVCMyU5NSVFNSU5QyU5NiVFOSU5MSU5MSVFOCVBRSU4MCVFNiU5QiVCOCVFNyVBRCU4NiVFOCVBOCU5OC0lRTclQUMlQUMlRTglODIlODYlRTclQUIlQTAtJUU1JTlDJTk2JUU1JUJEJUEyJUU2JTkwJTlDJUU1JUIwJThCLSVFNCVCOCVBRC02MWU5MTkwMzI5ZTA=">延伸一<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0BhbWJlci5mcmFnbWVudHMvJUU2JUJDJTk0JUU3JUFFJTk3JUU2JUIzJTk1LSVFNSVBRCVCOCVFNyVCRiU5MiVFNyVBRCU4NiVFOCVBOCU5OC0xNC1kaWprc3RyYS1hbGdvcml0aG0tJUU2JTlDJTgwJUU3JTlGJUFEJUU4JUI3JUFGJUU1JUJFJTkxJUU2JUJDJTk0JUU3JUFFJTk3JUU2JUIzJTk1LTc0NTk4M2RkNDMzMg==">延伸二<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2Vla3Nmb3JnZWVrcy5vcmcvYmVsbG1hbi1mb3JkLWFsZ29yaXRobS1kcC0yMy8=">延伸三<i class="fa fa-external-link-alt"></i></span></p>
 ]]></content>
       <tags>
-        <tag>Hexo</tag>
+        <tag>javascript</tag>
+        <tag>data structure</tag>
       </tags>
   </entry>
   <entry>
@@ -503,6 +588,30 @@
       </tags>
   </entry>
   <entry>
+    <title>一失足掉進的坑 Hexo Config</title>
+    <url>/posts/Hexo-config-permalink/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有在使用 Hexo Blog 的朋友一定知道他有很多設定可以玩！除了一般的標題、簡介、相關連結外，還有分頁、閱讀進度、總閱覽人數…等等一大堆。<br>今日心血來潮想要把部落格的 config 設定弄的更完整一些，沒有想到居然在之中受困數個小時…，真的覺得自己好笑又好氣😓</p>
+<span id="more"></span>
+
+<h2 id="permalink-永久連結"><a href="#permalink-永久連結" class="headerlink" title="permalink 永久連結"></a>permalink 永久連結</h2><p>這是設定關於網站文章的連結（ URL ），就是點進你的文章後上面所顯使的連結樣式</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span>       <span class="comment"># 預設 Ex: 2013/07/14/hello-world/</span></span><br></pre></td></tr></table></figure>
+
+<p>Hexo 文件有告訴大家說可以使用變數(文章尾端附圖)以及 Front-matter 做變化。看到這裡根本不知道不行自訂對吧！對吧！對吧…?<br>所以我就自作主張改成了以下這樣：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:title/</span>       <span class="comment"># Ex: posts/hello-world/</span></span><br></pre></td></tr></table></figure>
+
+<p>原本想說網址太長多少會影響 SEO 的表現，所以我不想要時間在前面佔空間，還有這樣 public 資料夾的文章會被收在 posts 的資料夾裡不會散落一地，看起來才會讓我蘇湖🤤。<br>接下來 Deploy 出去就發現文章都連不進去啦啦啦😱，在改這個設定的時候，我已經有幾篇文章了，以為是動到了已發布文章的路徑才造成如此，便開始我的 Debug 之路，翻啊找啊爬啊根本沒有搜尋到什麼相關的東西，回頭重新讀了一下文件，才領悟到無法自訂呀～只能透過 permalink_defaults 改寫你想要的東西。於是我就將我的 category 預設為 posts 然後改寫。</p>
+<img src="/posts/Hexo-config-permalink/permalinks1.png" class="">
+
+<img src="/posts/Hexo-config-permalink/permalinks2.png" class="">
+
+<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>不要自作聰明… 😂</p>
+<img src="/posts/Hexo-config-permalink/Permalinks.png" class="" title="[Permalink可用變數]">
+]]></content>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何利用HTML直接下載pdf</title>
     <url>/posts/Html-downloadPdf/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天在嘗試利用 html的<code>&lt;a&gt;</code>標籤做下載檔案的功能，發現了一件事情，其他檔案能正常下載<br><del>除了pdf</del></p>
@@ -522,138 +631,6 @@
         <tag>html</tag>
         <tag>download</tag>
         <tag>pdf</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>『 資料結構 』佇列 Queue</title>
-    <url>/posts/DataStructure-queue/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>第三週我們歡迎「 Queue 佇列 」，上週我們學會了 stack ，這兩個東西非常相似，但是原則不同！<br>佇列在尾端新增元素，在頂部移除，在現實中就像是我們在排隊一樣，排在前面的人會優先被服務到，因此也有一個別稱叫做「 隊列 」。</p>
-<img src="/posts/DataStructure-queue/queue.webp" class="">
-
-<span id="more"></span>
-
-<h2 id="佇列什麼來頭？"><a href="#佇列什麼來頭？" class="headerlink" title="佇列什麼來頭？"></a>佇列什麼來頭？</h2><p>佇列是遵守著 FIFO (First In First Out, 先進先出) 原則的有序項目。</p>
-<ul>
-<li>一群相同性質元素的組合</li>
-<li>具有 FIFO 特性</li>
-<li>加入元素發生在尾端</li>
-<li>刪除元素發生在頂端</li>
-</ul>
-<p>在 Computer Science 中，最常看到的例子就是列印佇列。假如我們要列印三份文件，會開啟檔案並按下列印的按鈕，每個文件都會被發送至列印佇列，第一個發送到的文件會首先被列印出來，直到所有文件都列印完成。</p>
-<h2 id="建立佇列"><a href="#建立佇列" class="headerlink" title="建立佇列"></a>建立佇列</h2><h3 id="宣告類別"><a href="#宣告類別" class="headerlink" title="宣告類別"></a>宣告類別</h3><p>首先來宣告一個類別來建立自己的佇列：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Queue</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 寫入屬性和方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>我們需要一個用於存放元素的結構，這邊可以使用陣列，就像上一篇 Stack 那樣做。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> items = []</span><br></pre></td></tr></table></figure>
-
-<h3 id="宣告方法"><a href="#宣告方法" class="headerlink" title="宣告方法"></a>宣告方法</h3><p>接下來讓我們開始宣告方法吧！以下是佇列可用的幾種方法：</p>
-<ul>
-<li>enqueue(element(s)): 向佇列尾端增加一個(或多個)新元素。</li>
-<li>dequeue(): 刪除佇列第一個元素(即排在最前面的)，並返回該元素。</li>
-<li>front(): 返回佇列第一個元素－－最先加入的。（與 Stack 的 peek 方法極為相似）</li>
-<li>isEmpty(): 如果佇列中不包含任何元素，返回 true，反之返回 false。</li>
-<li>size(): 返回佇列裡的元素個數，與陣列的 length 相同。</li>
-</ul>
-<p>第一個就是我們的‘新增’，記住佇列只能從未端添加！</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.enqueue = <span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">  items.push(element);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>實作佇列移除元素。由於只能遵循先進先出原則，最先加入的也是最先移除的。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.dequeue = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items.shift();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>只有 enqueue, dequeue 兩種方法可以新增及刪除元素，這樣確保了 Queue 類別先進先出的規則。</p>
-<p>接著就是屬於比較輔助的方法。<br>如果想知道佇列最前面的元素是什麼，可以用 front 方法，將返回佇列 index 為 0 的元素。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.front = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items[<span class="number">0</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>isEmpty 如果佇列為空，返回 true，反之 false。常用於驗證。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.isEmpty = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items.length == <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>最後我們可以讓 Queue 類別實作類似 Array 類別的 length 屬性的方法。size 方法也和 Stack 裡的一樣：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.size = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> items.length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>到這邊，我們完成了！</p>
-<h3 id="完整-Queue-類別"><a href="#完整-Queue-類別" class="headerlink" title="完整 Queue 類別"></a>完整 Queue 類別</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Queue</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> items = [];</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.enqueue = <span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">    items.push(element);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.dequue = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items.shift();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.front = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items[<span class="number">0</span>];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.isEmpty = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items.length == <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.size = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)[</span></span><br><span class="line"><span class="function">    <span class="title">return</span> <span class="title">items</span>.<span class="title">length</span></span>;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="與-Stack-不同之處"><a href="#與-Stack-不同之處" class="headerlink" title="與 Stack 不同之處"></a>與 Stack 不同之處</h2><p>唯一的區別是 dequeue 方法和 front 方法，這是由於先進先出和後進先出原則的不同所造成的。</p>
-<h2 id="使用-Queue-類別"><a href="#使用-Queue-類別" class="headerlink" title="使用 Queue 類別"></a>使用 Queue 類別</h2><p>第一步：實例化 Queue。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> queue = <span class="keyword">new</span> Queue();</span><br><span class="line"><span class="built_in">console</span>.log(queue.isEmpty()); <span class="comment">// 輸出 true</span></span><br></pre></td></tr></table></figure>
-
-<p>新增一些元素：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">queue.enqueue(<span class="string">&#x27;Jack&#x27;</span>);</span><br><span class="line">queue.enqueue(<span class="string">&#x27;Mike&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>可以玩一玩其他的方法～</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">queue.dequeue();</span><br><span class="line">queue.size(); <span class="comment">// 1</span></span><br><span class="line">queue.isEmpty();  <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="特殊佇列"><a href="#特殊佇列" class="headerlink" title="特殊佇列"></a>特殊佇列</h2><h3 id="優先佇列"><a href="#優先佇列" class="headerlink" title="優先佇列"></a>優先佇列</h3><p>佇列大量的應用在我們的生活中和電腦科學中，我們在之前的實作原型佇列中，也有其他的延伸。<br>其中一個就是「優先佇列」。元素的添加、移除是基於優先級別的。機場的登機順序就是一個現實的例子，頭等艙和商務艙的優先級要高於經濟艙的乘客。有些國家，老人和孕婦也擁有高於其他乘客的級別。</p>
-<p>另一個例子是醫院的急診室，醫生會優先處理重症患者，而護士通常會先行分類並決定次序。</p>
-<img src="/posts/DataStructure-queue/queue1.jpg" class="">
-<p><em>取自<span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9tL2FydGljbGVzLzEwMjY2OTgw">https://ithelp.ithome.com.tw/m/articles/10266980<i class="fa fa-external-link-alt"></i></span></em></p>
-<p>實作一個優先佇列，有兩個選項：</p>
-<ul>
-<li>一是設定優先級，然後在正確的位置增加元素。</li>
-<li>二是用入列操作新增元素，然候依照優先級移除它們。</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PriorityQueue</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> items = [];</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">QueueElement</span>(<span class="params">element, priority</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.element = element;</span><br><span class="line">    <span class="built_in">this</span>.priority = priority;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>.enqueue = <span class="function"><span class="keyword">function</span>(<span class="params">element, priority</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> queueElement = newQueueElement(element, priority);</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">this</span>.isEmpty())&#123;</span><br><span class="line">      items.push(queueElement);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">var</span> added = <span class="literal">false</span>;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;items.length; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(queueElement.priority &lt; items[i].priority)&#123;</span><br><span class="line">          items.splice(i, <span class="number">0</span>, queueElement);</span><br><span class="line">          added = <span class="literal">true</span>;</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span>(!added)&#123;</span><br><span class="line">        items.push(queueElement);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 其他方法和預設的 Queue 實作相同</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>預設的類別和優先級佇列類別實作上的區別是，要向 PriorityQueue 新增元素，需要建立一個特殊元素。這個元素包含了要添加到佇列的元素（它可以是任意類型）及其在佇列中的優先級。</p>
-<p>如果佇列為空，可以直接加入。否則，就需要先比較該元素與其他元素的優先級。當找到一個比要添加元素還要大的 priority 項目時，就把新元素插入到它之前（根據這個邏輯，相同優先級通樣要遵循先進先出原則）。</p>
-<p>補充一點，這裡實作的稱為最小優先佇列，因為優先級較小被放置在最前面（ 1 表示更高優先 ）。最大優先佇列則與之相反。</p>
-<h3 id="環狀佇列"><a href="#環狀佇列" class="headerlink" title="環狀佇列"></a>環狀佇列</h3><p>另一個延伸就是「環狀佇列」。遊戲燙手山芋（ Hot Potato ）就是一個很好的例子。<br>遊戲中，玩家圍成一個圈，把物品盡快地遞給旁邊的人，某一時刻傳遞停止，而這時候物品在誰手上，誰就退出圓圈結束遊戲。重複這個過程，直到一位勝者出爐。</p>
-<img src="/posts/DataStructure-queue/queue2.webp" class="">
-<p><em>取自<span class="exturl" data-url="aHR0cHM6Ly93d3cuMTIzcmYuY29tL3Bob3RvXzEwOTE4MTAwX3Bhc3Npbmctb24tdGhlLWhvdC1wb3RhdG8tYS1jb25jZXB0Lmh0bWw=">https://www.123rf.com/photo_10918100_passing-on-the-hot-potato-a-concept.html<i class="fa fa-external-link-alt"></i></span></em></p>
-<p>實作：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hotPotato</span>(<span class="params">nameList, num</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> queue = <span class="keyword">new</span> Queue();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;nameList.length; i++)&#123;</span><br><span class="line">    queue.enqueue(nameList[i]);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> eliminated = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="keyword">while</span>(queue.size() &gt; <span class="number">1</span>)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;num; i++)&#123;</span><br><span class="line">      queue.enqueue(queue.dequeue());</span><br><span class="line">    &#125;</span><br><span class="line">    eliminated = queue.dequeue();</span><br><span class="line">    <span class="built_in">console</span>.log(eliminated + <span class="string">&#x27;在遊戲中被淘汰。&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> queue.dequeue();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> names = [<span class="string">&#x27;John&#x27;</span>, <span class="string">&#x27;Colin&#x27;</span>, <span class="string">&#x27;Alice&#x27;</span>, <span class="string">&#x27;Eileen&#x27;</span>, <span class="string">&#x27;Jack&#x27;</span>];</span><br><span class="line"><span class="keyword">var</span> winner = hotPotato(names, <span class="number">7</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;勝利者&#x27;</span> + winner);</span><br></pre></td></tr></table></figure>
-
-<h2 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h2><p>我們這次學習了佇列的資料結構，自己實作佇列的演算法，學習如何透過 enqueue, dequeue 方法增加和刪除元素。還有兩種著名的特殊佇列實作：優先佇列、環狀佇列。</p>
-<p>接下來我們將學習鏈結串列，比陣列更加複雜的資料結構呦！</p>
-]]></content>
-      <tags>
-        <tag>data structure</tag>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>『 LeetCode 技巧 』Prefix Sum 前綴和</title>
-    <url>/posts/Leetcode-prefixSum/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近開始學習資料結構，搭配著 LeetCode 進行練習，發現有很多解題的觀念都可以通用！<br>這次就來説說這次解到的題目，有錯誤的地方還請多多指教 &gt;_&lt;<br>以下為題目連結：<span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvcmVtb3ZlLXplcm8tc3VtLWNvbnNlY3V0aXZlLW5vZGVzLWZyb20tbGlua2VkLWxpc3Qv">1171. Remove Zero Sum Consecutive Nodes from Linked List<i class="fa fa-external-link-alt"></i></span></p>
-<span id="more"></span>
-
-<h2 id="Prefix-Sum-前綴和"><a href="#Prefix-Sum-前綴和" class="headerlink" title="Prefix Sum 前綴和"></a>Prefix Sum 前綴和</h2><p>什麼是前綴和呢？簡單來說，就是將前面的數相加得到的一個新的和陣列。<br>而得到的新陣列可以讓我們做一些事，求區間和（subarray）就是基礎應用之一。</p>
-<p>當題目是整數列而且出現需要”子數列”或”連續的子數列”時，就能利用這著概念去解題，效果可說是相當不錯。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">3</span>, <span class="number">5</span>];</span><br><span class="line"><span class="comment">// 取得前綴和，累加 array[0:i-1] 得到 prefixSumArray[i]</span></span><br><span class="line"><span class="keyword">let</span> prefixSumArray = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">14</span>, <span class="number">17</span>, <span class="number">22</span>];</span><br></pre></td></tr></table></figure>
-
-<p>在實作上，我們就可以直接使用這個數列進行累加，就不用再去遍歷一次 array。</p>
-<h2 id="解題絲路"><a href="#解題絲路" class="headerlink" title="解題絲路"></a>解題絲路</h2><h3 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h3><p>先來看題目~<br>在給定的鏈結裡面，重複扣除總和為 0 的<strong>連續數列</strong>，直到沒有這類的數列為止。<br>最後返回剩餘的鏈結。</p>
-<p>寫之前再到最下面看一下”條件(Constraints)”，這很重要呦！</p>
-<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p>看到”連續數列”，我們就可以試著利用 Prefix Sum。<br>另外補充，一般來說，前綴和會和 Map 一起做使用。</p>
-<ol>
-<li><p>建構一個 MAP 來儲存具有同累加值的最後節點的累積和。<br>因為最後一個節點的下一個數值是我們要建造和連結輸出的地方。</p>
-</li>
-<li><p>將 MAP 給實作出來</p>
-</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> removeZeroSumSublists = <span class="function"><span class="keyword">function</span> (<span class="params">head</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 如果 head == false，return head</span></span><br><span class="line">  <span class="keyword">if</span> (!head) &#123;</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 概念 prefix sum map</span></span><br><span class="line">  <span class="keyword">let</span> newNode = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">  newNode.next = head;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> current = newNode,</span><br><span class="line">    prefixSumMap = <span class="keyword">new</span> <span class="built_in">Map</span>(),</span><br><span class="line">    sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (current) &#123;</span><br><span class="line">    sum += current.val;</span><br><span class="line">    prefixSumMap.set(sum, current);</span><br><span class="line">    current = current.next;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  current = newNode;</span><br><span class="line">  sum = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span> (current) &#123;</span><br><span class="line">    sum += current.val;</span><br><span class="line">    current.next = prefixSumMap.get(sum).next;</span><br><span class="line">    current = current.next;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> newNode.next;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="類似題型"><a href="#類似題型" class="headerlink" title="類似題型"></a>類似題型</h2><p><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvc3ViYXJyYXktc3VtLWVxdWFscy1rLw==">560. Subarray Sum Equals K<i class="fa fa-external-link-alt"></i></span></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvbWF4aW11bS1hdmVyYWdlLXN1YmFycmF5LWkv">643. Maximum Average Subarray I<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <tags>
-        <tag>LeetCode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mac 中文輸入法無法顯示選字框？</title>
-    <url>/posts/Mac-bug-inputMethod/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有一天在輸入文字的時候，感覺上好像有點怪怪的…，但是又說不出是什麼，打著打著要選字就發現怎麼只能用鍵盤的上下左右盲選字！<br>不知道是不是我自己很少重新開機。<br>趕忙爬文，還以為電腦要壽終正寢了(才用一年多…QAQ</p>
-<span id="more"></span>
-
-<h2 id="解決辦法"><a href="#解決辦法" class="headerlink" title="解決辦法"></a>解決辦法</h2><p>本人的電腦是 2021 M1 Mac Pro<br>在網路上查到解決的辦法是在終端機上輸入：</p>
-<blockquote>
-<p>killall TCIM_Extension</p>
-</blockquote>
-<p>這個指令是將注音這隻殺掉，然後系統會將殺掉的程式重新開啟，之後就不需要針對單一問題重新開機了。</p>
-]]></content>
-      <tags>
-        <tag>Mac</tag>
       </tags>
   </entry>
   <entry>
@@ -779,11 +756,91 @@
 </ul>
 ]]></content>
       <tags>
-        <tag>data structure</tag>
-        <tag>Algorithm</tag>
         <tag>javascript</tag>
+        <tag>Algorithm</tag>
+        <tag>data structure</tag>
         <tag>Frontend</tag>
         <tag>array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mac 中文輸入法無法顯示選字框？</title>
+    <url>/posts/Mac-bug-inputMethod/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有一天在輸入文字的時候，感覺上好像有點怪怪的…，但是又說不出是什麼，打著打著要選字就發現怎麼只能用鍵盤的上下左右盲選字！<br>不知道是不是我自己很少重新開機。<br>趕忙爬文，還以為電腦要壽終正寢了(才用一年多…QAQ</p>
+<span id="more"></span>
+
+<h2 id="解決辦法"><a href="#解決辦法" class="headerlink" title="解決辦法"></a>解決辦法</h2><p>本人的電腦是 2021 M1 Mac Pro<br>在網路上查到解決的辦法是在終端機上輸入：</p>
+<blockquote>
+<p>killall TCIM_Extension</p>
+</blockquote>
+<p>這個指令是將注音這隻殺掉，然後系統會將殺掉的程式重新開啟，之後就不需要針對單一問題重新開機了。</p>
+]]></content>
+      <tags>
+        <tag>Mac</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>『 LeetCode 技巧 』Prefix Sum 前綴和</title>
+    <url>/posts/Leetcode-prefixSum/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近開始學習資料結構，搭配著 LeetCode 進行練習，發現有很多解題的觀念都可以通用！<br>這次就來説說這次解到的題目，有錯誤的地方還請多多指教 &gt;_&lt;<br>以下為題目連結：<span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvcmVtb3ZlLXplcm8tc3VtLWNvbnNlY3V0aXZlLW5vZGVzLWZyb20tbGlua2VkLWxpc3Qv">1171. Remove Zero Sum Consecutive Nodes from Linked List<i class="fa fa-external-link-alt"></i></span></p>
+<span id="more"></span>
+
+<h2 id="Prefix-Sum-前綴和"><a href="#Prefix-Sum-前綴和" class="headerlink" title="Prefix Sum 前綴和"></a>Prefix Sum 前綴和</h2><p>什麼是前綴和呢？簡單來說，就是將前面的數相加得到的一個新的和陣列。<br>而得到的新陣列可以讓我們做一些事，求區間和（subarray）就是基礎應用之一。</p>
+<p>當題目是整數列而且出現需要”子數列”或”連續的子數列”時，就能利用這著概念去解題，效果可說是相當不錯。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">3</span>, <span class="number">5</span>];</span><br><span class="line"><span class="comment">// 取得前綴和，累加 array[0:i-1] 得到 prefixSumArray[i]</span></span><br><span class="line"><span class="keyword">let</span> prefixSumArray = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">14</span>, <span class="number">17</span>, <span class="number">22</span>];</span><br></pre></td></tr></table></figure>
+
+<p>在實作上，我們就可以直接使用這個數列進行累加，就不用再去遍歷一次 array。</p>
+<h2 id="解題絲路"><a href="#解題絲路" class="headerlink" title="解題絲路"></a>解題絲路</h2><h3 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h3><p>先來看題目~<br>在給定的鏈結裡面，重複扣除總和為 0 的<strong>連續數列</strong>，直到沒有這類的數列為止。<br>最後返回剩餘的鏈結。</p>
+<p>寫之前再到最下面看一下”條件(Constraints)”，這很重要呦！</p>
+<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p>看到”連續數列”，我們就可以試著利用 Prefix Sum。<br>另外補充，一般來說，前綴和會和 Map 一起做使用。</p>
+<ol>
+<li><p>建構一個 MAP 來儲存具有同累加值的最後節點的累積和。<br>因為最後一個節點的下一個數值是我們要建造和連結輸出的地方。</p>
+</li>
+<li><p>將 MAP 給實作出來</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> removeZeroSumSublists = <span class="function"><span class="keyword">function</span> (<span class="params">head</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 如果 head == false，return head</span></span><br><span class="line">  <span class="keyword">if</span> (!head) &#123;</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 概念 prefix sum map</span></span><br><span class="line">  <span class="keyword">let</span> newNode = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">  newNode.next = head;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> current = newNode,</span><br><span class="line">    prefixSumMap = <span class="keyword">new</span> <span class="built_in">Map</span>(),</span><br><span class="line">    sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (current) &#123;</span><br><span class="line">    sum += current.val;</span><br><span class="line">    prefixSumMap.set(sum, current);</span><br><span class="line">    current = current.next;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  current = newNode;</span><br><span class="line">  sum = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span> (current) &#123;</span><br><span class="line">    sum += current.val;</span><br><span class="line">    current.next = prefixSumMap.get(sum).next;</span><br><span class="line">    current = current.next;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> newNode.next;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="類似題型"><a href="#類似題型" class="headerlink" title="類似題型"></a>類似題型</h2><p><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvc3ViYXJyYXktc3VtLWVxdWFscy1rLw==">560. Subarray Sum Equals K<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvbWF4aW11bS1hdmVyYWdlLXN1YmFycmF5LWkv">643. Maximum Average Subarray I<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <tags>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python 分割字串的幾種方式</title>
+    <url>/posts/Python-splitString/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在做資料處理時，是不是很常遇到要做字串分割的時候呢？<br>這幾天本人剛好有遇到要擷取字串，就想研究一下，到底有哪些方法能滿足我的需求！</p>
+<span id="more"></span>
+
+<h2 id="擷取字串"><a href="#擷取字串" class="headerlink" title="擷取字串"></a>擷取字串</h2><h3 id="Slicing-分割"><a href="#Slicing-分割" class="headerlink" title="Slicing 分割"></a>Slicing 分割</h3><p>這個方法就像陣列以索引取值一樣，短到字元、長到字段。</p>
+<ul>
+<li>字元<br>語法：字串[索引]</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">some_string = <span class="string">&quot;apple&quot;</span></span><br><span class="line">print(some_string[<span class="number">1</span>]) <span class="comment"># &quot;p&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>字串中的子字串(substring)<br>語法：字串[起始:結束:間隔]<br>參數介紹：索引值是由計算是由 0 開始，所以起始值要 +1 取值，例如起始值 2 代表要由第 3 個字元開始；結束值要取值時自己不能算。例如結束等於 5，所以取到第 5 個值；間隔值不是必填，預設是 1。起始值不填就代表由最前方開始，結束值如果不填就代表算到底。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fruit = <span class="string">&quot;peach&quot;</span></span><br><span class="line">print(fruit[<span class="number">2</span>:<span class="number">4</span>]) <span class="comment"># &quot;ac&quot;</span></span><br><span class="line">print(fruit[<span class="number">0</span>:<span class="number">5</span>:<span class="number">2</span>]) <span class="comment"># &quot;pah&quot;</span></span><br><span class="line"></span><br><span class="line">print(fruit[::-<span class="number">1</span>]) <span class="comment"># 反轉字串 &quot;hcaep&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Split-分割字串為陣列"><a href="#Split-分割字串為陣列" class="headerlink" title="Split 分割字串為陣列"></a>Split 分割字串為陣列</h3><p>你有時候會遇到資料是利用 “,” “、” “空格” “-“ 等符號來區分每一筆資料。</p>
+<p>這時候就需要把這些字串做處理，讓它變成陣列方便我們使用。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fruit = <span class="string">&quot;apple,banana,peach&quot;</span></span><br><span class="line">data_arr = fruit.split(<span class="string">&quot;,&quot;</span>)  <span class="comment"># - 使用逗號分割</span></span><br><span class="line">print(fruit)</span><br><span class="line">print(data_arr)  <span class="comment"># - [apple, banana, peach]</span></span><br><span class="line">print(data_arr[<span class="number">0</span>])  <span class="comment"># - apple</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># - 適用任何符號！</span></span><br><span class="line"><span class="comment"># - 多多研究要處理的資料有什麼特性或規律，在處理上能有較好的效率。</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Regexes-正規表達式"><a href="#Regexes-正規表達式" class="headerlink" title="Regexes 正規表達式"></a>Regexes 正規表達式</h3><p>又稱作正則表達式。Python 支援的介面存放在 re 的模組裡，所以要使用記得要引用(import re)</p>
+<p>正規表達式是很適合用來匹配字串極好用的工具，有獨立的語法，並能透過特定的語句規則（Pattern），達到搜尋、匹配、替代等等的需求。</p>
+<ul>
+<li><p>reg.split()<br>我們可以編譯一個正則表達式，用它來分割字串，和 python.split 一樣，返回一個包含子字串的列表。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">fruit = <span class="string">&quot;apple banana peach&quot;</span></span><br><span class="line">regex = re.complie(<span class="string">&#x27;\s+&#x27;</span>)  <span class="comment"># - \s 是一個特殊字元，包含所有的空白字元（空白、TAB、換行符號），而＋則代表一個或多個空格。</span></span><br><span class="line">result = regex.split(fruit)</span><br><span class="line"></span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>
+
+<p>推薦一個網站，<span class="exturl" data-url="aHR0cHM6Ly9yZWdleDEwMS5jb20v">https://regex101.com/<i class="fa fa-external-link-alt"></i></span>能即時將你輸入的字串比對你的正規表達式語法。</p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -828,41 +885,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Python 分割字串的幾種方式</title>
-    <url>/posts/Python-splitString/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在做資料處理時，是不是很常遇到要做字串分割的時候呢？<br>這幾天本人剛好有遇到要擷取字串，就想研究一下，到底有哪些方法能滿足我的需求！</p>
-<span id="more"></span>
-
-<h2 id="擷取字串"><a href="#擷取字串" class="headerlink" title="擷取字串"></a>擷取字串</h2><h3 id="Slicing-分割"><a href="#Slicing-分割" class="headerlink" title="Slicing 分割"></a>Slicing 分割</h3><p>這個方法就像陣列以索引取值一樣，短到字元、長到字段。</p>
-<ul>
-<li>字元<br>語法：字串[索引]</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">some_string = <span class="string">&quot;apple&quot;</span></span><br><span class="line">print(some_string[<span class="number">1</span>]) <span class="comment"># &quot;p&quot;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>字串中的子字串(substring)<br>語法：字串[起始:結束:間隔]<br>參數介紹：索引值是由計算是由 0 開始，所以起始值要 +1 取值，例如起始值 2 代表要由第 3 個字元開始；結束值要取值時自己不能算。例如結束等於 5，所以取到第 5 個值；間隔值不是必填，預設是 1。起始值不填就代表由最前方開始，結束值如果不填就代表算到底。</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fruit = <span class="string">&quot;peach&quot;</span></span><br><span class="line">print(fruit[<span class="number">2</span>:<span class="number">4</span>]) <span class="comment"># &quot;ac&quot;</span></span><br><span class="line">print(fruit[<span class="number">0</span>:<span class="number">5</span>:<span class="number">2</span>]) <span class="comment"># &quot;pah&quot;</span></span><br><span class="line"></span><br><span class="line">print(fruit[::-<span class="number">1</span>]) <span class="comment"># 反轉字串 &quot;hcaep&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Split-分割字串為陣列"><a href="#Split-分割字串為陣列" class="headerlink" title="Split 分割字串為陣列"></a>Split 分割字串為陣列</h3><p>你有時候會遇到資料是利用 “,” “、” “空格” “-“ 等符號來區分每一筆資料。</p>
-<p>這時候就需要把這些字串做處理，讓它變成陣列方便我們使用。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fruit = <span class="string">&quot;apple,banana,peach&quot;</span></span><br><span class="line">data_arr = fruit.split(<span class="string">&quot;,&quot;</span>)  <span class="comment"># - 使用逗號分割</span></span><br><span class="line">print(fruit)</span><br><span class="line">print(data_arr)  <span class="comment"># - [apple, banana, peach]</span></span><br><span class="line">print(data_arr[<span class="number">0</span>])  <span class="comment"># - apple</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># - 適用任何符號！</span></span><br><span class="line"><span class="comment"># - 多多研究要處理的資料有什麼特性或規律，在處理上能有較好的效率。</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Regexes-正規表達式"><a href="#Regexes-正規表達式" class="headerlink" title="Regexes 正規表達式"></a>Regexes 正規表達式</h3><p>又稱作正則表達式。Python 支援的介面存放在 re 的模組裡，所以要使用記得要引用(import re)</p>
-<p>正規表達式是很適合用來匹配字串極好用的工具，有獨立的語法，並能透過特定的語句規則（Pattern），達到搜尋、匹配、替代等等的需求。</p>
-<ul>
-<li><p>reg.split()<br>我們可以編譯一個正則表達式，用它來分割字串，和 python.split 一樣，返回一個包含子字串的列表。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">fruit = <span class="string">&quot;apple banana peach&quot;</span></span><br><span class="line">regex = re.complie(<span class="string">&#x27;\s+&#x27;</span>)  <span class="comment"># - \s 是一個特殊字元，包含所有的空白字元（空白、TAB、換行符號），而＋則代表一個或多個空格。</span></span><br><span class="line">result = regex.split(fruit)</span><br><span class="line"></span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>
-
-<p>推薦一個網站，<span class="exturl" data-url="aHR0cHM6Ly9yZWdleDEwMS5jb20v">https://regex101.com/<i class="fa fa-external-link-alt"></i></span>能即時將你輸入的字串比對你的正規表達式語法。</p>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>來聊聊 Type Script</title>
     <url>/posts/Ts-know/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>第一次在專案裡與 TS 相遇，那就不免俗的了解囉！<br>稍微簡介一下～<br>TypeScript是由微軟開發的一種能用來編譯出JavaScript程式碼的程式語言，因其比JS還多了一道編譯手續，能夠在編譯階段找出語法上的問題，而且也添加了型別檢查的機制，讓程式更容易閱讀與偵錯，也更適合開發大型的專案。<br>白話一點來說，JS可以通過TS編譯器來編譯，而且還能夠實現JavaScript的版本轉換(例如ES6轉ES5)</p>
@@ -892,6 +914,69 @@
       <tags>
         <tag>Frontend</tag>
         <tag>TypeScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>什麼時候該使用『 const vm = this 』</title>
+    <url>/posts/Vue-this/</url>
+    <content><![CDATA[<p> <strong>影響this的是在於<em>函式的呼叫方式</em></strong></p>
+<p>以下為this的範例</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">reverseText: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.text.split(<span class="string">&#x27;&#x27;</span>).reverse().join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p>在第一個範例中，this運行後都是在這個元件底下<br>並沒有另外的函式在內（ex: forEach）<br>全部的this都是指向<strong>Vue的該元件</strong><br>因此不需要另外使用 vm = this</p>
+<p>至於使用 vm = this 可以避免內部有其他函式叫<br>導致 this 的運作不如預期。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//因為在&quot;&quot;內層函式&quot;&quot;filter的函式內使用到this，指向會跑掉，所以需要使用vm。</span></span><br><span class="line">filterArray: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> vm = <span class="built_in">this</span>;</span><br><span class="line">    <span class="keyword">return</span> vm.arrayData.filter(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> item.name.match(vm.filterText)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> <strong>除了使用 filter/ forEach 會讓this指向window外，函式在直接呼叫的時候this也會指向window</strong></p>
+]]></content>
+      <tags>
+        <tag>Frontend</tag>
+        <tag>Vue.js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>為什麼Vue中的data有時候會看到return，而有時候卻沒有？</title>
+    <url>/posts/Vue-data/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>當你在剛接觸 Vue 的時候是不是有想過一件事情，文件上或人家範例的 data 寫方式似乎不太一樣…🤔😣</p>
+<span id="more"></span>
+
+<h2 id="疑難排解"><a href="#疑難排解" class="headerlink" title="疑難排解"></a>疑難排解</h2><p>在簡單的vue實例中看到的data屬性如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> app = newVue(&#123;</span><br><span class="line">    el: <span class="string">&quot;app&quot;</span>,</span><br><span class="line">    data:&#123;</span><br><span class="line">        msg:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>在使用組件化的項目中使用的形式是如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    <span class="function"><span class="title">data</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span>&#123;</span><br><span class="line">            msg:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>而這兩邊的差異呢就在於 <strong>不使用return包覆</strong> 的資料會在全局都可見，這會造成變數污染。<br>反之 <strong>用return的資料</strong> 就只會在當前的component生效而已，不會影響到其他組件。</p>
+]]></content>
+      <tags>
+        <tag>Frontend</tag>
+        <tag>Vue.js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue - 現今主流的 JS 框架之一</title>
+    <url>/posts/Vue-know/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>第一次和Vue碰面是在我大四實習時，剛好遇到公司開始推行同仁使用框架開發，也讓我這個菜鳥搭上前端框架的順風車。<br>趁現在有空閒之餘來整理一下當初的筆記，也順帶複習一下 Vue.js！</p>
+<span id="more"></span>
+
+<h2 id="何謂框架"><a href="#何謂框架" class="headerlink" title="何謂框架"></a>何謂框架</h2><p>框架(framework)，是指協助開發者能更容易地進行網頁製作的工具，將一些複雜的語法及工具以簡易的方式撰寫，進而提升效率及效能。就像是設計一台汽車，已經將模型給你了，你只需要對設計圖進行配色就可以完成，而上色這個部分和周邊的配件就是可以讓大家去精進功力地方了。<br>而現行較主流的框架為 Vue, React, Angular 等等。</p>
+<h2 id="Vue-js"><a href="#Vue-js" class="headerlink" title="Vue.js"></a>Vue.js</h2><p>Vue是一種javascript的一種漸進式(progressive)框架，是以 View(視圖層)為基礎，與其他框架不同的是，他的目標是透過簡單的API提供開發者實作資料綁定和操作網頁上的元件，也因為核心(宣告式渲染、元件系統)關注在狀態和畫面的同步層級上，所以能夠輕易地與其他 js 函式庫、前端開發工具等等的做整合。</p>
+<img src="/posts/Vue-know/vue-logo.jpeg" class="">
+
+<h3 id="特色"><a href="#特色" class="headerlink" title="特色"></a>特色</h3><ul>
+<li>輕量型框架：架構輕量、效能好</li>
+<li>提供資料綁定(Data Binding)的功能：可以將值關聯到 Html 標籤或 Attribute 上，變更資料、樣式</li>
+<li>虛擬Dom(Virtual DOM)：以 javascript 物件模擬特定的 Dom 結構而產生的樹狀節構。不直接操作 Dom 元素，而是等一個段落後，再將這些變更回真實Dom上</li>
+<li>元件化系統(Components system)：提供 Dom 強大的擴充性，也可將部分程式碼封裝起來，供開發者維護、重複使用</li>
+<li>指示詞(Directive)：內建許多指示詞(v-開頭)，用來進行程式邏輯的判斷</li>
+<li>Vue路由器(Router)：利用它建構一個基本卻完整的路由庫，來操作瀏覽器上/下一頁的流程，建立 SPA 完整單頁式應用的能力。</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Frontend</tag>
+        <tag>Vue.js</tag>
       </tags>
   </entry>
   <entry>
@@ -935,69 +1020,6 @@
       <tags>
         <tag>SEO</tag>
         <tag>crawler</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>為什麼Vue中的data有時候會看到return，而有時候卻沒有？</title>
-    <url>/posts/Vue-data/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>當你在剛接觸 Vue 的時候是不是有想過一件事情，文件上或人家範例的 data 寫方式似乎不太一樣…🤔😣</p>
-<span id="more"></span>
-
-<h2 id="疑難排解"><a href="#疑難排解" class="headerlink" title="疑難排解"></a>疑難排解</h2><p>在簡單的vue實例中看到的data屬性如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> app = newVue(&#123;</span><br><span class="line">    el: <span class="string">&quot;app&quot;</span>,</span><br><span class="line">    data:&#123;</span><br><span class="line">        msg:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>在使用組件化的項目中使用的形式是如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    <span class="function"><span class="title">data</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span>&#123;</span><br><span class="line">            msg:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>而這兩邊的差異呢就在於 <strong>不使用return包覆</strong> 的資料會在全局都可見，這會造成變數污染。<br>反之 <strong>用return的資料</strong> 就只會在當前的component生效而已，不會影響到其他組件。</p>
-]]></content>
-      <tags>
-        <tag>Frontend</tag>
-        <tag>Vue.js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>什麼時候該使用『 const vm = this 』</title>
-    <url>/posts/Vue-this/</url>
-    <content><![CDATA[<p> <strong>影響this的是在於<em>函式的呼叫方式</em></strong></p>
-<p>以下為this的範例</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">reverseText: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.text.split(<span class="string">&#x27;&#x27;</span>).reverse().join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-
-<p>在第一個範例中，this運行後都是在這個元件底下<br>並沒有另外的函式在內（ex: forEach）<br>全部的this都是指向<strong>Vue的該元件</strong><br>因此不需要另外使用 vm = this</p>
-<p>至於使用 vm = this 可以避免內部有其他函式叫<br>導致 this 的運作不如預期。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//因為在&quot;&quot;內層函式&quot;&quot;filter的函式內使用到this，指向會跑掉，所以需要使用vm。</span></span><br><span class="line">filterArray: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> vm = <span class="built_in">this</span>;</span><br><span class="line">    <span class="keyword">return</span> vm.arrayData.filter(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> item.name.match(vm.filterText)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p> <strong>除了使用 filter/ forEach 會讓this指向window外，函式在直接呼叫的時候this也會指向window</strong></p>
-]]></content>
-      <tags>
-        <tag>Frontend</tag>
-        <tag>Vue.js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Vue - 現今主流的 JS 框架之一</title>
-    <url>/posts/Vue-know/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>第一次和Vue碰面是在我大四實習時，剛好遇到公司開始推行同仁使用框架開發，也讓我這個菜鳥搭上前端框架的順風車。<br>趁現在有空閒之餘來整理一下當初的筆記，也順帶複習一下 Vue.js！</p>
-<span id="more"></span>
-
-<h2 id="何謂框架"><a href="#何謂框架" class="headerlink" title="何謂框架"></a>何謂框架</h2><p>框架(framework)，是指協助開發者能更容易地進行網頁製作的工具，將一些複雜的語法及工具以簡易的方式撰寫，進而提升效率及效能。就像是設計一台汽車，已經將模型給你了，你只需要對設計圖進行配色就可以完成，而上色這個部分和周邊的配件就是可以讓大家去精進功力地方了。<br>而現行較主流的框架為 Vue, React, Angular 等等。</p>
-<h2 id="Vue-js"><a href="#Vue-js" class="headerlink" title="Vue.js"></a>Vue.js</h2><p>Vue是一種javascript的一種漸進式(progressive)框架，是以 View(視圖層)為基礎，與其他框架不同的是，他的目標是透過簡單的API提供開發者實作資料綁定和操作網頁上的元件，也因為核心(宣告式渲染、元件系統)關注在狀態和畫面的同步層級上，所以能夠輕易地與其他 js 函式庫、前端開發工具等等的做整合。</p>
-<img src="/posts/Vue-know/vue-logo.jpeg" class="">
-
-<h3 id="特色"><a href="#特色" class="headerlink" title="特色"></a>特色</h3><ul>
-<li>輕量型框架：架構輕量、效能好</li>
-<li>提供資料綁定(Data Binding)的功能：可以將值關聯到 Html 標籤或 Attribute 上，變更資料、樣式</li>
-<li>虛擬Dom(Virtual DOM)：以 javascript 物件模擬特定的 Dom 結構而產生的樹狀節構。不直接操作 Dom 元素，而是等一個段落後，再將這些變更回真實Dom上</li>
-<li>元件化系統(Components system)：提供 Dom 強大的擴充性，也可將部分程式碼封裝起來，供開發者維護、重複使用</li>
-<li>指示詞(Directive)：內建許多指示詞(v-開頭)，用來進行程式邏輯的判斷</li>
-<li>Vue路由器(Router)：利用它建構一個基本卻完整的路由庫，來操作瀏覽器上/下一頁的流程，建立 SPA 完整單頁式應用的能力。</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Frontend</tag>
-        <tag>Vue.js</tag>
       </tags>
   </entry>
 </search>

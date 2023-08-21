@@ -20,23 +20,24 @@
     var CONFIG = {"hostname":"colinchiu87.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="前言第一次在專案裡與 TS 相遇，那就不免俗的了解囉！稍微簡介一下～TypeScript是由微軟開發的一種能用來編譯出JavaScript程式碼的程式語言，因其比JS還多了一道編譯手續，能夠在編譯階段找出語法上的問題，而且也添加了型別檢查的機制，讓程式更容易閱讀與偵錯，也更適合開發大型的專案。白話一點來說，JS可以通過TS編譯器來編譯，而且還能夠實現JavaScript的版本轉換(例如ES6轉ES">
+  <meta name="description" content="前言從前有個小村莊，村民們過著平靜而樸實的生活。然而，他們面臨一個困境：村莊周圍的土地資源有限，每位村民都想要在這些土地上種植作物和建造房屋。因此，土地的分配成了一個問題。 村莊的首領考慮到了這個問題，他決定請來了一位聰明的專家幫助他們找到一個公平的土地分配方案。這位專家告訴首領，他可以使用一種叫做「貪婪演算法」的方法來解決這個問題。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="來聊聊 Type Script">
-<meta property="og:url" content="https://colinchiu87.github.io/posts/Ts-know/">
+<meta property="og:title" content="貪婪演算法 Greedy Algorithm">
+<meta property="og:url" content="https://colinchiu87.github.io/posts/Algorithm-greedy/">
 <meta property="og:site_name" content="凹逗工程師">
-<meta property="og:description" content="前言第一次在專案裡與 TS 相遇，那就不免俗的了解囉！稍微簡介一下～TypeScript是由微軟開發的一種能用來編譯出JavaScript程式碼的程式語言，因其比JS還多了一道編譯手續，能夠在編譯階段找出語法上的問題，而且也添加了型別檢查的機制，讓程式更容易閱讀與偵錯，也更適合開發大型的專案。白話一點來說，JS可以通過TS編譯器來編譯，而且還能夠實現JavaScript的版本轉換(例如ES6轉ES">
+<meta property="og:description" content="前言從前有個小村莊，村民們過著平靜而樸實的生活。然而，他們面臨一個困境：村莊周圍的土地資源有限，每位村民都想要在這些土地上種植作物和建造房屋。因此，土地的分配成了一個問題。 村莊的首領考慮到了這個問題，他決定請來了一位聰明的專家幫助他們找到一個公平的土地分配方案。這位專家告訴首領，他可以使用一種叫做「貪婪演算法」的方法來解決這個問題。">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://colinchiu87.github.io/posts/Ts-know/js-ts.jpg">
-<meta property="article:published_time" content="2021-07-22T09:43:01.000Z">
-<meta property="article:modified_time" content="2022-10-17T09:25:40.884Z">
+<meta property="og:image" content="https://colinchiu87.github.io/posts/Algorithm-greedy/img1.avif">
+<meta property="og:image" content="https://colinchiu87.github.io/posts/Algorithm-greedy/img2.jfif">
+<meta property="article:published_time" content="2023-08-21T11:10:44.000Z">
+<meta property="article:modified_time" content="2023-08-21T11:26:17.198Z">
 <meta property="article:author" content="Kuan Ru">
-<meta property="article:tag" content="Frontend">
-<meta property="article:tag" content="TypeScript">
+<meta property="article:tag" content="Algorithm">
+<meta property="article:tag" content="data structure">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://colinchiu87.github.io/posts/Ts-know/js-ts.jpg">
+<meta name="twitter:image" content="https://colinchiu87.github.io/posts/Algorithm-greedy/img1.avif">
 
-<link rel="canonical" href="https://colinchiu87.github.io/posts/Ts-know/">
+<link rel="canonical" href="https://colinchiu87.github.io/posts/Algorithm-greedy/">
 
 
 <script id="page-configurations">
@@ -49,7 +50,7 @@
   };
 </script>
 
-  <title>來聊聊 Type Script | 凹逗工程師</title>
+  <title>貪婪演算法 Greedy Algorithm | 凹逗工程師</title>
   
 
 
@@ -192,7 +193,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://colinchiu87.github.io/posts/Ts-know/">
+    <link itemprop="mainEntityOfPage" href="https://colinchiu87.github.io/posts/Algorithm-greedy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.jpg">
@@ -205,7 +206,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          來聊聊 Type Script
+          貪婪演算法 Greedy Algorithm
         </h1>
 
         <div class="post-meta">
@@ -214,16 +215,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
+              
 
-              <time title="創建時間：2021-07-22 17:43:01" itemprop="dateCreated datePublished" datetime="2021-07-22T17:43:01+08:00">2021-07-22</time>
+              <time title="創建時間：2023-08-21 19:10:44 / 修改時間：19:26:17" itemprop="dateCreated datePublished" datetime="2023-08-21T19:10:44+08:00">2023-08-21</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2022-10-17 17:25:40" itemprop="dateModified" datetime="2022-10-17T17:25:40+08:00">2022-10-17</time>
-              </span>
 
           
             <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv" style="display: none;">
@@ -243,29 +238,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>第一次在專案裡與 TS 相遇，那就不免俗的了解囉！<br>稍微簡介一下～<br>TypeScript是由微軟開發的一種能用來編譯出JavaScript程式碼的程式語言，因其比JS還多了一道編譯手續，能夠在編譯階段找出語法上的問題，而且也添加了型別檢查的機制，讓程式更容易閱讀與偵錯，也更適合開發大型的專案。<br>白話一點來說，JS可以通過TS編譯器來編譯，而且還能夠實現JavaScript的版本轉換(例如ES6轉ES5)</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>從前有個小村莊，村民們過著平靜而樸實的生活。然而，他們面臨一個困境：村莊周圍的土地資源有限，每位村民都想要在這些土地上種植作物和建造房屋。因此，土地的分配成了一個問題。</p>
+<p>村莊的首領考慮到了這個問題，他決定請來了一位聰明的專家幫助他們找到一個公平的土地分配方案。這位專家告訴首領，他可以使用一種叫做「貪婪演算法」的方法來解決這個問題。</p>
+<img src="/posts/Algorithm-greedy/img1.avif" class="">
+
 <span id="more"></span>
 
-<img src="/posts/Ts-know/js-ts.jpg" class="">
-
-<h2 id="安裝與設定"><a href="#安裝與設定" class="headerlink" title="安裝與設定"></a>安裝與設定</h2><h3 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h3><p>我們要先設定好Node.js和npm環境，建議使用Node.js最新的LTS版本。<br>Node.js是JavaScript程式的執行環境，讓我們不需要開啟瀏覽器也可以執行JS。而npm則是JS的套件管理器，常與Node.js一同被安裝。</p>
-<p>Windows的使用者可以直接到<span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL2VuLw==">Node.js官方網站<i class="fa fa-external-link-alt"></i></span>下載，而Linux或MacOS的使用者可以參考<span class="exturl" data-url="aHR0cHM6Ly9tYWdpY2xlbi5vcmcvbGludXgtaW5zdGFsbC1ub2RlanMv">這篇文章<i class="fa fa-external-link-alt"></i></span>安裝指定版本。</p>
-<h3 id="tsc"><a href="#tsc" class="headerlink" title="tsc"></a>tsc</h3><p>tsc是TypeScript程式的編譯器，能夠將TS編譯成JS。<br>執行以下npm指令:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g typescript</span><br></pre></td></tr></table></figure>
-
-<p>關於編譯器的設定，我就先不說明，一開始花太多時間在這會顯得有點浪費且沒意思，畢竟內容很龐大也很複雜。</p>
-<hr>
-<h2 id="簡單的範例"><a href="#簡單的範例" class="headerlink" title="簡單的範例"></a>簡單的範例</h2><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">name: <span class="built_in">string</span></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello &quot;</span> + name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(colin)</span><br></pre></td></tr></table></figure>
-
-<p>這邊唯一和我們學過的JavaScript不同，就是func這個函式的傳入參數多一個 :string 的指示詞，這東西在ＴＳ裡稱做類型註解。這邊就是說傳入的參數只接受字串(string)的型態，只要是其他型別在呼叫或是執行時就會報錯。</p>
-<p>對於函式而言，會有傳入參數和回傳值兩種情況，那麼我們就要養成習慣。</p>
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">name: <span class="built_in">string</span></span>): <span class="title">string</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello &quot;</span> + name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(colin)</span><br></pre></td></tr></table></figure>
-
-<p>上面這表示回傳值的型態也是string類型，順帶一提，如果函式沒有回傳值時可以使用 void，相信很多人都有看過吧，這就是專門為沒有回傳值的函式所準備的類型。</p>
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name: <span class="built_in">string</span> | <span class="built_in">number</span> = <span class="string">&quot;Colin&quot;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>這裡的意思是 name這個變數能接受的型態為字串(string)與數字(number)，而且預設值為 Colin字串。</p>
-<hr>
+<h2 id="貪婪演算法"><a href="#貪婪演算法" class="headerlink" title="貪婪演算法"></a>貪婪演算法</h2><p>貪婪演算法（Greedy Algorithm）是一種求解最優化問題的方法，該方法在每一個步驟都選擇當前狀態下的最佳解，並希望通過這種方式最終能夠獲得全局最優解。</p>
+<p>貪婪演算法通常用於求解最優化問題，例如最小生成樹、最短路徑、背包問題等。這些問題可以被描述為一個圖，其中節點代表問題中的元素，邊代表元素之間的關係，權重代表成本或價值。</p>
+<p>貪婪演算法的核心思想是在每個步驟中選擇當前狀態下最佳的解決方案。貪婪演算法不考慮整體最優解，而是通過局部最優解的選擇，希望最終能夠獲得全局最優解。貪婪演算法通常比較簡單且高效，但不能保證一定能獲得最優解。</p>
+<p>那麼回到前言所提的例子，專家建議首領這樣做：首先，從村莊周圍的土地中選擇一塊最大的空地，讓第一位村民在那裡種植作物。然後，在剩餘的土地中，再選擇下一塊最大的空地，讓第二位村民使用，以此類推，直到所有的村民都分到土地為止。</p>
+<h2 id="可能引發的問題"><a href="#可能引發的問題" class="headerlink" title="可能引發的問題"></a>可能引發的問題</h2><p>聽取了專家的建議，開始實施這個方案。一開始，村民們對這種分配方法感到滿意，因為每個人都能獲得相對寬敞的土地。然而，隨著時間的推移，一些村民開始注意到一個問題：雖然他們每個人都有了自己的土地，但其中一些土地可能位於較遠的地點，不太適合種植作物，或者地勢較差。於是，他們開始嘗試交換土地，希望找到更好的選擇。</p>
+<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>雖然貪婪演算法可以在短期內找到看似最佳的選擇，但它有時會忽略全局的信息，導致最終結果可能不盡如人意。<br>這個故事告訴我們，在解決問題時，我們需要考慮長遠的影響和全局的因素，而不僅僅是眼前的表面利益。</p>
+<img src="/posts/Algorithm-greedy/img2.jfif" class="">
 
     </div>
 
@@ -294,8 +279,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Frontend/" rel="tag"># Frontend</a>
-              <a href="/tags/TypeScript/" rel="tag"># TypeScript</a>
+              <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+              <a href="/tags/data-structure/" rel="tag"># data structure</a>
           </div>
 
         
@@ -304,13 +289,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/Vue-data/" rel="prev" title="為什麼Vue中的data有時候會看到return，而有時候卻沒有？">
-      <i class="fa fa-chevron-left"></i> 為什麼Vue中的data有時候會看到return，而有時候卻沒有？
+    <a href="/posts/DataStructure-graph/" rel="prev" title="『 資料結構 』圖形 Graph">
+      <i class="fa fa-chevron-left"></i> 『 資料結構 』圖形 Graph
     </a></div>
-      <div class="post-nav-item">
-    <a href="/posts/Html-downloadPdf/" rel="next" title="如何利用HTML直接下載pdf">
-      如何利用HTML直接下載pdf <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -369,7 +351,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D%E8%88%87%E8%A8%AD%E5%AE%9A"><span class="nav-number">2.</span> <span class="nav-text">安裝與設定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-js"><span class="nav-number">2.1.</span> <span class="nav-text">Node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tsc"><span class="nav-number">2.2.</span> <span class="nav-text">tsc</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B0%A1%E5%96%AE%E7%9A%84%E7%AF%84%E4%BE%8B"><span class="nav-number">3.</span> <span class="nav-text">簡單的範例</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B2%AA%E5%A9%AA%E6%BC%94%E7%AE%97%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">貪婪演算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E8%83%BD%E5%BC%95%E7%99%BC%E7%9A%84%E5%95%8F%E9%A1%8C"><span class="nav-number">3.</span> <span class="nav-text">可能引發的問題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E8%AB%96"><span class="nav-number">4.</span> <span class="nav-text">結論</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
