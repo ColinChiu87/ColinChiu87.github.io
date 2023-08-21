@@ -306,13 +306,6 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/tags/Mac/</loc>
-    <lastmod>2023-08-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://colinchiu87.github.io/tags/LeetCode/</loc>
     <lastmod>2023-08-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -320,7 +313,7 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/tags/Python/</loc>
+    <loc>https://colinchiu87.github.io/tags/Mac/</loc>
     <lastmod>2023-08-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -334,7 +327,7 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/tags/Google-Search-Console/</loc>
+    <loc>https://colinchiu87.github.io/tags/crawler/</loc>
     <lastmod>2023-08-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -355,7 +348,14 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/tags/crawler/</loc>
+    <loc>https://colinchiu87.github.io/tags/Google-Search-Console/</loc>
+    <lastmod>2023-08-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://colinchiu87.github.io/tags/Python/</loc>
     <lastmod>2023-08-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
