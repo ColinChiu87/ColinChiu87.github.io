@@ -6,7 +6,7 @@
   <link href="https://colinchiu87.github.io/atom.xml" rel="self"/>
   
   <link href="https://colinchiu87.github.io/"/>
-  <updated>2023-08-21T11:30:08.028Z</updated>
+  <updated>2023-08-22T11:27:09.571Z</updated>
   <id>https://colinchiu87.github.io/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>『小技巧』VSCode 多開視窗（同專案）</title>
+    <link href="https://colinchiu87.github.io/posts/Skill-VSCode-multipleWindow/"/>
+    <id>https://colinchiu87.github.io/posts/Skill-VSCode-multipleWindow/</id>
+    <published>2023-08-22T11:13:29.000Z</published>
+    <updated>2023-08-22T11:27:09.571Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>麥可是一名富有創造力的工程師，他在一家科技公司工作，負責設計和開發新的產品原型。為了更有效地實現他的構想，他在自己的工作站上安裝了多個顯示器。這些螢幕允許他同時查看複雜的設計圖紙、程式碼和模擬結果，使他能夠快速地在不同的任務之間切換，並保持專注。</p><img src="/posts/Skill-VSCode-multipleWindow/img1.jpeg" class=""><span id="more"></span><h2 id="語法"><a href="#語法" class="headerlink" title="語法"></a>語法</h2><p>你也想要成為一位效率爆表的工程師嗎？</p><ol><li>打開你的 VSCode</li><li>Ctrl + Shift + P 開啟指令區 (masOS: Command + Shift + P)<img src="/posts/Skill-VSCode-multipleWindow/img2.png" class=""></li><li>輸入 <code>Workspace: Duplicate As Workspace in New Window</code></li></ol><p>恭喜你又變強了一點點。XD</p>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;麥可是一名富有創造力的工程師，他在一家科技公司工作，負責設計和開發新的產品原型。為了更有效地實現他的構想，他在自己的工作站上安裝了多個顯示器。這些螢幕允許他同時查看複雜的設計圖紙、程式碼和模擬結果，使他能夠快速地在不同的任務之間切換，並保持專注。&lt;/p&gt;
+&lt;img src=&quot;/posts/Skill-VSCode-multipleWindow/img1.jpeg&quot; class=&quot;&quot;&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>貪婪演算法 Greedy Algorithm</title>
@@ -442,27 +460,6 @@
     <category term="Frontend" scheme="https://colinchiu87.github.io/tags/Frontend/"/>
     
     <category term="TypeScript" scheme="https://colinchiu87.github.io/tags/TypeScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>為什麼Vue中的data有時候會看到return，而有時候卻沒有？</title>
-    <link href="https://colinchiu87.github.io/posts/Vue-data/"/>
-    <id>https://colinchiu87.github.io/posts/Vue-data/</id>
-    <published>2021-07-13T11:46:10.000Z</published>
-    <updated>2022-10-17T09:25:48.497Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>當你在剛接觸 Vue 的時候是不是有想過一件事情，文件上或人家範例的 data 寫方式似乎不太一樣…🤔😣</p><span id="more"></span><h2 id="疑難排解"><a href="#疑難排解" class="headerlink" title="疑難排解"></a>疑難排解</h2><p>在簡單的vue實例中看到的data屬性如下：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> app = newVue(&#123;</span><br><span class="line">    el: <span class="string">&quot;app&quot;</span>,</span><br><span class="line">    data:&#123;</span><br><span class="line">        msg:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p>在使用組件化的項目中使用的形式是如下：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    <span class="function"><span class="title">data</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span>&#123;</span><br><span class="line">            msg:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>而這兩邊的差異呢就在於 <strong>不使用return包覆</strong> 的資料會在全局都可見，這會造成變數污染。<br>反之 <strong>用return的資料</strong> 就只會在當前的component生效而已，不會影響到其他組件。</p>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;當你在剛接觸 Vue 的時候是不是有想過一件事情，文件上或人家範例的 data 寫方式似乎不太一樣…🤔😣&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Frontend" scheme="https://colinchiu87.github.io/tags/Frontend/"/>
-    
-    <category term="Vue.js" scheme="https://colinchiu87.github.io/tags/Vue-js/"/>
     
   </entry>
   
