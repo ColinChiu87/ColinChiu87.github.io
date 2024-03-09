@@ -6,7 +6,7 @@
   <link href="https://colinchiu87.github.io/atom.xml" rel="self"/>
   
   <link href="https://colinchiu87.github.io/"/>
-  <updated>2023-08-22T11:27:09.571Z</updated>
+  <updated>2024-03-09T06:05:43.673Z</updated>
   <id>https://colinchiu87.github.io/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Day.js 將取代 Moment.js？</title>
+    <link href="https://colinchiu87.github.io/posts/Js-dayjs/"/>
+    <id>https://colinchiu87.github.io/posts/Js-dayjs/</id>
+    <published>2024-03-09T05:42:39.000Z</published>
+    <updated>2024-03-09T06:05:43.673Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/posts/Js-dayjs/dayjs-logo.png" class=""><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在開發專案的時候，遇到與時間有關的地方，你會想到甚麼語法？套件？<br>不得不承認，我浮現在腦袋的第一個東西就是 moment.js 的套件，你是不是也是這樣XD<br>它是最古老、最受歡迎的 Library ，在關鍵字搜尋也是優先會看到的。</p><p>但，<em>如果遲遲不放下過去，就抵達不了未來</em>。</p><span id="more"></span><h2 id="比較"><a href="#比較" class="headerlink" title="比較"></a>比較</h2><p>這邊就直接暴雷，告訴大家為什麼可以考慮使用 Day.js。</p><ul><li>Package 輕量：為了不要跟原生 Date 比起來造成太大負擔，走一個輕薄短小的風格，可以引入基本核心的功能，額外的功能再搭配 plugins 處理。</li><li>Api 淺顯易懂：因為都是返回 Day.js 物件，因此可以串接(<strong>chainable</strong>)</li><li>Immutable：每個 API 都回傳全新的 Day.js 物件，而非修改物件本身，避免 side effect 造成 bug</li></ul><img src="/posts/Js-dayjs/img1.webp" class=""><h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>你也不要覺得替換一個習慣是個很麻煩的事，因為！</p><p><strong>使用方法幾乎都是和 momentJs 相同的</strong></p><p>最後，DayJs 還有許多客製化和 i18n 的用法，就讓大家去摸索吧！</p><p><span class="exturl" data-url="aHR0cHM6Ly9kYXkuanMub3JnL2VuLw==">官方文件ㄉ連結<i class="fa fa-external-link-alt"></i></span></p>]]></content>
+    
+    
+    <summary type="html">&lt;img src=&quot;/posts/Js-dayjs/dayjs-logo.png&quot; class=&quot;&quot;&gt;
+
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;在開發專案的時候，遇到與時間有關的地方，你會想到甚麼語法？套件？&lt;br&gt;不得不承認，我浮現在腦袋的第一個東西就是 moment.js 的套件，你是不是也是這樣XD&lt;br&gt;它是最古老、最受歡迎的 Library ，在關鍵字搜尋也是優先會看到的。&lt;/p&gt;
+&lt;p&gt;但，&lt;em&gt;如果遲遲不放下過去，就抵達不了未來&lt;/em&gt;。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
+    
+    <category term="Library" scheme="https://colinchiu87.github.io/tags/Library/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>動態規劃 Dynamic Programming</title>
+    <link href="https://colinchiu87.github.io/posts/Algorithm-dynamicProgramming/"/>
+    <id>https://colinchiu87.github.io/posts/Algorithm-dynamicProgramming/</id>
+    <published>2023-08-29T11:21:09.000Z</published>
+    <updated>2024-03-09T05:41:07.645Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>小明是一名熱愛解決難題的大學生，他正在參加一個程式比賽。這次比賽有一道題目是關於動態規劃法的，要求參賽者找到一個數列中最大的連續子數列和。</p><img src="/posts/Algorithm-dynamicProgramming/img2.jpeg" class=""><span id="more"></span><h2 id="動態規劃法"><a href="#動態規劃法" class="headerlink" title="動態規劃法"></a>動態規劃法</h2><p>這邊先記幾個關鍵字 “儲存”,”小問題”,”組合”,”大問題”。所以基本上一個問題假如能符合以下就可以使用動態規劃來思考。</p><ul><li>可以拆成很多小問題</li><li>答案可以透過組合小問題來解</li><li>小問題重覆量很高</li></ul><img src="/posts/Algorithm-dynamicProgramming/img3.webp" class=""><img src="/posts/Algorithm-dynamicProgramming/img4.webp" class=""><p>我個人研究出當有提到 <code>subarray</code>、<code>subsequence</code> 的時候也可能會使用到動態規劃。</p><h3 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h3><p>就延續前言的故事，來解最大子數列和吧！<br>稍微說明一下題目：在一維的數列中，要找出連續的子數列，且該子數列的和是最大。</p><p><code>array = [−2, 1, −3, 4, −1, 2, 1, −5, 4]</code></p><h4 id="暴力解"><a href="#暴力解" class="headerlink" title="暴力解"></a>暴力解</h4><p>最直覺的做法，就是直接寫一個雙層迴圈，跑完所有子數列，比較總和大小，就得出答案了。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">findMaxSubarray</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> finalMax = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;array.length; i++)&#123;</span><br><span class="line">    <span class="keyword">let</span> currentMax = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = i; j&lt;array.length; j++)&#123;</span><br><span class="line">      currentMax +=  array[j];</span><br><span class="line">      <span class="keyword">if</span> (currentMax &gt; finalMax) &#123;</span><br><span class="line">        finalMax = currentMax;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> finalMax</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>另外，也附上 Wiki 的網址可以參考 <span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU2JTk2JTkwJUU2JUIzJUEyJUU5JTgyJUEzJUU1JUE1JTkxJUU2JTk1JUIw">連結在此<i class="fa fa-external-link-alt"></i></span></p><h2 id="與貪婪演算法"><a href="#與貪婪演算法" class="headerlink" title="與貪婪演算法"></a>與貪婪演算法</h2><p>總的來說，貪婪演算法和動態規劃算法都是求解最優化問題的重要算法。選擇哪種算法取決於問題的性質和細節，以及算法的效率和準確性要求。對於某些問題，貪婪演算法可能會得到次優解或不可行解，而動態規劃算法可以得到最優解；但是對於某些問題，貪婪演算法的效率更高，而動態規劃算法需要額外的空間和時間來求解。因此，在選擇算法時，需要根據問題的特點和要求來選擇適合的算法。</p><h2 id="有關動態規劃的題目"><a href="#有關動態規劃的題目" class="headerlink" title="有關動態規劃的題目"></a>有關動態規劃的題目</h2><ul><li>斐波那契數列</li><li>連續子數列最大和 <span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvbWF4aW11bS1zdWJhcnJheQ==">Leet Code 53<i class="fa fa-external-link-alt"></i></span></li><li>連續子數列最大乘積 <span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvbWF4aW11bS1wcm9kdWN0LXN1YmFycmF5">Leet Code 152<i class="fa fa-external-link-alt"></i></span></li><li>最長遞增子數列 <span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvbG9uZ2VzdC1jb21tb24tc3Vic2VxdWVuY2U=">Leet Code 1143<i class="fa fa-external-link-alt"></i></span></li><li>數組數列中，最長子數列 <span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvZGlzdGluY3Qtc3Vic2VxdWVuY2Vz">Leet Code 115<i class="fa fa-external-link-alt"></i></span></li></ul><blockquote><p>以上圖片下載自google</p></blockquote>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;小明是一名熱愛解決難題的大學生，他正在參加一個程式比賽。這次比賽有一道題目是關於動態規劃法的，要求參賽者找到一個數列中最大的連續子數列和。&lt;/p&gt;
+&lt;img src=&quot;/posts/Algorithm-dynamicProgramming/img2.jpeg&quot; class=&quot;&quot;&gt;</summary>
+    
+    
+    
+    
+    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
+    
+    <category term="Algorithm" scheme="https://colinchiu87.github.io/tags/Algorithm/"/>
+    
+  </entry>
   
   <entry>
     <title>『小技巧』VSCode 多開視窗（同專案）</title>
@@ -39,7 +85,7 @@
     <link href="https://colinchiu87.github.io/posts/Algorithm-greedy/"/>
     <id>https://colinchiu87.github.io/posts/Algorithm-greedy/</id>
     <published>2023-08-21T11:10:44.000Z</published>
-    <updated>2023-08-21T11:30:08.028Z</updated>
+    <updated>2023-08-29T11:21:20.771Z</updated>
     
     <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>從前有個小村莊，村民們過著平靜而樸實的生活。然而，他們面臨一個困境：村莊周圍的土地資源有限，每位村民都想要在這些土地上種植作物和建造房屋。因此，土地的分配成了一個問題。</p><p>村莊的首領考慮到了這個問題，他決定請來了一位聰明的專家幫助他們找到一個公平的土地分配方案。這位專家告訴首領，他可以使用一種叫做「貪婪演算法」的方法來解決這個問題。</p><img src="/posts/Algorithm-greedy/img1.avif" class=""><span id="more"></span><h2 id="貪婪演算法"><a href="#貪婪演算法" class="headerlink" title="貪婪演算法"></a>貪婪演算法</h2><p>貪婪演算法（Greedy Algorithm）是一種求解最優化問題的方法，該方法在每一個步驟都選擇當前狀態下的最佳解，並希望通過這種方式最終能夠獲得全局最優解。</p><p>貪婪演算法通常用於求解最優化問題，例如最小生成樹、最短路徑、背包問題等。這些問題可以被描述為一個圖，其中節點代表問題中的元素，邊代表元素之間的關係，權重代表成本或價值。</p><p>貪婪演算法的核心思想是在每個步驟中選擇當前狀態下最佳的解決方案。貪婪演算法不考慮整體最優解，而是通過局部最優解的選擇，希望最終能夠獲得全局最優解。貪婪演算法通常比較簡單且高效，但不能保證一定能獲得最優解。</p><p>那麼回到前言所提的例子，專家建議首領這樣做：首先，從村莊周圍的土地中選擇一塊最大的空地，讓第一位村民在那裡種植作物。然後，在剩餘的土地中，再選擇下一塊最大的空地，讓第二位村民使用，以此類推，直到所有的村民都分到土地為止。</p><h2 id="可能引發的問題"><a href="#可能引發的問題" class="headerlink" title="可能引發的問題"></a>可能引發的問題</h2><p>聽取了專家的建議，開始實施這個方案。一開始，村民們對這種分配方法感到滿意，因為每個人都能獲得相對寬敞的土地。然而，隨著時間的推移，一些村民開始注意到一個問題：雖然他們每個人都有了自己的土地，但其中一些土地可能位於較遠的地點，不太適合種植作物，或者地勢較差。於是，他們開始嘗試交換土地，希望找到更好的選擇。</p><h2 id="零錢問題"><a href="#零錢問題" class="headerlink" title="零錢問題"></a>零錢問題</h2><img src="/posts/Algorithm-greedy/img3.png" class=""><p>像是這類可以利益最大化或是最佳解的的問題很常出現在日常生活中，畢竟大多時候人都是以利益最大化為出發點，思考著該怎麼做才會是最有利的，仔細想想，其實以人類的本性來說，無形之中我們應該用過不少次貪婪演算法了吧！</p><h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>雖然貪婪演算法可以在短期內找到看似最佳的選擇，但它有時會忽略全局的信息，導致最終結果可能不盡如人意。<br>這個故事告訴我們，在解決問題時，我們需要考慮長遠的影響和全局的因素，而不僅僅是眼前的表面利益。</p><img src="/posts/Algorithm-greedy/img2.jfif" class="">]]></content>
     
@@ -51,9 +97,9 @@
     
     
     
-    <category term="Algorithm" scheme="https://colinchiu87.github.io/tags/Algorithm/"/>
-    
     <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
+    
+    <category term="Algorithm" scheme="https://colinchiu87.github.io/tags/Algorithm/"/>
     
   </entry>
   
@@ -79,9 +125,9 @@
     
     
     
-    <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
-    
     <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
+    
+    <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
     
   </entry>
   
@@ -102,9 +148,9 @@
     
     
     
-    <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
-    
     <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
+    
+    <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
     
   </entry>
   
@@ -163,9 +209,9 @@
     
     
     
-    <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
-    
     <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
+    
+    <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
     
   </entry>
   
@@ -184,9 +230,9 @@
     
     
     
-    <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
-    
     <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
+    
+    <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
     
   </entry>
   
@@ -206,9 +252,9 @@
     
     
     
-    <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
-    
     <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
+    
+    <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
     
   </entry>
   
@@ -232,9 +278,9 @@
     
     
     
-    <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
-    
     <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
+    
+    <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
     
   </entry>
   
@@ -272,9 +318,9 @@
     
     
     
-    <category term="Algorithm" scheme="https://colinchiu87.github.io/tags/Algorithm/"/>
-    
     <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
+    
+    <category term="Algorithm" scheme="https://colinchiu87.github.io/tags/Algorithm/"/>
     
   </entry>
   
@@ -293,11 +339,11 @@
     
     
     
-    <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
+    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
     
     <category term="Algorithm" scheme="https://colinchiu87.github.io/tags/Algorithm/"/>
     
-    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
+    <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
     
     <category term="Frontend" scheme="https://colinchiu87.github.io/tags/Frontend/"/>
     
@@ -413,53 +459,6 @@
     <category term="ES6" scheme="https://colinchiu87.github.io/tags/ES6/"/>
     
     <category term="Frontend" scheme="https://colinchiu87.github.io/tags/Frontend/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何利用HTML直接下載pdf</title>
-    <link href="https://colinchiu87.github.io/posts/Html-downloadPdf/"/>
-    <id>https://colinchiu87.github.io/posts/Html-downloadPdf/</id>
-    <published>2021-07-28T09:57:28.000Z</published>
-    <updated>2022-11-17T13:07:07.569Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天在嘗試利用 html的<code>&lt;a&gt;</code>標籤做下載檔案的功能，發現了一件事情，其他檔案能正常下載<br><del>除了pdf</del></p><p>當你的程式是寫<code>&lt;a href=&quot;test.pdf&quot; /&gt;</code>，當點擊連結時，會使用在當前瀏覽器中打開該文件給予預覽。<br>這就會不符合我的需求，我希望的是直接給使用者下載，不需要再打開預覽文件。</p><span id="more"></span><h2 id="HTML-lt-a-gt-download屬性"><a href="#HTML-lt-a-gt-download屬性" class="headerlink" title="HTML &lt;a&gt; download屬性"></a>HTML <code>&lt;a&gt;</code> download屬性</h2><p>爬了一下文發現很簡單！只要在a標籤裡再加上一個download就好～<br><code>&lt;a href=&quot;yourfile.pdf&quot; download=&quot;newFileName&quot;&gt;下載檔案&lt;/a&gt;</code><br>這邊的newFileName是讓你可以指定使用者下載下來時的檔名，<br>如果留空，就會默認為伺服器端的名稱，<br>如下：<br><code>&lt;a href=&quot;test.pdf&quot; download&gt;click&lt;/a&gt;</code></p><h2 id="HTML-lt-a-gt-target屬性"><a href="#HTML-lt-a-gt-target屬性" class="headerlink" title="HTML &lt;a&gt; target屬性"></a>HTML <code>&lt;a&gt;</code> target屬性</h2><p>既然都說到<code>&lt;a&gt;</code>標籤了，那就再加上一點補充～<br>利用a標籤的時候不外乎就是要開啟一個連結或是下載檔案，那我們在打開連接的方式就有分成幾種：</p><ul><li>直接於所在的視窗中打開（_self）</li><li>另開一個視窗（_blank）</li><li>開啟於父層框架（_parent）</li></ul>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;今天在嘗試利用 html的&lt;code&gt;&amp;lt;a&amp;gt;&lt;/code&gt;標籤做下載檔案的功能，發現了一件事情，其他檔案能正常下載&lt;br&gt;&lt;del&gt;除了pdf&lt;/del&gt;&lt;/p&gt;
-&lt;p&gt;當你的程式是寫&lt;code&gt;&amp;lt;a href=&amp;quot;test.pdf&amp;quot; /&amp;gt;&lt;/code&gt;，當點擊連結時，會使用在當前瀏覽器中打開該文件給予預覽。&lt;br&gt;這就會不符合我的需求，我希望的是直接給使用者下載，不需要再打開預覽文件。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Frontend" scheme="https://colinchiu87.github.io/tags/Frontend/"/>
-    
-    <category term="html" scheme="https://colinchiu87.github.io/tags/html/"/>
-    
-    <category term="download" scheme="https://colinchiu87.github.io/tags/download/"/>
-    
-    <category term="pdf" scheme="https://colinchiu87.github.io/tags/pdf/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>來聊聊 Type Script</title>
-    <link href="https://colinchiu87.github.io/posts/Ts-know/"/>
-    <id>https://colinchiu87.github.io/posts/Ts-know/</id>
-    <published>2021-07-22T09:43:01.000Z</published>
-    <updated>2022-10-17T09:25:40.884Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>第一次在專案裡與 TS 相遇，那就不免俗的了解囉！<br>稍微簡介一下～<br>TypeScript是由微軟開發的一種能用來編譯出JavaScript程式碼的程式語言，因其比JS還多了一道編譯手續，能夠在編譯階段找出語法上的問題，而且也添加了型別檢查的機制，讓程式更容易閱讀與偵錯，也更適合開發大型的專案。<br>白話一點來說，JS可以通過TS編譯器來編譯，而且還能夠實現JavaScript的版本轉換(例如ES6轉ES5)</p><span id="more"></span><img src="/posts/Ts-know/js-ts.jpg" class=""><h2 id="安裝與設定"><a href="#安裝與設定" class="headerlink" title="安裝與設定"></a>安裝與設定</h2><h3 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h3><p>我們要先設定好Node.js和npm環境，建議使用Node.js最新的LTS版本。<br>Node.js是JavaScript程式的執行環境，讓我們不需要開啟瀏覽器也可以執行JS。而npm則是JS的套件管理器，常與Node.js一同被安裝。</p><p>Windows的使用者可以直接到<span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL2VuLw==">Node.js官方網站<i class="fa fa-external-link-alt"></i></span>下載，而Linux或MacOS的使用者可以參考<span class="exturl" data-url="aHR0cHM6Ly9tYWdpY2xlbi5vcmcvbGludXgtaW5zdGFsbC1ub2RlanMv">這篇文章<i class="fa fa-external-link-alt"></i></span>安裝指定版本。</p><h3 id="tsc"><a href="#tsc" class="headerlink" title="tsc"></a>tsc</h3><p>tsc是TypeScript程式的編譯器，能夠將TS編譯成JS。<br>執行以下npm指令:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g typescript</span><br></pre></td></tr></table></figure><p>關於編譯器的設定，我就先不說明，一開始花太多時間在這會顯得有點浪費且沒意思，畢竟內容很龐大也很複雜。</p><hr><h2 id="簡單的範例"><a href="#簡單的範例" class="headerlink" title="簡單的範例"></a>簡單的範例</h2><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">name: <span class="built_in">string</span></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello &quot;</span> + name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(colin)</span><br></pre></td></tr></table></figure><p>這邊唯一和我們學過的JavaScript不同，就是func這個函式的傳入參數多一個 :string 的指示詞，這東西在ＴＳ裡稱做類型註解。這邊就是說傳入的參數只接受字串(string)的型態，只要是其他型別在呼叫或是執行時就會報錯。</p><p>對於函式而言，會有傳入參數和回傳值兩種情況，那麼我們就要養成習慣。</p><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">name: <span class="built_in">string</span></span>): <span class="title">string</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello &quot;</span> + name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(colin)</span><br></pre></td></tr></table></figure><p>上面這表示回傳值的型態也是string類型，順帶一提，如果函式沒有回傳值時可以使用 void，相信很多人都有看過吧，這就是專門為沒有回傳值的函式所準備的類型。</p><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name: <span class="built_in">string</span> | <span class="built_in">number</span> = <span class="string">&quot;Colin&quot;</span>;</span><br></pre></td></tr></table></figure><p>這裡的意思是 name這個變數能接受的型態為字串(string)與數字(number)，而且預設值為 Colin字串。</p><hr>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;第一次在專案裡與 TS 相遇，那就不免俗的了解囉！&lt;br&gt;稍微簡介一下～&lt;br&gt;TypeScript是由微軟開發的一種能用來編譯出JavaScript程式碼的程式語言，因其比JS還多了一道編譯手續，能夠在編譯階段找出語法上的問題，而且也添加了型別檢查的機制，讓程式更容易閱讀與偵錯，也更適合開發大型的專案。&lt;br&gt;白話一點來說，JS可以通過TS編譯器來編譯，而且還能夠實現JavaScript的版本轉換(例如ES6轉ES5)&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Frontend" scheme="https://colinchiu87.github.io/tags/Frontend/"/>
-    
-    <category term="TypeScript" scheme="https://colinchiu87.github.io/tags/TypeScript/"/>
     
   </entry>
   
