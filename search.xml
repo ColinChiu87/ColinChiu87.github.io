@@ -53,8 +53,8 @@
 </blockquote>
 ]]></content>
       <tags>
-        <tag>data structure</tag>
         <tag>Algorithm</tag>
+        <tag>data structure</tag>
       </tags>
   </entry>
   <entry>
@@ -95,8 +95,33 @@
 </blockquote>
 ]]></content>
       <tags>
-        <tag>data structure</tag>
         <tag>Algorithm</tag>
+        <tag>data structure</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>貪婪演算法 Greedy Algorithm</title>
+    <url>/posts/Algorithm-greedy/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>從前有個小村莊，村民們過著平靜而樸實的生活。然而，他們面臨一個困境：村莊周圍的土地資源有限，每位村民都想要在這些土地上種植作物和建造房屋。因此，土地的分配成了一個問題。</p>
+<p>村莊的首領考慮到了這個問題，他決定請來了一位聰明的專家幫助他們找到一個公平的土地分配方案。這位專家告訴首領，他可以使用一種叫做「貪婪演算法」的方法來解決這個問題。</p>
+<img src="/posts/Algorithm-greedy/img1.avif" class="">
+
+<span id="more"></span>
+
+<h2 id="貪婪演算法"><a href="#貪婪演算法" class="headerlink" title="貪婪演算法"></a>貪婪演算法</h2><p>貪婪演算法（Greedy Algorithm）是一種求解最優化問題的方法，該方法在每一個步驟都選擇當前狀態下的最佳解，並希望通過這種方式最終能夠獲得全局最優解。</p>
+<p>貪婪演算法通常用於求解最優化問題，例如最小生成樹、最短路徑、背包問題等。這些問題可以被描述為一個圖，其中節點代表問題中的元素，邊代表元素之間的關係，權重代表成本或價值。</p>
+<p>貪婪演算法的核心思想是在每個步驟中選擇當前狀態下最佳的解決方案。貪婪演算法不考慮整體最優解，而是通過局部最優解的選擇，希望最終能夠獲得全局最優解。貪婪演算法通常比較簡單且高效，但不能保證一定能獲得最優解。</p>
+<p>那麼回到前言所提的例子，專家建議首領這樣做：首先，從村莊周圍的土地中選擇一塊最大的空地，讓第一位村民在那裡種植作物。然後，在剩餘的土地中，再選擇下一塊最大的空地，讓第二位村民使用，以此類推，直到所有的村民都分到土地為止。</p>
+<h2 id="可能引發的問題"><a href="#可能引發的問題" class="headerlink" title="可能引發的問題"></a>可能引發的問題</h2><p>聽取了專家的建議，開始實施這個方案。一開始，村民們對這種分配方法感到滿意，因為每個人都能獲得相對寬敞的土地。然而，隨著時間的推移，一些村民開始注意到一個問題：雖然他們每個人都有了自己的土地，但其中一些土地可能位於較遠的地點，不太適合種植作物，或者地勢較差。於是，他們開始嘗試交換土地，希望找到更好的選擇。</p>
+<h2 id="零錢問題"><a href="#零錢問題" class="headerlink" title="零錢問題"></a>零錢問題</h2><img src="/posts/Algorithm-greedy/img3.png" class="">
+
+<p>像是這類可以利益最大化或是最佳解的的問題很常出現在日常生活中，畢竟大多時候人都是以利益最大化為出發點，思考著該怎麼做才會是最有利的，仔細想想，其實以人類的本性來說，無形之中我們應該用過不少次貪婪演算法了吧！</p>
+<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>雖然貪婪演算法可以在短期內找到看似最佳的選擇，但它有時會忽略全局的信息，導致最終結果可能不盡如人意。<br>這個故事告訴我們，在解決問題時，我們需要考慮長遠的影響和全局的因素，而不僅僅是眼前的表面利益。</p>
+<img src="/posts/Algorithm-greedy/img2.jfif" class="">
+]]></content>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>data structure</tag>
       </tags>
   </entry>
   <entry>
@@ -180,8 +205,8 @@
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/HASHTB12.svg/2560px-HASHTB12.svg.png" alt="來自wiki"></p>
 ]]></content>
       <tags>
-        <tag>data structure</tag>
         <tag>javascript</tag>
+        <tag>data structure</tag>
       </tags>
   </entry>
   <entry>
@@ -223,33 +248,8 @@
 <p><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2Vla3Nmb3JnZWVrcy5vcmcvYmVsbG1hbi1mb3JkLWFsZ29yaXRobS1kcC0yMy8=">延伸三<i class="fa fa-external-link-alt"></i></span></p>
 ]]></content>
       <tags>
-        <tag>data structure</tag>
         <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>貪婪演算法 Greedy Algorithm</title>
-    <url>/posts/Algorithm-greedy/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>從前有個小村莊，村民們過著平靜而樸實的生活。然而，他們面臨一個困境：村莊周圍的土地資源有限，每位村民都想要在這些土地上種植作物和建造房屋。因此，土地的分配成了一個問題。</p>
-<p>村莊的首領考慮到了這個問題，他決定請來了一位聰明的專家幫助他們找到一個公平的土地分配方案。這位專家告訴首領，他可以使用一種叫做「貪婪演算法」的方法來解決這個問題。</p>
-<img src="/posts/Algorithm-greedy/img1.avif" class="">
-
-<span id="more"></span>
-
-<h2 id="貪婪演算法"><a href="#貪婪演算法" class="headerlink" title="貪婪演算法"></a>貪婪演算法</h2><p>貪婪演算法（Greedy Algorithm）是一種求解最優化問題的方法，該方法在每一個步驟都選擇當前狀態下的最佳解，並希望通過這種方式最終能夠獲得全局最優解。</p>
-<p>貪婪演算法通常用於求解最優化問題，例如最小生成樹、最短路徑、背包問題等。這些問題可以被描述為一個圖，其中節點代表問題中的元素，邊代表元素之間的關係，權重代表成本或價值。</p>
-<p>貪婪演算法的核心思想是在每個步驟中選擇當前狀態下最佳的解決方案。貪婪演算法不考慮整體最優解，而是通過局部最優解的選擇，希望最終能夠獲得全局最優解。貪婪演算法通常比較簡單且高效，但不能保證一定能獲得最優解。</p>
-<p>那麼回到前言所提的例子，專家建議首領這樣做：首先，從村莊周圍的土地中選擇一塊最大的空地，讓第一位村民在那裡種植作物。然後，在剩餘的土地中，再選擇下一塊最大的空地，讓第二位村民使用，以此類推，直到所有的村民都分到土地為止。</p>
-<h2 id="可能引發的問題"><a href="#可能引發的問題" class="headerlink" title="可能引發的問題"></a>可能引發的問題</h2><p>聽取了專家的建議，開始實施這個方案。一開始，村民們對這種分配方法感到滿意，因為每個人都能獲得相對寬敞的土地。然而，隨著時間的推移，一些村民開始注意到一個問題：雖然他們每個人都有了自己的土地，但其中一些土地可能位於較遠的地點，不太適合種植作物，或者地勢較差。於是，他們開始嘗試交換土地，希望找到更好的選擇。</p>
-<h2 id="零錢問題"><a href="#零錢問題" class="headerlink" title="零錢問題"></a>零錢問題</h2><img src="/posts/Algorithm-greedy/img3.png" class="">
-
-<p>像是這類可以利益最大化或是最佳解的的問題很常出現在日常生活中，畢竟大多時候人都是以利益最大化為出發點，思考著該怎麼做才會是最有利的，仔細想想，其實以人類的本性來說，無形之中我們應該用過不少次貪婪演算法了吧！</p>
-<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>雖然貪婪演算法可以在短期內找到看似最佳的選擇，但它有時會忽略全局的信息，導致最終結果可能不盡如人意。<br>這個故事告訴我們，在解決問題時，我們需要考慮長遠的影響和全局的因素，而不僅僅是眼前的表面利益。</p>
-<img src="/posts/Algorithm-greedy/img2.jfif" class="">
-]]></content>
-      <tags>
         <tag>data structure</tag>
-        <tag>Algorithm</tag>
       </tags>
   </entry>
   <entry>
@@ -336,8 +336,8 @@
 <h2 id="結"><a href="#結" class="headerlink" title="結"></a>結</h2><p>我們今天學到了鏈結串列這個結構，和陣列相比最重要的優點就是無需移動鏈結串列中的元素，就能輕輕鬆鬆添加或移除元素。<br>當你需要添加和移除很多元素時，最好的選擇非鏈結串列(Linked-List)莫屬！</p>
 ]]></content>
       <tags>
-        <tag>data structure</tag>
         <tag>javascript</tag>
+        <tag>data structure</tag>
       </tags>
   </entry>
   <entry>
@@ -423,8 +423,8 @@
 <p>接下來我們將學習鏈結串列，比陣列更加複雜的資料結構呦！</p>
 ]]></content>
       <tags>
-        <tag>data structure</tag>
         <tag>javascript</tag>
+        <tag>data structure</tag>
       </tags>
   </entry>
   <entry>
@@ -521,8 +521,8 @@
 <h2 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h2><p>這章學習了如何從頭實作與 ES6 中定義的類似的 Set 類別。我們還介紹了在其他程式語言的集合結構的實作中不常見的一些方法，例如：連擊、交集、差集..等。相較於前幾個主題，我們完成了較完善的實例！給自己一個掌聲 👏🏻</p>
 ]]></content>
       <tags>
-        <tag>data structure</tag>
         <tag>javascript</tag>
+        <tag>data structure</tag>
       </tags>
   </entry>
   <entry>
@@ -579,8 +579,32 @@
 <h2 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h2><p><span class="exturl" data-url="aHR0cHM6Ly9zdHVkeWFsZ29yaXRobXMuY29tL3RoZW9yeS9zdGFjay1kYXRhLXN0cnVjdHVyZS8=">What is a Stack?<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDIxNTExOA==">前端工程師用 javaScript 學演算法<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3poLXR3LyVFNSVBMCU4NiVFNiVBMCU4OA==">堆疊- 維基百科，自由的百科全書 - Wikipedia<i class="fa fa-external-link-alt"></i></span></p>
 ]]></content>
       <tags>
-        <tag>data structure</tag>
         <tag>javascript</tag>
+        <tag>data structure</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一失足掉進的坑 Hexo Config</title>
+    <url>/posts/Hexo-config-permalink/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有在使用 Hexo Blog 的朋友一定知道他有很多設定可以玩！除了一般的標題、簡介、相關連結外，還有分頁、閱讀進度、總閱覽人數…等等一大堆。<br>今日心血來潮想要把部落格的 config 設定弄的更完整一些，沒有想到居然在之中受困數個小時…，真的覺得自己好笑又好氣😓</p>
+<span id="more"></span>
+
+<h2 id="permalink-永久連結"><a href="#permalink-永久連結" class="headerlink" title="permalink 永久連結"></a>permalink 永久連結</h2><p>這是設定關於網站文章的連結（ URL ），就是點進你的文章後上面所顯使的連結樣式</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span>       <span class="comment"># 預設 Ex: 2013/07/14/hello-world/</span></span><br></pre></td></tr></table></figure>
+
+<p>Hexo 文件有告訴大家說可以使用變數(文章尾端附圖)以及 Front-matter 做變化。看到這裡根本不知道不行自訂對吧！對吧！對吧…?<br>所以我就自作主張改成了以下這樣：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:title/</span>       <span class="comment"># Ex: posts/hello-world/</span></span><br></pre></td></tr></table></figure>
+
+<p>原本想說網址太長多少會影響 SEO 的表現，所以我不想要時間在前面佔空間，還有這樣 public 資料夾的文章會被收在 posts 的資料夾裡不會散落一地，看起來才會讓我蘇湖🤤。<br>接下來 Deploy 出去就發現文章都連不進去啦啦啦😱，在改這個設定的時候，我已經有幾篇文章了，以為是動到了已發布文章的路徑才造成如此，便開始我的 Debug 之路，翻啊找啊爬啊根本沒有搜尋到什麼相關的東西，回頭重新讀了一下文件，才領悟到無法自訂呀～只能透過 permalink_defaults 改寫你想要的東西。於是我就將我的 category 預設為 posts 然後改寫。</p>
+<img src="/posts/Hexo-config-permalink/permalinks1.png" class="">
+
+<img src="/posts/Hexo-config-permalink/permalinks2.png" class="">
+
+<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>不要自作聰明… 😂</p>
+<img src="/posts/Hexo-config-permalink/Permalinks.png" class="" title="[Permalink可用變數]">
+]]></content>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -633,27 +657,25 @@
       </tags>
   </entry>
   <entry>
-    <title>一失足掉進的坑 Hexo Config</title>
-    <url>/posts/Hexo-config-permalink/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有在使用 Hexo Blog 的朋友一定知道他有很多設定可以玩！除了一般的標題、簡介、相關連結外，還有分頁、閱讀進度、總閱覽人數…等等一大堆。<br>今日心血來潮想要把部落格的 config 設定弄的更完整一些，沒有想到居然在之中受困數個小時…，真的覺得自己好笑又好氣😓</p>
+    <title>如何利用HTML直接下載pdf</title>
+    <url>/posts/Html-downloadPdf/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天在嘗試利用 html的<code>&lt;a&gt;</code>標籤做下載檔案的功能，發現了一件事情，其他檔案能正常下載<br><del>除了pdf</del></p>
+<p>當你的程式是寫<code>&lt;a href=&quot;test.pdf&quot; /&gt;</code>，當點擊連結時，會使用在當前瀏覽器中打開該文件給予預覽。<br>這就會不符合我的需求，我希望的是直接給使用者下載，不需要再打開預覽文件。</p>
 <span id="more"></span>
 
-<h2 id="permalink-永久連結"><a href="#permalink-永久連結" class="headerlink" title="permalink 永久連結"></a>permalink 永久連結</h2><p>這是設定關於網站文章的連結（ URL ），就是點進你的文章後上面所顯使的連結樣式</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span>       <span class="comment"># 預設 Ex: 2013/07/14/hello-world/</span></span><br></pre></td></tr></table></figure>
-
-<p>Hexo 文件有告訴大家說可以使用變數(文章尾端附圖)以及 Front-matter 做變化。看到這裡根本不知道不行自訂對吧！對吧！對吧…?<br>所以我就自作主張改成了以下這樣：</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:title/</span>       <span class="comment"># Ex: posts/hello-world/</span></span><br></pre></td></tr></table></figure>
-
-<p>原本想說網址太長多少會影響 SEO 的表現，所以我不想要時間在前面佔空間，還有這樣 public 資料夾的文章會被收在 posts 的資料夾裡不會散落一地，看起來才會讓我蘇湖🤤。<br>接下來 Deploy 出去就發現文章都連不進去啦啦啦😱，在改這個設定的時候，我已經有幾篇文章了，以為是動到了已發布文章的路徑才造成如此，便開始我的 Debug 之路，翻啊找啊爬啊根本沒有搜尋到什麼相關的東西，回頭重新讀了一下文件，才領悟到無法自訂呀～只能透過 permalink_defaults 改寫你想要的東西。於是我就將我的 category 預設為 posts 然後改寫。</p>
-<img src="/posts/Hexo-config-permalink/permalinks1.png" class="">
-
-<img src="/posts/Hexo-config-permalink/permalinks2.png" class="">
-
-<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>不要自作聰明… 😂</p>
-<img src="/posts/Hexo-config-permalink/Permalinks.png" class="" title="[Permalink可用變數]">
+<h2 id="HTML-lt-a-gt-download屬性"><a href="#HTML-lt-a-gt-download屬性" class="headerlink" title="HTML &lt;a&gt; download屬性"></a>HTML <code>&lt;a&gt;</code> download屬性</h2><p>爬了一下文發現很簡單！只要在a標籤裡再加上一個download就好～<br><code>&lt;a href=&quot;yourfile.pdf&quot; download=&quot;newFileName&quot;&gt;下載檔案&lt;/a&gt;</code><br>這邊的newFileName是讓你可以指定使用者下載下來時的檔名，<br>如果留空，就會默認為伺服器端的名稱，<br>如下：<br><code>&lt;a href=&quot;test.pdf&quot; download&gt;click&lt;/a&gt;</code></p>
+<h2 id="HTML-lt-a-gt-target屬性"><a href="#HTML-lt-a-gt-target屬性" class="headerlink" title="HTML &lt;a&gt; target屬性"></a>HTML <code>&lt;a&gt;</code> target屬性</h2><p>既然都說到<code>&lt;a&gt;</code>標籤了，那就再加上一點補充～<br>利用a標籤的時候不外乎就是要開啟一個連結或是下載檔案，那我們在打開連接的方式就有分成幾種：</p>
+<ul>
+<li>直接於所在的視窗中打開（_self）</li>
+<li>另開一個視窗（_blank）</li>
+<li>開啟於父層框架（_parent）</li>
+</ul>
 ]]></content>
       <tags>
-        <tag>Hexo</tag>
+        <tag>Frontend</tag>
+        <tag>html</tag>
+        <tag>download</tag>
+        <tag>pdf</tag>
       </tags>
   </entry>
   <entry>
@@ -779,33 +801,11 @@
 </ul>
 ]]></content>
       <tags>
-        <tag>data structure</tag>
-        <tag>Algorithm</tag>
         <tag>javascript</tag>
+        <tag>Algorithm</tag>
+        <tag>data structure</tag>
         <tag>Frontend</tag>
         <tag>array</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何利用HTML直接下載pdf</title>
-    <url>/posts/Html-downloadPdf/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天在嘗試利用 html的<code>&lt;a&gt;</code>標籤做下載檔案的功能，發現了一件事情，其他檔案能正常下載<br><del>除了pdf</del></p>
-<p>當你的程式是寫<code>&lt;a href=&quot;test.pdf&quot; /&gt;</code>，當點擊連結時，會使用在當前瀏覽器中打開該文件給予預覽。<br>這就會不符合我的需求，我希望的是直接給使用者下載，不需要再打開預覽文件。</p>
-<span id="more"></span>
-
-<h2 id="HTML-lt-a-gt-download屬性"><a href="#HTML-lt-a-gt-download屬性" class="headerlink" title="HTML &lt;a&gt; download屬性"></a>HTML <code>&lt;a&gt;</code> download屬性</h2><p>爬了一下文發現很簡單！只要在a標籤裡再加上一個download就好～<br><code>&lt;a href=&quot;yourfile.pdf&quot; download=&quot;newFileName&quot;&gt;下載檔案&lt;/a&gt;</code><br>這邊的newFileName是讓你可以指定使用者下載下來時的檔名，<br>如果留空，就會默認為伺服器端的名稱，<br>如下：<br><code>&lt;a href=&quot;test.pdf&quot; download&gt;click&lt;/a&gt;</code></p>
-<h2 id="HTML-lt-a-gt-target屬性"><a href="#HTML-lt-a-gt-target屬性" class="headerlink" title="HTML &lt;a&gt; target屬性"></a>HTML <code>&lt;a&gt;</code> target屬性</h2><p>既然都說到<code>&lt;a&gt;</code>標籤了，那就再加上一點補充～<br>利用a標籤的時候不外乎就是要開啟一個連結或是下載檔案，那我們在打開連接的方式就有分成幾種：</p>
-<ul>
-<li>直接於所在的視窗中打開（_self）</li>
-<li>另開一個視窗（_blank）</li>
-<li>開啟於父層框架（_parent）</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Frontend</tag>
-        <tag>html</tag>
-        <tag>download</tag>
-        <tag>pdf</tag>
       </tags>
   </entry>
   <entry>
@@ -833,6 +833,22 @@
       <tags>
         <tag>javascript</tag>
         <tag>Library</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mac 中文輸入法無法顯示選字框？</title>
+    <url>/posts/Mac-bug-inputMethod/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有一天在輸入文字的時候，感覺上好像有點怪怪的…，但是又說不出是什麼，打著打著要選字就發現怎麼只能用鍵盤的上下左右盲選字！<br>不知道是不是我自己很少重新開機。<br>趕忙爬文，還以為電腦要壽終正寢了(才用一年多…QAQ</p>
+<span id="more"></span>
+
+<h2 id="解決辦法"><a href="#解決辦法" class="headerlink" title="解決辦法"></a>解決辦法</h2><p>本人的電腦是 2021 M1 Mac Pro<br>在網路上查到解決的辦法是在終端機上輸入：</p>
+<blockquote>
+<p>killall TCIM_Extension</p>
+</blockquote>
+<p>這個指令是將注音這隻殺掉，然後系統會將殺掉的程式重新開啟，之後就不需要針對單一問題重新開機了。</p>
+]]></content>
+      <tags>
+        <tag>Mac</tag>
       </tags>
   </entry>
   <entry>
@@ -865,19 +881,57 @@
       </tags>
   </entry>
   <entry>
-    <title>Mac 中文輸入法無法顯示選字框？</title>
-    <url>/posts/Mac-bug-inputMethod/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有一天在輸入文字的時候，感覺上好像有點怪怪的…，但是又說不出是什麼，打著打著要選字就發現怎麼只能用鍵盤的上下左右盲選字！<br>不知道是不是我自己很少重新開機。<br>趕忙爬文，還以為電腦要壽終正寢了(才用一年多…QAQ</p>
+    <title>敏捷式開發真的這麼棒？</title>
+    <url>/posts/Other-agile/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在正式開始之前，我們先知道什麼是【瀑布式開發】，這也是一般專案團隊最常用的開發方式。</p>
+<img src="/posts/Other-agile/agile1.png" class="">
+
+<p>如圖所示，每隔階段定義的十分清楚，要執行的項目明確。就像瀑布一樣，一路向下前行。實際在開發的時候，成員也都樂於這樣的模式，因為不會遇到模糊不清的時候(Ex 需求不知道是什麼就要進行開發… = =)。這在專案管理上是相對容易的，過程不會遲疑，檢視最後的成果是不是有達成目標就行。</p>
 <span id="more"></span>
 
-<h2 id="解決辦法"><a href="#解決辦法" class="headerlink" title="解決辦法"></a>解決辦法</h2><p>本人的電腦是 2021 M1 Mac Pro<br>在網路上查到解決的辦法是在終端機上輸入：</p>
+<p>但是，弊端也顯而易見。執行專案時，總是會有意外、風險、市場變化…，這些都是不可被預測的，而當專案是瀑布式開發，對於以上的變因，應對過慢，就很容易導致專案失敗！</p>
 <blockquote>
-<p>killall TCIM_Extension</p>
+<p>瀑布式開發，強調的是「工具」、「流程」。<br>敏捷式開發，強調的是「個人」、「互動」、「變化」。</p>
 </blockquote>
-<p>這個指令是將注音這隻殺掉，然後系統會將殺掉的程式重新開啟，之後就不需要針對單一問題重新開機了。</p>
+<h2 id="敏捷式開發"><a href="#敏捷式開發" class="headerlink" title="敏捷式開發"></a>敏捷式開發</h2><h3 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h3><p><span class="exturl" data-url="aHR0cHM6Ly9hZ2lsZW1hbmlmZXN0by5vcmcvaXNvL3poY2h0L21hbmlmZXN0by5odG1s">《敏捷軟體開發宣言》<i class="fa fa-external-link-alt"></i></span> 裡頭說：</p>
+<ul>
+<li><strong>個人與互動</strong> 重於 流程與工具</li>
+<li><strong>可用的軟體</strong> 重於 詳盡的文件</li>
+<li><strong>與客戶合作</strong> 重於 合約協商</li>
+<li><strong>回應變化</strong> 重於 遵循計畫</li>
+</ul>
+<p>從中知道，敏捷式開發注重的是溝通、成果、合作與變化。</p>
+<blockquote>
+<p>「變」是唯一不變的事情</p>
+</blockquote>
+<h3 id="Scrum框架"><a href="#Scrum框架" class="headerlink" title="Scrum框架"></a>Scrum框架</h3><p>我們耳熟能詳的 Scrum 就是實現敏捷開發的其中一種方式，也是最被廣泛運用的框架。</p>
+<p>為達到相對短的開發週期，可能會抓大概 2 - 4 周，依據產品和團隊的不同，週期也會不同。而這個週期稱之為「Sprint」。</p>
+<p>每一個 Sprint 中，會有四個會議：</p>
+<ol>
+<li>規劃：決定要完成哪些項目</li>
+<li>每日站立：每日花費10-15mins 同步資訊 (昨日完成、今日預計完成、是否遇到阻礙)</li>
+<li>審查：展示成果，取得回饋、新需求</li>
+<li>回顧：回顧衝刺的過程，是否有地方要改進</li>
+</ol>
+<h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3> <img src="/posts/Other-agile/agile2.png" class="">
+
+<ul>
+<li>產品負責人 (Product Owner)<br>代表客戶的意願，並確保團隊在做從業務角度來說正確的事情。編寫 User story，排出優先級，並放入 代辦清單(backlog)。他決定每一次 sprint 要完成哪些任務，讓整個團隊價值最大化。監督開發的節奏，從而保障產品的品質。</li>
+</ul>
+ <img src="/posts/Other-agile/agile3.png" class="">
+
+<ul>
+<li>Scrum主管 (Scrum Master)<br>主要的工作是去除影響團隊達成 sprint 目標的障礙，是規則的執行者。</li>
+</ul>
+ <img src="/posts/Other-agile/agile4.png" class="">
+
+<ul>
+<li>開發團隊 (Dev Team)<br>負責交付產品的團隊。</li>
+</ul>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>沒有一定比較好的 development，還是要依照專案需求、公司文化…來做選擇。各有各的優勢在，不過在快速變化的商業環境和技術環境中，迎接變化能力強的敏捷式開發原則，的確是可以滿足現況。<br>祝福大家都不要碰到四不像的敏捷開發😆</p>
 ]]></content>
       <tags>
-        <tag>Mac</tag>
+        <tag>Agile Development</tag>
       </tags>
   </entry>
   <entry>
@@ -1068,26 +1122,6 @@
       </tags>
   </entry>
   <entry>
-    <title>什麼時候該使用『 const vm = this 』</title>
-    <url>/posts/Vue-this/</url>
-    <content><![CDATA[<p> <strong>影響this的是在於<em>函式的呼叫方式</em></strong></p>
-<p>以下為this的範例</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">reverseText: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.text.split(<span class="string">&#x27;&#x27;</span>).reverse().join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-
-<p>在第一個範例中，this運行後都是在這個元件底下<br>並沒有另外的函式在內（ex: forEach）<br>全部的this都是指向<strong>Vue的該元件</strong><br>因此不需要另外使用 vm = this</p>
-<p>至於使用 vm = this 可以避免內部有其他函式叫<br>導致 this 的運作不如預期。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//因為在&quot;&quot;內層函式&quot;&quot;filter的函式內使用到this，指向會跑掉，所以需要使用vm。</span></span><br><span class="line">filterArray: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> vm = <span class="built_in">this</span>;</span><br><span class="line">    <span class="keyword">return</span> vm.arrayData.filter(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> item.name.match(vm.filterText)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p> <strong>除了使用 filter/ forEach 會讓this指向window外，函式在直接呼叫的時候this也會指向window</strong></p>
-]]></content>
-      <tags>
-        <tag>Frontend</tag>
-        <tag>Vue.js</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Vue - 現今主流的 JS 框架之一</title>
     <url>/posts/Vue-know/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>第一次和Vue碰面是在我大四實習時，剛好遇到公司開始推行同仁使用框架開發，也讓我這個菜鳥搭上前端框架的順風車。<br>趁現在有空閒之餘來整理一下當初的筆記，也順帶複習一下 Vue.js！</p>
@@ -1105,6 +1139,26 @@
 <li>指示詞(Directive)：內建許多指示詞(v-開頭)，用來進行程式邏輯的判斷</li>
 <li>Vue路由器(Router)：利用它建構一個基本卻完整的路由庫，來操作瀏覽器上/下一頁的流程，建立 SPA 完整單頁式應用的能力。</li>
 </ul>
+]]></content>
+      <tags>
+        <tag>Frontend</tag>
+        <tag>Vue.js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>什麼時候該使用『 const vm = this 』</title>
+    <url>/posts/Vue-this/</url>
+    <content><![CDATA[<p> <strong>影響this的是在於<em>函式的呼叫方式</em></strong></p>
+<p>以下為this的範例</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">reverseText: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.text.split(<span class="string">&#x27;&#x27;</span>).reverse().join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p>在第一個範例中，this運行後都是在這個元件底下<br>並沒有另外的函式在內（ex: forEach）<br>全部的this都是指向<strong>Vue的該元件</strong><br>因此不需要另外使用 vm = this</p>
+<p>至於使用 vm = this 可以避免內部有其他函式叫<br>導致 this 的運作不如預期。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//因為在&quot;&quot;內層函式&quot;&quot;filter的函式內使用到this，指向會跑掉，所以需要使用vm。</span></span><br><span class="line">filterArray: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> vm = <span class="built_in">this</span>;</span><br><span class="line">    <span class="keyword">return</span> vm.arrayData.filter(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> item.name.match(vm.filterText)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> <strong>除了使用 filter/ forEach 會讓this指向window外，函式在直接呼叫的時候this也會指向window</strong></p>
 ]]></content>
       <tags>
         <tag>Frontend</tag>

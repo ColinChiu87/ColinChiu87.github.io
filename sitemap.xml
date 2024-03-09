@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://colinchiu87.github.io/posts/Other-agile/</loc>
+    
+    <lastmod>2024-03-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://colinchiu87.github.io/posts/Js-dayjs/</loc>
     
     <lastmod>2024-03-09</lastmod>
@@ -263,7 +272,7 @@
 
   
   <url>
-    <loc>https://colinchiu87.github.io/tags/data-structure/</loc>
+    <loc>https://colinchiu87.github.io/tags/javascript/</loc>
     <lastmod>2024-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -277,7 +286,14 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/tags/javascript/</loc>
+    <loc>https://colinchiu87.github.io/tags/data-structure/</loc>
+    <lastmod>2024-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://colinchiu87.github.io/tags/Hexo/</loc>
     <lastmod>2024-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -292,20 +308,6 @@
   
   <url>
     <loc>https://colinchiu87.github.io/tags/Frontend/</loc>
-    <lastmod>2024-03-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://colinchiu87.github.io/tags/Hexo/</loc>
-    <lastmod>2024-03-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://colinchiu87.github.io/tags/array/</loc>
     <lastmod>2024-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -333,7 +335,21 @@
   </url>
   
   <url>
+    <loc>https://colinchiu87.github.io/tags/array/</loc>
+    <lastmod>2024-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://colinchiu87.github.io/tags/Library/</loc>
+    <lastmod>2024-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://colinchiu87.github.io/tags/Mac/</loc>
     <lastmod>2024-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -347,7 +363,7 @@
   </url>
   
   <url>
-    <loc>https://colinchiu87.github.io/tags/Mac/</loc>
+    <loc>https://colinchiu87.github.io/tags/Agile-Development/</loc>
     <lastmod>2024-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

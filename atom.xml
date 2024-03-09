@@ -6,7 +6,7 @@
   <link href="https://colinchiu87.github.io/atom.xml" rel="self"/>
   
   <link href="https://colinchiu87.github.io/"/>
-  <updated>2024-03-09T06:05:43.673Z</updated>
+  <updated>2024-03-09T06:55:24.370Z</updated>
   <id>https://colinchiu87.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>敏捷式開發真的這麼棒？</title>
+    <link href="https://colinchiu87.github.io/posts/Other-agile/"/>
+    <id>https://colinchiu87.github.io/posts/Other-agile/</id>
+    <published>2024-03-09T06:23:02.000Z</published>
+    <updated>2024-03-09T06:55:24.370Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在正式開始之前，我們先知道什麼是【瀑布式開發】，這也是一般專案團隊最常用的開發方式。</p><img src="/posts/Other-agile/agile1.png" class=""><p>如圖所示，每隔階段定義的十分清楚，要執行的項目明確。就像瀑布一樣，一路向下前行。實際在開發的時候，成員也都樂於這樣的模式，因為不會遇到模糊不清的時候(Ex 需求不知道是什麼就要進行開發… = =)。這在專案管理上是相對容易的，過程不會遲疑，檢視最後的成果是不是有達成目標就行。</p><span id="more"></span><p>但是，弊端也顯而易見。執行專案時，總是會有意外、風險、市場變化…，這些都是不可被預測的，而當專案是瀑布式開發，對於以上的變因，應對過慢，就很容易導致專案失敗！</p><blockquote><p>瀑布式開發，強調的是「工具」、「流程」。<br>敏捷式開發，強調的是「個人」、「互動」、「變化」。</p></blockquote><h2 id="敏捷式開發"><a href="#敏捷式開發" class="headerlink" title="敏捷式開發"></a>敏捷式開發</h2><h3 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h3><p><span class="exturl" data-url="aHR0cHM6Ly9hZ2lsZW1hbmlmZXN0by5vcmcvaXNvL3poY2h0L21hbmlmZXN0by5odG1s">《敏捷軟體開發宣言》<i class="fa fa-external-link-alt"></i></span> 裡頭說：</p><ul><li><strong>個人與互動</strong> 重於 流程與工具</li><li><strong>可用的軟體</strong> 重於 詳盡的文件</li><li><strong>與客戶合作</strong> 重於 合約協商</li><li><strong>回應變化</strong> 重於 遵循計畫</li></ul><p>從中知道，敏捷式開發注重的是溝通、成果、合作與變化。</p><blockquote><p>「變」是唯一不變的事情</p></blockquote><h3 id="Scrum框架"><a href="#Scrum框架" class="headerlink" title="Scrum框架"></a>Scrum框架</h3><p>我們耳熟能詳的 Scrum 就是實現敏捷開發的其中一種方式，也是最被廣泛運用的框架。</p><p>為達到相對短的開發週期，可能會抓大概 2 - 4 周，依據產品和團隊的不同，週期也會不同。而這個週期稱之為「Sprint」。</p><p>每一個 Sprint 中，會有四個會議：</p><ol><li>規劃：決定要完成哪些項目</li><li>每日站立：每日花費10-15mins 同步資訊 (昨日完成、今日預計完成、是否遇到阻礙)</li><li>審查：展示成果，取得回饋、新需求</li><li>回顧：回顧衝刺的過程，是否有地方要改進</li></ol><h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3> <img src="/posts/Other-agile/agile2.png" class=""><ul><li>產品負責人 (Product Owner)<br>代表客戶的意願，並確保團隊在做從業務角度來說正確的事情。編寫 User story，排出優先級，並放入 代辦清單(backlog)。他決定每一次 sprint 要完成哪些任務，讓整個團隊價值最大化。監督開發的節奏，從而保障產品的品質。</li></ul> <img src="/posts/Other-agile/agile3.png" class=""><ul><li>Scrum主管 (Scrum Master)<br>主要的工作是去除影響團隊達成 sprint 目標的障礙，是規則的執行者。</li></ul> <img src="/posts/Other-agile/agile4.png" class=""><ul><li>開發團隊 (Dev Team)<br>負責交付產品的團隊。</li></ul><h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>沒有一定比較好的 development，還是要依照專案需求、公司文化…來做選擇。各有各的優勢在，不過在快速變化的商業環境和技術環境中，迎接變化能力強的敏捷式開發原則，的確是可以滿足現況。<br>祝福大家都不要碰到四不像的敏捷開發😆</p>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;在正式開始之前，我們先知道什麼是【瀑布式開發】，這也是一般專案團隊最常用的開發方式。&lt;/p&gt;
+&lt;img src=&quot;/posts/Other-agile/agile1.png&quot; class=&quot;&quot;&gt;
+
+&lt;p&gt;如圖所示，每隔階段定義的十分清楚，要執行的項目明確。就像瀑布一樣，一路向下前行。實際在開發的時候，成員也都樂於這樣的模式，因為不會遇到模糊不清的時候(Ex 需求不知道是什麼就要進行開發… = =)。這在專案管理上是相對容易的，過程不會遲疑，檢視最後的成果是不是有達成目標就行。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Agile Development" scheme="https://colinchiu87.github.io/tags/Agile-Development/"/>
+    
+  </entry>
   
   <entry>
     <title>Day.js 將取代 Moment.js？</title>
@@ -56,9 +78,9 @@
     
     
     
-    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
-    
     <category term="Algorithm" scheme="https://colinchiu87.github.io/tags/Algorithm/"/>
+    
+    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
     
   </entry>
   
@@ -97,9 +119,9 @@
     
     
     
-    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
-    
     <category term="Algorithm" scheme="https://colinchiu87.github.io/tags/Algorithm/"/>
+    
+    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
     
   </entry>
   
@@ -125,9 +147,9 @@
     
     
     
-    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
-    
     <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
+    
+    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
     
   </entry>
   
@@ -148,9 +170,9 @@
     
     
     
-    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
-    
     <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
+    
+    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
     
   </entry>
   
@@ -209,9 +231,9 @@
     
     
     
-    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
-    
     <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
+    
+    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
     
   </entry>
   
@@ -230,9 +252,9 @@
     
     
     
-    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
-    
     <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
+    
+    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
     
   </entry>
   
@@ -252,9 +274,9 @@
     
     
     
-    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
-    
     <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
+    
+    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
     
   </entry>
   
@@ -278,9 +300,9 @@
     
     
     
-    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
-    
     <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
+    
+    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
     
   </entry>
   
@@ -318,9 +340,9 @@
     
     
     
-    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
-    
     <category term="Algorithm" scheme="https://colinchiu87.github.io/tags/Algorithm/"/>
+    
+    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
     
   </entry>
   
@@ -339,11 +361,11 @@
     
     
     
-    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
+    <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
     
     <category term="Algorithm" scheme="https://colinchiu87.github.io/tags/Algorithm/"/>
     
-    <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
+    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
     
     <category term="Frontend" scheme="https://colinchiu87.github.io/tags/Frontend/"/>
     
@@ -433,32 +455,6 @@
     <category term="Frontend" scheme="https://colinchiu87.github.io/tags/Frontend/"/>
     
     <category term="Vue.js" scheme="https://colinchiu87.github.io/tags/Vue-js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ES6-解構賦值</title>
-    <link href="https://colinchiu87.github.io/posts/Es6-destructuringAssignment/"/>
-    <id>https://colinchiu87.github.io/posts/Es6-destructuringAssignment/</id>
-    <published>2022-01-03T12:54:09.000Z</published>
-    <updated>2022-11-17T13:05:50.981Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>解構賦值(Destructuring Assignment)是在ES6的一個新特性，讓我們在撰寫物件、陣列時可以把在裡頭的資料解開擷取成為獨立的變數，能夠更簡短並增加閱讀性。<br>以下為他的說明：</p><blockquote><p>The destructuring assignment syntax is a JavaScript expression that makes it possible to extract data from arrays or objects using a syntax that mirrors the construction of array and object literals</p></blockquote><span id="more"></span><p>上面所說的就是解構賦值的用法如同<strong>鏡子</strong>(mirror)般，對應陣列or物件的結構，將資料從右邊往左邊送，只不過內容的位置順序不變（鏡子會左右顛倒），也就是一種樣式對應(pattern)的方法。</p><p>介紹比較常用的情況：</p><ul><li>從陣列解構賦值</li><li>從物件解構賦值</li><li>解構賦值給定預設值</li><li>搭配函式的傳入參數使用</li></ul><h2 id="陣列"><a href="#陣列" class="headerlink" title="陣列"></a>陣列</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&#x27;hello&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> [a, b, c, , d, f] = str;</span><br><span class="line"></span><br><span class="line"><span class="comment">// a=&#x27;h&#x27;, b=&#x27;e&#x27;, c=&#x27;l&#x27;, d=&#x27;o&#x27; 留空白就會跳過</span></span><br><span class="line"><span class="comment">// f=undefined  如果左方變數多於右方，則會顯示undefined</span></span><br><span class="line"><span class="comment">// 這邊也順便帶入一個概念是分解字串</span></span><br></pre></td></tr></table></figure><p>接下來要說的是我覺得很方便的用法“互換”，一般我們要互換兩個變數要多宣告一個第三變數才能完成，這邊我們可以直接完成。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>, b = <span class="number">2</span>;</span><br><span class="line">[b, a] = [a, b];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 此時的 a=2, b=1</span></span><br></pre></td></tr></table></figure><h2 id="物件"><a href="#物件" class="headerlink" title="物件"></a>物件</h2><p>這邊的概念和陣列一樣，不過陣列是利用順序的索引值對照，而物件是用屬性名稱來對應(所以沒有順序性)。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> family = &#123; <span class="attr">me</span>: <span class="string">&#x27;colin&#x27;</span>, <span class="attr">sis</span>: <span class="string">&#x27;candy&#x27;</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 一般寫法</span></span><br><span class="line"><span class="keyword">let</span> me = family.me;</span><br><span class="line"><span class="keyword">let</span> sis = family.sis;</span><br><span class="line"></span><br><span class="line"><span class="comment">//縮寫</span></span><br><span class="line"><span class="keyword">let</span> &#123;me, sis&#125; = family;</span><br><span class="line"></span><br><span class="line"><span class="comment">// me:colin, sis:candy</span></span><br></pre></td></tr></table></figure><p>物件的解構還能重新賦予變數的名稱</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> player = &#123; <span class="attr">jordan</span>: <span class="string">&#x27;喬丹&#x27;</span>, <span class="attr">wade</span>: <span class="string">&#x27;偉德&#x27;</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> &#123; <span class="attr">jordan</span>: king &#125; = player;</span><br><span class="line"></span><br><span class="line"><span class="comment">//此時king的值為&#x27;喬丹&#x27;</span></span><br></pre></td></tr></table></figure><h2 id="混合使用"><a href="#混合使用" class="headerlink" title="混合使用"></a>混合使用</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123; <span class="attr">jordan</span>: king, <span class="attr">family</span>: [, ...member] &#125; = &#123; <span class="attr">jordan</span>: <span class="string">&#x27;喬丹&#x27;</span>, <span class="attr">family</span>: [<span class="string">&#x27;阿姨&#x27;</span>, <span class="string">&#x27;老媽&#x27;</span>, <span class="string">&#x27;老爸&#x27;</span>] &#125;</span><br><span class="line"><span class="built_in">console</span>.log(king, member); <span class="comment">// 請問答案是什麼？ Ans: king:&#x27;喬丹&#x27;, member: [&#x27;老媽&#x27;, &#x27;老爸&#x27;]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//p.s 其餘運算子用法 (...變數)：將陣列展開成個別值灑進去。</span></span><br></pre></td></tr></table></figure><h2 id="預設值"><a href="#預設值" class="headerlink" title="預設值"></a>預設值</h2><p>在等號左邊是可以給預設值的，避免未被賦值時造成undefined。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [jordan = <span class="string">&#x27;喬丹&#x27;</span>, lebron = <span class="string">&#x27;雷霸龍&#x27;</span>] = [<span class="string">&#x27;阿明&#x27;</span>];</span><br><span class="line"><span class="comment">// jordan值為&#x27;阿明&#x27;</span></span><br><span class="line"><span class="comment">// lebron則為預設值&#x27;雷霸龍&#x27;</span></span><br></pre></td></tr></table></figure><p>陷阱題</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; a =<span class="string">&#x27;hello&#x27;</span> &#125; = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="keyword">const</span> [ b =<span class="string">&#x27;hello&#x27;</span> ] = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="comment">// 此時 a, b 分別為什麼呢？</span></span><br></pre></td></tr></table></figure><h2 id="函式"><a href="#函式" class="headerlink" title="函式"></a>函式</h2><p>在函式要傳參數時也可以使用解構，參數一樣能夠自訂變數名稱、順序、預設值等</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">&#123;a = <span class="number">1</span>, b&#125;</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a + b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(&#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>&#125;) <span class="comment">// 3</span></span><br><span class="line">func(&#123;<span class="attr">b</span>: <span class="number">2</span>&#125;) <span class="comment">// 3</span></span><br><span class="line">func(&#123;<span class="attr">b</span>: <span class="number">6</span>, <span class="attr">a</span>: <span class="number">3</span>&#125;) <span class="comment">// 9</span></span><br><span class="line">func(&#123;<span class="attr">a</span>: <span class="literal">null</span>, <span class="attr">b</span>: <span class="number">2</span>&#125;) <span class="comment">// 2</span></span><br></pre></td></tr></table></figure><blockquote><p>註：所以在函式傳入參數中作解構賦值時，給定null值時會導致預設值無用，請記住這一點。當數字運算時，null相當於0。</p></blockquote>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;解構賦值(Destructuring Assignment)是在ES6的一個新特性，讓我們在撰寫物件、陣列時可以把在裡頭的資料解開擷取成為獨立的變數，能夠更簡短並增加閱讀性。&lt;br&gt;以下為他的說明：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;The destructuring assignment syntax is a JavaScript expression that makes it possible to extract data from arrays or objects using a syntax that mirrors the construction of array and object literals&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    
-    <category term="javascript" scheme="https://colinchiu87.github.io/tags/javascript/"/>
-    
-    <category term="ES6" scheme="https://colinchiu87.github.io/tags/ES6/"/>
-    
-    <category term="Frontend" scheme="https://colinchiu87.github.io/tags/Frontend/"/>
     
   </entry>
   
