@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 7.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -33,8 +33,8 @@
 <meta property="article:published_time" content="2023-08-29T11:21:09.000Z">
 <meta property="article:modified_time" content="2024-03-09T05:41:07.645Z">
 <meta property="article:author" content="Kuan Ru">
-<meta property="article:tag" content="Algorithm">
 <meta property="article:tag" content="data structure">
+<meta property="article:tag" content="Algorithm">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://colinchiu87.github.io/posts/Algorithm-dynamicProgramming/img2.jpeg">
 
@@ -264,7 +264,7 @@
 <h3 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h3><p>就延續前言的故事，來解最大子數列和吧！<br>稍微說明一下題目：在一維的數列中，要找出連續的子數列，且該子數列的和是最大。</p>
 <p><code>array = [−2, 1, −3, 4, −1, 2, 1, −5, 4]</code></p>
 <h4 id="暴力解"><a href="#暴力解" class="headerlink" title="暴力解"></a>暴力解</h4><p>最直覺的做法，就是直接寫一個雙層迴圈，跑完所有子數列，比較總和大小，就得出答案了。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">findMaxSubarray</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> finalMax = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;array.length; i++)&#123;</span><br><span class="line">    <span class="keyword">let</span> currentMax = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = i; j&lt;array.length; j++)&#123;</span><br><span class="line">      currentMax +=  array[j];</span><br><span class="line">      <span class="keyword">if</span> (currentMax &gt; finalMax) &#123;</span><br><span class="line">        finalMax = currentMax;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> finalMax</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">findMaxSubarray</span>(<span class="params">array</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> finalMax = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;array.<span class="property">length</span>; i++)&#123;</span><br><span class="line">    <span class="keyword">let</span> currentMax = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = i; j&lt;array.<span class="property">length</span>; j++)&#123;</span><br><span class="line">      currentMax +=  array[j];</span><br><span class="line">      <span class="keyword">if</span> (currentMax &gt; finalMax) &#123;</span><br><span class="line">        finalMax = currentMax;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> finalMax</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>另外，也附上 Wiki 的網址可以參考 <span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU2JTk2JTkwJUU2JUIzJUEyJUU5JTgyJUEzJUU1JUE1JTkxJUU2JTk1JUIw">連結在此<i class="fa fa-external-link-alt"></i></span></p>
 <h2 id="與貪婪演算法"><a href="#與貪婪演算法" class="headerlink" title="與貪婪演算法"></a>與貪婪演算法</h2><p>總的來說，貪婪演算法和動態規劃算法都是求解最優化問題的重要算法。選擇哪種算法取決於問題的性質和細節，以及算法的效率和準確性要求。對於某些問題，貪婪演算法可能會得到次優解或不可行解，而動態規劃算法可以得到最優解；但是對於某些問題，貪婪演算法的效率更高，而動態規劃算法需要額外的空間和時間來求解。因此，在選擇算法時，需要根據問題的特點和要求來選擇適合的算法。</p>
@@ -306,8 +306,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
               <a href="/tags/data-structure/" rel="tag"># data structure</a>
+              <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
           </div>
 
         
@@ -397,14 +397,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -415,6 +415,9 @@
       </span>
       <span class="links-of-author-item">
         <span class="exturl" data-url="bWFpbHRvOmNvbGluY2hpdTg3QGdtYWlsLmNvbQ==" title="E-Mail → mailto:colinchiu87@gmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9pbnN0YWdyYW0uY29tL2NvbGluY2hpdTg3" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;colinchiu87"><i class="fab fa-instagram fa-fw"></i>Instagram</span>
       </span>
   </div>
 

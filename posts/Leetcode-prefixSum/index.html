@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 7.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -257,7 +257,7 @@
 <li><p>將 MAP 給實作出來</p>
 </li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> removeZeroSumSublists = <span class="function"><span class="keyword">function</span> (<span class="params">head</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 如果 head == false，return head</span></span><br><span class="line">  <span class="keyword">if</span> (!head) &#123;</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 概念 prefix sum map</span></span><br><span class="line">  <span class="keyword">let</span> newNode = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">  newNode.next = head;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> current = newNode,</span><br><span class="line">    prefixSumMap = <span class="keyword">new</span> <span class="built_in">Map</span>(),</span><br><span class="line">    sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (current) &#123;</span><br><span class="line">    sum += current.val;</span><br><span class="line">    prefixSumMap.set(sum, current);</span><br><span class="line">    current = current.next;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  current = newNode;</span><br><span class="line">  sum = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span> (current) &#123;</span><br><span class="line">    sum += current.val;</span><br><span class="line">    current.next = prefixSumMap.get(sum).next;</span><br><span class="line">    current = current.next;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> newNode.next;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> removeZeroSumSublists = <span class="keyword">function</span> (<span class="params">head</span>) &#123;</span><br><span class="line">  <span class="comment">// 如果 head == false，return head</span></span><br><span class="line">  <span class="keyword">if</span> (!head) &#123;</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 概念 prefix sum map</span></span><br><span class="line">  <span class="keyword">let</span> newNode = <span class="keyword">new</span> <span class="title class_">ListNode</span>(<span class="number">0</span>);</span><br><span class="line">  newNode.<span class="property">next</span> = head;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> current = newNode,</span><br><span class="line">    prefixSumMap = <span class="keyword">new</span> <span class="title class_">Map</span>(),</span><br><span class="line">    sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (current) &#123;</span><br><span class="line">    sum += current.<span class="property">val</span>;</span><br><span class="line">    prefixSumMap.<span class="title function_">set</span>(sum, current);</span><br><span class="line">    current = current.<span class="property">next</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  current = newNode;</span><br><span class="line">  sum = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span> (current) &#123;</span><br><span class="line">    sum += current.<span class="property">val</span>;</span><br><span class="line">    current.<span class="property">next</span> = prefixSumMap.<span class="title function_">get</span>(sum).<span class="property">next</span>;</span><br><span class="line">    current = current.<span class="property">next</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> newNode.<span class="property">next</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <h2 id="類似題型"><a href="#類似題型" class="headerlink" title="類似題型"></a>類似題型</h2><p><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvc3ViYXJyYXktc3VtLWVxdWFscy1rLw==">560. Subarray Sum Equals K<i class="fa fa-external-link-alt"></i></span></p>
 <p><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvbWF4aW11bS1hdmVyYWdlLXN1YmFycmF5LWkv">643. Maximum Average Subarray I<i class="fa fa-external-link-alt"></i></span></p>
@@ -379,14 +379,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -397,6 +397,9 @@
       </span>
       <span class="links-of-author-item">
         <span class="exturl" data-url="bWFpbHRvOmNvbGluY2hpdTg3QGdtYWlsLmNvbQ==" title="E-Mail → mailto:colinchiu87@gmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9pbnN0YWdyYW0uY29tL2NvbGluY2hpdTg3" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;colinchiu87"><i class="fab fa-instagram fa-fw"></i>Instagram</span>
       </span>
   </div>
 

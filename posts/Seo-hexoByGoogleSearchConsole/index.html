@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 7.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -259,11 +259,12 @@
 <li>點擊按鈕<strong>下載</strong>檔案。<img src="/posts/Seo-hexoByGoogleSearchConsole/gsc1.jpg" class=""></li>
 <li>直接將檔案放進來你會發現驗證是失敗的，所以我們要先<strong>編輯</strong>一下這個檔案！</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">layout: <span class="literal">false</span></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">google-site-verification: googleb6bf13d6a5baaaaaaaaa.html</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line"><span class="attr">layout</span>: <span class="literal">false</span></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">google-site-<span class="attr">verification</span>: googleb6bf13d6a5baaaaaaaaa.<span class="property">html</span></span><br></pre></td></tr></table></figure>
 
 <ol start="3">
-<li><p>將<strong>檔案放到 hexo/ source 底下</strong>。</p>
-<img src="/posts/Seo-hexoByGoogleSearchConsole/gsc2.png" class=""></li>
+<li><p>將<strong>檔案放到 hexo&#x2F; source 底下</strong>。</p>
+<img src="/posts/Seo-hexoByGoogleSearchConsole/gsc2.png" class="">
+</li>
 <li><p>不免俗的還是要提醒一下，請記得將 Hexo <strong>部署</strong>到 GitHub Pages。</p>
 </li>
 <li><p>最後按下驗證的按鈕即可。</p>
@@ -271,7 +272,7 @@
 </ol>
 <p>大概等待個兩三天 GSC 就會分析出你的網站有哪些關鍵字熱門、需要優化的地方，基本上你就照著他提供方向去做調整，網站的 SEO 就會大大到提升了。</p>
 <h3 id="Sitemap"><a href="#Sitemap" class="headerlink" title="Sitemap"></a>Sitemap</h3><p>說到 Google Search Conosle 那就順便提一下 Sitemap 吧~<br>以往建立一個新的網站時，如果沒有強而有力的網站互聯(ㄏㄨㄟˋ)的話，就很難被爬蟲給爬到，所以這時就要給自己的 Hexo 安裝套件是專門幫忙生成 sitemap.xml ，而這檔案是提交給搜尋引擎爬蟲使用。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
 
 <p>在終端機輸入完指令後就可以部署上去。<br>接著來到 Google Search Console 上的 “Sitemap” 頁面，並在新增欄位輸入 sitemap.xml 提交就完成囉。</p>
 <img src="/posts/Seo-hexoByGoogleSearchConsole/gsc3.png" class="">
@@ -398,14 +399,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -416,6 +417,9 @@
       </span>
       <span class="links-of-author-item">
         <span class="exturl" data-url="bWFpbHRvOmNvbGluY2hpdTg3QGdtYWlsLmNvbQ==" title="E-Mail → mailto:colinchiu87@gmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9pbnN0YWdyYW0uY29tL2NvbGluY2hpdTg3" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;colinchiu87"><i class="fab fa-instagram fa-fw"></i>Instagram</span>
       </span>
   </div>
 

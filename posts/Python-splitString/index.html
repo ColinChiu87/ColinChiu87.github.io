@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 7.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -247,22 +247,22 @@
 <ul>
 <li>字元<br>語法：字串[索引]</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">some_string = <span class="string">&quot;apple&quot;</span></span><br><span class="line">print(some_string[<span class="number">1</span>]) <span class="comment"># &quot;p&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">some_string = <span class="string">&quot;apple&quot;</span></span><br><span class="line"><span class="built_in">print</span>(some_string[<span class="number">1</span>]) <span class="comment"># &quot;p&quot;</span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>字串中的子字串(substring)<br>語法：字串[起始:結束:間隔]<br>參數介紹：索引值是由計算是由 0 開始，所以起始值要 +1 取值，例如起始值 2 代表要由第 3 個字元開始；結束值要取值時自己不能算。例如結束等於 5，所以取到第 5 個值；間隔值不是必填，預設是 1。起始值不填就代表由最前方開始，結束值如果不填就代表算到底。</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fruit = <span class="string">&quot;peach&quot;</span></span><br><span class="line">print(fruit[<span class="number">2</span>:<span class="number">4</span>]) <span class="comment"># &quot;ac&quot;</span></span><br><span class="line">print(fruit[<span class="number">0</span>:<span class="number">5</span>:<span class="number">2</span>]) <span class="comment"># &quot;pah&quot;</span></span><br><span class="line"></span><br><span class="line">print(fruit[::-<span class="number">1</span>]) <span class="comment"># 反轉字串 &quot;hcaep&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fruit = <span class="string">&quot;peach&quot;</span></span><br><span class="line"><span class="built_in">print</span>(fruit[<span class="number">2</span>:<span class="number">4</span>]) <span class="comment"># &quot;ac&quot;</span></span><br><span class="line"><span class="built_in">print</span>(fruit[<span class="number">0</span>:<span class="number">5</span>:<span class="number">2</span>]) <span class="comment"># &quot;pah&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(fruit[::-<span class="number">1</span>]) <span class="comment"># 反轉字串 &quot;hcaep&quot;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="Split-分割字串為陣列"><a href="#Split-分割字串為陣列" class="headerlink" title="Split 分割字串為陣列"></a>Split 分割字串為陣列</h3><p>你有時候會遇到資料是利用 “,” “、” “空格” “-“ 等符號來區分每一筆資料。</p>
 <p>這時候就需要把這些字串做處理，讓它變成陣列方便我們使用。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fruit = <span class="string">&quot;apple,banana,peach&quot;</span></span><br><span class="line">data_arr = fruit.split(<span class="string">&quot;,&quot;</span>)  <span class="comment"># - 使用逗號分割</span></span><br><span class="line">print(fruit)</span><br><span class="line">print(data_arr)  <span class="comment"># - [apple, banana, peach]</span></span><br><span class="line">print(data_arr[<span class="number">0</span>])  <span class="comment"># - apple</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># - 適用任何符號！</span></span><br><span class="line"><span class="comment"># - 多多研究要處理的資料有什麼特性或規律，在處理上能有較好的效率。</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fruit = <span class="string">&quot;apple,banana,peach&quot;</span></span><br><span class="line">data_arr = fruit.split(<span class="string">&quot;,&quot;</span>)  <span class="comment"># - 使用逗號分割</span></span><br><span class="line"><span class="built_in">print</span>(fruit)</span><br><span class="line"><span class="built_in">print</span>(data_arr)  <span class="comment"># - [apple, banana, peach]</span></span><br><span class="line"><span class="built_in">print</span>(data_arr[<span class="number">0</span>])  <span class="comment"># - apple</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># - 適用任何符號！</span></span><br><span class="line"><span class="comment"># - 多多研究要處理的資料有什麼特性或規律，在處理上能有較好的效率。</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="Regexes-正規表達式"><a href="#Regexes-正規表達式" class="headerlink" title="Regexes 正規表達式"></a>Regexes 正規表達式</h3><p>又稱作正則表達式。Python 支援的介面存放在 re 的模組裡，所以要使用記得要引用(import re)</p>
 <p>正規表達式是很適合用來匹配字串極好用的工具，有獨立的語法，並能透過特定的語句規則（Pattern），達到搜尋、匹配、替代等等的需求。</p>
 <ul>
 <li><p>reg.split()<br>我們可以編譯一個正則表達式，用它來分割字串，和 python.split 一樣，返回一個包含子字串的列表。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">fruit = <span class="string">&quot;apple banana peach&quot;</span></span><br><span class="line">regex = re.complie(<span class="string">&#x27;\s+&#x27;</span>)  <span class="comment"># - \s 是一個特殊字元，包含所有的空白字元（空白、TAB、換行符號），而＋則代表一個或多個空格。</span></span><br><span class="line">result = regex.split(fruit)</span><br><span class="line"></span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">fruit = <span class="string">&quot;apple banana peach&quot;</span></span><br><span class="line">regex = re.complie(<span class="string">&#x27;\s+&#x27;</span>)  <span class="comment"># - \s 是一個特殊字元，包含所有的空白字元（空白、TAB、換行符號），而＋則代表一個或多個空格。</span></span><br><span class="line">result = regex.split(fruit)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(result)</span><br></pre></td></tr></table></figure>
 
 <p>推薦一個網站，<span class="exturl" data-url="aHR0cHM6Ly9yZWdleDEwMS5jb20v">https://regex101.com/<i class="fa fa-external-link-alt"></i></span>能即時將你輸入的字串比對你的正規表達式語法。</p>
 </li>
@@ -385,14 +385,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -403,6 +403,9 @@
       </span>
       <span class="links-of-author-item">
         <span class="exturl" data-url="bWFpbHRvOmNvbGluY2hpdTg3QGdtYWlsLmNvbQ==" title="E-Mail → mailto:colinchiu87@gmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9pbnN0YWdyYW0uY29tL2NvbGluY2hpdTg3" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;colinchiu87"><i class="fab fa-instagram fa-fw"></i>Instagram</span>
       </span>
   </div>
 
