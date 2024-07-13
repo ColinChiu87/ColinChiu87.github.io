@@ -6,7 +6,7 @@
   <link href="https://colinchiu87.github.io/atom.xml" rel="self"/>
   
   <link href="https://colinchiu87.github.io/"/>
-  <updated>2024-05-26T10:03:22.774Z</updated>
+  <updated>2024-07-13T10:03:40.102Z</updated>
   <id>https://colinchiu87.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>『Git』怎麼寫 Commit Message 更好</title>
+    <link href="https://colinchiu87.github.io/posts/Git-commitMessage/"/>
+    <id>https://colinchiu87.github.io/posts/Git-commitMessage/</id>
+    <published>2024-06-10T07:25:04.000Z</published>
+    <updated>2024-07-13T10:03:40.102Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>以前在開發的時候，總覺得沒有人會去看 git commit 的訊息，所以總是想寫什麼就寫什麼。<br>雖然都會標記一下[類型]：新增功能、刪除…之類的，但是真的超陽春。<br>直到最近，開始幫人家 Review code，才渴望人家的 Commit Message 可以留完整一點給我！</p><p>真心建議大家，早點培養起 commit message 良好習慣就越好！</p><img src="/posts/Git-commitMessage/gitMessage1.jpeg" class=""><span id="more"></span><h2 id="Better-git-commit-message"><a href="#Better-git-commit-message" class="headerlink" title="Better git commit message"></a>Better git commit message</h2><h3 id="為什麼應該要學習更好的-commit-message-撰寫？"><a href="#為什麼應該要學習更好的-commit-message-撰寫？" class="headerlink" title="為什麼應該要學習更好的 commit message 撰寫？"></a>為什麼應該要學習更好的 commit message 撰寫？</h3><p>第一步，打開手邊的專案並且查看 git log。<br>我相信絕大多數的人，肯定看不懂六個月前自己的 commit 到底對哪裡進行調整、原因是為什麼。</p><p>在你的 Coding 生涯中，或多或少有遇過沒有程式碼註解、沒有文件、沒有可追溯的歷史紀錄，這個時候你就必須要花上多幾倍的時間成本來完成原本的需求，又或者出現類似這樣的問題：我如果刪除了這一行會不會讓程式不會跑？</p><h3 id="展望未來"><a href="#展望未來" class="headerlink" title="展望未來"></a>展望未來</h3><p>撰寫優秀的 Commit，就是節省了你或者你的同事未來尋找 bug 的時間。在開發之餘，花點時間去寫一封提交訊息給未來的自己，是非常值得的，尤其在大型的專案中，任何有關的文件都至關重要。</p><p>我強烈建議，在開發團隊中，如果還沒有建立起提交訊息的相關規範，就立即行動吧！</p><h3 id="比起你做了什麼，別人更想知道你為什麼做"><a href="#比起你做了什麼，別人更想知道你為什麼做" class="headerlink" title="比起你做了什麼，別人更想知道你為什麼做"></a>比起你做了什麼，別人更想知道你為什麼做</h3><p>這句話，是我有一天滑手機時無意間看到的，但印象很深刻。<br>你做了什麼，只要看 changed files 就可以知道了，而你因為什麼而做卻看不出來。<br>如果你要寫 message 時，不妨這樣思考，會有幫助的。</p><h2 id="幾個要點寫出好的提交訊息"><a href="#幾個要點寫出好的提交訊息" class="headerlink" title="幾個要點寫出好的提交訊息"></a>幾個要點寫出好的提交訊息</h2><ol><li>Commit type: 使用特定的類型來表示，可以讓人第一眼就分辨出這是什麼樣類別的提交。</li><li>Length: 適當的長度會讓人感覺到用字精準，通常第一行不會超過 20 個字，並且不會使用標點符號及大寫字母，內容限制在 72 個字。</li><li>Content: 所有的句子都要直接，盡量避免使用太多的連接詞，例如：雖然、也許、我認為、有點…</li></ol><p>知道規範後，要如何生產出內容呢？問自己以下幾個問題，並串接起來，就會豁然開朗：</p><ul><li>我為什麼要做這個變更？</li><li>我做的這些改變會有什麼影響？</li><li>為什麼需要做這些改變？</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &#x27;add margin&#x27;</span><br><span class="line"></span><br><span class="line">git commit -m &#x27;add margin to product items to prevent them from overlapping&#x27;</span><br></pre></td></tr></table></figure><p>這邊偷偷透露，我以前真的都寫第一種的提交訊息 😂</p><h2 id="常用的-Commit-Type"><a href="#常用的-Commit-Type" class="headerlink" title="常用的 Commit Type"></a>常用的 Commit Type</h2><img src="/posts/Git-commitMessage/gitMessage2.webp" class=""><h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>撰寫出色的提交，能幫助整個團隊的溝通及協作。Commit message 是專案的修改歷史，幫助我們解讀過去並在未來做出合理的決定。<br>希望閱讀完本篇的你，有被幫助提升 Commit 的品質。</p>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;以前在開發的時候，總覺得沒有人會去看 git commit 的訊息，所以總是想寫什麼就寫什麼。&lt;br&gt;雖然都會標記一下[類型]：新增功能、刪除…之類的，但是真的超陽春。&lt;br&gt;直到最近，開始幫人家 Review code，才渴望人家的 Commit Message 可以留完整一點給我！&lt;/p&gt;
+&lt;p&gt;真心建議大家，早點培養起 commit message 良好習慣就越好！&lt;/p&gt;
+&lt;img src=&quot;/posts/Git-commitMessage/gitMessage1.jpeg&quot; class=&quot;&quot;&gt;</summary>
+    
+    
+    
+    
+    <category term="Git" scheme="https://colinchiu87.github.io/tags/Git/"/>
+    
+  </entry>
   
   <entry>
     <title>震驚！使用這一個方法解放你的手機容量 - iCloud 共享相簿</title>
@@ -433,29 +454,6 @@
     <category term="SEO" scheme="https://colinchiu87.github.io/tags/SEO/"/>
     
     <category term="crawler" scheme="https://colinchiu87.github.io/tags/crawler/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo-SEO Google Search Console</title>
-    <link href="https://colinchiu87.github.io/posts/Seo-hexoByGoogleSearchConsole/"/>
-    <id>https://colinchiu87.github.io/posts/Seo-hexoByGoogleSearchConsole/</id>
-    <published>2022-07-20T03:15:28.000Z</published>
-    <updated>2022-10-17T09:25:22.453Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>發布了自己的部落格後，是不是發現在 Google 搜尋引擎找不著自己的網站呀！<br>難道是自己已經邊緣到被全世界排擠了嗎…QAQ<br>雖然這也有可能是一個原因啦…(XD，不鬧了</p><span id="more"></span><h2 id="Google-Search-Console"><a href="#Google-Search-Console" class="headerlink" title="Google Search Console"></a>Google Search Console</h2><p>它的前身叫做 Google Webmaster Tool，而它的作用就是專門管理你的網站在搜尋引擎的 SEO 表現，<br>如果你想知道你的網站熱門的關鍵字、曝光或點擊數量，那麼你一定要試試。</p><p>要讓搜尋引擎能找到自己的網站，我們要先進入 <span class="exturl" data-url="aHR0cHM6Ly9zZWFyY2guZ29vZ2xlLmNvbS9zZWFyY2gtY29uc29sZS9hYm91dA==">Google Search Console<i class="fa fa-external-link-alt"></i></span> 註冊服務並進行一些設定。</p><h2 id="實作"><a href="#實作" class="headerlink" title="實作"></a>實作</h2><h3 id="驗證網站"><a href="#驗證網站" class="headerlink" title="驗證網站"></a>驗證網站</h3><p>一開始必須先設定驗證你的網站（如下圖）。</p><img src="/posts/Seo-hexoByGoogleSearchConsole/gsc.jpg" class=""><p>有購買網域的話，就可以使用左邊的驗證；如果像我一樣是利用 Git Page 發布的，就選擇右邊“網址前置字元”，<br>輸入完你的網址後會要去驗證，我這邊使用的是 HTML 檔案，當然你可以選擇你喜歡的方式驗證。</p><ol><li>點擊按鈕<strong>下載</strong>檔案。<img src="/posts/Seo-hexoByGoogleSearchConsole/gsc1.jpg" class=""></li><li>直接將檔案放進來你會發現驗證是失敗的，所以我們要先<strong>編輯</strong>一下這個檔案！</li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line"><span class="attr">layout</span>: <span class="literal">false</span></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">google-site-<span class="attr">verification</span>: googleb6bf13d6a5baaaaaaaaa.<span class="property">html</span></span><br></pre></td></tr></table></figure><ol start="3"><li><p>將<strong>檔案放到 hexo&#x2F; source 底下</strong>。</p><img src="/posts/Seo-hexoByGoogleSearchConsole/gsc2.png" class=""></li><li><p>不免俗的還是要提醒一下，請記得將 Hexo <strong>部署</strong>到 GitHub Pages。</p></li><li><p>最後按下驗證的按鈕即可。</p></li></ol><p>大概等待個兩三天 GSC 就會分析出你的網站有哪些關鍵字熱門、需要優化的地方，基本上你就照著他提供方向去做調整，網站的 SEO 就會大大到提升了。</p><h3 id="Sitemap"><a href="#Sitemap" class="headerlink" title="Sitemap"></a>Sitemap</h3><p>說到 Google Search Conosle 那就順便提一下 Sitemap 吧~<br>以往建立一個新的網站時，如果沒有強而有力的網站互聯(ㄏㄨㄟˋ)的話，就很難被爬蟲給爬到，所以這時就要給自己的 Hexo 安裝套件是專門幫忙生成 sitemap.xml ，而這檔案是提交給搜尋引擎爬蟲使用。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure><p>在終端機輸入完指令後就可以部署上去。<br>接著來到 Google Search Console 上的 “Sitemap” 頁面，並在新增欄位輸入 sitemap.xml 提交就完成囉。</p><img src="/posts/Seo-hexoByGoogleSearchConsole/gsc3.png" class=""><p>都設定好了以後， Google 爬蟲只要定期去看 sitemap 檔案是否更新，就會去爬你的網站並做更新囉！<br>一般來說部落格要被搜尋引擎收錄大概會需要 7~14 天不等，當然也有更快的，就看運氣了😂</p><p>這篇就到這，我們下次見👋🏻</p>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;發布了自己的部落格後，是不是發現在 Google 搜尋引擎找不著自己的網站呀！&lt;br&gt;難道是自己已經邊緣到被全世界排擠了嗎…QAQ&lt;br&gt;雖然這也有可能是一個原因啦…(XD，不鬧了&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Hexo" scheme="https://colinchiu87.github.io/tags/Hexo/"/>
-    
-    <category term="SEO" scheme="https://colinchiu87.github.io/tags/SEO/"/>
-    
-    <category term="Google Search Console" scheme="https://colinchiu87.github.io/tags/Google-Search-Console/"/>
     
   </entry>
   

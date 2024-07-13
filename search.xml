@@ -1,6 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Big O 分析演算法好壞</title>
+    <url>/posts/Algorithm-bigO/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>同樣一個問題可以用不同的演算法解答，那我們要如何去區分當中的好與壞呢？<br>對於這樣的疑問有人提出了一種解答 - Big O.</p>
+<span id="more"></span>
+
+<h2 id="Big-O-表示法"><a href="#Big-O-表示法" class="headerlink" title="Big O 表示法"></a>Big O 表示法</h2><p>分析演算法的優劣，通常是使用資源來評量，ex: CPU 佔用量、Memory 佔用量、磁碟、網路等等。<br>當說到 big o 時，一般考慮的就是 CPU (時間)佔用。在分析時很常會看到以下的函數：</p>
+<table>
+<thead>
+<tr>
+<th align="center">符號</th>
+<th align="center">名稱</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">O(1)</td>
+<td align="center">常數型</td>
+</tr>
+<tr>
+<td align="center">O(log(n))</td>
+<td align="center">對數型</td>
+</tr>
+<tr>
+<td align="center">O(log(n)c)</td>
+<td align="center">對數多項式型</td>
+</tr>
+<tr>
+<td align="center">O(n)</td>
+<td align="center">線性型</td>
+</tr>
+<tr>
+<td align="center">O(n^2)</td>
+<td align="center">二次型</td>
+</tr>
+<tr>
+<td align="center">O(n^c)</td>
+<td align="center">多項式型</td>
+</tr>
+<tr>
+<td align="center">O(c^n)</td>
+<td align="center">指數型</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>Big O 是用來描述演算法在輸入 n 個數時，總時間與 n 的關係。</p>
+</blockquote>
+<img src="/posts/Algorithm-bigO/Algorithm-bigO1.png" class="">
+
+<blockquote>
+<p>常見排序： 1(常數) &lt; log n &lt; n &lt; n log n &lt; n^2 &lt; 2^n &lt; n!</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>data structure</tag>
+        <tag>Algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>動態規劃 Dynamic Programming</title>
     <url>/posts/Algorithm-dynamicProgramming/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>小明是一名熱愛解決難題的大學生，他正在參加一個程式比賽。這次比賽有一道題目是關於動態規劃法的，要求參賽者找到一個數列中最大的連續子數列和。</p>
@@ -65,6 +122,91 @@
       <tags>
         <tag>data structure</tag>
         <tag>Algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>『 資料結構 』字典和雜湊表 Dictionary and HashMap</title>
+    <url>/posts/DataStructure-dictionaryAndHashmap/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>JavaScript 中的字典和雜湊表是非常有用的資料結構，可以用來快速查找鍵值對應的值。在 JavaScript 中，字典通常是用物件來實現，而雜湊表則可以使用 Map 來實現。這些資料結構非常常見，因此學習如何使用它們是很重要的。</p>
+<p>順道提一下，集合(Set) [值：值]所關注的是值的本體，而字典(Dictionary)、雜湊表(HashMap) [鍵：值]關注的是兩者的 Mapping 關聯，這樣就可以簡單區分開來了。</p>
+<p>在本篇文章中，我們將介紹如何在 JavaScript 中使用字典和雜湊表。我們將會討論它們的特性、如何使用它們來解決問題，以及它們的複雜度和效能。如果你對 JavaScript 的資料結構和算法感到興趣，這篇文章將會對你有所幫助。</p>
+<span id="more"></span>
+
+<h2 id="字典-Dictionary"><a href="#字典-Dictionary" class="headerlink" title="字典 Dictionary"></a>字典 Dictionary</h2><p>想必大家都已經知道，集合代表的是一組互不重複的元素。在字典中，儲存的是「鍵：值」，鍵名用來查詢特定元素。<br>也稱作映射。</p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ul>
+<li>set(key, value): 添加新的元素。</li>
+<li>remove(key): 移除對應鍵值的元素。</li>
+<li>has(key): 如果該鍵值存在此字典中，則回傳 true; 反之，回傳 false。</li>
+<li>get(key): 利用鍵值尋找特定數值並回傳。</li>
+<li>clear(): 清空此字典的所有元素。</li>
+<li>size(): 返回字典所含的元素數量。</li>
+<li>keys(): 回傳一個陣列，包含所有鍵。</li>
+<li>values(): 回傳一個陣列，包含所有值。</li>
+</ul>
+<h3 id="實作"><a href="#實作" class="headerlink" title="實作"></a>實作</h3><p>這次實作的類別是以 ECMAScript 6 中的 Map 做基礎。會明顯的發現和 Set 類別雷同。</p>
+<h4 id="骨架"><a href="#骨架" class="headerlink" title="骨架"></a>骨架</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Dictionary</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">var</span> items = &#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="has-set"><a href="#has-set" class="headerlink" title="has, set"></a>has, set</h4><p>第一步先建立 has, set 方法，而這邊會要先做 has()，是因為它會被 set, remove 其他的方法呼叫。<br>而 set(key, value)，可以用來添加一個新的值，或是將原有的值做更新。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">has</span> = <span class="keyword">function</span>(<span class="params">key</span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> key <span class="keyword">in</span> items;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">set</span> = <span class="keyword">function</span>(<span class="params">key, value</span>)&#123;</span><br><span class="line">  items[key] = value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="remove"><a href="#remove" class="headerlink" title="remove"></a>remove</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">remove</span> = <span class="keyword">function</span>(<span class="params">key</span>)&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="title function_">has</span>(key))&#123;</span><br><span class="line">    <span class="keyword">delete</span> items[key];</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="get-values"><a href="#get-values" class="headerlink" title="get, values"></a>get, values</h4><p>如果想要在字典搜尋特定的一個元素，就可以使用 get 和 values。<br><code>values() 不能僅僅使用 for-in 遍歷整個 items 物件的屬性，還需要使用 has() 驗證是否包含該屬性。 因為物件的原型會含其它屬性在裡面( Js 基本的物件屬性是會被繼承的，並會存在當前的物件中 )</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">get</span> = <span class="keyword">function</span>(<span class="params">key</span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="title function_">has</span>(key) ? items[key] : <span class="literal">undefined</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">values</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">var</span> values = [];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> k <span class="keyword">in</span> items)&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="variable language_">this</span>.<span class="title function_">has</span>(k))&#123;</span><br><span class="line">      values.<span class="title function_">push</span>(k);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> values;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="clear-size-keys-getItems"><a href="#clear-size-keys-getItems" class="headerlink" title="clear, size, keys, getItems"></a>clear, size, keys, getItems</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">clear</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  items = &#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">size</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">Object</span>.<span class="title function_">keys</span>(items).<span class="property">length</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">keys</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">Object</span>.<span class="title function_">keys</span>(items);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">getItems</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> items;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用-Dictionary-類別-郵件通訊錄"><a href="#使用-Dictionary-類別-郵件通訊錄" class="headerlink" title="使用 Dictionary 類別 (郵件通訊錄)"></a>使用 Dictionary 類別 (郵件通訊錄)</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> dictionary = <span class="keyword">new</span> <span class="title class_">Dictionary</span>();</span><br><span class="line">dictionary.<span class="title function_">set</span>(<span class="string">&#x27;Colin&#x27;</span>, <span class="string">&#x27;colin1225@email.com&#x27;</span>)</span><br><span class="line">dictionary.<span class="title function_">set</span>(<span class="string">&#x27;Jake&#x27;</span>, <span class="string">&#x27;jake0305@email.com&#x27;</span>)</span><br><span class="line">dictionary.<span class="title function_">set</span>(<span class="string">&#x27;Rick&#x27;</span>, <span class="string">&#x27;rick1010@email.com&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(dictionary.<span class="title function_">has</span>(<span class="string">&#x27;Colin&#x27;</span>)) <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(dictionary.<span class="title function_">size</span>()) <span class="comment">// 3</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(dictionary.<span class="title function_">keys</span>()) <span class="comment">// [&quot;Colin&quot;, &quot;Jake&quot;, &quot;Rick&quot;]</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(dictionary.<span class="title function_">values</span>()) <span class="comment">// [&#x27;colin1225@email.com&#x27;, &#x27;jake0305@email.com&#x27;, &#x27;rick1010@email.com&#x27;]</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(dictionary.<span class="title function_">get</span>(<span class="string">&#x27;Rick&#x27;</span>)) <span class="comment">// &#x27;rick1010@email.com&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="雜湊表-HashMap"><a href="#雜湊表-HashMap" class="headerlink" title="雜湊表 HashMap"></a>雜湊表 HashMap</h2><p>HashTable 也稱作 HashMap，是 Dictionary 類別的一種實作方式。<br>使用雜湊演算法是為了更快更精準的在資料中找到一個值。以往我們要在資料結構中獲得一個值，要經過遍歷整個資料集。<br>雜湊讓我們利用函數就能得到資料的具體位置，因而達到快速檢索的效果。</p>
+<p><img src="https://miro.medium.com/v2/resize:fit:1336/format:webp/0*0xeEq-iJDrVAU0zG.png" alt="HashMap"></p>
+<h3 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h3><ul>
+<li>雜湊函數: 給定一個鍵值，返回值在表中的地址。</li>
+<li>put(key, value): 向雜湊表增加一個新資料。</li>
+<li>remove(key): 根據鍵值從表中移除值。</li>
+<li>get(key): 根據鍵值檢索特定值，返回。</li>
+</ul>
+<h3 id="實作-1"><a href="#實作-1" class="headerlink" title="實作"></a>實作</h3><h4 id="雜湊函數"><a href="#雜湊函數" class="headerlink" title="雜湊函數"></a>雜湊函數</h4><p>順序第一位為雜湊函式，是 HashTable 中一個私有的函數。<br>這邊使用一個最常見的 – 「雙輸」(lose lose)，將每一個鍵值中的每個字母的 ASCII 值相加。<br>在函式的最後常會使用 hash 值和任意數做除法的餘數(mod)。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> loseloseHashCode = <span class="keyword">function</span>(<span class="params">key</span>)&#123;</span><br><span class="line">  <span class="keyword">var</span> hash = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;key.<span class="property">length</span>; i++)&#123;</span><br><span class="line">    hash += key.<span class="title function_">charCodeAt</span>(i);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> hash % <span class="number">37</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="put"><a href="#put" class="headerlink" title="put"></a>put</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">put</span> = <span class="keyword">function</span>(<span class="params">key, value</span>)&#123;</span><br><span class="line">  <span class="keyword">var</span> position = <span class="title function_">loseloseHashCode</span>(key);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(position + <span class="string">&#x27;-&#x27;</span> + key);</span><br><span class="line">  table[position] = value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="get"><a href="#get" class="headerlink" title="get"></a>get</h4><p>使用雜湊函式求出 key 值所對應位置，並回傳 position。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">get</span> = <span class="keyword">function</span>(<span class="params">key</span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> table[<span class="title function_">loseloseHashCode</span>(key)];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="remove-1"><a href="#remove-1" class="headerlink" title="remove"></a>remove</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">remove</span> = <span class="keyword">function</span>(<span class="params">key</span>)&#123;</span><br><span class="line">  table[<span class="title function_">loseloseHashCode</span>(key)] = <span class="literal">undefined</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用-HashTable-類別"><a href="#使用-HashTable-類別" class="headerlink" title="使用 HashTable 類別"></a>使用 HashTable 類別</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> hash = <span class="keyword">new</span> <span class="title class_">HashTable</span>()</span><br><span class="line">hash.<span class="title function_">put</span>(<span class="string">&#x27;Colin&#x27;</span>, <span class="string">&#x27;colin1225@email.com&#x27;</span>)</span><br><span class="line">hash.<span class="title function_">put</span>(<span class="string">&#x27;Jake&#x27;</span>, <span class="string">&#x27;jake0305@email.com&#x27;</span>)</span><br><span class="line">hash.<span class="title function_">put</span>(<span class="string">&#x27;Rick&#x27;</span>, <span class="string">&#x27;rick1010@email.com&#x27;</span>)</span><br><span class="line"><span class="comment">/* Output</span></span><br><span class="line"><span class="comment">  20 - Colin</span></span><br><span class="line"><span class="comment">  9 - Jake</span></span><br><span class="line"><span class="comment">  23 - Rick</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p>使用 get()</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(hash.<span class="title function_">get</span>(<span class="string">&#x27;Colin&#x27;</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(hash.<span class="title function_">get</span>(<span class="string">&#x27;Eileen&#x27;</span>));</span><br><span class="line"><span class="comment">/* Output</span></span><br><span class="line"><span class="comment">  colin1225@eamil.com</span></span><br><span class="line"><span class="comment">  undefined</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p>由於 Colin 是存在表中的鍵，所以會返回它的值。但 Eileen 並不在裡面，當我們試著取出值時，回傳將為 undefined（不存在）。<br>如果對 Colin 執行 remove()，那理所當然也會 return undefined。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">hash.<span class="title function_">remove</span>(<span class="string">&#x27;Colin&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(hash.<span class="title function_">get</span>(<span class="string">&#x27;Colin&#x27;</span>));</span><br><span class="line"><span class="comment">/* Output</span></span><br><span class="line"><span class="comment">  undefined</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="雜湊集合"><a href="#雜湊集合" class="headerlink" title="雜湊集合"></a>雜湊集合</h2><p>接著，我們來說明一下『雜湊集合』這個專有名詞。<br>在某些程式語言中，你會發現有這樣的一個實作。我們可以從名稱中了解到這是由集合所構成，但是新增、插入、刪除，是使用雜湊函數。<br>與剛才我們的實作不同之處，不添加「鍵值對」，只插入值。例如存放水果種類，但不賦予它們定義。</p>
+<h2 id="雜湊表的衝突"><a href="#雜湊表的衝突" class="headerlink" title="雜湊表的衝突"></a>雜湊表的衝突</h2><p>有時候，會遇到有相同雜湊值的情況。不同的值在表中相同的位置，稱之為衝突。<br>在正常程式執行的情況下，最後添加的值將會佔據該位置，也就是會覆蓋掉。<br>當然，我們的目的就是要將所有的資料存放進來，這樣的話不就達不到初衷了嗎？</p>
+<h3 id="面對衝突的處理"><a href="#面對衝突的處理" class="headerlink" title="面對衝突的處理"></a>面對衝突的處理</h3><p>在遇到衝突時，有兩個方法：</p>
+<ol>
+<li>Separate Chaining</li>
+<li>Linear Probing</li>
+</ol>
+<h4 id="Separate-Chaining"><a href="#Separate-Chaining" class="headerlink" title="Separate Chaining"></a>Separate Chaining</h4><ul>
+<li>一個(Key)位置允許放入多個值</li>
+<li>每一個位置(Point)都指向一個 Linked List，以存放多個值</li>
+<li>如果一個位置沒有放置任一值，Pointer 會被視為 null</li>
+</ul>
+<p><img src="https://lh3.googleusercontent.com/pw/ACtC-3cUZn32yJu7Z-fnDhf1ICMJkZH-tUU_dYd-pxmJ1Wk5tVqLa6cKsJ_xm9zbop5Btzof6I0da_7Z0R9m0Fr-cveDGT6HI360YuNKxQ936-vpEUz1DJefDp8L7vlchhTyS3fAD3Lq5yb8zB4hwOVLSZGt=s480-no?authuser=0" alt="此圖片源自網路"></p>
+<h4 id="Linear-Probing"><a href="#Linear-Probing" class="headerlink" title="Linear Probing"></a>Linear Probing</h4><ul>
+<li>如果該 key 對應的位置已經佔用（衝突），則會存入下一個 point(index+1)。</li>
+<li>can provide high performance because of its good locality of reference</li>
+<li>需要注意的地方就是陣列的空間有機會被使用完。</li>
+</ul>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/HASHTB12.svg/2560px-HASHTB12.svg.png" alt="來自wiki"></p>
+]]></content>
+      <tags>
+        <tag>data structure</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -192,148 +334,6 @@
 <img src="/posts/DataStructure-linkedList/linkedlist9.jpg" class="">
 
 <h2 id="結"><a href="#結" class="headerlink" title="結"></a>結</h2><p>我們今天學到了鏈結串列這個結構，和陣列相比最重要的優點就是無需移動鏈結串列中的元素，就能輕輕鬆鬆添加或移除元素。<br>當你需要添加和移除很多元素時，最好的選擇非鏈結串列(Linked-List)莫屬！</p>
-]]></content>
-      <tags>
-        <tag>data structure</tag>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Big O 分析演算法好壞</title>
-    <url>/posts/Algorithm-bigO/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>同樣一個問題可以用不同的演算法解答，那我們要如何去區分當中的好與壞呢？<br>對於這樣的疑問有人提出了一種解答 - Big O.</p>
-<span id="more"></span>
-
-<h2 id="Big-O-表示法"><a href="#Big-O-表示法" class="headerlink" title="Big O 表示法"></a>Big O 表示法</h2><p>分析演算法的優劣，通常是使用資源來評量，ex: CPU 佔用量、Memory 佔用量、磁碟、網路等等。<br>當說到 big o 時，一般考慮的就是 CPU (時間)佔用。在分析時很常會看到以下的函數：</p>
-<table>
-<thead>
-<tr>
-<th align="center">符號</th>
-<th align="center">名稱</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">O(1)</td>
-<td align="center">常數型</td>
-</tr>
-<tr>
-<td align="center">O(log(n))</td>
-<td align="center">對數型</td>
-</tr>
-<tr>
-<td align="center">O(log(n)c)</td>
-<td align="center">對數多項式型</td>
-</tr>
-<tr>
-<td align="center">O(n)</td>
-<td align="center">線性型</td>
-</tr>
-<tr>
-<td align="center">O(n^2)</td>
-<td align="center">二次型</td>
-</tr>
-<tr>
-<td align="center">O(n^c)</td>
-<td align="center">多項式型</td>
-</tr>
-<tr>
-<td align="center">O(c^n)</td>
-<td align="center">指數型</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>Big O 是用來描述演算法在輸入 n 個數時，總時間與 n 的關係。</p>
-</blockquote>
-<img src="/posts/Algorithm-bigO/Algorithm-bigO1.png" class="">
-
-<blockquote>
-<p>常見排序： 1(常數) &lt; log n &lt; n &lt; n log n &lt; n^2 &lt; 2^n &lt; n!</p>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>data structure</tag>
-        <tag>Algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>『 資料結構 』字典和雜湊表 Dictionary and HashMap</title>
-    <url>/posts/DataStructure-dictionaryAndHashmap/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>JavaScript 中的字典和雜湊表是非常有用的資料結構，可以用來快速查找鍵值對應的值。在 JavaScript 中，字典通常是用物件來實現，而雜湊表則可以使用 Map 來實現。這些資料結構非常常見，因此學習如何使用它們是很重要的。</p>
-<p>順道提一下，集合(Set) [值：值]所關注的是值的本體，而字典(Dictionary)、雜湊表(HashMap) [鍵：值]關注的是兩者的 Mapping 關聯，這樣就可以簡單區分開來了。</p>
-<p>在本篇文章中，我們將介紹如何在 JavaScript 中使用字典和雜湊表。我們將會討論它們的特性、如何使用它們來解決問題，以及它們的複雜度和效能。如果你對 JavaScript 的資料結構和算法感到興趣，這篇文章將會對你有所幫助。</p>
-<span id="more"></span>
-
-<h2 id="字典-Dictionary"><a href="#字典-Dictionary" class="headerlink" title="字典 Dictionary"></a>字典 Dictionary</h2><p>想必大家都已經知道，集合代表的是一組互不重複的元素。在字典中，儲存的是「鍵：值」，鍵名用來查詢特定元素。<br>也稱作映射。</p>
-<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ul>
-<li>set(key, value): 添加新的元素。</li>
-<li>remove(key): 移除對應鍵值的元素。</li>
-<li>has(key): 如果該鍵值存在此字典中，則回傳 true; 反之，回傳 false。</li>
-<li>get(key): 利用鍵值尋找特定數值並回傳。</li>
-<li>clear(): 清空此字典的所有元素。</li>
-<li>size(): 返回字典所含的元素數量。</li>
-<li>keys(): 回傳一個陣列，包含所有鍵。</li>
-<li>values(): 回傳一個陣列，包含所有值。</li>
-</ul>
-<h3 id="實作"><a href="#實作" class="headerlink" title="實作"></a>實作</h3><p>這次實作的類別是以 ECMAScript 6 中的 Map 做基礎。會明顯的發現和 Set 類別雷同。</p>
-<h4 id="骨架"><a href="#骨架" class="headerlink" title="骨架"></a>骨架</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Dictionary</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">var</span> items = &#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="has-set"><a href="#has-set" class="headerlink" title="has, set"></a>has, set</h4><p>第一步先建立 has, set 方法，而這邊會要先做 has()，是因為它會被 set, remove 其他的方法呼叫。<br>而 set(key, value)，可以用來添加一個新的值，或是將原有的值做更新。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">has</span> = <span class="keyword">function</span>(<span class="params">key</span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> key <span class="keyword">in</span> items;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">set</span> = <span class="keyword">function</span>(<span class="params">key, value</span>)&#123;</span><br><span class="line">  items[key] = value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="remove"><a href="#remove" class="headerlink" title="remove"></a>remove</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">remove</span> = <span class="keyword">function</span>(<span class="params">key</span>)&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="title function_">has</span>(key))&#123;</span><br><span class="line">    <span class="keyword">delete</span> items[key];</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="get-values"><a href="#get-values" class="headerlink" title="get, values"></a>get, values</h4><p>如果想要在字典搜尋特定的一個元素，就可以使用 get 和 values。<br><code>values() 不能僅僅使用 for-in 遍歷整個 items 物件的屬性，還需要使用 has() 驗證是否包含該屬性。 因為物件的原型會含其它屬性在裡面( Js 基本的物件屬性是會被繼承的，並會存在當前的物件中 )</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">get</span> = <span class="keyword">function</span>(<span class="params">key</span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="title function_">has</span>(key) ? items[key] : <span class="literal">undefined</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">values</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">var</span> values = [];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> k <span class="keyword">in</span> items)&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="variable language_">this</span>.<span class="title function_">has</span>(k))&#123;</span><br><span class="line">      values.<span class="title function_">push</span>(k);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> values;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="clear-size-keys-getItems"><a href="#clear-size-keys-getItems" class="headerlink" title="clear, size, keys, getItems"></a>clear, size, keys, getItems</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">clear</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  items = &#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">size</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">Object</span>.<span class="title function_">keys</span>(items).<span class="property">length</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">keys</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">Object</span>.<span class="title function_">keys</span>(items);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">getItems</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> items;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="使用-Dictionary-類別-郵件通訊錄"><a href="#使用-Dictionary-類別-郵件通訊錄" class="headerlink" title="使用 Dictionary 類別 (郵件通訊錄)"></a>使用 Dictionary 類別 (郵件通訊錄)</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> dictionary = <span class="keyword">new</span> <span class="title class_">Dictionary</span>();</span><br><span class="line">dictionary.<span class="title function_">set</span>(<span class="string">&#x27;Colin&#x27;</span>, <span class="string">&#x27;colin1225@email.com&#x27;</span>)</span><br><span class="line">dictionary.<span class="title function_">set</span>(<span class="string">&#x27;Jake&#x27;</span>, <span class="string">&#x27;jake0305@email.com&#x27;</span>)</span><br><span class="line">dictionary.<span class="title function_">set</span>(<span class="string">&#x27;Rick&#x27;</span>, <span class="string">&#x27;rick1010@email.com&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(dictionary.<span class="title function_">has</span>(<span class="string">&#x27;Colin&#x27;</span>)) <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(dictionary.<span class="title function_">size</span>()) <span class="comment">// 3</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(dictionary.<span class="title function_">keys</span>()) <span class="comment">// [&quot;Colin&quot;, &quot;Jake&quot;, &quot;Rick&quot;]</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(dictionary.<span class="title function_">values</span>()) <span class="comment">// [&#x27;colin1225@email.com&#x27;, &#x27;jake0305@email.com&#x27;, &#x27;rick1010@email.com&#x27;]</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(dictionary.<span class="title function_">get</span>(<span class="string">&#x27;Rick&#x27;</span>)) <span class="comment">// &#x27;rick1010@email.com&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="雜湊表-HashMap"><a href="#雜湊表-HashMap" class="headerlink" title="雜湊表 HashMap"></a>雜湊表 HashMap</h2><p>HashTable 也稱作 HashMap，是 Dictionary 類別的一種實作方式。<br>使用雜湊演算法是為了更快更精準的在資料中找到一個值。以往我們要在資料結構中獲得一個值，要經過遍歷整個資料集。<br>雜湊讓我們利用函數就能得到資料的具體位置，因而達到快速檢索的效果。</p>
-<p><img src="https://miro.medium.com/v2/resize:fit:1336/format:webp/0*0xeEq-iJDrVAU0zG.png" alt="HashMap"></p>
-<h3 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h3><ul>
-<li>雜湊函數: 給定一個鍵值，返回值在表中的地址。</li>
-<li>put(key, value): 向雜湊表增加一個新資料。</li>
-<li>remove(key): 根據鍵值從表中移除值。</li>
-<li>get(key): 根據鍵值檢索特定值，返回。</li>
-</ul>
-<h3 id="實作-1"><a href="#實作-1" class="headerlink" title="實作"></a>實作</h3><h4 id="雜湊函數"><a href="#雜湊函數" class="headerlink" title="雜湊函數"></a>雜湊函數</h4><p>順序第一位為雜湊函式，是 HashTable 中一個私有的函數。<br>這邊使用一個最常見的 – 「雙輸」(lose lose)，將每一個鍵值中的每個字母的 ASCII 值相加。<br>在函式的最後常會使用 hash 值和任意數做除法的餘數(mod)。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> loseloseHashCode = <span class="keyword">function</span>(<span class="params">key</span>)&#123;</span><br><span class="line">  <span class="keyword">var</span> hash = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;key.<span class="property">length</span>; i++)&#123;</span><br><span class="line">    hash += key.<span class="title function_">charCodeAt</span>(i);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> hash % <span class="number">37</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="put"><a href="#put" class="headerlink" title="put"></a>put</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">put</span> = <span class="keyword">function</span>(<span class="params">key, value</span>)&#123;</span><br><span class="line">  <span class="keyword">var</span> position = <span class="title function_">loseloseHashCode</span>(key);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(position + <span class="string">&#x27;-&#x27;</span> + key);</span><br><span class="line">  table[position] = value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="get"><a href="#get" class="headerlink" title="get"></a>get</h4><p>使用雜湊函式求出 key 值所對應位置，並回傳 position。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">get</span> = <span class="keyword">function</span>(<span class="params">key</span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> table[<span class="title function_">loseloseHashCode</span>(key)];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="remove-1"><a href="#remove-1" class="headerlink" title="remove"></a>remove</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">remove</span> = <span class="keyword">function</span>(<span class="params">key</span>)&#123;</span><br><span class="line">  table[<span class="title function_">loseloseHashCode</span>(key)] = <span class="literal">undefined</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="使用-HashTable-類別"><a href="#使用-HashTable-類別" class="headerlink" title="使用 HashTable 類別"></a>使用 HashTable 類別</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> hash = <span class="keyword">new</span> <span class="title class_">HashTable</span>()</span><br><span class="line">hash.<span class="title function_">put</span>(<span class="string">&#x27;Colin&#x27;</span>, <span class="string">&#x27;colin1225@email.com&#x27;</span>)</span><br><span class="line">hash.<span class="title function_">put</span>(<span class="string">&#x27;Jake&#x27;</span>, <span class="string">&#x27;jake0305@email.com&#x27;</span>)</span><br><span class="line">hash.<span class="title function_">put</span>(<span class="string">&#x27;Rick&#x27;</span>, <span class="string">&#x27;rick1010@email.com&#x27;</span>)</span><br><span class="line"><span class="comment">/* Output</span></span><br><span class="line"><span class="comment">  20 - Colin</span></span><br><span class="line"><span class="comment">  9 - Jake</span></span><br><span class="line"><span class="comment">  23 - Rick</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<p>使用 get()</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(hash.<span class="title function_">get</span>(<span class="string">&#x27;Colin&#x27;</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(hash.<span class="title function_">get</span>(<span class="string">&#x27;Eileen&#x27;</span>));</span><br><span class="line"><span class="comment">/* Output</span></span><br><span class="line"><span class="comment">  colin1225@eamil.com</span></span><br><span class="line"><span class="comment">  undefined</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<p>由於 Colin 是存在表中的鍵，所以會返回它的值。但 Eileen 並不在裡面，當我們試著取出值時，回傳將為 undefined（不存在）。<br>如果對 Colin 執行 remove()，那理所當然也會 return undefined。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">hash.<span class="title function_">remove</span>(<span class="string">&#x27;Colin&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(hash.<span class="title function_">get</span>(<span class="string">&#x27;Colin&#x27;</span>));</span><br><span class="line"><span class="comment">/* Output</span></span><br><span class="line"><span class="comment">  undefined</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="雜湊集合"><a href="#雜湊集合" class="headerlink" title="雜湊集合"></a>雜湊集合</h2><p>接著，我們來說明一下『雜湊集合』這個專有名詞。<br>在某些程式語言中，你會發現有這樣的一個實作。我們可以從名稱中了解到這是由集合所構成，但是新增、插入、刪除，是使用雜湊函數。<br>與剛才我們的實作不同之處，不添加「鍵值對」，只插入值。例如存放水果種類，但不賦予它們定義。</p>
-<h2 id="雜湊表的衝突"><a href="#雜湊表的衝突" class="headerlink" title="雜湊表的衝突"></a>雜湊表的衝突</h2><p>有時候，會遇到有相同雜湊值的情況。不同的值在表中相同的位置，稱之為衝突。<br>在正常程式執行的情況下，最後添加的值將會佔據該位置，也就是會覆蓋掉。<br>當然，我們的目的就是要將所有的資料存放進來，這樣的話不就達不到初衷了嗎？</p>
-<h3 id="面對衝突的處理"><a href="#面對衝突的處理" class="headerlink" title="面對衝突的處理"></a>面對衝突的處理</h3><p>在遇到衝突時，有兩個方法：</p>
-<ol>
-<li>Separate Chaining</li>
-<li>Linear Probing</li>
-</ol>
-<h4 id="Separate-Chaining"><a href="#Separate-Chaining" class="headerlink" title="Separate Chaining"></a>Separate Chaining</h4><ul>
-<li>一個(Key)位置允許放入多個值</li>
-<li>每一個位置(Point)都指向一個 Linked List，以存放多個值</li>
-<li>如果一個位置沒有放置任一值，Pointer 會被視為 null</li>
-</ul>
-<p><img src="https://lh3.googleusercontent.com/pw/ACtC-3cUZn32yJu7Z-fnDhf1ICMJkZH-tUU_dYd-pxmJ1Wk5tVqLa6cKsJ_xm9zbop5Btzof6I0da_7Z0R9m0Fr-cveDGT6HI360YuNKxQ936-vpEUz1DJefDp8L7vlchhTyS3fAD3Lq5yb8zB4hwOVLSZGt=s480-no?authuser=0" alt="此圖片源自網路"></p>
-<h4 id="Linear-Probing"><a href="#Linear-Probing" class="headerlink" title="Linear Probing"></a>Linear Probing</h4><ul>
-<li>如果該 key 對應的位置已經佔用（衝突），則會存入下一個 point(index+1)。</li>
-<li>can provide high performance because of its good locality of reference</li>
-<li>需要注意的地方就是陣列的空間有機會被使用完。</li>
-</ul>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/HASHTB12.svg/2560px-HASHTB12.svg.png" alt="來自wiki"></p>
 ]]></content>
       <tags>
         <tag>data structure</tag>
@@ -584,6 +584,91 @@
       </tags>
   </entry>
   <entry>
+    <title>ES6-解構賦值</title>
+    <url>/posts/Es6-destructuringAssignment/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>解構賦值(Destructuring Assignment)是在ES6的一個新特性，讓我們在撰寫物件、陣列時可以把在裡頭的資料解開擷取成為獨立的變數，能夠更簡短並增加閱讀性。<br>以下為他的說明：</p>
+<blockquote>
+<p>The destructuring assignment syntax is a JavaScript expression that makes it possible to extract data from arrays or objects using a syntax that mirrors the construction of array and object literals</p>
+</blockquote>
+<span id="more"></span>
+
+<p>上面所說的就是解構賦值的用法如同<strong>鏡子</strong>(mirror)般，對應陣列or物件的結構，將資料從右邊往左邊送，只不過內容的位置順序不變（鏡子會左右顛倒），也就是一種樣式對應(pattern)的方法。</p>
+<p>介紹比較常用的情況：</p>
+<ul>
+<li>從陣列解構賦值</li>
+<li>從物件解構賦值</li>
+<li>解構賦值給定預設值</li>
+<li>搭配函式的傳入參數使用</li>
+</ul>
+<h2 id="陣列"><a href="#陣列" class="headerlink" title="陣列"></a>陣列</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&#x27;hello&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> [a, b, c, , d, f] = str;</span><br><span class="line"></span><br><span class="line"><span class="comment">// a=&#x27;h&#x27;, b=&#x27;e&#x27;, c=&#x27;l&#x27;, d=&#x27;o&#x27; 留空白就會跳過</span></span><br><span class="line"><span class="comment">// f=undefined  如果左方變數多於右方，則會顯示undefined</span></span><br><span class="line"><span class="comment">// 這邊也順便帶入一個概念是分解字串</span></span><br></pre></td></tr></table></figure>
+
+<p>接下來要說的是我覺得很方便的用法“互換”，一般我們要互換兩個變數要多宣告一個第三變數才能完成，這邊我們可以直接完成。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>, b = <span class="number">2</span>;</span><br><span class="line">[b, a] = [a, b];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 此時的 a=2, b=1</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="物件"><a href="#物件" class="headerlink" title="物件"></a>物件</h2><p>這邊的概念和陣列一樣，不過陣列是利用順序的索引值對照，而物件是用屬性名稱來對應(所以沒有順序性)。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> family = &#123; <span class="attr">me</span>: <span class="string">&#x27;colin&#x27;</span>, <span class="attr">sis</span>: <span class="string">&#x27;candy&#x27;</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 一般寫法</span></span><br><span class="line"><span class="keyword">let</span> me = family.<span class="property">me</span>;</span><br><span class="line"><span class="keyword">let</span> sis = family.<span class="property">sis</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//縮寫</span></span><br><span class="line"><span class="keyword">let</span> &#123;me, sis&#125; = family;</span><br><span class="line"></span><br><span class="line"><span class="comment">// me:colin, sis:candy</span></span><br></pre></td></tr></table></figure>
+
+<p>物件的解構還能重新賦予變數的名稱</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> player = &#123; <span class="attr">jordan</span>: <span class="string">&#x27;喬丹&#x27;</span>, <span class="attr">wade</span>: <span class="string">&#x27;偉德&#x27;</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> &#123; <span class="attr">jordan</span>: king &#125; = player;</span><br><span class="line"></span><br><span class="line"><span class="comment">//此時king的值為&#x27;喬丹&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="混合使用"><a href="#混合使用" class="headerlink" title="混合使用"></a>混合使用</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123; <span class="attr">jordan</span>: king, <span class="attr">family</span>: [, ...member] &#125; = &#123; <span class="attr">jordan</span>: <span class="string">&#x27;喬丹&#x27;</span>, <span class="attr">family</span>: [<span class="string">&#x27;阿姨&#x27;</span>, <span class="string">&#x27;老媽&#x27;</span>, <span class="string">&#x27;老爸&#x27;</span>] &#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(king, member); <span class="comment">// 請問答案是什麼？ Ans: king:&#x27;喬丹&#x27;, member: [&#x27;老媽&#x27;, &#x27;老爸&#x27;]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//p.s 其餘運算子用法 (...變數)：將陣列展開成個別值灑進去。</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="預設值"><a href="#預設值" class="headerlink" title="預設值"></a>預設值</h2><p>在等號左邊是可以給預設值的，避免未被賦值時造成undefined。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> [jordan = <span class="string">&#x27;喬丹&#x27;</span>, lebron = <span class="string">&#x27;雷霸龍&#x27;</span>] = [<span class="string">&#x27;阿明&#x27;</span>];</span><br><span class="line"><span class="comment">// jordan值為&#x27;阿明&#x27;</span></span><br><span class="line"><span class="comment">// lebron則為預設值&#x27;雷霸龍&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>陷阱題</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; a =<span class="string">&#x27;hello&#x27;</span> &#125; = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="keyword">const</span> [ b =<span class="string">&#x27;hello&#x27;</span> ] = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="comment">// 此時 a, b 分別為什麼呢？</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="函式"><a href="#函式" class="headerlink" title="函式"></a>函式</h2><p>在函式要傳參數時也可以使用解構，參數一樣能夠自訂變數名稱、順序、預設值等</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">func</span>(<span class="params">&#123;a = <span class="number">1</span>, b&#125;</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> a + b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">func</span>(&#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>&#125;) <span class="comment">// 3</span></span><br><span class="line"><span class="title function_">func</span>(&#123;<span class="attr">b</span>: <span class="number">2</span>&#125;) <span class="comment">// 3</span></span><br><span class="line"><span class="title function_">func</span>(&#123;<span class="attr">b</span>: <span class="number">6</span>, <span class="attr">a</span>: <span class="number">3</span>&#125;) <span class="comment">// 9</span></span><br><span class="line"><span class="title function_">func</span>(&#123;<span class="attr">a</span>: <span class="literal">null</span>, <span class="attr">b</span>: <span class="number">2</span>&#125;) <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>註：所以在函式傳入參數中作解構賦值時，給定null值時會導致預設值無用，請記住這一點。當數字運算時，null相當於0。</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>javascript</tag>
+        <tag>ES6</tag>
+        <tag>Frontend</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>『Git』怎麼寫 Commit Message 更好</title>
+    <url>/posts/Git-commitMessage/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>以前在開發的時候，總覺得沒有人會去看 git commit 的訊息，所以總是想寫什麼就寫什麼。<br>雖然都會標記一下[類型]：新增功能、刪除…之類的，但是真的超陽春。<br>直到最近，開始幫人家 Review code，才渴望人家的 Commit Message 可以留完整一點給我！</p>
+<p>真心建議大家，早點培養起 commit message 良好習慣就越好！</p>
+<img src="/posts/Git-commitMessage/gitMessage1.jpeg" class="">
+
+<span id="more"></span>
+
+<h2 id="Better-git-commit-message"><a href="#Better-git-commit-message" class="headerlink" title="Better git commit message"></a>Better git commit message</h2><h3 id="為什麼應該要學習更好的-commit-message-撰寫？"><a href="#為什麼應該要學習更好的-commit-message-撰寫？" class="headerlink" title="為什麼應該要學習更好的 commit message 撰寫？"></a>為什麼應該要學習更好的 commit message 撰寫？</h3><p>第一步，打開手邊的專案並且查看 git log。<br>我相信絕大多數的人，肯定看不懂六個月前自己的 commit 到底對哪裡進行調整、原因是為什麼。</p>
+<p>在你的 Coding 生涯中，或多或少有遇過沒有程式碼註解、沒有文件、沒有可追溯的歷史紀錄，這個時候你就必須要花上多幾倍的時間成本來完成原本的需求，又或者出現類似這樣的問題：我如果刪除了這一行會不會讓程式不會跑？</p>
+<h3 id="展望未來"><a href="#展望未來" class="headerlink" title="展望未來"></a>展望未來</h3><p>撰寫優秀的 Commit，就是節省了你或者你的同事未來尋找 bug 的時間。在開發之餘，花點時間去寫一封提交訊息給未來的自己，是非常值得的，尤其在大型的專案中，任何有關的文件都至關重要。</p>
+<p>我強烈建議，在開發團隊中，如果還沒有建立起提交訊息的相關規範，就立即行動吧！</p>
+<h3 id="比起你做了什麼，別人更想知道你為什麼做"><a href="#比起你做了什麼，別人更想知道你為什麼做" class="headerlink" title="比起你做了什麼，別人更想知道你為什麼做"></a>比起你做了什麼，別人更想知道你為什麼做</h3><p>這句話，是我有一天滑手機時無意間看到的，但印象很深刻。<br>你做了什麼，只要看 changed files 就可以知道了，而你因為什麼而做卻看不出來。<br>如果你要寫 message 時，不妨這樣思考，會有幫助的。</p>
+<h2 id="幾個要點寫出好的提交訊息"><a href="#幾個要點寫出好的提交訊息" class="headerlink" title="幾個要點寫出好的提交訊息"></a>幾個要點寫出好的提交訊息</h2><ol>
+<li>Commit type: 使用特定的類型來表示，可以讓人第一眼就分辨出這是什麼樣類別的提交。</li>
+<li>Length: 適當的長度會讓人感覺到用字精準，通常第一行不會超過 20 個字，並且不會使用標點符號及大寫字母，內容限制在 72 個字。</li>
+<li>Content: 所有的句子都要直接，盡量避免使用太多的連接詞，例如：雖然、也許、我認為、有點…</li>
+</ol>
+<p>知道規範後，要如何生產出內容呢？問自己以下幾個問題，並串接起來，就會豁然開朗：</p>
+<ul>
+<li>我為什麼要做這個變更？</li>
+<li>我做的這些改變會有什麼影響？</li>
+<li>為什麼需要做這些改變？</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git commit -m &#x27;add margin&#x27;</span><br><span class="line"></span><br><span class="line">git commit -m &#x27;add margin to product items to prevent them from overlapping&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>這邊偷偷透露，我以前真的都寫第一種的提交訊息 😂</p>
+<h2 id="常用的-Commit-Type"><a href="#常用的-Commit-Type" class="headerlink" title="常用的 Commit Type"></a>常用的 Commit Type</h2><img src="/posts/Git-commitMessage/gitMessage2.webp" class="">
+
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>撰寫出色的提交，能幫助整個團隊的溝通及協作。Commit message 是專案的修改歷史，幫助我們解讀過去並在未來做出合理的決定。<br>希望閱讀完本篇的你，有被幫助提升 Commit 的品質。</p>
+]]></content>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>一失足掉進的坑 Hexo Config</title>
     <url>/posts/Hexo-config-permalink/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有在使用 Hexo Blog 的朋友一定知道他有很多設定可以玩！除了一般的標題、簡介、相關連結外，還有分頁、閱讀進度、總閱覽人數…等等一大堆。<br>今日心血來潮想要把部落格的 config 設定弄的更完整一些，沒有想到居然在之中受困數個小時…，真的覺得自己好笑又好氣😓</p>
@@ -623,10 +708,10 @@
 </ul>
 ]]></content>
       <tags>
+        <tag>Frontend</tag>
         <tag>html</tag>
         <tag>download</tag>
         <tag>pdf</tag>
-        <tag>Frontend</tag>
       </tags>
   </entry>
   <entry>
@@ -687,6 +772,136 @@
 ]]></content>
       <tags>
         <tag>IPhone</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>『 資料結構 』陣列 Array By JavaScript</title>
+    <url>/posts/Js-array/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>這週與前端小夥伴們發起了 JavaScript 資料結構 (data structure) 讀書會，二話不說用微薄的薪資擠出了些孔方兄購入兩本工具書規劃一下學習計畫，這週從最基礎的陣列 (Array) 走起！<br>是哪兩本書我會放在最後給大家參考，也希望有想學習這方面的小夥伴每週跟著我的腳步一起成長八 ❤️</p>
+<span id="more"></span>
+
+<h2 id="陣列-Array"><a href="#陣列-Array" class="headerlink" title="陣列 Array"></a>陣列 Array</h2><p>在眾多的語言中，陣列是大家原生都有支援的類型，是最常見的負責<strong>存放一系列相同類別資料</strong>的方法。<br><del>但在 JS 裡是可以在裡頭儲存不同類型的值</del>。這部分我們就不探討了。</p>
+<h3 id="為什麼要用陣列"><a href="#為什麼要用陣列" class="headerlink" title="為什麼要用陣列"></a>為什麼要用陣列</h3><p>假設有一個需求，記錄下這星期每一天吃的熱量總數：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> calorieMon = <span class="number">3500</span>;</span><br><span class="line"><span class="keyword">var</span> calorieTue = <span class="number">5000</span>;</span><br><span class="line"><span class="keyword">var</span> calorieWed = <span class="number">2700</span>;</span><br><span class="line"><span class="keyword">var</span> calorieThu = <span class="number">3200</span>;</span><br><span class="line"><span class="keyword">var</span> calorieFri = <span class="number">2200</span>;</span><br><span class="line"><span class="keyword">var</span> calorieSat = <span class="number">3000</span>;</span><br><span class="line"><span class="keyword">var</span> calorieSun = <span class="number">4800</span>;</span><br></pre></td></tr></table></figure>
+
+<p>方法沒有不行但肯定不是最佳。以這種方式，如果只有一週自然只有 7 個變數，那要記錄半年呢？<br>這個時候就要慶幸有陣列來幫助我們更有效率解決：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> calorieArr[<span class="number">0</span>] = <span class="number">3500</span>;</span><br><span class="line"><span class="keyword">var</span> calorieArr[<span class="number">1</span>] = <span class="number">5000</span>;</span><br><span class="line"><span class="keyword">var</span> calorieArr[<span class="number">2</span>] = <span class="number">2700</span>;</span><br><span class="line"><span class="keyword">var</span> calorieArr[<span class="number">3</span>] = <span class="number">3200</span>;</span><br><span class="line"><span class="keyword">var</span> calorieArr[<span class="number">4</span>] = <span class="number">2200</span>;</span><br><span class="line"><span class="keyword">var</span> calorieArr[<span class="number">5</span>] = <span class="number">3000</span>;</span><br><span class="line"><span class="keyword">var</span> calorieArr[<span class="number">6</span>] = <span class="number">4800</span>;</span><br><span class="line"></span><br><span class="line">calorieArr = [<span class="number">3500</span>, <span class="number">5000</span>, <span class="number">2700</span>, <span class="number">3200</span>, <span class="number">2200</span>, <span class="number">3000</span>, <span class="number">4800</span>];</span><br></pre></td></tr></table></figure>
+
+<h3 id="宣告和初始化"><a href="#宣告和初始化" class="headerlink" title="宣告和初始化"></a>宣告和初始化</h3><p>宣告的方式有幾種：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="title class_">Array</span>();</span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">7</span>); <span class="comment">// 指定長度</span></span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="string">&#x27;John&#x27;</span>, <span class="string">&#x27;Jack&#x27;</span>, <span class="string">&#x27;Leo&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = []; <span class="comment">// 最常使用的宣告方式</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;John&#x27;</span>, <span class="string">&#x27;Jack&#x27;</span>, <span class="string">&#x27;Leo&#x27;</span>];</span><br></pre></td></tr></table></figure>
+
+<h3 id="基本屬性"><a href="#基本屬性" class="headerlink" title="基本屬性"></a>基本屬性</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 陣列元素的數量</span></span><br><span class="line">arr.<span class="property">length</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 存取指定位置的元素可以使用中括號傳遞索引值    p.s.索引是從 0 開始</span></span><br><span class="line">arr[index]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 藉由迴圈遍歷陣列，輸出全部元素</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;arr.<span class="property">length</span>; i++)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(arr[i])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="元素的添加和刪除"><a href="#元素的添加和刪除" class="headerlink" title="元素的添加和刪除"></a>元素的添加和刪除</h3><p>以下我們就使用這個範例來做一些教學八</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br></pre></td></tr></table></figure>
+
+<p>添加元素：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="comment">// 先來個陽春直覺版</span></span><br><span class="line">arr[arr.<span class="property">length</span>] = <span class="number">6</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr); <span class="comment">// arr = [0, 1, 2, 3, 4, 5, 6];</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// push 屬性(加入元素位於“尾端”)</span></span><br><span class="line">arr.<span class="title function_">push</span>(<span class="number">7</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr); <span class="comment">// arr = [0, 1, 2, 3, 4, 5, 6, 7];</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// unshift 屬性(加入元素位於“首端”)</span></span><br><span class="line">arr.<span class="title function_">unshift</span>(-<span class="number">1</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr); <span class="comment">// arr = [-1, 0, 1, 2, 3, 4, 5, 6, 7];</span></span><br></pre></td></tr></table></figure>
+
+<p>刪除元素：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="comment">// pop 屬性(刪除元素位於“尾端”)</span></span><br><span class="line">arr.<span class="title function_">pop</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr); <span class="comment">// arr = [0, 1, 2, 3, 4];</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// shift 屬性(刪除元素位於“首端”)</span></span><br><span class="line">arr.<span class="title function_">shift</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr); <span class="comment">// arr = [1, 2, 3, 4];</span></span><br></pre></td></tr></table></figure>
+
+<p>在後面的章節裡，會藉由 push, pop 方法，模擬<strong>堆疊</strong>資料結構；而 shift 和 unshift 則模擬<strong>佇列</strong>資料結構。</p>
+<p>到這邊為止，介紹了從頭尾去新增及刪除元素，那我們要怎麼從中間去操作呢？<br>讓我們接下去看到 splice 屬性，這也是我覺得很便利的方法！</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="comment">// splice 屬性</span></span><br><span class="line"><span class="comment">// splice(要操作的索引值, 刪除的個數, 增加的元素(選填，可多個))</span></span><br><span class="line">arr.<span class="title function_">splice</span>(<span class="number">3</span>, <span class="number">2</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr); <span class="comment">// arr = [0, 1, 2, 5]</span></span><br><span class="line"></span><br><span class="line">arr.<span class="title function_">splice</span>(<span class="number">1</span>, <span class="number">0</span>, <span class="number">8</span>, <span class="number">8</span>); <span class="comment">// 在第三索引的地方插入兩個元素 8, 8，因為沒有要刪除所以個數寫上 0</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr); <span class="comment">// arr = [0, 8, 8, 1, 2, 5]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="二維及多維陣列"><a href="#二維及多維陣列" class="headerlink" title="二維及多維陣列"></a>二維及多維陣列</h3><p>二維用表格來解釋會相當容易理解，下方是一個 3x3 的表格也代表著一種二維陣列</p>
+<table>
+<thead>
+<tr>
+<th align="center">A1</th>
+<th align="center">A2</th>
+<th align="center">A3</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">A4</td>
+<td align="center">A5</td>
+<td align="center">A6</td>
+</tr>
+<tr>
+<td align="center">A7</td>
+<td align="center">A8</td>
+<td align="center">A9</td>
+</tr>
+</tbody></table>
+<p>A1的索引值：arr[0][0]<br>A2: arr[0][1]<br>A3: arr[0][2]…依此類推</p>
+<p>幾維陣列的遍歷就要用幾層迴圈作。</p>
+<h3 id="陣列方法"><a href="#陣列方法" class="headerlink" title="陣列方法"></a>陣列方法</h3><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">concat</td>
+<td align="left">連接多個陣列，return 結果</td>
+</tr>
+<tr>
+<td align="center">every</td>
+<td align="left">對陣列每一個元素運行函數，每一個元素都是 true，才會 return true</td>
+</tr>
+<tr>
+<td align="center">filter</td>
+<td align="left">對陣列每一個元素運行函數，集合  true 的元素 return 陣列</td>
+</tr>
+<tr>
+<td align="center">forEach</td>
+<td align="left">對陣列每一個元素運行函數</td>
+</tr>
+<tr>
+<td align="center">join</td>
+<td align="left">將所有元素串成一個字串</td>
+</tr>
+<tr>
+<td align="center">indexOf</td>
+<td align="left">return 第一個相等參數的索引值，無符合 return -1</td>
+</tr>
+<tr>
+<td align="center">lastIndexOf</td>
+<td align="left">return 最後一個相等參數的索引值，無符合 return -1</td>
+</tr>
+<tr>
+<td align="center">map</td>
+<td align="left">對陣列每一個元素運行函數，return 每次函數所呼叫的結果所組成之陣列</td>
+</tr>
+<tr>
+<td align="center">reverse</td>
+<td align="left">反轉陣列裡的元素</td>
+</tr>
+<tr>
+<td align="center">slice</td>
+<td align="left">傳入索引值，return 索引範圍內的元素新陣列</td>
+</tr>
+<tr>
+<td align="center">some</td>
+<td align="left">對陣列每一個元素運行函數，有任意 true ，return true</td>
+</tr>
+<tr>
+<td align="center">sort</td>
+<td align="left">按照 ASCII 值做排序，支援傳入指定排序函數做參數</td>
+</tr>
+<tr>
+<td align="center">toString</td>
+<td align="left">return 將陣列轉字串</td>
+</tr>
+<tr>
+<td align="center">valueOf</td>
+<td align="left">和 toString 相似，return 將陣列轉字串</td>
+</tr>
+</tbody></table>
+<h2 id="工具書"><a href="#工具書" class="headerlink" title="工具書"></a>工具書</h2><ul>
+<li>JavaScript 資料結構及演算法實作 - Loiane Groner</li>
+<li>演算法圖鑑 - 石田保輝、宮崎修一</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>data structure</tag>
+        <tag>Algorithm</tag>
+        <tag>javascript</tag>
+        <tag>Frontend</tag>
+        <tag>array</tag>
       </tags>
   </entry>
   <entry>
@@ -848,136 +1063,6 @@
 ]]></content>
       <tags>
         <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>『 資料結構 』陣列 Array By JavaScript</title>
-    <url>/posts/Js-array/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>這週與前端小夥伴們發起了 JavaScript 資料結構 (data structure) 讀書會，二話不說用微薄的薪資擠出了些孔方兄購入兩本工具書規劃一下學習計畫，這週從最基礎的陣列 (Array) 走起！<br>是哪兩本書我會放在最後給大家參考，也希望有想學習這方面的小夥伴每週跟著我的腳步一起成長八 ❤️</p>
-<span id="more"></span>
-
-<h2 id="陣列-Array"><a href="#陣列-Array" class="headerlink" title="陣列 Array"></a>陣列 Array</h2><p>在眾多的語言中，陣列是大家原生都有支援的類型，是最常見的負責<strong>存放一系列相同類別資料</strong>的方法。<br><del>但在 JS 裡是可以在裡頭儲存不同類型的值</del>。這部分我們就不探討了。</p>
-<h3 id="為什麼要用陣列"><a href="#為什麼要用陣列" class="headerlink" title="為什麼要用陣列"></a>為什麼要用陣列</h3><p>假設有一個需求，記錄下這星期每一天吃的熱量總數：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> calorieMon = <span class="number">3500</span>;</span><br><span class="line"><span class="keyword">var</span> calorieTue = <span class="number">5000</span>;</span><br><span class="line"><span class="keyword">var</span> calorieWed = <span class="number">2700</span>;</span><br><span class="line"><span class="keyword">var</span> calorieThu = <span class="number">3200</span>;</span><br><span class="line"><span class="keyword">var</span> calorieFri = <span class="number">2200</span>;</span><br><span class="line"><span class="keyword">var</span> calorieSat = <span class="number">3000</span>;</span><br><span class="line"><span class="keyword">var</span> calorieSun = <span class="number">4800</span>;</span><br></pre></td></tr></table></figure>
-
-<p>方法沒有不行但肯定不是最佳。以這種方式，如果只有一週自然只有 7 個變數，那要記錄半年呢？<br>這個時候就要慶幸有陣列來幫助我們更有效率解決：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> calorieArr[<span class="number">0</span>] = <span class="number">3500</span>;</span><br><span class="line"><span class="keyword">var</span> calorieArr[<span class="number">1</span>] = <span class="number">5000</span>;</span><br><span class="line"><span class="keyword">var</span> calorieArr[<span class="number">2</span>] = <span class="number">2700</span>;</span><br><span class="line"><span class="keyword">var</span> calorieArr[<span class="number">3</span>] = <span class="number">3200</span>;</span><br><span class="line"><span class="keyword">var</span> calorieArr[<span class="number">4</span>] = <span class="number">2200</span>;</span><br><span class="line"><span class="keyword">var</span> calorieArr[<span class="number">5</span>] = <span class="number">3000</span>;</span><br><span class="line"><span class="keyword">var</span> calorieArr[<span class="number">6</span>] = <span class="number">4800</span>;</span><br><span class="line"></span><br><span class="line">calorieArr = [<span class="number">3500</span>, <span class="number">5000</span>, <span class="number">2700</span>, <span class="number">3200</span>, <span class="number">2200</span>, <span class="number">3000</span>, <span class="number">4800</span>];</span><br></pre></td></tr></table></figure>
-
-<h3 id="宣告和初始化"><a href="#宣告和初始化" class="headerlink" title="宣告和初始化"></a>宣告和初始化</h3><p>宣告的方式有幾種：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="title class_">Array</span>();</span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">7</span>); <span class="comment">// 指定長度</span></span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="string">&#x27;John&#x27;</span>, <span class="string">&#x27;Jack&#x27;</span>, <span class="string">&#x27;Leo&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = []; <span class="comment">// 最常使用的宣告方式</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;John&#x27;</span>, <span class="string">&#x27;Jack&#x27;</span>, <span class="string">&#x27;Leo&#x27;</span>];</span><br></pre></td></tr></table></figure>
-
-<h3 id="基本屬性"><a href="#基本屬性" class="headerlink" title="基本屬性"></a>基本屬性</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 陣列元素的數量</span></span><br><span class="line">arr.<span class="property">length</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 存取指定位置的元素可以使用中括號傳遞索引值    p.s.索引是從 0 開始</span></span><br><span class="line">arr[index]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 藉由迴圈遍歷陣列，輸出全部元素</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;arr.<span class="property">length</span>; i++)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(arr[i])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="元素的添加和刪除"><a href="#元素的添加和刪除" class="headerlink" title="元素的添加和刪除"></a>元素的添加和刪除</h3><p>以下我們就使用這個範例來做一些教學八</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br></pre></td></tr></table></figure>
-
-<p>添加元素：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="comment">// 先來個陽春直覺版</span></span><br><span class="line">arr[arr.<span class="property">length</span>] = <span class="number">6</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr); <span class="comment">// arr = [0, 1, 2, 3, 4, 5, 6];</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// push 屬性(加入元素位於“尾端”)</span></span><br><span class="line">arr.<span class="title function_">push</span>(<span class="number">7</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr); <span class="comment">// arr = [0, 1, 2, 3, 4, 5, 6, 7];</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// unshift 屬性(加入元素位於“首端”)</span></span><br><span class="line">arr.<span class="title function_">unshift</span>(-<span class="number">1</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr); <span class="comment">// arr = [-1, 0, 1, 2, 3, 4, 5, 6, 7];</span></span><br></pre></td></tr></table></figure>
-
-<p>刪除元素：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="comment">// pop 屬性(刪除元素位於“尾端”)</span></span><br><span class="line">arr.<span class="title function_">pop</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr); <span class="comment">// arr = [0, 1, 2, 3, 4];</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// shift 屬性(刪除元素位於“首端”)</span></span><br><span class="line">arr.<span class="title function_">shift</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr); <span class="comment">// arr = [1, 2, 3, 4];</span></span><br></pre></td></tr></table></figure>
-
-<p>在後面的章節裡，會藉由 push, pop 方法，模擬<strong>堆疊</strong>資料結構；而 shift 和 unshift 則模擬<strong>佇列</strong>資料結構。</p>
-<p>到這邊為止，介紹了從頭尾去新增及刪除元素，那我們要怎麼從中間去操作呢？<br>讓我們接下去看到 splice 屬性，這也是我覺得很便利的方法！</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="comment">// splice 屬性</span></span><br><span class="line"><span class="comment">// splice(要操作的索引值, 刪除的個數, 增加的元素(選填，可多個))</span></span><br><span class="line">arr.<span class="title function_">splice</span>(<span class="number">3</span>, <span class="number">2</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr); <span class="comment">// arr = [0, 1, 2, 5]</span></span><br><span class="line"></span><br><span class="line">arr.<span class="title function_">splice</span>(<span class="number">1</span>, <span class="number">0</span>, <span class="number">8</span>, <span class="number">8</span>); <span class="comment">// 在第三索引的地方插入兩個元素 8, 8，因為沒有要刪除所以個數寫上 0</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr); <span class="comment">// arr = [0, 8, 8, 1, 2, 5]</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="二維及多維陣列"><a href="#二維及多維陣列" class="headerlink" title="二維及多維陣列"></a>二維及多維陣列</h3><p>二維用表格來解釋會相當容易理解，下方是一個 3x3 的表格也代表著一種二維陣列</p>
-<table>
-<thead>
-<tr>
-<th align="center">A1</th>
-<th align="center">A2</th>
-<th align="center">A3</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">A4</td>
-<td align="center">A5</td>
-<td align="center">A6</td>
-</tr>
-<tr>
-<td align="center">A7</td>
-<td align="center">A8</td>
-<td align="center">A9</td>
-</tr>
-</tbody></table>
-<p>A1的索引值：arr[0][0]<br>A2: arr[0][1]<br>A3: arr[0][2]…依此類推</p>
-<p>幾維陣列的遍歷就要用幾層迴圈作。</p>
-<h3 id="陣列方法"><a href="#陣列方法" class="headerlink" title="陣列方法"></a>陣列方法</h3><table>
-<thead>
-<tr>
-<th align="center">方法</th>
-<th align="left">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">concat</td>
-<td align="left">連接多個陣列，return 結果</td>
-</tr>
-<tr>
-<td align="center">every</td>
-<td align="left">對陣列每一個元素運行函數，每一個元素都是 true，才會 return true</td>
-</tr>
-<tr>
-<td align="center">filter</td>
-<td align="left">對陣列每一個元素運行函數，集合  true 的元素 return 陣列</td>
-</tr>
-<tr>
-<td align="center">forEach</td>
-<td align="left">對陣列每一個元素運行函數</td>
-</tr>
-<tr>
-<td align="center">join</td>
-<td align="left">將所有元素串成一個字串</td>
-</tr>
-<tr>
-<td align="center">indexOf</td>
-<td align="left">return 第一個相等參數的索引值，無符合 return -1</td>
-</tr>
-<tr>
-<td align="center">lastIndexOf</td>
-<td align="left">return 最後一個相等參數的索引值，無符合 return -1</td>
-</tr>
-<tr>
-<td align="center">map</td>
-<td align="left">對陣列每一個元素運行函數，return 每次函數所呼叫的結果所組成之陣列</td>
-</tr>
-<tr>
-<td align="center">reverse</td>
-<td align="left">反轉陣列裡的元素</td>
-</tr>
-<tr>
-<td align="center">slice</td>
-<td align="left">傳入索引值，return 索引範圍內的元素新陣列</td>
-</tr>
-<tr>
-<td align="center">some</td>
-<td align="left">對陣列每一個元素運行函數，有任意 true ，return true</td>
-</tr>
-<tr>
-<td align="center">sort</td>
-<td align="left">按照 ASCII 值做排序，支援傳入指定排序函數做參數</td>
-</tr>
-<tr>
-<td align="center">toString</td>
-<td align="left">return 將陣列轉字串</td>
-</tr>
-<tr>
-<td align="center">valueOf</td>
-<td align="left">和 toString 相似，return 將陣列轉字串</td>
-</tr>
-</tbody></table>
-<h2 id="工具書"><a href="#工具書" class="headerlink" title="工具書"></a>工具書</h2><ul>
-<li>JavaScript 資料結構及演算法實作 - Loiane Groner</li>
-<li>演算法圖鑑 - 石田保輝、宮崎修一</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>data structure</tag>
-        <tag>Algorithm</tag>
-        <tag>javascript</tag>
-        <tag>Frontend</tag>
-        <tag>array</tag>
       </tags>
   </entry>
   <entry>
@@ -1178,55 +1263,6 @@
       <tags>
         <tag>Frontend</tag>
         <tag>Vue.js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ES6-解構賦值</title>
-    <url>/posts/Es6-destructuringAssignment/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>解構賦值(Destructuring Assignment)是在ES6的一個新特性，讓我們在撰寫物件、陣列時可以把在裡頭的資料解開擷取成為獨立的變數，能夠更簡短並增加閱讀性。<br>以下為他的說明：</p>
-<blockquote>
-<p>The destructuring assignment syntax is a JavaScript expression that makes it possible to extract data from arrays or objects using a syntax that mirrors the construction of array and object literals</p>
-</blockquote>
-<span id="more"></span>
-
-<p>上面所說的就是解構賦值的用法如同<strong>鏡子</strong>(mirror)般，對應陣列or物件的結構，將資料從右邊往左邊送，只不過內容的位置順序不變（鏡子會左右顛倒），也就是一種樣式對應(pattern)的方法。</p>
-<p>介紹比較常用的情況：</p>
-<ul>
-<li>從陣列解構賦值</li>
-<li>從物件解構賦值</li>
-<li>解構賦值給定預設值</li>
-<li>搭配函式的傳入參數使用</li>
-</ul>
-<h2 id="陣列"><a href="#陣列" class="headerlink" title="陣列"></a>陣列</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&#x27;hello&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> [a, b, c, , d, f] = str;</span><br><span class="line"></span><br><span class="line"><span class="comment">// a=&#x27;h&#x27;, b=&#x27;e&#x27;, c=&#x27;l&#x27;, d=&#x27;o&#x27; 留空白就會跳過</span></span><br><span class="line"><span class="comment">// f=undefined  如果左方變數多於右方，則會顯示undefined</span></span><br><span class="line"><span class="comment">// 這邊也順便帶入一個概念是分解字串</span></span><br></pre></td></tr></table></figure>
-
-<p>接下來要說的是我覺得很方便的用法“互換”，一般我們要互換兩個變數要多宣告一個第三變數才能完成，這邊我們可以直接完成。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>, b = <span class="number">2</span>;</span><br><span class="line">[b, a] = [a, b];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 此時的 a=2, b=1</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="物件"><a href="#物件" class="headerlink" title="物件"></a>物件</h2><p>這邊的概念和陣列一樣，不過陣列是利用順序的索引值對照，而物件是用屬性名稱來對應(所以沒有順序性)。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> family = &#123; <span class="attr">me</span>: <span class="string">&#x27;colin&#x27;</span>, <span class="attr">sis</span>: <span class="string">&#x27;candy&#x27;</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 一般寫法</span></span><br><span class="line"><span class="keyword">let</span> me = family.<span class="property">me</span>;</span><br><span class="line"><span class="keyword">let</span> sis = family.<span class="property">sis</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//縮寫</span></span><br><span class="line"><span class="keyword">let</span> &#123;me, sis&#125; = family;</span><br><span class="line"></span><br><span class="line"><span class="comment">// me:colin, sis:candy</span></span><br></pre></td></tr></table></figure>
-
-<p>物件的解構還能重新賦予變數的名稱</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> player = &#123; <span class="attr">jordan</span>: <span class="string">&#x27;喬丹&#x27;</span>, <span class="attr">wade</span>: <span class="string">&#x27;偉德&#x27;</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> &#123; <span class="attr">jordan</span>: king &#125; = player;</span><br><span class="line"></span><br><span class="line"><span class="comment">//此時king的值為&#x27;喬丹&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="混合使用"><a href="#混合使用" class="headerlink" title="混合使用"></a>混合使用</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123; <span class="attr">jordan</span>: king, <span class="attr">family</span>: [, ...member] &#125; = &#123; <span class="attr">jordan</span>: <span class="string">&#x27;喬丹&#x27;</span>, <span class="attr">family</span>: [<span class="string">&#x27;阿姨&#x27;</span>, <span class="string">&#x27;老媽&#x27;</span>, <span class="string">&#x27;老爸&#x27;</span>] &#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(king, member); <span class="comment">// 請問答案是什麼？ Ans: king:&#x27;喬丹&#x27;, member: [&#x27;老媽&#x27;, &#x27;老爸&#x27;]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//p.s 其餘運算子用法 (...變數)：將陣列展開成個別值灑進去。</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="預設值"><a href="#預設值" class="headerlink" title="預設值"></a>預設值</h2><p>在等號左邊是可以給預設值的，避免未被賦值時造成undefined。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> [jordan = <span class="string">&#x27;喬丹&#x27;</span>, lebron = <span class="string">&#x27;雷霸龍&#x27;</span>] = [<span class="string">&#x27;阿明&#x27;</span>];</span><br><span class="line"><span class="comment">// jordan值為&#x27;阿明&#x27;</span></span><br><span class="line"><span class="comment">// lebron則為預設值&#x27;雷霸龍&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>陷阱題</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; a =<span class="string">&#x27;hello&#x27;</span> &#125; = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="keyword">const</span> [ b =<span class="string">&#x27;hello&#x27;</span> ] = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="comment">// 此時 a, b 分別為什麼呢？</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="函式"><a href="#函式" class="headerlink" title="函式"></a>函式</h2><p>在函式要傳參數時也可以使用解構，參數一樣能夠自訂變數名稱、順序、預設值等</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">func</span>(<span class="params">&#123;a = <span class="number">1</span>, b&#125;</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> a + b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">func</span>(&#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>&#125;) <span class="comment">// 3</span></span><br><span class="line"><span class="title function_">func</span>(&#123;<span class="attr">b</span>: <span class="number">2</span>&#125;) <span class="comment">// 3</span></span><br><span class="line"><span class="title function_">func</span>(&#123;<span class="attr">b</span>: <span class="number">6</span>, <span class="attr">a</span>: <span class="number">3</span>&#125;) <span class="comment">// 9</span></span><br><span class="line"><span class="title function_">func</span>(&#123;<span class="attr">a</span>: <span class="literal">null</span>, <span class="attr">b</span>: <span class="number">2</span>&#125;) <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>註：所以在函式傳入參數中作解構賦值時，給定null值時會導致預設值無用，請記住這一點。當數字運算時，null相當於0。</p>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>javascript</tag>
-        <tag>Frontend</tag>
-        <tag>ES6</tag>
       </tags>
   </entry>
 </search>
