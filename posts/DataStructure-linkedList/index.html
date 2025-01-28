@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"colinchiu87.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="前言這週要帶各位認識的資料結構是「 鏈結串列 Linked-List 」，一開始所學的陣列（串列）是一種非常簡易能讓我們存放資料序列的資料結構，而鏈結串列則是一種動態的，我們進行新增或刪減元素，就會依照需求進行擴充。陣列應該是大家最常用的資料結構，每種語言都支持它，但是卻有一個隱憂：在大多數的語言中，陣列的大小是固定的，從起點或中間插入、移除元素是非常耗成本的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="『 資料結構 』鏈結串列 Linked-List">
+<meta property="og:url" content="https://colinchiu87.github.io/posts/DataStructure-linkedList/">
+<meta property="og:site_name" content="凹逗工程師">
+<meta property="og:description" content="前言這週要帶各位認識的資料結構是「 鏈結串列 Linked-List 」，一開始所學的陣列（串列）是一種非常簡易能讓我們存放資料序列的資料結構，而鏈結串列則是一種動態的，我們進行新增或刪減元素，就會依照需求進行擴充。陣列應該是大家最常用的資料結構，每種語言都支持它，但是卻有一個隱憂：在大多數的語言中，陣列的大小是固定的，從起點或中間插入、移除元素是非常耗成本的。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://miro.medium.com/max/970/1*ZsQoOXgnSpaEDlUEVOoKgA.png">
+<meta property="og:image" content="https://www.suloves.com/ckfinder/userfiles/images/depositphotos_10772916-stock-photo-treasure-map.jpg">
+<meta property="og:image" content="https://taiwan.sharelife.tw/tw-news-img/50859/e277220720385717.jpg">
+<meta property="og:image" content="https://colinchiu87.github.io/posts/DataStructure-linkedList/linkedlist4.jpg">
+<meta property="og:image" content="https://colinchiu87.github.io/posts/DataStructure-linkedList/linkedlist5.jpg">
+<meta property="og:image" content="https://colinchiu87.github.io/posts/DataStructure-linkedList/linkedlist6.jpg">
+<meta property="og:image" content="https://colinchiu87.github.io/posts/DataStructure-linkedList/linkedlist7.jpg">
+<meta property="og:image" content="https://colinchiu87.github.io/posts/DataStructure-linkedList/linkedlist.jpg">
+<meta property="og:image" content="https://colinchiu87.github.io/posts/DataStructure-linkedList/linkedlist2.jpg">
+<meta property="og:image" content="https://colinchiu87.github.io/posts/DataStructure-linkedList/linkedlist3.jpg">
+<meta property="og:image" content="https://colinchiu87.github.io/posts/DataStructure-linkedList/linkedlist8.png">
+<meta property="og:image" content="https://colinchiu87.github.io/posts/DataStructure-linkedList/linkedlist9.jpg">
+<meta property="article:published_time" content="2022-11-21T07:36:21.000Z">
+<meta property="article:modified_time" content="2024-05-26T02:58:06.661Z">
+<meta property="article:author" content="Kuan Ru">
+<meta property="article:tag" content="data structure">
+<meta property="article:tag" content="javascript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://miro.medium.com/max/970/1*ZsQoOXgnSpaEDlUEVOoKgA.png">
+
+<link rel="canonical" href="https://colinchiu87.github.io/posts/DataStructure-linkedList/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>『 資料結構 』鏈結串列 Linked-List | 凹逗工程師</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="凹逗工程師" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">凹逗工程師</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">成為一個更好的人</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL0NvbGluQ2hpdTg3" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://colinchiu87.github.io/posts/DataStructure-linkedList/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="Kuan Ru">
+      <meta itemprop="description" content="I don't care if you suck at writing. I don't care if nobody reads your blog. I don't care if you have nothing interesting to say.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="凹逗工程師">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          『 資料結構 』鏈結串列 Linked-List
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2022-11-21 15:36:21" itemprop="dateCreated datePublished" datetime="2022-11-21T15:36:21+08:00">2022-11-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2024-05-26 10:58:06" itemprop="dateModified" datetime="2024-05-26T10:58:06+08:00">2024-05-26</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>這週要帶各位認識的資料結構是「 鏈結串列 Linked-List 」，一開始所學的陣列（串列）是一種非常簡易能讓我們存放資料序列的資料結構，而鏈結串列則是一種動態的，我們進行新增或刪減元素，就會依照需求進行擴充。陣列應該是大家最常用的資料結構，每種語言都支持它，但是卻有一個隱憂：在大多數的語言中，<strong>陣列的大小是固定的</strong>，從起點或中間插入、移除元素是非常耗成本的。</p>
+<span id="more"></span>
+
+<h2 id="鏈結串列-Linked-List"><a href="#鏈結串列-Linked-List" class="headerlink" title="鏈結串列(Linked-List)"></a>鏈結串列(Linked-List)</h2><p>鏈結串列存放著有序的資料，但與陣列不同的是，其中的元素在記憶體中並不是連續放置的，每個元素是由一個節點和一個指向下一個元素的鏈結組成。</p>
+<p><a target="_blank" rel="noopener" href="https://miro.medium.com/max/970/1*ZsQoOXgnSpaEDlUEVOoKgA.png"><img src="https://miro.medium.com/max/970/1*ZsQoOXgnSpaEDlUEVOoKgA.png" alt="鏈結串列"></a></p>
+<h3 id="優劣之處"><a href="#優劣之處" class="headerlink" title="優劣之處"></a>優劣之處</h3><p>優點顯而易見，在我們新增元素或刪除時並不需要去移動其他的元素，只需要注意將鏈結重新調整就好。<br>上帝開了一扇窗給你，就會關你一扇門。<br>你還記得陣列可以隨意存取任何位置的任何元素嗎？而鏈結串列只能從起點也就是 head 開始迭代下去。如果你在考慮要使用陣列還是鏈結串列時，不妨可以針對你的需求來做出較佳的選擇。</p>
+<h3 id="現實中的實例"><a href="#現實中的實例" class="headerlink" title="現實中的實例"></a>現實中的實例</h3><ul>
+<li>尋寶遊戲<br>依照線索一道一道往下解謎。<br><a target="_blank" rel="noopener" href="https://www.suloves.com/ckfinder/userfiles/images/depositphotos_10772916-stock-photo-treasure-map.jpg"><img src="https://www.suloves.com/ckfinder/userfiles/images/depositphotos_10772916-stock-photo-treasure-map.jpg" alt="尋寶"></a></li>
+<li>火車<br>由一節一節的車廂連結而成，很容易將其分開。<br><a target="_blank" rel="noopener" href="https://taiwan.sharelife.tw/tw-news-img/50859/e277220720385717.jpg"><img src="https://taiwan.sharelife.tw/tw-news-img/50859/e277220720385717.jpg" alt="火車"></a></li>
+</ul>
+<h3 id="建立鏈結串列"><a href="#建立鏈結串列" class="headerlink" title="建立鏈結串列"></a>建立鏈結串列</h3><p>瞭解 Linked-List 後，我們就要用程式來實作啦。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">LinkedList</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">let</span> <span class="title class_">Node</span> = <span class="keyword">function</span>(<span class="params">element</span>)&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">element</span> = element;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">next</span> = <span class="literal">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> length = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> head = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 向串列尾部添加一個新元素</span></span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">append</span> = <span class="keyword">function</span>(<span class="params">element</span>)&#123;</span><br><span class="line">    <span class="keyword">let</span> node = <span class="keyword">new</span> <span class="title class_">Node</span>(element),</span><br><span class="line">        current;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(head === <span class="literal">null</span>)&#123;</span><br><span class="line">      head = node;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      current = head;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 串列迴圈，直到找到最後一個</span></span><br><span class="line">      <span class="keyword">while</span>(current.<span class="property">next</span>)&#123;</span><br><span class="line">        current = current.<span class="property">next</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 找到最後一項，將其 next 指向 node ，建立鏈結</span></span><br><span class="line">      current.<span class="property">next</span> = node;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    length++; <span class="comment">// 更新串列長度</span></span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 向串列的特定位置插入一個新元素</span></span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">insert</span> = <span class="keyword">function</span>(<span class="params">position, element</span>)&#123;</span><br><span class="line">    <span class="comment">// 檢查越界值</span></span><br><span class="line">    <span class="keyword">if</span>(position &gt;= <span class="number">0</span> &amp;&amp; position &lt;= length)&#123;</span><br><span class="line">      <span class="keyword">let</span> node = <span class="keyword">new</span> <span class="title class_">Node</span>(element),</span><br><span class="line">          previous,</span><br><span class="line">          index = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span>(position === <span class="number">0</span>)&#123;</span><br><span class="line">        node.<span class="property">next</span> = current;</span><br><span class="line">        head = node;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">while</span>(index++ &lt; position)&#123;</span><br><span class="line">          previous = current;</span><br><span class="line">          current = current.<span class="property">next</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        node.<span class="property">next</span> = current;</span><br><span class="line">        previous = node;</span><br><span class="line">      &#125;</span><br><span class="line">      length++;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 從特定位置移除一項</span></span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">removeAt</span> = <span class="keyword">function</span>(<span class="params">position</span>)&#123;</span><br><span class="line">    <span class="comment">// 檢查越界值</span></span><br><span class="line">    <span class="keyword">if</span>(position &gt; -<span class="number">1</span> &amp;&amp; position &lt; length)&#123;</span><br><span class="line">      <span class="keyword">let</span> current = head,</span><br><span class="line">          previous,</span><br><span class="line">          index = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 移除第一項</span></span><br><span class="line">      <span class="keyword">if</span>(position === <span class="number">0</span>)&#123;</span><br><span class="line">        head = current.<span class="property">next</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">while</span>(index++ &lt; position)&#123;</span><br><span class="line">          previous = current;</span><br><span class="line">          current = current.<span class="property">next</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 將 previous 與 current 的下一項鏈結起來：跳過 current ，進而移除它 previous.next = current.next;</span></span><br><span class="line">      &#125;</span><br><span class="line">      length--;</span><br><span class="line">      <span class="keyword">return</span> current.<span class="property">element</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 從串列中移除一項</span></span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">remove</span> = <span class="keyword">function</span>(<span class="params">element</span>)&#123;</span><br><span class="line">    <span class="keyword">let</span> index = <span class="variable language_">this</span>.<span class="title function_">indexOf</span>(element);</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="title function_">removeAt</span>(index);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 返回元素在串列中的索引。如果串列中沒有該元素則返回 -1</span></span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">indexOf</span> = <span class="keyword">function</span>(<span class="params">element</span>)&#123;</span><br><span class="line">    <span class="keyword">let</span> current = head,</span><br><span class="line">        index = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(current)&#123;</span><br><span class="line">      <span class="keyword">if</span>(element === current.<span class="property">element</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> index;</span><br><span class="line">      &#125;</span><br><span class="line">      index++;</span><br><span class="line">      current = current.<span class="property">next</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 鏈結串列中不含任何元素，返回 true。</span></span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">isEmpty</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> length === <span class="number">0</span>;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 返回鏈結串列包含的元素個數。</span></span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">size</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> length;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 由於使用了 Node 類別，就需要覆寫繼承自 Js 物件預設的方法，讓其只輸出元素的值</span></span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">toString</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">let</span> current = head,</span><br><span class="line">        string = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="keyword">while</span>(current)&#123;</span><br><span class="line">      string += current.<span class="property">element</span>;</span><br><span class="line">      current = current.<span class="property">next</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> string;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">print</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Linked-List 還需要一個 Node 類別來輔助，表示要加入串列的項目。它包含一個值 (element) ，和 指向串列中下一個節點的指位器 next 屬性。另一個重點是，我們還要一個用來存放第一個節點的引用(head)。</p>
+<h3 id="方法詳述"><a href="#方法詳述" class="headerlink" title="方法詳述"></a>方法詳述</h3><p>相關的程式碼都在上方，這邊就不再多打一次了，我們直接說明邏輯的部份！</p>
+<h4 id="添加：在鏈結串列尾部追加元素"><a href="#添加：在鏈結串列尾部追加元素" class="headerlink" title="添加：在鏈結串列尾部追加元素"></a>添加：在鏈結串列尾部追加元素</h4><p>append(element)，這邊有兩種情況，一是串列為空；二是不為空。</p>
+<ul>
+<li>向空串列添加一個元素</li>
+</ul>
+<img src="/posts/DataStructure-linkedList/linkedlist4.jpg" class="">
+
+<p>如果 head 的值為 null，就意味著在向串列添加第一個元素，所以要做的是將 head 指向 node 元素。而 node.next &#x3D;&#x3D; null。</p>
+<ul>
+<li>向一個不為空的串列尾部添加元素</li>
+</ul>
+<img src="/posts/DataStructure-linkedList/linkedlist5.jpg" class="">
+
+<p>首先，要先找到最後一個元素。<br>⚠️ 要注意的是我們只知道第一個元素，因此需要迴圈存取串列，直到找出最後一個。<br>為此我們要一個變數是指向串列中 current 項目，當 current.next 為 null 時，就知道我們到達串列尾端了。接下來要做的就是讓當前（也就是最後一個）元素的 next 指位器指向想要添加的串列節點上。</p>
+<h4 id="移除：從鏈結串列中移除元素"><a href="#移除：從鏈結串列中移除元素" class="headerlink" title="移除：從鏈結串列中移除元素"></a>移除：從鏈結串列中移除元素</h4><p>removeAt(position)，該方法要得到移除元素的位置，就需要先驗證這個位置是有效的。從 0 到串列長度都是有效位置。如果不是有效，就 return null（意即沒從串列移除元素）。</p>
+<p>兩種情況：一是移除第一個元素；二是移除第一個以外的任意元素。</p>
+<ul>
+<li>從串列中移除第一個元素</li>
+</ul>
+<img src="/posts/DataStructure-linkedList/linkedlist6.jpg" class="">
+
+<p>要做的是讓 head 指向串列第二個元素。我們將用 current 變數建立一個對串列中第一個元素引用。將 head 賦為 current.next，就完成了。</p>
+<ul>
+<li>從串列中移除中間元素</li>
+</ul>
+<p>需要依靠一個細節迭代串列，直到到達目標位置（使用一個用於內部控制和遞增的 index 變數）：current 變數總是為對串列迴圈的當前元素的引用；他被命名為 previous。</p>
+<p>因此，要從串列中移除當前元素，要做的就是將 previous.next 和 current.next 鏈結起來。這樣當前元素就會被丟棄在電腦記憶體中，等著被垃圾回收桶清除。</p>
+<ul>
+<li>從串列中移除最後一個元素</li>
+</ul>
+<img src="/posts/DataStructure-linkedList/linkedlist7.jpg" class="">
+
+<p>當我們跳出迴圈，current 是對串列中最後一個元素（要移除的項目），current.next 為 null（因為他是最後一元素）。由於還保留著 previous 元素引用，要做的就是把 previous.next 的值改成 current.next。</p>
+<h4 id="插入：在串列任意位置插入一個元素"><a href="#插入：在串列任意位置插入一個元素" class="headerlink" title="插入：在串列任意位置插入一個元素"></a>插入：在串列任意位置插入一個元素</h4><p>insert(position, element)，由於要處理到位置，就必須在一開始檢查臨界值，如果越界了就 return false，表示沒有完成添加。</p>
+<ul>
+<li>在串列起點添加一個元素</li>
+</ul>
+<img src="/posts/DataStructure-linkedList/linkedlist.jpg" class="">
+
+<p>current 是對串列第一個數的引用。我們要做的是把 node.next 的值設成 current。現在 head 和 node.next 都指向 current。接著就是將 head 改成 node，這樣串列就多一個元素了。</p>
+<ul>
+<li>在串列尾部添加元素</li>
+</ul>
+<p>首先，需要用迴圈存取串列，找到目標的 position。當跳出迴圈時，就是 current 到達我們想要插入新元素位置的後一個元素，而 previuos 是對想要插入新元素的位置之前一個元素的引用。在這情況下，我們要在 current, previous 之間添加，因此，首先要把新項目(node)和當前項目鏈結起來，然後再改變 previous 和 current 之間的鏈結，我們還要將 previous.next 指向 node。</p>
+<img src="/posts/DataStructure-linkedList/linkedlist2.jpg" class="">
+
+<p>如果我們試圖向最後一位添加新項目，previous 將會是串列最後一個，而 current 將會是 null。在這情況，node.next 將指向 current，而 previous.next 指向 node。</p>
+<ul>
+<li>在串列中間添加元素</li>
+</ul>
+<img src="/posts/DataStructure-linkedList/linkedlist3.jpg" class="">
+
+<p>試著將 node 插入到 prev, curr 之間。首先，我們要把 node.next 指向 curr。然後把 prev.next 的值設為 node，這樣就完成囉。</p>
+<h2 id="雙向鏈結串列-Double-Linked-List"><a href="#雙向鏈結串列-Double-Linked-List" class="headerlink" title="雙向鏈結串列 (Double Linked List)"></a>雙向鏈結串列 (Double Linked List)</h2><img src="/posts/DataStructure-linkedList/linkedlist8.png" class="">
+
+<p>相較原型，雙向鏈結的串列 node 多了一個 prev，而 list 也多了一個 tail。<br>我們可想而知，多了向前的鏈結，讓我們可以解開單向迭代的枷鎖，不只可以從頭到尾，也可以反過來。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">DoublyLinkedList</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">let</span> <span class="title class_">Node</span> = <span class="keyword">function</span>(<span class="params">element</span>)&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">element</span> = element;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">next</span> = <span class="literal">null</span>;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">prev</span> = <span class="literal">null</span>; <span class="comment">// 雙向串列才有</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> length = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> head = <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">let</span> tail = <span class="literal">null</span>; <span class="comment">// 雙向串列才有</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// methods</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="在任意位置添加新元素"><a href="#在任意位置添加新元素" class="headerlink" title="在任意位置添加新元素"></a>在任意位置添加新元素</h3><p>和單向的鏈結串列的區別在於，雙向鏈結串列需要同時控制 next, prev 兩個指位器。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">insert</span> = <span class="keyword">function</span>(<span class="params">element, position</span>) &#123;</span><br><span class="line">  <span class="comment">// 檢查是否越界</span></span><br><span class="line">  <span class="keyword">if</span> (position &gt;= <span class="number">0</span> &amp;&amp; position &lt;= length) &#123;</span><br><span class="line">    <span class="keyword">let</span> node = <span class="keyword">new</span> <span class="title class_">Node</span>(element),</span><br><span class="line">        current = head,</span><br><span class="line">        previous,</span><br><span class="line">        index = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 項目添加在第一個位置</span></span><br><span class="line">    <span class="keyword">if</span> (position === <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="comment">// 空串列</span></span><br><span class="line">      <span class="keyword">if</span> (!head) &#123; <span class="comment">// new</span></span><br><span class="line">        head = node;</span><br><span class="line">        tail = node;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        node.<span class="property">next</span> = current;</span><br><span class="line">        current.<span class="property">prev</span> = node; <span class="comment">// new</span></span><br><span class="line">        head = node;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (position === length)&#123; <span class="comment">// 添加在最後一項 // new</span></span><br><span class="line">      current = tail;</span><br><span class="line">      current.<span class="property">next</span> = node;</span><br><span class="line">      node.<span class="property">prev</span> = current;</span><br><span class="line">      tail = node;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">while</span> (index++ &lt; position) &#123;</span><br><span class="line">        previous = current;</span><br><span class="line">        current = current.<span class="property">next</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      node.<span class="property">next</span> = current;</span><br><span class="line">      previous.<span class="property">next</span> = node;</span><br><span class="line"></span><br><span class="line">      current.<span class="property">prev</span> = node; <span class="comment">// new</span></span><br><span class="line">      node.<span class="property">prev</span> = previous; <span class="comment">// new</span></span><br><span class="line">    &#125;</span><br><span class="line">    length++;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="環狀鏈結串列"><a href="#環狀鏈結串列" class="headerlink" title="環狀鏈結串列"></a>環狀鏈結串列</h2><p>環狀鏈結串列可以單向也可以雙向。和鏈結串列不同的是，最後尾端指向的不是 null，而是第一個元素 (head)。</p>
+<img src="/posts/DataStructure-linkedList/linkedlist9.jpg" class="">
+
+<h2 id="結"><a href="#結" class="headerlink" title="結"></a>結</h2><p>我們今天學到了鏈結串列這個結構，和陣列相比最重要的優點就是無需移動鏈結串列中的元素，就能輕輕鬆鬆添加或移除元素。<br>當你需要添加和移除很多元素時，最好的選擇非鏈結串列(Linked-List)莫屬！</p>
+
+    </div>
+
+    
+    
+    
+        
+
+  <div class="followme">
+    <p>歡迎關注我的其它發布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/data-structure/" rel="tag"># data structure</a>
+              <a href="/tags/javascript/" rel="tag"># javascript</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/DataStructure-queue/" rel="prev" title="『 資料結構 』佇列 Queue">
+      <i class="fa fa-chevron-left"></i> 『 資料結構 』佇列 Queue
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/DataStructure-set/" rel="next" title="『 資料結構 』集合 Set">
+      『 資料結構 』集合 Set <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97-Linked-List"><span class="nav-number">2.</span> <span class="nav-text">鏈結串列(Linked-List)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%84%AA%E5%8A%A3%E4%B9%8B%E8%99%95"><span class="nav-number">2.1.</span> <span class="nav-text">優劣之處</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8F%BE%E5%AF%A6%E4%B8%AD%E7%9A%84%E5%AF%A6%E4%BE%8B"><span class="nav-number">2.2.</span> <span class="nav-text">現實中的實例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97"><span class="nav-number">2.3.</span> <span class="nav-text">建立鏈結串列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E8%A9%B3%E8%BF%B0"><span class="nav-number">2.4.</span> <span class="nav-text">方法詳述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%EF%BC%9A%E5%9C%A8%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97%E5%B0%BE%E9%83%A8%E8%BF%BD%E5%8A%A0%E5%85%83%E7%B4%A0"><span class="nav-number">2.4.1.</span> <span class="nav-text">添加：在鏈結串列尾部追加元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A7%BB%E9%99%A4%EF%BC%9A%E5%BE%9E%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97%E4%B8%AD%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0"><span class="nav-number">2.4.2.</span> <span class="nav-text">移除：從鏈結串列中移除元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%EF%BC%9A%E5%9C%A8%E4%B8%B2%E5%88%97%E4%BB%BB%E6%84%8F%E4%BD%8D%E7%BD%AE%E6%8F%92%E5%85%A5%E4%B8%80%E5%80%8B%E5%85%83%E7%B4%A0"><span class="nav-number">2.4.3.</span> <span class="nav-text">插入：在串列任意位置插入一個元素</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%99%E5%90%91%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97-Double-Linked-List"><span class="nav-number">3.</span> <span class="nav-text">雙向鏈結串列 (Double Linked List)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E4%BB%BB%E6%84%8F%E4%BD%8D%E7%BD%AE%E6%B7%BB%E5%8A%A0%E6%96%B0%E5%85%83%E7%B4%A0"><span class="nav-number">3.1.</span> <span class="nav-text">在任意位置添加新元素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%92%B0%E7%8B%80%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97"><span class="nav-number">4.</span> <span class="nav-text">環狀鏈結串列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90"><span class="nav-number">5.</span> <span class="nav-text">結</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Kuan Ru"
+      src="/uploads/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Kuan Ru</p>
+  <div class="site-description" itemprop="description">I don't care if you suck at writing. I don't care if nobody reads your blog. I don't care if you have nothing interesting to say.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0NvbGluQ2hpdTg3" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ColinChiu87"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOmNvbGluY2hpdTg3QGdtYWlsLmNvbQ==" title="E-Mail → mailto:colinchiu87@gmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9pbnN0YWdyYW0uY29tL2NvbGluY2hpdTg3" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;colinchiu87"><i class="fab fa-instagram fa-fw"></i>Instagram</span>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">若要轉載文章，麻煩請保留原作者名稱及原始連結</span>
+</div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=62d7c67c53ba4a28" async="async"></script>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="訪客總數">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="總瀏覽次數">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
