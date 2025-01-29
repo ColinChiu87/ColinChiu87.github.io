@@ -745,66 +745,6 @@
       </tags>
   </entry>
   <entry>
-    <title>震驚！使用這一個方法解放你的手機容量 - iCloud 共享相簿</title>
-    <url>/posts/Iphone-sharedAlbum/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>原本想學一下現在的新聞聳動標題，但這樣怎麼 SEO 拉 🤣<br>你是不是每隔一段時間就會收到手機容量快滿的通知？<br>現在手機的容量根本就滿足不了我們小網美，就只能準備一顆硬碟或者訂閱雲端容量。<br>我在這邊正式宣布果粉有福了(<del>功能早就出了</del></p>
-<img src="/posts/Iphone-sharedAlbum/sharedAlbum12.png" class="">
-
-<span id="more"></span>
-
-<h2 id="iCloud-共享相簿"><a href="#iCloud-共享相簿" class="headerlink" title="iCloud 共享相簿"></a>iCloud 共享相簿</h2><p>如其名，一個可以跟其他人一起共同編輯的相簿。在 iCloud 上建立，可以隨時隨地上傳和查看，而且還++不會占用的你任何儲存空間++(❌iCloud❌ 手機容量)，最後還能控制誰可查看或下載。</p>
-<h3 id="如何建立-iCloud-共享相簿？"><a href="#如何建立-iCloud-共享相簿？" class="headerlink" title="如何建立 iCloud 共享相簿？"></a>如何建立 iCloud 共享相簿？</h3><ol>
-<li>確認自己的 Iphone 有沒有開啟該功能。</li>
-</ol>
-<img src="/posts/Iphone-sharedAlbum/sharedAlbum1.png" class="">
-
-<ol start="2">
-<li>建立一個共享相簿，並加入要分享的照片 or 影片。</li>
-</ol>
-<img src="/posts/Iphone-sharedAlbum/sharedAlbum2.jpg" class="">
-<img src="/posts/Iphone-sharedAlbum/sharedAlbum3.jpg" class="">
-<img src="/posts/Iphone-sharedAlbum/sharedAlbum4.jpg" class="">
-<img src="/posts/Iphone-sharedAlbum/sharedAlbum5.jpg" class="">
-<img src="/posts/Iphone-sharedAlbum/sharedAlbum6.jpg" class="">
-<img src="/posts/Iphone-sharedAlbum/sharedAlbum7.jpg" class="">
-<img src="/posts/Iphone-sharedAlbum/sharedAlbum8.jpg" class="">
-<img src="/posts/Iphone-sharedAlbum/sharedAlbum9.jpg" class="">
-
-<ol start="3">
-<li>邀請朋友、家人訂閱相簿。</li>
-</ol>
-<img src="/posts/Iphone-sharedAlbum/sharedAlbum10.jpg" class="">
-<img src="/posts/Iphone-sharedAlbum/sharedAlbum11.jpg" class="">
-
-<h3 id="有甚麼限制嗎？"><a href="#有甚麼限制嗎？" class="headerlink" title="有甚麼限制嗎？"></a>有甚麼限制嗎？</h3><p>雖然這些相簿不會計入你的 iCloud 儲存空間，但你可以共享的照片及影片、邀請都有數量的限制。</p>
-<ul>
-<li><p>單一協作人每小時上傳到所有共享相簿中的照片和影片數量上限：1000</p>
-</li>
-<li><p>單一協作人每天上傳到所有共享相簿中的照片和影片數量上限：10,000</p>
-</li>
-<li><p>持有人可分享的共享相簿數量上限：200</p>
-</li>
-<li><p>使用者可訂閱的共享相簿數量上限：200</p>
-</li>
-<li><p>每個共享相簿的訂閱者數量上限：100（每個共享相簿的訂閱者數量）</p>
-</li>
-<li><p>任一共享相簿中所有提供者的照片和影片總數上限：5000</p>
-</li>
-<li><p>共享相簿中每張照片或每部影片的評論數量上限：200（評論可以是喜歡或文字項目）</p>
-</li>
-<li><p>每則評論的字元數上限：1024</p>
-</li>
-<li><p>共享相簿持有人每天可傳送的邀請數量上限：200</p>
-</li>
-</ul>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>這樣一個分享照片的空間，已經算是非常足夠我們平民老百姓使用了，甚至還可以點讚、評論 XD<br>只是在最後提醒一下各位，盡量不要使用共享相簿當成你自己的資料備份，還是有機會會憑空消失的，當然不重要的資料就直接解放你設備的空間吧！<br>希望大家喜歡這次的分享，我們下次見 ☺</p>
-<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p>圖片皆取自 Google<br><span class="exturl" data-url="aHR0cHM6Ly9zdXBwb3J0LmFwcGxlLmNvbS96aC10dy8xMDgzMTQ=">Apple官方連結 - 共享相簿<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <tags>
-        <tag>IPhone</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>『 資料結構 』陣列 Array By JavaScript</title>
     <url>/posts/Js-array/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>這週與前端小夥伴們發起了 JavaScript 資料結構 (data structure) 讀書會，二話不說用微薄的薪資擠出了些孔方兄購入兩本工具書規劃一下學習計畫，這週從最基礎的陣列 (Array) 走起！<br>是哪兩本書我會放在最後給大家參考，也希望有想學習這方面的小夥伴每週跟著我的腳步一起成長八 ❤️</p>
@@ -935,6 +875,66 @@
       </tags>
   </entry>
   <entry>
+    <title>震驚！使用這一個方法解放你的手機容量 - iCloud 共享相簿</title>
+    <url>/posts/Iphone-sharedAlbum/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>原本想學一下現在的新聞聳動標題，但這樣怎麼 SEO 拉 🤣<br>你是不是每隔一段時間就會收到手機容量快滿的通知？<br>現在手機的容量根本就滿足不了我們小網美，就只能準備一顆硬碟或者訂閱雲端容量。<br>我在這邊正式宣布果粉有福了(<del>功能早就出了</del></p>
+<img src="/posts/Iphone-sharedAlbum/sharedAlbum12.png" class="">
+
+<span id="more"></span>
+
+<h2 id="iCloud-共享相簿"><a href="#iCloud-共享相簿" class="headerlink" title="iCloud 共享相簿"></a>iCloud 共享相簿</h2><p>如其名，一個可以跟其他人一起共同編輯的相簿。在 iCloud 上建立，可以隨時隨地上傳和查看，而且還++不會占用的你任何儲存空間++(❌iCloud❌ 手機容量)，最後還能控制誰可查看或下載。</p>
+<h3 id="如何建立-iCloud-共享相簿？"><a href="#如何建立-iCloud-共享相簿？" class="headerlink" title="如何建立 iCloud 共享相簿？"></a>如何建立 iCloud 共享相簿？</h3><ol>
+<li>確認自己的 Iphone 有沒有開啟該功能。</li>
+</ol>
+<img src="/posts/Iphone-sharedAlbum/sharedAlbum1.png" class="">
+
+<ol start="2">
+<li>建立一個共享相簿，並加入要分享的照片 or 影片。</li>
+</ol>
+<img src="/posts/Iphone-sharedAlbum/sharedAlbum2.jpg" class="">
+<img src="/posts/Iphone-sharedAlbum/sharedAlbum3.jpg" class="">
+<img src="/posts/Iphone-sharedAlbum/sharedAlbum4.jpg" class="">
+<img src="/posts/Iphone-sharedAlbum/sharedAlbum5.jpg" class="">
+<img src="/posts/Iphone-sharedAlbum/sharedAlbum6.jpg" class="">
+<img src="/posts/Iphone-sharedAlbum/sharedAlbum7.jpg" class="">
+<img src="/posts/Iphone-sharedAlbum/sharedAlbum8.jpg" class="">
+<img src="/posts/Iphone-sharedAlbum/sharedAlbum9.jpg" class="">
+
+<ol start="3">
+<li>邀請朋友、家人訂閱相簿。</li>
+</ol>
+<img src="/posts/Iphone-sharedAlbum/sharedAlbum10.jpg" class="">
+<img src="/posts/Iphone-sharedAlbum/sharedAlbum11.jpg" class="">
+
+<h3 id="有甚麼限制嗎？"><a href="#有甚麼限制嗎？" class="headerlink" title="有甚麼限制嗎？"></a>有甚麼限制嗎？</h3><p>雖然這些相簿不會計入你的 iCloud 儲存空間，但你可以共享的照片及影片、邀請都有數量的限制。</p>
+<ul>
+<li><p>單一協作人每小時上傳到所有共享相簿中的照片和影片數量上限：1000</p>
+</li>
+<li><p>單一協作人每天上傳到所有共享相簿中的照片和影片數量上限：10,000</p>
+</li>
+<li><p>持有人可分享的共享相簿數量上限：200</p>
+</li>
+<li><p>使用者可訂閱的共享相簿數量上限：200</p>
+</li>
+<li><p>每個共享相簿的訂閱者數量上限：100（每個共享相簿的訂閱者數量）</p>
+</li>
+<li><p>任一共享相簿中所有提供者的照片和影片總數上限：5000</p>
+</li>
+<li><p>共享相簿中每張照片或每部影片的評論數量上限：200（評論可以是喜歡或文字項目）</p>
+</li>
+<li><p>每則評論的字元數上限：1024</p>
+</li>
+<li><p>共享相簿持有人每天可傳送的邀請數量上限：200</p>
+</li>
+</ul>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>這樣一個分享照片的空間，已經算是非常足夠我們平民老百姓使用了，甚至還可以點讚、評論 XD<br>只是在最後提醒一下各位，盡量不要使用共享相簿當成你自己的資料備份，還是有機會會憑空消失的，當然不重要的資料就直接解放你設備的空間吧！<br>希望大家喜歡這次的分享，我們下次見 ☺</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p>圖片皆取自 Google<br><span class="exturl" data-url="aHR0cHM6Ly9zdXBwb3J0LmFwcGxlLmNvbS96aC10dy8xMDgzMTQ=">Apple官方連結 - 共享相簿<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <tags>
+        <tag>IPhone</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Day.js 將取代 Moment.js？</title>
     <url>/posts/Js-dayjs/</url>
     <content><![CDATA[<img src="/posts/Js-dayjs/dayjs-logo.png" class="">
@@ -959,22 +959,6 @@
       <tags>
         <tag>javascript</tag>
         <tag>Library</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mac 中文輸入法無法顯示選字框？</title>
-    <url>/posts/Mac-bug-inputMethod/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有一天在輸入文字的時候，感覺上好像有點怪怪的…，但是又說不出是什麼，打著打著要選字就發現怎麼只能用鍵盤的上下左右盲選字！<br>不知道是不是我自己很少重新開機。<br>趕忙爬文，還以為電腦要壽終正寢了(才用一年多…QAQ</p>
-<span id="more"></span>
-
-<h2 id="解決辦法"><a href="#解決辦法" class="headerlink" title="解決辦法"></a>解決辦法</h2><p>本人的電腦是 2021 M1 Mac Pro<br>在網路上查到解決的辦法是在終端機上輸入：</p>
-<blockquote>
-<p>killall TCIM_Extension</p>
-</blockquote>
-<p>這個指令是將注音這隻殺掉，然後系統會將殺掉的程式重新開啟，之後就不需要針對單一問題重新開機了。</p>
-]]></content>
-      <tags>
-        <tag>Mac</tag>
       </tags>
   </entry>
   <entry>
@@ -1004,6 +988,22 @@
 ]]></content>
       <tags>
         <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mac 中文輸入法無法顯示選字框？</title>
+    <url>/posts/Mac-bug-inputMethod/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有一天在輸入文字的時候，感覺上好像有點怪怪的…，但是又說不出是什麼，打著打著要選字就發現怎麼只能用鍵盤的上下左右盲選字！<br>不知道是不是我自己很少重新開機。<br>趕忙爬文，還以為電腦要壽終正寢了(才用一年多…QAQ</p>
+<span id="more"></span>
+
+<h2 id="解決辦法"><a href="#解決辦法" class="headerlink" title="解決辦法"></a>解決辦法</h2><p>本人的電腦是 2021 M1 Mac Pro<br>在網路上查到解決的辦法是在終端機上輸入：</p>
+<blockquote>
+<p>killall TCIM_Extension</p>
+</blockquote>
+<p>這個指令是將注音這隻殺掉，然後系統會將殺掉的程式重新開啟，之後就不需要針對單一問題重新開機了。</p>
+]]></content>
+      <tags>
+        <tag>Mac</tag>
       </tags>
   </entry>
   <entry>
@@ -1233,6 +1233,25 @@
       </tags>
   </entry>
   <entry>
+    <title>為什麼Vue中的data有時候會看到return，而有時候卻沒有？</title>
+    <url>/posts/Vue-data/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>當你在剛接觸 Vue 的時候是不是有想過一件事情，文件上或人家範例的 data 寫方式似乎不太一樣…🤔😣</p>
+<span id="more"></span>
+
+<h2 id="疑難排解"><a href="#疑難排解" class="headerlink" title="疑難排解"></a>疑難排解</h2><p>在簡單的vue實例中看到的data屬性如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> app = <span class="title function_">newVue</span>(&#123;</span><br><span class="line">    <span class="attr">el</span>: <span class="string">&quot;app&quot;</span>,</span><br><span class="line">    <span class="attr">data</span>:&#123;</span><br><span class="line">        <span class="attr">msg</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">methods</span>:&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>在使用組件化的項目中使用的形式是如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    <span class="title function_">data</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">return</span>&#123;</span><br><span class="line">            <span class="attr">msg</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">methods</span>:&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>而這兩邊的差異呢就在於 <strong>不使用return包覆</strong> 的資料會在全局都可見，這會造成變數污染。<br>反之 <strong>用return的資料</strong> 就只會在當前的component生效而已，不會影響到其他組件。</p>
+]]></content>
+      <tags>
+        <tag>Frontend</tag>
+        <tag>Vue.js</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Vue - 現今主流的 JS 框架之一</title>
     <url>/posts/Vue-know/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>第一次和Vue碰面是在我大四實習時，剛好遇到公司開始推行同仁使用框架開發，也讓我這個菜鳥搭上前端框架的順風車。<br>趁現在有空閒之餘來整理一下當初的筆記，也順帶複習一下 Vue.js！</p>
@@ -1250,25 +1269,6 @@
 <li>指示詞(Directive)：內建許多指示詞(v-開頭)，用來進行程式邏輯的判斷</li>
 <li>Vue路由器(Router)：利用它建構一個基本卻完整的路由庫，來操作瀏覽器上&#x2F;下一頁的流程，建立 SPA 完整單頁式應用的能力。</li>
 </ul>
-]]></content>
-      <tags>
-        <tag>Frontend</tag>
-        <tag>Vue.js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>為什麼Vue中的data有時候會看到return，而有時候卻沒有？</title>
-    <url>/posts/Vue-data/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>當你在剛接觸 Vue 的時候是不是有想過一件事情，文件上或人家範例的 data 寫方式似乎不太一樣…🤔😣</p>
-<span id="more"></span>
-
-<h2 id="疑難排解"><a href="#疑難排解" class="headerlink" title="疑難排解"></a>疑難排解</h2><p>在簡單的vue實例中看到的data屬性如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> app = <span class="title function_">newVue</span>(&#123;</span><br><span class="line">    <span class="attr">el</span>: <span class="string">&quot;app&quot;</span>,</span><br><span class="line">    <span class="attr">data</span>:&#123;</span><br><span class="line">        <span class="attr">msg</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">methods</span>:&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>在使用組件化的項目中使用的形式是如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    <span class="title function_">data</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">return</span>&#123;</span><br><span class="line">            <span class="attr">msg</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">methods</span>:&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>而這兩邊的差異呢就在於 <strong>不使用return包覆</strong> 的資料會在全局都可見，這會造成變數污染。<br>反之 <strong>用return的資料</strong> 就只會在當前的component生效而已，不會影響到其他組件。</p>
 ]]></content>
       <tags>
         <tag>Frontend</tag>
