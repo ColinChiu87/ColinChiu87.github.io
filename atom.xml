@@ -6,7 +6,7 @@
   <link href="https://colinchiu87.github.io/atom.xml" rel="self"/>
   
   <link href="https://colinchiu87.github.io/"/>
-  <updated>2024-07-13T10:03:40.102Z</updated>
+  <updated>2025-03-10T15:08:30.688Z</updated>
   <id>https://colinchiu87.github.io/</id>
   
   <author>
@@ -15,6 +15,57 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Npm vs Yarn vs Pnpm：哪個套件管理工具最適合你？</title>
+    <link href="https://colinchiu87.github.io/posts/Other-nodePackageManagers/"/>
+    <id>https://colinchiu87.github.io/posts/Other-nodePackageManagers/</id>
+    <published>2025-03-10T13:28:19.000Z</published>
+    <updated>2025-03-10T15:08:30.688Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/posts/Other-nodePackageManagers/img1.png" class=""><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>寫 JavaScript 專案，免不了要裝各種套件，這時候就會遇到三大門派：</p><ul><li>npm，元老級選手，江湖地位穩固，但過去偶爾會「手滑」刪掉 node_modules 🙃</li><li>Yarn，帶著「速度更快、更可靠」的標語橫空出世，結果後來自己也改版改到讓人眼花撩亂 🤯</li><li>pnpm，號稱「不重複裝套件」，省空間又省時間，硬是要來顛覆傳統 💾💨</li></ul><p>到底誰才是你的最佳選擇？這篇文章會帶你一探究竟，看看誰能成為你的專案好夥伴！</p><span id="more"></span><h2 id="淺談我們耳熟能詳的-NPM"><a href="#淺談我們耳熟能詳的-NPM" class="headerlink" title="淺談我們耳熟能詳的 NPM"></a>淺談我們耳熟能詳的 NPM</h2><p>NPM 全名為 Node Package Manager，是個被廣用的 JavaScript 套件管理工具。讓我們開發者能夠輕鬆地安裝、共享、管理依賴庫和應用程式。搭配著 package.json 所詳細描述各個項目的版本資訊，及相關指令。</p><h2 id="Yarn"><a href="#Yarn" class="headerlink" title="Yarn"></a>Yarn</h2><h3 id="Yarn-1-x"><a href="#Yarn-1-x" class="headerlink" title="Yarn 1.x"></a>Yarn 1.x</h3><p>是在 2016 年由 Facebook 推出，為求更好的性能及安全性。雖然與 npm 都是 package manager，但是 yarn 有的是更快的性能及增強的安全性，還有一個特點：支持單一儲存庫的工作區。不需要擔心的是它與 npm 和 bower 相容，同時也支援不同的套件庫（registry），而指令也與 npm 相同或相似。只不過聲稱速度上優勢，但 npm 所具備的缺點還是無可避免地存在…</p><h3 id="Yarn-2-x"><a href="#Yarn-2-x" class="headerlink" title="Yarn 2.x"></a>Yarn 2.x</h3><p>儘管 Yarn 可以有效解決 NPM 的問題，但仍然是基於 NPM 的框架所開發，所以有了全新的開始 Yarn 2 的出生。你可能也有聽過 Yarn Modern, Yarn Berry 這些都泛指 Yarn 2.0 後的版本，用來區別原先的 Yarn Classic v1.x。注意：舊版本至從 Yarn 2 誕生後，將不再維護！</p><h3 id="Plug’n’Play"><a href="#Plug’n’Play" class="headerlink" title="Plug’n’Play"></a>Plug’n’Play</h3><p>執行 yarn install 後，將檔案存入專案的 .yarn&#x2F;cache 中，省去 node_modules Link 的複雜 I&#x2F;O 流程，並個別壓縮形成 .zip，因此空間減少了也能一起上傳至遠端管理，達成 Zero-Installs，確保建置在不同環境中都一致，大大的使多人協作的專案舒舒服服。</p><h2 id="Pnpm"><a href="#Pnpm" class="headerlink" title="Pnpm"></a>Pnpm</h2><p>因為他優秀的時間維度及空間維度的效率，讓他在官網上自稱 Fast, disk space efficient package manager。幾個與其他前輩的不同之處：</p><ul><li>在共享依賴時使用的是符號連結（Symbolic Links）</li><li>預設全局儲存一次相同依賴</li><li>所有的專案 node_modules 中並不會真實的複製依賴，而是用指向到全局儲存</li><li>安裝速度因為使用符號連結和全局緩存所以想比前輩是快得多</li><li>嚴格的依賴樹（strict dependency tree）避免了幽靈依賴的潛在問題</li></ul><h2 id="Npm-近年來補齊的-Yarn-優勢"><a href="#Npm-近年來補齊的-Yarn-優勢" class="headerlink" title="Npm 近年來補齊的 Yarn 優勢"></a>Npm 近年來補齊的 Yarn 優勢</h2><img src="/posts/Other-nodePackageManagers/img2.png" class=""><h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>npm 現在幾乎補齊了 Yarn 1 的所有優勢，甚至在 audit（安全性）等方面表現更好。<br>如果你只需要 標準的套件管理，npm 現在已經完全夠用了！</p><p>但如果你考慮效能、磁碟使用最佳化等，那 pnpm 可能才是更值得關注的選擇！ 🚀</p>]]></content>
+    
+    
+    <summary type="html">&lt;img src=&quot;/posts/Other-nodePackageManagers/img1.png&quot; class=&quot;&quot;&gt;
+
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;寫 JavaScript 專案，免不了要裝各種套件，這時候就會遇到三大門派：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;npm，元老級選手，江湖地位穩固，但過去偶爾會「手滑」刪掉 node_modules 🙃&lt;/li&gt;
+&lt;li&gt;Yarn，帶著「速度更快、更可靠」的標語橫空出世，結果後來自己也改版改到讓人眼花撩亂 🤯&lt;/li&gt;
+&lt;li&gt;pnpm，號稱「不重複裝套件」，省空間又省時間，硬是要來顛覆傳統 💾💨&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;到底誰才是你的最佳選擇？這篇文章會帶你一探究竟，看看誰能成為你的專案好夥伴！&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Npm" scheme="https://colinchiu87.github.io/tags/Npm/"/>
+    
+    <category term="Yarn" scheme="https://colinchiu87.github.io/tags/Yarn/"/>
+    
+    <category term="Pnpm" scheme="https://colinchiu87.github.io/tags/Pnpm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Html-pictureTag</title>
+    <link href="https://colinchiu87.github.io/posts/Html-pictureTag/"/>
+    <id>https://colinchiu87.github.io/posts/Html-pictureTag/</id>
+    <published>2025-01-05T10:35:59.000Z</published>
+    <updated>2025-03-10T12:46:46.733Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Hi, 假日好各位。剛剛在閱歷其他平凡俗子的生活時(俗稱滑手機)，看到人家的 html 中使用了 picture 的 tag，還想說這個人自創標籤超酷的，搜尋之下才自知井底之蛙…，我從來就只會用 <code>&lt;img&gt;</code> 呀!</p><img src="/posts/Html-pictureTag/1.jpg" class=""><span id="more"></span><h2 id="什麼是-picture-標籤"><a href="#什麼是-picture-標籤" class="headerlink" title="什麼是 picture 標籤"></a>什麼是 picture 標籤</h2><p>就一般顯示圖片而言，不太需要分太多種情況，所以直接使用 img 標籤是最快最輕便的；而當我們需要針對螢幕尺寸、圖片格式、解析度等等的需求，則建議可以使用 picture 來做開發。</p><p>picture 本身是沒有屬性設定的，需要設定的是在其中的 <code>&lt;source&gt;</code> 裡面</p><ul><li>media: 指定 media query 條件，如不符合就執行下一個。</li><li>srcset: 指定單張或多張不同尺寸圖片。</li><li>type: 指定圖檔的格式 (webp, jpg, png…)，如不符合就執行下一個。</li></ul><p>話不多說我們進實作 ▶</p><h3 id="img-tag-demo"><a href="#img-tag-demo" class="headerlink" title="img-tag demo"></a>img-tag demo</h3><iframe src="https://codepen.io/colinchiu87/embed/GgKPzoJ?default-tab=html,result" width="100%" height="300" frameborder="0" loading="lazy" allowfullscreen></iframe><h3 id="picture-tag-demo"><a href="#picture-tag-demo" class="headerlink" title="picture-tag demo"></a>picture-tag demo</h3><p>這邊的範例是依照畫面寬度去調整顯示的圖片，從 400px 的小火龍 -&gt; 800px 的火恐龍 -&gt; 1200px 的噴火龍。(你可以切換 Result 下方的 1x 0.5x 0.25x 來看變化)<br>最後在添加一個預備 <code>&lt;img&gt;</code>，當瀏覽器不支援 <code>&lt;picture&gt;</code> 或沒有匹配到 source 條件時會顯示，而寫在 img 中的樣式都會套用到所有圖片中。</p><iframe src="https://codepen.io/colinchiu87/embed/emObaWK?default-tab=html,result" width="100%" height="300" frameborder="0" loading="lazy" allowfullscreen></iframe><h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><ul><li>優先使用 <code>&lt;img&gt;</code>，除非有響應式或多格式需求。</li><li>如果需要針對不同設備、解析度或瀏覽器條件進行圖片優化，使用 <code>&lt;picture&gt;</code> 是最佳選擇。</li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;Hi, 假日好各位。剛剛在閱歷其他平凡俗子的生活時(俗稱滑手機)，看到人家的 html 中使用了 picture 的 tag，還想說這個人自創標籤超酷的，搜尋之下才自知井底之蛙…，我從來就只會用 &lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt; 呀!&lt;/p&gt;
+&lt;img src=&quot;/posts/Html-pictureTag/1.jpg&quot; class=&quot;&quot;&gt;</summary>
+    
+    
+    
+    
+    <category term="html" scheme="https://colinchiu87.github.io/tags/html/"/>
+    
+  </entry>
   
   <entry>
     <title>『Git』怎麼寫 Commit Message 更好</title>
@@ -413,47 +464,6 @@
     <category term="Frontend" scheme="https://colinchiu87.github.io/tags/Frontend/"/>
     
     <category term="array" scheme="https://colinchiu87.github.io/tags/array/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>一失足掉進的坑 Hexo Config</title>
-    <link href="https://colinchiu87.github.io/posts/Hexo-config-permalink/"/>
-    <id>https://colinchiu87.github.io/posts/Hexo-config-permalink/</id>
-    <published>2022-09-17T09:23:24.000Z</published>
-    <updated>2022-10-17T09:24:51.917Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有在使用 Hexo Blog 的朋友一定知道他有很多設定可以玩！除了一般的標題、簡介、相關連結外，還有分頁、閱讀進度、總閱覽人數…等等一大堆。<br>今日心血來潮想要把部落格的 config 設定弄的更完整一些，沒有想到居然在之中受困數個小時…，真的覺得自己好笑又好氣😓</p><span id="more"></span><h2 id="permalink-永久連結"><a href="#permalink-永久連結" class="headerlink" title="permalink 永久連結"></a>permalink 永久連結</h2><p>這是設定關於網站文章的連結（ URL ），就是點進你的文章後上面所顯使的連結樣式</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span>       <span class="comment"># 預設 Ex: 2013/07/14/hello-world/</span></span><br></pre></td></tr></table></figure><p>Hexo 文件有告訴大家說可以使用變數(文章尾端附圖)以及 Front-matter 做變化。看到這裡根本不知道不行自訂對吧！對吧！對吧…?<br>所以我就自作主張改成了以下這樣：</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:title/</span>       <span class="comment"># Ex: posts/hello-world/</span></span><br></pre></td></tr></table></figure><p>原本想說網址太長多少會影響 SEO 的表現，所以我不想要時間在前面佔空間，還有這樣 public 資料夾的文章會被收在 posts 的資料夾裡不會散落一地，看起來才會讓我蘇湖🤤。<br>接下來 Deploy 出去就發現文章都連不進去啦啦啦😱，在改這個設定的時候，我已經有幾篇文章了，以為是動到了已發布文章的路徑才造成如此，便開始我的 Debug 之路，翻啊找啊爬啊根本沒有搜尋到什麼相關的東西，回頭重新讀了一下文件，才領悟到無法自訂呀～只能透過 permalink_defaults 改寫你想要的東西。於是我就將我的 category 預設為 posts 然後改寫。</p><img src="/posts/Hexo-config-permalink/permalinks1.png" class=""><img src="/posts/Hexo-config-permalink/permalinks2.png" class=""><h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>不要自作聰明… 😂</p><img src="/posts/Hexo-config-permalink/Permalinks.png" class="" title="[Permalink可用變數]">]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;有在使用 Hexo Blog 的朋友一定知道他有很多設定可以玩！除了一般的標題、簡介、相關連結外，還有分頁、閱讀進度、總閱覽人數…等等一大堆。&lt;br&gt;今日心血來潮想要把部落格的 config 設定弄的更完整一些，沒有想到居然在之中受困數個小時…，真的覺得自己好笑又好氣😓&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Hexo" scheme="https://colinchiu87.github.io/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>讓爬蟲程式照著規則來 robots.txt</title>
-    <link href="https://colinchiu87.github.io/posts/Seo-robotsTxt/"/>
-    <id>https://colinchiu87.github.io/posts/Seo-robotsTxt/</id>
-    <published>2022-07-21T07:14:53.000Z</published>
-    <updated>2022-11-17T13:01:40.666Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>如果有了解過 SEO ，那你可能有聽說過『 robots.txt 』這個名字。<br>主要用來避免網站要求太多，導致超載(<del>要求太多會人家討厭的</del><br>而簡單來說，他就是來讓爬蟲程式聽話的一個檔案，像是該爬這裡、不該走這裡，<br>但是但是但是…有機率會不聽話失效🤫。</p><p><img src="https://webris.org/wp-content/uploads/2017/12/robots_txt_file_explained.gif" alt="robots.txt示意圖"></p><span id="more"></span><h2 id="建議使用的理由"><a href="#建議使用的理由" class="headerlink" title="建議使用的理由"></a>建議使用的理由</h2><p>robots.txt 檔案主用途在於管理爬蟲對自己網站的流量，<strong>直接了當的與爬蟲溝通</strong>；“正常情況下”可以讓搜尋引擎的結果不顯示特定檔案。<br>以下幾種情況是建議使用的：</p><ul><li>網站還有未完成或需要測試時。</li><li>有網頁內容重複性太高時。</li><li>網站內有一些相對不重要的資訊，浪費資源。</li><li>擁有機密檔案。</li></ul><h2 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h2><ul><li><p>他網有連結到設置封鎖的網頁，索引還是會被建立。<br>只是要自己的網頁不要出現在搜尋引擎上就請不要用這個方法，就算你使用 robots.txt 來限制，只要有別的網頁有說明文字指向你，那麼即使爬蟲未造訪這裡，也會被建立成索引。以下提供其他的方法給大家：密碼保護、noindex。</p></li><li><p>不是所有的搜尋引擎都會支援。<br>不同的檢索器會自行決定要不要遵守，所以並不是強制性的。（Googlebot是好寶寶他會）</p></li><li><p>不同檢索器語法的使用不一定相同。<br>我們平時熟知的大宗搜尋引擎都聽得懂，但就是有人會理解成不同的意思，這時候我們就必須應材施教了。</p></li></ul><h2 id="實作"><a href="#實作" class="headerlink" title="實作"></a>實作</h2><h3 id="基本規則"><a href="#基本規則" class="headerlink" title="基本規則"></a>基本規則</h3><p>一開始先介紹一些基本的規範、格式～</p><ul><li>一個網站只能存在一個 robots.txt 檔案。</li><li>檔名只能是 robots.txt ，不能當手遊的名字一樣亂取…PikaChiu（喂🤭</li><li>檔案要放在根目錄。</li></ul><h3 id="建立檔案並新增規則"><a href="#建立檔案並新增規則" class="headerlink" title="建立檔案並新增規則"></a>建立檔案並新增規則</h3><p>第一步先用編輯器建立一個名叫 robots.txt 的文字檔，這邊要<strong>注意</strong>的是不要用文書處理軟體，人家說有可能會有問題。<br>再來就是重頭戲了，告訴你用三個單字搞定</p><ul><li>User_Agent: 爬蟲的名字，例如：Googlebot。</li><li>Allow: 允許人家“可以”爬的。</li><li>Disallow: “不同意”人家進來爬的。</li></ul><p>好了教完了😂😂😂</p><h3 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h3><p>用一些範例來講解，大家應該就可以很快上手。</p>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;如果有了解過 SEO ，那你可能有聽說過『 robots.txt 』這個名字。&lt;br&gt;主要用來避免網站要求太多，導致超載(&lt;del&gt;要求太多會人家討厭的&lt;/del&gt;&lt;br&gt;而簡單來說，他就是來讓爬蟲程式聽話的一個檔案，像是該爬這裡、不該走這裡，&lt;br&gt;但是但是但是…有機率會不聽話失效🤫。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://webris.org/wp-content/uploads/2017/12/robots_txt_file_explained.gif&quot; alt=&quot;robots.txt示意圖&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="SEO" scheme="https://colinchiu87.github.io/tags/SEO/"/>
-    
-    <category term="crawler" scheme="https://colinchiu87.github.io/tags/crawler/"/>
     
   </entry>
   

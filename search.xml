@@ -715,6 +715,36 @@
       </tags>
   </entry>
   <entry>
+    <title>Html-pictureTag</title>
+    <url>/posts/Html-pictureTag/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Hi, 假日好各位。剛剛在閱歷其他平凡俗子的生活時(俗稱滑手機)，看到人家的 html 中使用了 picture 的 tag，還想說這個人自創標籤超酷的，搜尋之下才自知井底之蛙…，我從來就只會用 <code>&lt;img&gt;</code> 呀!</p>
+<img src="/posts/Html-pictureTag/1.jpg" class="">
+
+<span id="more"></span>
+
+<h2 id="什麼是-picture-標籤"><a href="#什麼是-picture-標籤" class="headerlink" title="什麼是 picture 標籤"></a>什麼是 picture 標籤</h2><p>就一般顯示圖片而言，不太需要分太多種情況，所以直接使用 img 標籤是最快最輕便的；而當我們需要針對螢幕尺寸、圖片格式、解析度等等的需求，則建議可以使用 picture 來做開發。</p>
+<p>picture 本身是沒有屬性設定的，需要設定的是在其中的 <code>&lt;source&gt;</code> 裡面</p>
+<ul>
+<li>media: 指定 media query 條件，如不符合就執行下一個。</li>
+<li>srcset: 指定單張或多張不同尺寸圖片。</li>
+<li>type: 指定圖檔的格式 (webp, jpg, png…)，如不符合就執行下一個。</li>
+</ul>
+<p>話不多說我們進實作 ▶</p>
+<h3 id="img-tag-demo"><a href="#img-tag-demo" class="headerlink" title="img-tag demo"></a>img-tag demo</h3><iframe src="https://codepen.io/colinchiu87/embed/GgKPzoJ?default-tab=html,result" width="100%" height="300" frameborder="0" loading="lazy" allowfullscreen></iframe>
+
+<h3 id="picture-tag-demo"><a href="#picture-tag-demo" class="headerlink" title="picture-tag demo"></a>picture-tag demo</h3><p>這邊的範例是依照畫面寬度去調整顯示的圖片，從 400px 的小火龍 -&gt; 800px 的火恐龍 -&gt; 1200px 的噴火龍。(你可以切換 Result 下方的 1x 0.5x 0.25x 來看變化)<br>最後在添加一個預備 <code>&lt;img&gt;</code>，當瀏覽器不支援 <code>&lt;picture&gt;</code> 或沒有匹配到 source 條件時會顯示，而寫在 img 中的樣式都會套用到所有圖片中。</p>
+<iframe src="https://codepen.io/colinchiu87/embed/emObaWK?default-tab=html,result" width="100%" height="300" frameborder="0" loading="lazy" allowfullscreen></iframe>
+
+<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><ul>
+<li>優先使用 <code>&lt;img&gt;</code>，除非有響應式或多格式需求。</li>
+<li>如果需要針對不同設備、解析度或瀏覽器條件進行圖片優化，使用 <code>&lt;picture&gt;</code> 是最佳選擇。</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>震驚！使用這一個方法解放你的手機容量 - iCloud 共享相簿</title>
     <url>/posts/Iphone-sharedAlbum/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>原本想學一下現在的新聞聳動標題，但這樣怎麼 SEO 拉 🤣<br>你是不是每隔一段時間就會收到手機容量快滿的通知？<br>現在手機的容量根本就滿足不了我們小網美，就只能準備一顆硬碟或者訂閱雲端容量。<br>我在這邊正式宣布果粉有福了(<del>功能早就出了</del></p>
@@ -977,57 +1007,40 @@
       </tags>
   </entry>
   <entry>
-    <title>敏捷式開發真的這麼棒？</title>
-    <url>/posts/Other-agile/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在正式開始之前，我們先知道什麼是【瀑布式開發】，這也是一般專案團隊最常用的開發方式。</p>
-<img src="/posts/Other-agile/agile1.png" class="">
+    <title>Npm vs Yarn vs Pnpm：哪個套件管理工具最適合你？</title>
+    <url>/posts/Other-nodePackageManagers/</url>
+    <content><![CDATA[<img src="/posts/Other-nodePackageManagers/img1.png" class="">
 
-<p>如圖所示，每隔階段定義的十分清楚，要執行的項目明確。就像瀑布一樣，一路向下前行。實際在開發的時候，成員也都樂於這樣的模式，因為不會遇到模糊不清的時候(Ex 需求不知道是什麼就要進行開發… &#x3D; &#x3D;)。這在專案管理上是相對容易的，過程不會遲疑，檢視最後的成果是不是有達成目標就行。</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>寫 JavaScript 專案，免不了要裝各種套件，這時候就會遇到三大門派：</p>
+<ul>
+<li>npm，元老級選手，江湖地位穩固，但過去偶爾會「手滑」刪掉 node_modules 🙃</li>
+<li>Yarn，帶著「速度更快、更可靠」的標語橫空出世，結果後來自己也改版改到讓人眼花撩亂 🤯</li>
+<li>pnpm，號稱「不重複裝套件」，省空間又省時間，硬是要來顛覆傳統 💾💨</li>
+</ul>
+<p>到底誰才是你的最佳選擇？這篇文章會帶你一探究竟，看看誰能成為你的專案好夥伴！</p>
 <span id="more"></span>
 
-<p>但是，弊端也顯而易見。執行專案時，總是會有意外、風險、市場變化…，這些都是不可被預測的，而當專案是瀑布式開發，對於以上的變因，應對過慢，就很容易導致專案失敗！</p>
-<blockquote>
-<p>瀑布式開發，強調的是「工具」、「流程」。<br>敏捷式開發，強調的是「個人」、「互動」、「變化」。</p>
-</blockquote>
-<h2 id="敏捷式開發"><a href="#敏捷式開發" class="headerlink" title="敏捷式開發"></a>敏捷式開發</h2><h3 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h3><p><span class="exturl" data-url="aHR0cHM6Ly9hZ2lsZW1hbmlmZXN0by5vcmcvaXNvL3poY2h0L21hbmlmZXN0by5odG1s">《敏捷軟體開發宣言》<i class="fa fa-external-link-alt"></i></span> 裡頭說：</p>
+<h2 id="淺談我們耳熟能詳的-NPM"><a href="#淺談我們耳熟能詳的-NPM" class="headerlink" title="淺談我們耳熟能詳的 NPM"></a>淺談我們耳熟能詳的 NPM</h2><p>NPM 全名為 Node Package Manager，是個被廣用的 JavaScript 套件管理工具。讓我們開發者能夠輕鬆地安裝、共享、管理依賴庫和應用程式。搭配著 package.json 所詳細描述各個項目的版本資訊，及相關指令。</p>
+<h2 id="Yarn"><a href="#Yarn" class="headerlink" title="Yarn"></a>Yarn</h2><h3 id="Yarn-1-x"><a href="#Yarn-1-x" class="headerlink" title="Yarn 1.x"></a>Yarn 1.x</h3><p>是在 2016 年由 Facebook 推出，為求更好的性能及安全性。雖然與 npm 都是 package manager，但是 yarn 有的是更快的性能及增強的安全性，還有一個特點：支持單一儲存庫的工作區。不需要擔心的是它與 npm 和 bower 相容，同時也支援不同的套件庫（registry），而指令也與 npm 相同或相似。只不過聲稱速度上優勢，但 npm 所具備的缺點還是無可避免地存在…</p>
+<h3 id="Yarn-2-x"><a href="#Yarn-2-x" class="headerlink" title="Yarn 2.x"></a>Yarn 2.x</h3><p>儘管 Yarn 可以有效解決 NPM 的問題，但仍然是基於 NPM 的框架所開發，所以有了全新的開始 Yarn 2 的出生。你可能也有聽過 Yarn Modern, Yarn Berry 這些都泛指 Yarn 2.0 後的版本，用來區別原先的 Yarn Classic v1.x。注意：舊版本至從 Yarn 2 誕生後，將不再維護！</p>
+<h3 id="Plug’n’Play"><a href="#Plug’n’Play" class="headerlink" title="Plug’n’Play"></a>Plug’n’Play</h3><p>執行 yarn install 後，將檔案存入專案的 .yarn&#x2F;cache 中，省去 node_modules Link 的複雜 I&#x2F;O 流程，並個別壓縮形成 .zip，因此空間減少了也能一起上傳至遠端管理，達成 Zero-Installs，確保建置在不同環境中都一致，大大的使多人協作的專案舒舒服服。</p>
+<h2 id="Pnpm"><a href="#Pnpm" class="headerlink" title="Pnpm"></a>Pnpm</h2><p>因為他優秀的時間維度及空間維度的效率，讓他在官網上自稱 Fast, disk space efficient package manager。幾個與其他前輩的不同之處：</p>
 <ul>
-<li><strong>個人與互動</strong> 重於 流程與工具</li>
-<li><strong>可用的軟體</strong> 重於 詳盡的文件</li>
-<li><strong>與客戶合作</strong> 重於 合約協商</li>
-<li><strong>回應變化</strong> 重於 遵循計畫</li>
+<li>在共享依賴時使用的是符號連結（Symbolic Links）</li>
+<li>預設全局儲存一次相同依賴</li>
+<li>所有的專案 node_modules 中並不會真實的複製依賴，而是用指向到全局儲存</li>
+<li>安裝速度因為使用符號連結和全局緩存所以想比前輩是快得多</li>
+<li>嚴格的依賴樹（strict dependency tree）避免了幽靈依賴的潛在問題</li>
 </ul>
-<p>從中知道，敏捷式開發注重的是溝通、成果、合作與變化。</p>
-<blockquote>
-<p>「變」是唯一不變的事情</p>
-</blockquote>
-<h3 id="Scrum框架"><a href="#Scrum框架" class="headerlink" title="Scrum框架"></a>Scrum框架</h3><p>我們耳熟能詳的 Scrum 就是實現敏捷開發的其中一種方式，也是最被廣泛運用的框架。</p>
-<p>為達到相對短的開發週期，可能會抓大概 2 - 4 周，依據產品和團隊的不同，週期也會不同。而這個週期稱之為「Sprint」。</p>
-<p>每一個 Sprint 中，會有四個會議：</p>
-<ol>
-<li>規劃：決定要完成哪些項目</li>
-<li>每日站立：每日花費10-15mins 同步資訊 (昨日完成、今日預計完成、是否遇到阻礙)</li>
-<li>審查：展示成果，取得回饋、新需求</li>
-<li>回顧：回顧衝刺的過程，是否有地方要改進</li>
-</ol>
-<h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3> <img src="/posts/Other-agile/agile2.png" class="">
+<h2 id="Npm-近年來補齊的-Yarn-優勢"><a href="#Npm-近年來補齊的-Yarn-優勢" class="headerlink" title="Npm 近年來補齊的 Yarn 優勢"></a>Npm 近年來補齊的 Yarn 優勢</h2><img src="/posts/Other-nodePackageManagers/img2.png" class="">
 
-<ul>
-<li>產品負責人 (Product Owner)<br>代表客戶的意願，並確保團隊在做從業務角度來說正確的事情。編寫 User story，排出優先級，並放入 代辦清單(backlog)。他決定每一次 sprint 要完成哪些任務，讓整個團隊價值最大化。監督開發的節奏，從而保障產品的品質。</li>
-</ul>
- <img src="/posts/Other-agile/agile3.png" class="">
-
-<ul>
-<li>Scrum主管 (Scrum Master)<br>主要的工作是去除影響團隊達成 sprint 目標的障礙，是規則的執行者。</li>
-</ul>
- <img src="/posts/Other-agile/agile4.png" class="">
-
-<ul>
-<li>開發團隊 (Dev Team)<br>負責交付產品的團隊。</li>
-</ul>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>沒有一定比較好的 development，還是要依照專案需求、公司文化…來做選擇。各有各的優勢在，不過在快速變化的商業環境和技術環境中，迎接變化能力強的敏捷式開發原則，的確是可以滿足現況。<br>祝福大家都不要碰到四不像的敏捷開發😆</p>
+<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>npm 現在幾乎補齊了 Yarn 1 的所有優勢，甚至在 audit（安全性）等方面表現更好。<br>如果你只需要 標準的套件管理，npm 現在已經完全夠用了！</p>
+<p>但如果你考慮效能、磁碟使用最佳化等，那 pnpm 可能才是更值得關注的選擇！ 🚀</p>
 ]]></content>
       <tags>
-        <tag>Agile Development</tag>
+        <tag>Npm</tag>
+        <tag>Yarn</tag>
+        <tag>Pnpm</tag>
       </tags>
   </entry>
   <entry>
@@ -1105,6 +1118,60 @@
         <tag>Hexo</tag>
         <tag>SEO</tag>
         <tag>Google Search Console</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>敏捷式開發真的這麼棒？</title>
+    <url>/posts/Other-agile/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在正式開始之前，我們先知道什麼是【瀑布式開發】，這也是一般專案團隊最常用的開發方式。</p>
+<img src="/posts/Other-agile/agile1.png" class="">
+
+<p>如圖所示，每隔階段定義的十分清楚，要執行的項目明確。就像瀑布一樣，一路向下前行。實際在開發的時候，成員也都樂於這樣的模式，因為不會遇到模糊不清的時候(Ex 需求不知道是什麼就要進行開發… &#x3D; &#x3D;)。這在專案管理上是相對容易的，過程不會遲疑，檢視最後的成果是不是有達成目標就行。</p>
+<span id="more"></span>
+
+<p>但是，弊端也顯而易見。執行專案時，總是會有意外、風險、市場變化…，這些都是不可被預測的，而當專案是瀑布式開發，對於以上的變因，應對過慢，就很容易導致專案失敗！</p>
+<blockquote>
+<p>瀑布式開發，強調的是「工具」、「流程」。<br>敏捷式開發，強調的是「個人」、「互動」、「變化」。</p>
+</blockquote>
+<h2 id="敏捷式開發"><a href="#敏捷式開發" class="headerlink" title="敏捷式開發"></a>敏捷式開發</h2><h3 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h3><p><span class="exturl" data-url="aHR0cHM6Ly9hZ2lsZW1hbmlmZXN0by5vcmcvaXNvL3poY2h0L21hbmlmZXN0by5odG1s">《敏捷軟體開發宣言》<i class="fa fa-external-link-alt"></i></span> 裡頭說：</p>
+<ul>
+<li><strong>個人與互動</strong> 重於 流程與工具</li>
+<li><strong>可用的軟體</strong> 重於 詳盡的文件</li>
+<li><strong>與客戶合作</strong> 重於 合約協商</li>
+<li><strong>回應變化</strong> 重於 遵循計畫</li>
+</ul>
+<p>從中知道，敏捷式開發注重的是溝通、成果、合作與變化。</p>
+<blockquote>
+<p>「變」是唯一不變的事情</p>
+</blockquote>
+<h3 id="Scrum框架"><a href="#Scrum框架" class="headerlink" title="Scrum框架"></a>Scrum框架</h3><p>我們耳熟能詳的 Scrum 就是實現敏捷開發的其中一種方式，也是最被廣泛運用的框架。</p>
+<p>為達到相對短的開發週期，可能會抓大概 2 - 4 周，依據產品和團隊的不同，週期也會不同。而這個週期稱之為「Sprint」。</p>
+<p>每一個 Sprint 中，會有四個會議：</p>
+<ol>
+<li>規劃：決定要完成哪些項目</li>
+<li>每日站立：每日花費10-15mins 同步資訊 (昨日完成、今日預計完成、是否遇到阻礙)</li>
+<li>審查：展示成果，取得回饋、新需求</li>
+<li>回顧：回顧衝刺的過程，是否有地方要改進</li>
+</ol>
+<h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3> <img src="/posts/Other-agile/agile2.png" class="">
+
+<ul>
+<li>產品負責人 (Product Owner)<br>代表客戶的意願，並確保團隊在做從業務角度來說正確的事情。編寫 User story，排出優先級，並放入 代辦清單(backlog)。他決定每一次 sprint 要完成哪些任務，讓整個團隊價值最大化。監督開發的節奏，從而保障產品的品質。</li>
+</ul>
+ <img src="/posts/Other-agile/agile3.png" class="">
+
+<ul>
+<li>Scrum主管 (Scrum Master)<br>主要的工作是去除影響團隊達成 sprint 目標的障礙，是規則的執行者。</li>
+</ul>
+ <img src="/posts/Other-agile/agile4.png" class="">
+
+<ul>
+<li>開發團隊 (Dev Team)<br>負責交付產品的團隊。</li>
+</ul>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>沒有一定比較好的 development，還是要依照專案需求、公司文化…來做選擇。各有各的優勢在，不過在快速變化的商業環境和技術環境中，迎接變化能力強的敏捷式開發原則，的確是可以滿足現況。<br>祝福大家都不要碰到四不像的敏捷開發😆</p>
+]]></content>
+      <tags>
+        <tag>Agile Development</tag>
       </tags>
   </entry>
   <entry>
