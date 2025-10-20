@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"colinchiu87.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="前言最近在學習 Nuxt3，它是一個基於 Vue.js 的框架，提供了強大的功能來建構現代化的 Web 應用。其中最吸引我的就是它對不同渲染模式的支援，特別是伺服器端渲染（SSR）。在深入 Nuxt3 之前，我想先好好了解一下幾種常見的網頁渲染模式：SPA、SSR 和 SSG。這篇文章將會是我學習這幾個概念的筆記。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端渲染模式大比拼：SSR vs SSG vs SPA">
+<meta property="og:url" content="https://colinchiu87.github.io/posts/Ssr-know/">
+<meta property="og:site_name" content="凹逗工程師">
+<meta property="og:description" content="前言最近在學習 Nuxt3，它是一個基於 Vue.js 的框架，提供了強大的功能來建構現代化的 Web 應用。其中最吸引我的就是它對不同渲染模式的支援，特別是伺服器端渲染（SSR）。在深入 Nuxt3 之前，我想先好好了解一下幾種常見的網頁渲染模式：SPA、SSR 和 SSG。這篇文章將會是我學習這幾個概念的筆記。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://colinchiu87.github.io/posts/Ssr-know/ssr1.webp">
+<meta property="article:published_time" content="2025-10-19T13:22:34.000Z">
+<meta property="article:modified_time" content="2025-10-20T06:50:32.601Z">
+<meta property="article:author" content="Kuan Ru">
+<meta property="article:tag" content="SSR">
+<meta property="article:tag" content="SPA">
+<meta property="article:tag" content="SSG">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://colinchiu87.github.io/posts/Ssr-know/ssr1.webp">
+
+<link rel="canonical" href="https://colinchiu87.github.io/posts/Ssr-know/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>前端渲染模式大比拼：SSR vs SSG vs SPA | 凹逗工程師</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="凹逗工程師" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">凹逗工程師</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">成為一個更好的人</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL0NvbGluQ2hpdTg3" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://colinchiu87.github.io/posts/Ssr-know/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="Kuan Ru">
+      <meta itemprop="description" content="I don't care if you suck at writing. I don't care if nobody reads your blog. I don't care if you have nothing interesting to say.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="凹逗工程師">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          前端渲染模式大比拼：SSR vs SSG vs SPA
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2025-10-19 21:22:34" itemprop="dateCreated datePublished" datetime="2025-10-19T21:22:34+08:00">2025-10-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2025-10-20 14:50:32" itemprop="dateModified" datetime="2025-10-20T14:50:32+08:00">2025-10-20</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近在學習 Nuxt3，它是一個基於 Vue.js 的框架，提供了強大的功能來建構現代化的 Web 應用。其中最吸引我的就是它對不同渲染模式的支援，特別是伺服器端渲染（SSR）。在深入 Nuxt3 之前，我想先好好了解一下幾種常見的網頁渲染模式：SPA、SSR 和 SSG。這篇文章將會是我學習這幾個概念的筆記。</p>
+<img src="/posts/Ssr-know/ssr1.webp" class="">
+
+<span id="more"></span>
+
+<h2 id="網頁渲染模式簡介"><a href="#網頁渲染模式簡介" class="headerlink" title="網頁渲染模式簡介"></a>網頁渲染模式簡介</h2><p>在現代網頁開發中，我們主要有三種渲染模式：</p>
+<ol>
+<li><strong>SPA</strong> (Single-Page Application - 客戶端渲染 CSR)：單頁應用程式，內容在瀏覽器端渲染。</li>
+<li><strong>SSR</strong> (Server-Side Rendering - 伺服器端渲染)：內容在伺服器端渲染成 HTML 後再傳送到瀏覽器。</li>
+<li><strong>SSG</strong> (Static Site Generation - 靜態網站生成)：在建置時期就預先產生所有頁面的 HTML 檔案。</li>
+</ol>
+<p>這三種模式各有優缺點，適用於不同的應用場景。接下來讓我們一一探討。</p>
+<h2 id="SPA-Single-Page-Application"><a href="#SPA-Single-Page-Application" class="headerlink" title="SPA (Single-Page Application)"></a>SPA (Single-Page Application)</h2><p>SPA 是目前前端開發的主流模式之一，像我們熟悉的 Vue、React、Angular 等框架，預設都是以 SPA 模式運作。</p>
+<h3 id="SPA-運作方式"><a href="#SPA-運作方式" class="headerlink" title="SPA 運作方式"></a>SPA 運作方式</h3><ol>
+<li><strong>初始請求</strong>：瀏覽器第一次向伺服器請求頁面時，伺服器會回傳一個幾乎空白的 <code>index.html</code> 檔案，以及打包好的 JavaScript 和 CSS 檔案。</li>
+<li><strong>客戶端渲染</strong>：瀏覽器下載完 JavaScript 後，開始在客戶端執行，透過 JavaScript 動態產生頁面內容（DOM），並掛載到 <code>index.html</code> 的根節點上。</li>
+<li><strong>後續導航</strong>：當使用者點擊連結切換頁面時，並不會向伺服器重新請求整個頁面。而是透過前端路由（如 <code>vue-router</code>）來攔截請求，動態更新頁面內容，提供流暢如原生應用程式般的使用者體驗。</li>
+</ol>
+<h3 id="SPA-優點"><a href="#SPA-優點" class="headerlink" title="SPA 優點"></a>SPA 優點</h3><ul>
+<li><strong>使用者體驗佳</strong>：頁面切換快速、流暢，沒有傳統多頁應用的白畫面等待時間。</li>
+<li><strong>伺服器負擔小</strong>：伺服器只需提供靜態資源和 API，渲染工作交給客戶端，減輕了伺服器壓力。</li>
+<li><strong>前後端分離</strong>：開發模式清晰，前端專注於 UI&#x2F;UX，後端專注於 API，方便團隊協作。</li>
+</ul>
+<h3 id="SPA-缺點"><a href="#SPA-缺點" class="headerlink" title="SPA 缺點"></a>SPA 缺點</h3><ul>
+<li>**首次載入速度慢 (FCP 慢)**：需要下載完整的 JavaScript 檔案後才能渲染頁面，導致使用者看到畫面的時間（First Contentful Paint）較長。</li>
+<li><strong>SEO 不佳</strong>：搜尋引擎爬蟲可能無法正確執行 JavaScript，導致抓取到的頁面是空白的，不利於搜尋引擎排名。雖然現在 Google 爬蟲已經能更好地處理 JavaScript，但這仍然是一個潛在問題。</li>
+</ul>
+<h2 id="SSR-Server-Side-Rendering"><a href="#SSR-Server-Side-Rendering" class="headerlink" title="SSR (Server-Side Rendering)"></a>SSR (Server-Side Rendering)</h2><p>為了解決 SPA 的問題，SSR 應運而生。Nuxt3 和 Next.js 這類框架讓 SSR 的實作變得更加簡單。</p>
+<h3 id="SSR-運作方式"><a href="#SSR-運作方式" class="headerlink" title="SSR 運作方式"></a>SSR 運作方式</h3><ol>
+<li><strong>初始請求</strong>：瀏覽器向伺服器請求頁面。</li>
+<li><strong>伺服器端渲染</strong>：伺服器接收到請求後，會在後端環境（如 Node.js）執行前端框架的程式碼，將對應的頁面元件渲染成完整的 HTML 字串。</li>
+<li><strong>回傳 HTML</strong>：伺服器將渲染好的 HTML 回傳給瀏覽器。</li>
+<li>**Hydration (注水)**：瀏覽器顯示 HTML 內容後，會接著下載 JavaScript 檔案。JS 執行後會將事件監聽器、狀態等附加到現有的 DOM 上，讓頁面變成一個可互動的 SPA。這個過程稱為 “Hydration”。</li>
+</ol>
+<h3 id="SSR-優點"><a href="#SSR-優點" class="headerlink" title="SSR 優點"></a>SSR 優點</h3><ul>
+<li>**首次載入速度快 (FCP 快)**：瀏覽器直接接收到完整的 HTML，可以立即顯示內容，使用者能更快看到頁面。</li>
+<li><strong>SEO 友善</strong>：回傳給爬蟲的是完整的 HTML，有利於搜尋引擎索引。</li>
+</ul>
+<h3 id="SSR-缺點"><a href="#SSR-缺點" class="headerlink" title="SSR 缺點"></a>SSR 缺點</h3><ul>
+<li><strong>伺服器負擔大</strong>：每個請求都需要在伺服器上即時渲染，對伺服器造成較大壓力。</li>
+<li><strong>開發複雜度高</strong>：需要考慮程式碼在伺服器和客戶端兩種環境下的執行情況，例如 <code>window</code>、<code>document</code> 等瀏覽器專屬的 API 只能在客戶端使用。</li>
+</ul>
+<h2 id="SSG-Static-Site-Generation"><a href="#SSG-Static-Site-Generation" class="headerlink" title="SSG (Static Site Generation)"></a>SSG (Static Site Generation)</h2><p>SSG 結合了 SSR 和 SPA 的部分優點，它在「建置階段」就產生所有頁面的靜態 HTML 檔案。</p>
+<h3 id="SSG-運作方式"><a href="#SSG-運作方式" class="headerlink" title="SSG 運作方式"></a>SSG 運作方式</h3><ol>
+<li><strong>建置階段</strong>：在部署前，透過框架的 <code>build</code> 指令，抓取所有需要的資料，並為每個頁面產生一個對應的 HTML 檔案。</li>
+<li><strong>部署</strong>：將這些產生的靜態檔案（HTML, CSS, JS）部署到任何靜態網站託管服務上，例如 GitHub Pages, Netlify, Vercel 或 CDN。</li>
+<li><strong>使用者請求</strong>：使用者請求頁面時，伺服器直接回傳對應的靜態 HTML 檔案，無需任何後端渲染。</li>
+</ol>
+<h3 id="SSG-優點"><a href="#SSG-優點" class="headerlink" title="SSG 優點"></a>SSG 優點</h3><ul>
+<li><strong>效能極致</strong>：因為頁面是預先渲染好的，回應速度最快。</li>
+<li><strong>安全性高</strong>：沒有後端資料庫或即時渲染邏輯，減少了被攻擊的風險。</li>
+<li><strong>成本低廉</strong>：可以部署在便宜甚至免費的靜態託管服務上。</li>
+<li><strong>SEO 友善</strong>：與 SSR 一樣，提供完整的 HTML 內容。</li>
+</ul>
+<h3 id="SSG-缺點"><a href="#SSG-缺點" class="headerlink" title="SSG 缺點"></a>SSG 缺點</h3><ul>
+<li><strong>更新延遲</strong>：如果網站內容頻繁變動（例如新聞網站、論壇），每次更新都需要重新建置整個網站，可能耗時較長。</li>
+<li><strong>不適用於動態內容</strong>：不適合需要根據使用者互動即時產生內容的頁面（例如個人化儀表板）。</li>
+</ul>
+<h2 id="Nuxt3-中的渲染模式"><a href="#Nuxt3-中的渲染模式" class="headerlink" title="Nuxt3 中的渲染模式"></a>Nuxt3 中的渲染模式</h2><p>Nuxt3 提供了靈活的設定，讓你可以輕鬆在這些模式之間切換：</p>
+<ul>
+<li>**通用渲染 (Universal Rendering)**：預設模式，結合了 SSR（首次載入）和 CSR（後續導航）。</li>
+<li>**客戶端渲染 (CSR&#x2F;SPA)**：在 <code>nuxt.config.ts</code> 中設定 <code>ssr: false</code> 即可切換為 SPA 模式。</li>
+<li>**靜態網站生成 (SSG)**：執行 <code>nuxi generate</code> 指令來建置專案，Nuxt 會為你的頁面產生靜態檔案。</li>
+</ul>
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><table>
+<thead>
+<tr>
+<th align="left">特性</th>
+<th align="left">SPA (CSR)</th>
+<th align="left">SSR</th>
+<th align="left">SSG</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>渲染位置</strong></td>
+<td align="left">瀏覽器</td>
+<td align="left">伺服器 (每次請求)</td>
+<td align="left">伺服器 (建置時)</td>
+</tr>
+<tr>
+<td align="left"><strong>首次載入速度</strong></td>
+<td align="left">慢</td>
+<td align="left">快</td>
+<td align="left">最快</td>
+</tr>
+<tr>
+<td align="left"><strong>SEO</strong></td>
+<td align="left">差</td>
+<td align="left">好</td>
+<td align="left">好</td>
+</tr>
+<tr>
+<td align="left"><strong>伺服器負擔</strong></td>
+<td align="left">低</td>
+<td align="left">高</td>
+<td align="left">無 (靜態伺服器)</td>
+</tr>
+<tr>
+<td align="left"><strong>適用場景</strong></td>
+<td align="left">後台管理、Web 應用</td>
+<td align="left">新聞、電商、內容網站</td>
+<td align="left">部落格、文件、作品集</td>
+</tr>
+</tbody></table>
+
+    </div>
+
+    
+    
+    
+        
+
+  <div class="followme">
+    <p>歡迎關注我的其它發布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/SSR/" rel="tag"># SSR</a>
+              <a href="/tags/SPA/" rel="tag"># SPA</a>
+              <a href="/tags/SSG/" rel="tag"># SSG</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/Other-nodePackageManagers/" rel="prev" title="Npm vs Yarn vs Pnpm：哪個套件管理工具最適合你？">
+      <i class="fa fa-chevron-left"></i> Npm vs Yarn vs Pnpm：哪個套件管理工具最適合你？
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B6%B2%E9%A0%81%E6%B8%B2%E6%9F%93%E6%A8%A1%E5%BC%8F%E7%B0%A1%E4%BB%8B"><span class="nav-number">2.</span> <span class="nav-text">網頁渲染模式簡介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SPA-Single-Page-Application"><span class="nav-number">3.</span> <span class="nav-text">SPA (Single-Page Application)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SPA-%E9%81%8B%E4%BD%9C%E6%96%B9%E5%BC%8F"><span class="nav-number">3.1.</span> <span class="nav-text">SPA 運作方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SPA-%E5%84%AA%E9%BB%9E"><span class="nav-number">3.2.</span> <span class="nav-text">SPA 優點</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SPA-%E7%BC%BA%E9%BB%9E"><span class="nav-number">3.3.</span> <span class="nav-text">SPA 缺點</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSR-Server-Side-Rendering"><span class="nav-number">4.</span> <span class="nav-text">SSR (Server-Side Rendering)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SSR-%E9%81%8B%E4%BD%9C%E6%96%B9%E5%BC%8F"><span class="nav-number">4.1.</span> <span class="nav-text">SSR 運作方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSR-%E5%84%AA%E9%BB%9E"><span class="nav-number">4.2.</span> <span class="nav-text">SSR 優點</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSR-%E7%BC%BA%E9%BB%9E"><span class="nav-number">4.3.</span> <span class="nav-text">SSR 缺點</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSG-Static-Site-Generation"><span class="nav-number">5.</span> <span class="nav-text">SSG (Static Site Generation)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SSG-%E9%81%8B%E4%BD%9C%E6%96%B9%E5%BC%8F"><span class="nav-number">5.1.</span> <span class="nav-text">SSG 運作方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSG-%E5%84%AA%E9%BB%9E"><span class="nav-number">5.2.</span> <span class="nav-text">SSG 優點</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSG-%E7%BC%BA%E9%BB%9E"><span class="nav-number">5.3.</span> <span class="nav-text">SSG 缺點</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nuxt3-%E4%B8%AD%E7%9A%84%E6%B8%B2%E6%9F%93%E6%A8%A1%E5%BC%8F"><span class="nav-number">6.</span> <span class="nav-text">Nuxt3 中的渲染模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B8%BD%E7%B5%90"><span class="nav-number">7.</span> <span class="nav-text">總結</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Kuan Ru"
+      src="/uploads/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Kuan Ru</p>
+  <div class="site-description" itemprop="description">I don't care if you suck at writing. I don't care if nobody reads your blog. I don't care if you have nothing interesting to say.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0NvbGluQ2hpdTg3" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ColinChiu87"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOmNvbGluY2hpdTg3QGdtYWlsLmNvbQ==" title="E-Mail → mailto:colinchiu87@gmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9pbnN0YWdyYW0uY29tL2NvbGluY2hpdTg3" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;colinchiu87"><i class="fab fa-instagram fa-fw"></i>Instagram</span>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">若要轉載文章，麻煩請保留原作者名稱及原始連結</span>
+</div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=62d7c67c53ba4a28" async="async"></script>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="訪客總數">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="總瀏覽次數">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

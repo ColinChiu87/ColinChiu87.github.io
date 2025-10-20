@@ -210,49 +210,6 @@
       </tags>
   </entry>
   <entry>
-    <title>『 資料結構 』圖形 Graph</title>
-    <url>/posts/DataStructure-graph/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>大家好～ 在文章開始之前，我們先讓各位看一下名詞提要。</p>
-<ul>
-<li>頂點 Vertex or Node</li>
-<li>邊 Edge：兩個頂點間的連線</li>
-<li>無向性 Undirected：邊無方向性，表示兩點之間為雙向關係。 &#x2F; 有向性 Directed：邊有方向性，表示兩點之間為單向關係。</li>
-<li>加權 Weighted：邊加上權重，代表兩點之間的關係；點加上權重，代表狀態</li>
-</ul>
-<p>以上都是我們在圖形這個章節會時常看到的名詞，那我們正是開始囉 GoGo。</p>
-<span id="more"></span>
-
-<h2 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h2><ol>
-<li>無向圖<img src="/posts/DataStructure-graph/graph1.png" class=""></li>
-<li>有向圖<img src="/posts/DataStructure-graph/graph2.png" class=""></li>
-<li>權重圖<img src="/posts/DataStructure-graph/graph3.png" class=""></li>
-</ol>
-<h2 id="圖形遍歷-Graph-Traversal"><a href="#圖形遍歷-Graph-Traversal" class="headerlink" title="圖形遍歷 Graph Traversal"></a>圖形遍歷 Graph Traversal</h2><h3 id="廣度搜尋-Breadth-First-Search"><a href="#廣度搜尋-Breadth-First-Search" class="headerlink" title="廣度搜尋 Breadth First Search"></a>廣度搜尋 Breadth First Search</h3><p>廣度優先的搜尋順序會是先走訪相鄰節點，都走訪完了，就往下一層繼續走訪，廣度優先搜尋採用queue來實作，因為queue具有先進先出的特性，可以確保先搜尋到的節點，會優先成為下一個搜尋起點。</p>
-<img src="/posts/DataStructure-graph/graph4.png" class="">
-
-<p>程式範例：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">UnweightedGraph</span>&#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">val</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">value</span> = val;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">neighbors</span> = [];</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">visited</span> = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">addNeighbor</span>(<span class="params">n</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">neighbors</span>.<span class="title function_">push</span>(n);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> A = <span class="keyword">new</span> <span class="title class_">UnweightedGraph</span>(<span class="string">&quot;A&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> B = <span class="keyword">new</span> <span class="title class_">UnweightedGraph</span>(<span class="string">&quot;B&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> C = <span class="keyword">new</span> <span class="title class_">UnweightedGraph</span>(<span class="string">&quot;C&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> D = <span class="keyword">new</span> <span class="title class_">UnweightedGraph</span>(<span class="string">&quot;D&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> E = <span class="keyword">new</span> <span class="title class_">UnweightedGraph</span>(<span class="string">&quot;E&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> F = <span class="keyword">new</span> <span class="title class_">UnweightedGraph</span>(<span class="string">&quot;F&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> G = <span class="keyword">new</span> <span class="title class_">UnweightedGraph</span>(<span class="string">&quot;G&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> H = <span class="keyword">new</span> <span class="title class_">UnweightedGraph</span>(<span class="string">&quot;H&quot;</span>);</span><br><span class="line">A.<span class="title function_">addNeighbor</span>(B);</span><br><span class="line">A.<span class="title function_">addNeighbor</span>(C);</span><br><span class="line">A.<span class="title function_">addNeighbor</span>(D);</span><br><span class="line">B.<span class="title function_">addNeighbor</span>(E);</span><br><span class="line">B.<span class="title function_">addNeighbor</span>(F);</span><br><span class="line">D.<span class="title function_">addNeighbor</span>(G);</span><br><span class="line">D.<span class="title function_">addNeighbor</span>(H);</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">BFS</span> = (<span class="params">starter</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">let</span> queue = [],</span><br><span class="line">    result = [];</span><br><span class="line">  queue.<span class="title function_">push</span>(starter);</span><br><span class="line">  <span class="keyword">while</span> (queue.<span class="property">length</span> !== <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> firstNode = queue.<span class="title function_">shift</span>();</span><br><span class="line">      <span class="keyword">if</span> (!firstNode.<span class="property">visited</span>) &#123;</span><br><span class="line">    firstNode.<span class="property">visited</span> = <span class="literal">true</span>;</span><br><span class="line">        result.<span class="title function_">push</span>(firstNode.<span class="property">value</span>);</span><br><span class="line">        firstNode.<span class="property">neighbors</span>.<span class="title function_">forEach</span>(<span class="function">(<span class="params">element</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">if</span> (!element.<span class="property">visited</span>) &#123;</span><br><span class="line">      queue.<span class="title function_">push</span>(element);</span><br><span class="line">    &#125;</span><br><span class="line">   &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="title function_">BFS</span>(A);</span><br><span class="line"><span class="comment">//輸出結果 [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot;, &quot;G&quot;, &quot;H&quot;]</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="深度搜尋-Depth-First-Search"><a href="#深度搜尋-Depth-First-Search" class="headerlink" title="深度搜尋 Depth First Search"></a>深度搜尋 Depth First Search</h3><p>會先從一邊開始走訪，概念類似於走迷宮摸著牆走的概念，走到底了就折返，繼續往沒走過的節點探索</p>
-<img src="/posts/DataStructure-graph/graph5.png" class="">
-
-<p>程式範例：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> result = [];</span><br><span class="line"><span class="keyword">const</span> <span class="title function_">DFT</span> = (<span class="params">starter</span>) =&gt; &#123;</span><br><span class="line">    starter.<span class="property">visited</span> = <span class="literal">true</span>;</span><br><span class="line">    result.<span class="title function_">push</span>(starter.<span class="property">value</span>);</span><br><span class="line">    starter.<span class="property">neighbors</span>.<span class="title function_">forEach</span>(<span class="function">(<span class="params">element</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (!element.<span class="property">visited</span>) <span class="title function_">DFT</span>(element);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="title function_">DFT</span>(A);</span><br><span class="line"></span><br><span class="line"><span class="comment">//輸出結果 [&quot;A&quot;, &quot;B&quot;, &quot;E&quot;, &quot;F&quot;, &quot;C&quot;, &quot;D&quot;, &quot;G&quot;, &quot;H&quot;]</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="延伸"><a href="#延伸" class="headerlink" title="延伸"></a>延伸</h2><h3 id="最短距離"><a href="#最短距離" class="headerlink" title="最短距離"></a>最短距離</h3><p><span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0B5aW5pbmcxMjA0LyVFNiVCQyU5NCVFNyVBRSU5NyVFNiVCMyU5NSVFNSU5QyU5NiVFOSU5MSU5MSVFOCVBRSU4MCVFNiU5QiVCOCVFNyVBRCU4NiVFOCVBOCU5OC0lRTclQUMlQUMlRTglODIlODYlRTclQUIlQTAtJUU1JTlDJTk2JUU1JUJEJUEyJUU2JTkwJTlDJUU1JUIwJThCLSVFNCVCOCVBRC02MWU5MTkwMzI5ZTA=">延伸一<i class="fa fa-external-link-alt"></i></span></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0BhbWJlci5mcmFnbWVudHMvJUU2JUJDJTk0JUU3JUFFJTk3JUU2JUIzJTk1LSVFNSVBRCVCOCVFNyVCRiU5MiVFNyVBRCU4NiVFOCVBOCU5OC0xNC1kaWprc3RyYS1hbGdvcml0aG0tJUU2JTlDJTgwJUU3JTlGJUFEJUU4JUI3JUFGJUU1JUJFJTkxJUU2JUJDJTk0JUU3JUFFJTk3JUU2JUIzJTk1LTc0NTk4M2RkNDMzMg==">延伸二<i class="fa fa-external-link-alt"></i></span></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2Vla3Nmb3JnZWVrcy5vcmcvYmVsbG1hbi1mb3JkLWFsZ29yaXRobS1kcC0yMy8=">延伸三<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <tags>
-        <tag>data structure</tag>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>『 資料結構 』鏈結串列 Linked-List</title>
     <url>/posts/DataStructure-linkedList/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>這週要帶各位認識的資料結構是「 鏈結串列 Linked-List 」，一開始所學的陣列（串列）是一種非常簡易能讓我們存放資料序列的資料結構，而鏈結串列則是一種動態的，我們進行新增或刪減元素，就會依照需求進行擴充。陣列應該是大家最常用的資料結構，每種語言都支持它，但是卻有一個隱憂：在大多數的語言中，<strong>陣列的大小是固定的</strong>，從起點或中間插入、移除元素是非常耗成本的。</p>
@@ -341,6 +298,49 @@
       </tags>
   </entry>
   <entry>
+    <title>『 資料結構 』圖形 Graph</title>
+    <url>/posts/DataStructure-graph/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>大家好～ 在文章開始之前，我們先讓各位看一下名詞提要。</p>
+<ul>
+<li>頂點 Vertex or Node</li>
+<li>邊 Edge：兩個頂點間的連線</li>
+<li>無向性 Undirected：邊無方向性，表示兩點之間為雙向關係。 &#x2F; 有向性 Directed：邊有方向性，表示兩點之間為單向關係。</li>
+<li>加權 Weighted：邊加上權重，代表兩點之間的關係；點加上權重，代表狀態</li>
+</ul>
+<p>以上都是我們在圖形這個章節會時常看到的名詞，那我們正是開始囉 GoGo。</p>
+<span id="more"></span>
+
+<h2 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h2><ol>
+<li>無向圖<img src="/posts/DataStructure-graph/graph1.png" class=""></li>
+<li>有向圖<img src="/posts/DataStructure-graph/graph2.png" class=""></li>
+<li>權重圖<img src="/posts/DataStructure-graph/graph3.png" class=""></li>
+</ol>
+<h2 id="圖形遍歷-Graph-Traversal"><a href="#圖形遍歷-Graph-Traversal" class="headerlink" title="圖形遍歷 Graph Traversal"></a>圖形遍歷 Graph Traversal</h2><h3 id="廣度搜尋-Breadth-First-Search"><a href="#廣度搜尋-Breadth-First-Search" class="headerlink" title="廣度搜尋 Breadth First Search"></a>廣度搜尋 Breadth First Search</h3><p>廣度優先的搜尋順序會是先走訪相鄰節點，都走訪完了，就往下一層繼續走訪，廣度優先搜尋採用queue來實作，因為queue具有先進先出的特性，可以確保先搜尋到的節點，會優先成為下一個搜尋起點。</p>
+<img src="/posts/DataStructure-graph/graph4.png" class="">
+
+<p>程式範例：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">UnweightedGraph</span>&#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">val</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">value</span> = val;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">neighbors</span> = [];</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">visited</span> = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">addNeighbor</span>(<span class="params">n</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">neighbors</span>.<span class="title function_">push</span>(n);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> A = <span class="keyword">new</span> <span class="title class_">UnweightedGraph</span>(<span class="string">&quot;A&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> B = <span class="keyword">new</span> <span class="title class_">UnweightedGraph</span>(<span class="string">&quot;B&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> C = <span class="keyword">new</span> <span class="title class_">UnweightedGraph</span>(<span class="string">&quot;C&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> D = <span class="keyword">new</span> <span class="title class_">UnweightedGraph</span>(<span class="string">&quot;D&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> E = <span class="keyword">new</span> <span class="title class_">UnweightedGraph</span>(<span class="string">&quot;E&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> F = <span class="keyword">new</span> <span class="title class_">UnweightedGraph</span>(<span class="string">&quot;F&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> G = <span class="keyword">new</span> <span class="title class_">UnweightedGraph</span>(<span class="string">&quot;G&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> H = <span class="keyword">new</span> <span class="title class_">UnweightedGraph</span>(<span class="string">&quot;H&quot;</span>);</span><br><span class="line">A.<span class="title function_">addNeighbor</span>(B);</span><br><span class="line">A.<span class="title function_">addNeighbor</span>(C);</span><br><span class="line">A.<span class="title function_">addNeighbor</span>(D);</span><br><span class="line">B.<span class="title function_">addNeighbor</span>(E);</span><br><span class="line">B.<span class="title function_">addNeighbor</span>(F);</span><br><span class="line">D.<span class="title function_">addNeighbor</span>(G);</span><br><span class="line">D.<span class="title function_">addNeighbor</span>(H);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">BFS</span> = (<span class="params">starter</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">let</span> queue = [],</span><br><span class="line">    result = [];</span><br><span class="line">  queue.<span class="title function_">push</span>(starter);</span><br><span class="line">  <span class="keyword">while</span> (queue.<span class="property">length</span> !== <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> firstNode = queue.<span class="title function_">shift</span>();</span><br><span class="line">      <span class="keyword">if</span> (!firstNode.<span class="property">visited</span>) &#123;</span><br><span class="line">    firstNode.<span class="property">visited</span> = <span class="literal">true</span>;</span><br><span class="line">        result.<span class="title function_">push</span>(firstNode.<span class="property">value</span>);</span><br><span class="line">        firstNode.<span class="property">neighbors</span>.<span class="title function_">forEach</span>(<span class="function">(<span class="params">element</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">if</span> (!element.<span class="property">visited</span>) &#123;</span><br><span class="line">      queue.<span class="title function_">push</span>(element);</span><br><span class="line">    &#125;</span><br><span class="line">   &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="title function_">BFS</span>(A);</span><br><span class="line"><span class="comment">//輸出結果 [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot;, &quot;G&quot;, &quot;H&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="深度搜尋-Depth-First-Search"><a href="#深度搜尋-Depth-First-Search" class="headerlink" title="深度搜尋 Depth First Search"></a>深度搜尋 Depth First Search</h3><p>會先從一邊開始走訪，概念類似於走迷宮摸著牆走的概念，走到底了就折返，繼續往沒走過的節點探索</p>
+<img src="/posts/DataStructure-graph/graph5.png" class="">
+
+<p>程式範例：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> result = [];</span><br><span class="line"><span class="keyword">const</span> <span class="title function_">DFT</span> = (<span class="params">starter</span>) =&gt; &#123;</span><br><span class="line">    starter.<span class="property">visited</span> = <span class="literal">true</span>;</span><br><span class="line">    result.<span class="title function_">push</span>(starter.<span class="property">value</span>);</span><br><span class="line">    starter.<span class="property">neighbors</span>.<span class="title function_">forEach</span>(<span class="function">(<span class="params">element</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (!element.<span class="property">visited</span>) <span class="title function_">DFT</span>(element);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="title function_">DFT</span>(A);</span><br><span class="line"></span><br><span class="line"><span class="comment">//輸出結果 [&quot;A&quot;, &quot;B&quot;, &quot;E&quot;, &quot;F&quot;, &quot;C&quot;, &quot;D&quot;, &quot;G&quot;, &quot;H&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="延伸"><a href="#延伸" class="headerlink" title="延伸"></a>延伸</h2><h3 id="最短距離"><a href="#最短距離" class="headerlink" title="最短距離"></a>最短距離</h3><p><span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0B5aW5pbmcxMjA0LyVFNiVCQyU5NCVFNyVBRSU5NyVFNiVCMyU5NSVFNSU5QyU5NiVFOSU5MSU5MSVFOCVBRSU4MCVFNiU5QiVCOCVFNyVBRCU4NiVFOCVBOCU5OC0lRTclQUMlQUMlRTglODIlODYlRTclQUIlQTAtJUU1JTlDJTk2JUU1JUJEJUEyJUU2JTkwJTlDJUU1JUIwJThCLSVFNCVCOCVBRC02MWU5MTkwMzI5ZTA=">延伸一<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0BhbWJlci5mcmFnbWVudHMvJUU2JUJDJTk0JUU3JUFFJTk3JUU2JUIzJTk1LSVFNSVBRCVCOCVFNyVCRiU5MiVFNyVBRCU4NiVFOCVBOCU5OC0xNC1kaWprc3RyYS1hbGdvcml0aG0tJUU2JTlDJTgwJUU3JTlGJUFEJUU4JUI3JUFGJUU1JUJFJTkxJUU2JUJDJTk0JUU3JUFFJTk3JUU2JUIzJTk1LTc0NTk4M2RkNDMzMg==">延伸二<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2Vla3Nmb3JnZWVrcy5vcmcvYmVsbG1hbi1mb3JkLWFsZ29yaXRobS1kcC0yMy8=">延伸三<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <tags>
+        <tag>data structure</tag>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>『 資料結構 』佇列 Queue</title>
     <url>/posts/DataStructure-queue/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>第三週我們歡迎「 Queue 佇列 」，上週我們學會了 stack ，這兩個東西非常相似，但是原則不同！<br>佇列在尾端新增元素，在頂部移除，在現實中就像是我們在排隊一樣，排在前面的人會優先被服務到，因此也有一個別稱叫做「 隊列 」。</p>
@@ -421,6 +421,64 @@
 
 <h2 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h2><p>我們這次學習了佇列的資料結構，自己實作佇列的演算法，學習如何透過 enqueue, dequeue 方法增加和刪除元素。還有兩種著名的特殊佇列實作：優先佇列、環狀佇列。</p>
 <p>接下來我們將學習鏈結串列，比陣列更加複雜的資料結構呦！</p>
+]]></content>
+      <tags>
+        <tag>data structure</tag>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>『 資料結構 』堆疊 Stack</title>
+    <url>/posts/DataStructure-stack/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>準備好歡迎我們第二週的主題“堆疊”了嗎！<br>在電腦科學的江湖上流傳著一句話：</p>
+<blockquote>
+<p>程式設計 ＝ 資料結構 ＋ 演算法</p>
+</blockquote>
+<p>在各大專院校裡，這幾門課都列為必修課之一，但是大多缺乏語言的基礎，反而在這裡頭迷失了，學完就好像睡了一覺，模模糊糊迷迷茫茫…，我就是這樣😂</p>
+<p>本篇將使用 JavaScript 來學習堆疊(Stack)的資料結構。</p>
+<span id="more"></span>
+
+<h2 id="堆疊是什麼？"><a href="#堆疊是什麼？" class="headerlink" title="堆疊是什麼？"></a>堆疊是什麼？</h2><p>堆疊是一種按照<em>後進先出</em> (LIFO, Last In First Out)的有序結構，舉個例子：日常生活中的疊盤子。先疊的盤子會在最下面，後面開始會疊在上方，一層一層往上，當要拿盤子時一定是從最上面拿。</p>
+<p><img src="https://i0.wp.com/studyalgorithms.com/wp-content/uploads/2020/12/stack-of-plates_0.png?ssl=1" alt="疊盤子"></p>
+<h2 id="建立堆疊"><a href="#建立堆疊" class="headerlink" title="建立堆疊"></a>建立堆疊</h2><p>開始進入實作的階段，GOGO🤟🏻</p>
+<h3 id="類別"><a href="#類別" class="headerlink" title="類別"></a>類別</h3><p>首先，建立一個類別為 Stack:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Stack</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="comment">//宣告內部屬性和方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="屬性"><a href="#屬性" class="headerlink" title="屬性"></a>屬性</h3><p>我們下面會用 Array 的方式進行，所以宣告起來。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> items = [];</span><br></pre></td></tr></table></figure>
+
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ul>
+<li>新增 push(element)、刪除 pop()</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 新增元素</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">push</span> = <span class="keyword">function</span>(<span class="params">element</span>)&#123;</span><br><span class="line">  items.<span class="title function_">push</span>(element);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 刪除元素：會返回被移除的元素</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">pop</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> items.<span class="title function_">pop</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>最上方元素為何 peek(), top()</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 返回最上方元素</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">peek</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> items[items.<span class="property">length</span> - <span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>堆疊還有元素嗎 isEmpty()</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 堆疊內部是否還有元素存在 true, false</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">isEmpty</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> items.<span class="property">length</span> === <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>元素共有幾個 size()</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 堆疊內部有多少元素</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">size</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> items.<span class="property">length</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>清空堆疊 clear()</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 堆疊清空</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">clear</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> items = [];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Stack</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> items = [];</span><br><span class="line"></span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">push</span> = <span class="keyword">function</span>(<span class="params">element</span>)&#123;</span><br><span class="line">    items.<span class="title function_">push</span>(element);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">pop</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> items.<span class="title function_">pop</span>();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">peek</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> items[items.<span class="property">length</span> - <span class="number">1</span>];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">isEmpty</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> items.<span class="property">length</span> === <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">size</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> items.<span class="property">length</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">clear</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> items = [];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="動手做做看"><a href="#動手做做看" class="headerlink" title="動手做做看"></a>動手做做看</h2><p>快速測試可以打開 chrome 的 console 操作看看。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> stack = <span class="keyword">new</span> <span class="title class_">Stack</span>();</span><br><span class="line"></span><br><span class="line">stack.<span class="title function_">push</span>(<span class="string">&#x27;plateA&#x27;</span>);</span><br><span class="line">stack.<span class="title function_">push</span>(<span class="string">&#x27;plateB&#x27;</span>);</span><br><span class="line">stack.<span class="title function_">push</span>(<span class="string">&#x27;plateC&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(stack); <span class="comment">// [&#x27;plateA&#x27;, &#x27;plateB&#x27;, &#x27;plateC&#x27;]</span></span><br><span class="line"></span><br><span class="line">stack.<span class="title function_">pop</span>()</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(stack); <span class="comment">// [&#x27;plateA&#x27;, &#x27;plateB&#x27;]</span></span><br><span class="line"></span><br><span class="line">stack.<span class="title function_">size</span>() <span class="comment">// 2</span></span><br><span class="line">stack.<span class="title function_">peek</span>() <span class="comment">// &#x27;plantB&#x27;</span></span><br><span class="line">stack.<span class="title function_">clear</span>() <span class="comment">// []</span></span><br><span class="line">stack.<span class="title function_">isEmpty</span>() <span class="comment">// true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>最後到 leetcode 驗收一下自己學習的成果吧！<br><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvaW1wbGVtZW50LXF1ZXVlLXVzaW5nLXN0YWNrcy8=">232. Implement Queue using Stacks<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvdmFsaWQtcGFyZW50aGVzZXMv">20. Valid Parentheses<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h2><p><span class="exturl" data-url="aHR0cHM6Ly9zdHVkeWFsZ29yaXRobXMuY29tL3RoZW9yeS9zdGFjay1kYXRhLXN0cnVjdHVyZS8=">What is a Stack?<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDIxNTExOA==">前端工程師用 javaScript 學演算法<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3poLXR3LyVFNSVBMCU4NiVFNiVBMCU4OA==">堆疊- 維基百科，自由的百科全書 - Wikipedia<i class="fa fa-external-link-alt"></i></span></p>
 ]]></content>
       <tags>
         <tag>data structure</tag>
@@ -519,64 +577,6 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">subset</span> = <span class="keyword">function</span>(<span class="params">otherSet</span>)&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="variable language_">this</span>.<span class="title function_">size</span>() &gt; otherSet.<span class="title function_">size</span>())&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> values = <span class="variable language_">this</span>.<span class="title function_">values</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;values.<span class="property">length</span>; i++)&#123;</span><br><span class="line">      <span class="keyword">if</span>(!otherSet.<span class="title function_">has</span>(values[i]))&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <h2 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h2><p>這章學習了如何從頭實作與 ES6 中定義的類似的 Set 類別。我們還介紹了在其他程式語言的集合結構的實作中不常見的一些方法，例如：連擊、交集、差集..等。相較於前幾個主題，我們完成了較完善的實例！給自己一個掌聲 👏🏻</p>
-]]></content>
-      <tags>
-        <tag>data structure</tag>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>『 資料結構 』堆疊 Stack</title>
-    <url>/posts/DataStructure-stack/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>準備好歡迎我們第二週的主題“堆疊”了嗎！<br>在電腦科學的江湖上流傳著一句話：</p>
-<blockquote>
-<p>程式設計 ＝ 資料結構 ＋ 演算法</p>
-</blockquote>
-<p>在各大專院校裡，這幾門課都列為必修課之一，但是大多缺乏語言的基礎，反而在這裡頭迷失了，學完就好像睡了一覺，模模糊糊迷迷茫茫…，我就是這樣😂</p>
-<p>本篇將使用 JavaScript 來學習堆疊(Stack)的資料結構。</p>
-<span id="more"></span>
-
-<h2 id="堆疊是什麼？"><a href="#堆疊是什麼？" class="headerlink" title="堆疊是什麼？"></a>堆疊是什麼？</h2><p>堆疊是一種按照<em>後進先出</em> (LIFO, Last In First Out)的有序結構，舉個例子：日常生活中的疊盤子。先疊的盤子會在最下面，後面開始會疊在上方，一層一層往上，當要拿盤子時一定是從最上面拿。</p>
-<p><img src="https://i0.wp.com/studyalgorithms.com/wp-content/uploads/2020/12/stack-of-plates_0.png?ssl=1" alt="疊盤子"></p>
-<h2 id="建立堆疊"><a href="#建立堆疊" class="headerlink" title="建立堆疊"></a>建立堆疊</h2><p>開始進入實作的階段，GOGO🤟🏻</p>
-<h3 id="類別"><a href="#類別" class="headerlink" title="類別"></a>類別</h3><p>首先，建立一個類別為 Stack:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Stack</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="comment">//宣告內部屬性和方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="屬性"><a href="#屬性" class="headerlink" title="屬性"></a>屬性</h3><p>我們下面會用 Array 的方式進行，所以宣告起來。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> items = [];</span><br></pre></td></tr></table></figure>
-
-<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ul>
-<li>新增 push(element)、刪除 pop()</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 新增元素</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">push</span> = <span class="keyword">function</span>(<span class="params">element</span>)&#123;</span><br><span class="line">  items.<span class="title function_">push</span>(element);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 刪除元素：會返回被移除的元素</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">pop</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> items.<span class="title function_">pop</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>最上方元素為何 peek(), top()</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 返回最上方元素</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">peek</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> items[items.<span class="property">length</span> - <span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>堆疊還有元素嗎 isEmpty()</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 堆疊內部是否還有元素存在 true, false</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">isEmpty</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> items.<span class="property">length</span> === <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>元素共有幾個 size()</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 堆疊內部有多少元素</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">size</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> items.<span class="property">length</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>清空堆疊 clear()</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 堆疊清空</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">clear</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> items = [];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Stack</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> items = [];</span><br><span class="line"></span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">push</span> = <span class="keyword">function</span>(<span class="params">element</span>)&#123;</span><br><span class="line">    items.<span class="title function_">push</span>(element);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">pop</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> items.<span class="title function_">pop</span>();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">peek</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> items[items.<span class="property">length</span> - <span class="number">1</span>];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">isEmpty</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> items.<span class="property">length</span> === <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">size</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> items.<span class="property">length</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">clear</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> items = [];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="動手做做看"><a href="#動手做做看" class="headerlink" title="動手做做看"></a>動手做做看</h2><p>快速測試可以打開 chrome 的 console 操作看看。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> stack = <span class="keyword">new</span> <span class="title class_">Stack</span>();</span><br><span class="line"></span><br><span class="line">stack.<span class="title function_">push</span>(<span class="string">&#x27;plateA&#x27;</span>);</span><br><span class="line">stack.<span class="title function_">push</span>(<span class="string">&#x27;plateB&#x27;</span>);</span><br><span class="line">stack.<span class="title function_">push</span>(<span class="string">&#x27;plateC&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(stack); <span class="comment">// [&#x27;plateA&#x27;, &#x27;plateB&#x27;, &#x27;plateC&#x27;]</span></span><br><span class="line"></span><br><span class="line">stack.<span class="title function_">pop</span>()</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(stack); <span class="comment">// [&#x27;plateA&#x27;, &#x27;plateB&#x27;]</span></span><br><span class="line"></span><br><span class="line">stack.<span class="title function_">size</span>() <span class="comment">// 2</span></span><br><span class="line">stack.<span class="title function_">peek</span>() <span class="comment">// &#x27;plantB&#x27;</span></span><br><span class="line">stack.<span class="title function_">clear</span>() <span class="comment">// []</span></span><br><span class="line">stack.<span class="title function_">isEmpty</span>() <span class="comment">// true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>最後到 leetcode 驗收一下自己學習的成果吧！<br><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvaW1wbGVtZW50LXF1ZXVlLXVzaW5nLXN0YWNrcy8=">232. Implement Queue using Stacks<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvdmFsaWQtcGFyZW50aGVzZXMv">20. Valid Parentheses<i class="fa fa-external-link-alt"></i></span></p>
-<h2 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h2><p><span class="exturl" data-url="aHR0cHM6Ly9zdHVkeWFsZ29yaXRobXMuY29tL3RoZW9yeS9zdGFjay1kYXRhLXN0cnVjdHVyZS8=">What is a Stack?<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDIxNTExOA==">前端工程師用 javaScript 學演算法<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3poLXR3LyVFNSVBMCU4NiVFNiVBMCU4OA==">堆疊- 維基百科，自由的百科全書 - Wikipedia<i class="fa fa-external-link-alt"></i></span></p>
 ]]></content>
       <tags>
         <tag>data structure</tag>
@@ -1007,6 +1007,60 @@
       </tags>
   </entry>
   <entry>
+    <title>敏捷式開發真的這麼棒？</title>
+    <url>/posts/Other-agile/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在正式開始之前，我們先知道什麼是【瀑布式開發】，這也是一般專案團隊最常用的開發方式。</p>
+<img src="/posts/Other-agile/agile1.png" class="">
+
+<p>如圖所示，每隔階段定義的十分清楚，要執行的項目明確。就像瀑布一樣，一路向下前行。實際在開發的時候，成員也都樂於這樣的模式，因為不會遇到模糊不清的時候(Ex 需求不知道是什麼就要進行開發… &#x3D; &#x3D;)。這在專案管理上是相對容易的，過程不會遲疑，檢視最後的成果是不是有達成目標就行。</p>
+<span id="more"></span>
+
+<p>但是，弊端也顯而易見。執行專案時，總是會有意外、風險、市場變化…，這些都是不可被預測的，而當專案是瀑布式開發，對於以上的變因，應對過慢，就很容易導致專案失敗！</p>
+<blockquote>
+<p>瀑布式開發，強調的是「工具」、「流程」。<br>敏捷式開發，強調的是「個人」、「互動」、「變化」。</p>
+</blockquote>
+<h2 id="敏捷式開發"><a href="#敏捷式開發" class="headerlink" title="敏捷式開發"></a>敏捷式開發</h2><h3 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h3><p><span class="exturl" data-url="aHR0cHM6Ly9hZ2lsZW1hbmlmZXN0by5vcmcvaXNvL3poY2h0L21hbmlmZXN0by5odG1s">《敏捷軟體開發宣言》<i class="fa fa-external-link-alt"></i></span> 裡頭說：</p>
+<ul>
+<li><strong>個人與互動</strong> 重於 流程與工具</li>
+<li><strong>可用的軟體</strong> 重於 詳盡的文件</li>
+<li><strong>與客戶合作</strong> 重於 合約協商</li>
+<li><strong>回應變化</strong> 重於 遵循計畫</li>
+</ul>
+<p>從中知道，敏捷式開發注重的是溝通、成果、合作與變化。</p>
+<blockquote>
+<p>「變」是唯一不變的事情</p>
+</blockquote>
+<h3 id="Scrum框架"><a href="#Scrum框架" class="headerlink" title="Scrum框架"></a>Scrum框架</h3><p>我們耳熟能詳的 Scrum 就是實現敏捷開發的其中一種方式，也是最被廣泛運用的框架。</p>
+<p>為達到相對短的開發週期，可能會抓大概 2 - 4 周，依據產品和團隊的不同，週期也會不同。而這個週期稱之為「Sprint」。</p>
+<p>每一個 Sprint 中，會有四個會議：</p>
+<ol>
+<li>規劃：決定要完成哪些項目</li>
+<li>每日站立：每日花費10-15mins 同步資訊 (昨日完成、今日預計完成、是否遇到阻礙)</li>
+<li>審查：展示成果，取得回饋、新需求</li>
+<li>回顧：回顧衝刺的過程，是否有地方要改進</li>
+</ol>
+<h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3> <img src="/posts/Other-agile/agile2.png" class="">
+
+<ul>
+<li>產品負責人 (Product Owner)<br>代表客戶的意願，並確保團隊在做從業務角度來說正確的事情。編寫 User story，排出優先級，並放入 代辦清單(backlog)。他決定每一次 sprint 要完成哪些任務，讓整個團隊價值最大化。監督開發的節奏，從而保障產品的品質。</li>
+</ul>
+ <img src="/posts/Other-agile/agile3.png" class="">
+
+<ul>
+<li>Scrum主管 (Scrum Master)<br>主要的工作是去除影響團隊達成 sprint 目標的障礙，是規則的執行者。</li>
+</ul>
+ <img src="/posts/Other-agile/agile4.png" class="">
+
+<ul>
+<li>開發團隊 (Dev Team)<br>負責交付產品的團隊。</li>
+</ul>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>沒有一定比較好的 development，還是要依照專案需求、公司文化…來做選擇。各有各的優勢在，不過在快速變化的商業環境和技術環境中，迎接變化能力強的敏捷式開發原則，的確是可以滿足現況。<br>祝福大家都不要碰到四不像的敏捷開發😆</p>
+]]></content>
+      <tags>
+        <tag>Agile Development</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Npm vs Yarn vs Pnpm：哪個套件管理工具最適合你？</title>
     <url>/posts/Other-nodePackageManagers/</url>
     <content><![CDATA[<img src="/posts/Other-nodePackageManagers/img1.png" class="">
@@ -1121,60 +1175,6 @@
       </tags>
   </entry>
   <entry>
-    <title>敏捷式開發真的這麼棒？</title>
-    <url>/posts/Other-agile/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在正式開始之前，我們先知道什麼是【瀑布式開發】，這也是一般專案團隊最常用的開發方式。</p>
-<img src="/posts/Other-agile/agile1.png" class="">
-
-<p>如圖所示，每隔階段定義的十分清楚，要執行的項目明確。就像瀑布一樣，一路向下前行。實際在開發的時候，成員也都樂於這樣的模式，因為不會遇到模糊不清的時候(Ex 需求不知道是什麼就要進行開發… &#x3D; &#x3D;)。這在專案管理上是相對容易的，過程不會遲疑，檢視最後的成果是不是有達成目標就行。</p>
-<span id="more"></span>
-
-<p>但是，弊端也顯而易見。執行專案時，總是會有意外、風險、市場變化…，這些都是不可被預測的，而當專案是瀑布式開發，對於以上的變因，應對過慢，就很容易導致專案失敗！</p>
-<blockquote>
-<p>瀑布式開發，強調的是「工具」、「流程」。<br>敏捷式開發，強調的是「個人」、「互動」、「變化」。</p>
-</blockquote>
-<h2 id="敏捷式開發"><a href="#敏捷式開發" class="headerlink" title="敏捷式開發"></a>敏捷式開發</h2><h3 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h3><p><span class="exturl" data-url="aHR0cHM6Ly9hZ2lsZW1hbmlmZXN0by5vcmcvaXNvL3poY2h0L21hbmlmZXN0by5odG1s">《敏捷軟體開發宣言》<i class="fa fa-external-link-alt"></i></span> 裡頭說：</p>
-<ul>
-<li><strong>個人與互動</strong> 重於 流程與工具</li>
-<li><strong>可用的軟體</strong> 重於 詳盡的文件</li>
-<li><strong>與客戶合作</strong> 重於 合約協商</li>
-<li><strong>回應變化</strong> 重於 遵循計畫</li>
-</ul>
-<p>從中知道，敏捷式開發注重的是溝通、成果、合作與變化。</p>
-<blockquote>
-<p>「變」是唯一不變的事情</p>
-</blockquote>
-<h3 id="Scrum框架"><a href="#Scrum框架" class="headerlink" title="Scrum框架"></a>Scrum框架</h3><p>我們耳熟能詳的 Scrum 就是實現敏捷開發的其中一種方式，也是最被廣泛運用的框架。</p>
-<p>為達到相對短的開發週期，可能會抓大概 2 - 4 周，依據產品和團隊的不同，週期也會不同。而這個週期稱之為「Sprint」。</p>
-<p>每一個 Sprint 中，會有四個會議：</p>
-<ol>
-<li>規劃：決定要完成哪些項目</li>
-<li>每日站立：每日花費10-15mins 同步資訊 (昨日完成、今日預計完成、是否遇到阻礙)</li>
-<li>審查：展示成果，取得回饋、新需求</li>
-<li>回顧：回顧衝刺的過程，是否有地方要改進</li>
-</ol>
-<h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3> <img src="/posts/Other-agile/agile2.png" class="">
-
-<ul>
-<li>產品負責人 (Product Owner)<br>代表客戶的意願，並確保團隊在做從業務角度來說正確的事情。編寫 User story，排出優先級，並放入 代辦清單(backlog)。他決定每一次 sprint 要完成哪些任務，讓整個團隊價值最大化。監督開發的節奏，從而保障產品的品質。</li>
-</ul>
- <img src="/posts/Other-agile/agile3.png" class="">
-
-<ul>
-<li>Scrum主管 (Scrum Master)<br>主要的工作是去除影響團隊達成 sprint 目標的障礙，是規則的執行者。</li>
-</ul>
- <img src="/posts/Other-agile/agile4.png" class="">
-
-<ul>
-<li>開發團隊 (Dev Team)<br>負責交付產品的團隊。</li>
-</ul>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>沒有一定比較好的 development，還是要依照專案需求、公司文化…來做選擇。各有各的優勢在，不過在快速變化的商業環境和技術環境中，迎接變化能力強的敏捷式開發原則，的確是可以滿足現況。<br>祝福大家都不要碰到四不像的敏捷開發😆</p>
-]]></content>
-      <tags>
-        <tag>Agile Development</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>讓爬蟲程式照著規則來 robots.txt</title>
     <url>/posts/Seo-robotsTxt/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>如果有了解過 SEO ，那你可能有聽說過『 robots.txt 』這個名字。<br>主要用來避免網站要求太多，導致超載(<del>要求太多會人家討厭的</del><br>而簡單來說，他就是來讓爬蟲程式聽話的一個檔案，像是該爬這裡、不該走這裡，<br>但是但是但是…有機率會不聽話失效🤫。</p>
@@ -1235,6 +1235,120 @@
 ]]></content>
       <tags>
         <tag>VS Code</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端渲染模式大比拼：SSR vs SSG vs SPA</title>
+    <url>/posts/Ssr-know/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近在學習 Nuxt3，它是一個基於 Vue.js 的框架，提供了強大的功能來建構現代化的 Web 應用。其中最吸引我的就是它對不同渲染模式的支援，特別是伺服器端渲染（SSR）。在深入 Nuxt3 之前，我想先好好了解一下幾種常見的網頁渲染模式：SPA、SSR 和 SSG。這篇文章將會是我學習這幾個概念的筆記。</p>
+<img src="/posts/Ssr-know/ssr1.webp" class="">
+
+<span id="more"></span>
+
+<h2 id="網頁渲染模式簡介"><a href="#網頁渲染模式簡介" class="headerlink" title="網頁渲染模式簡介"></a>網頁渲染模式簡介</h2><p>在現代網頁開發中，我們主要有三種渲染模式：</p>
+<ol>
+<li><strong>SPA</strong> (Single-Page Application - 客戶端渲染 CSR)：單頁應用程式，內容在瀏覽器端渲染。</li>
+<li><strong>SSR</strong> (Server-Side Rendering - 伺服器端渲染)：內容在伺服器端渲染成 HTML 後再傳送到瀏覽器。</li>
+<li><strong>SSG</strong> (Static Site Generation - 靜態網站生成)：在建置時期就預先產生所有頁面的 HTML 檔案。</li>
+</ol>
+<p>這三種模式各有優缺點，適用於不同的應用場景。接下來讓我們一一探討。</p>
+<h2 id="SPA-Single-Page-Application"><a href="#SPA-Single-Page-Application" class="headerlink" title="SPA (Single-Page Application)"></a>SPA (Single-Page Application)</h2><p>SPA 是目前前端開發的主流模式之一，像我們熟悉的 Vue、React、Angular 等框架，預設都是以 SPA 模式運作。</p>
+<h3 id="SPA-運作方式"><a href="#SPA-運作方式" class="headerlink" title="SPA 運作方式"></a>SPA 運作方式</h3><ol>
+<li><strong>初始請求</strong>：瀏覽器第一次向伺服器請求頁面時，伺服器會回傳一個幾乎空白的 <code>index.html</code> 檔案，以及打包好的 JavaScript 和 CSS 檔案。</li>
+<li><strong>客戶端渲染</strong>：瀏覽器下載完 JavaScript 後，開始在客戶端執行，透過 JavaScript 動態產生頁面內容（DOM），並掛載到 <code>index.html</code> 的根節點上。</li>
+<li><strong>後續導航</strong>：當使用者點擊連結切換頁面時，並不會向伺服器重新請求整個頁面。而是透過前端路由（如 <code>vue-router</code>）來攔截請求，動態更新頁面內容，提供流暢如原生應用程式般的使用者體驗。</li>
+</ol>
+<h3 id="SPA-優點"><a href="#SPA-優點" class="headerlink" title="SPA 優點"></a>SPA 優點</h3><ul>
+<li><strong>使用者體驗佳</strong>：頁面切換快速、流暢，沒有傳統多頁應用的白畫面等待時間。</li>
+<li><strong>伺服器負擔小</strong>：伺服器只需提供靜態資源和 API，渲染工作交給客戶端，減輕了伺服器壓力。</li>
+<li><strong>前後端分離</strong>：開發模式清晰，前端專注於 UI&#x2F;UX，後端專注於 API，方便團隊協作。</li>
+</ul>
+<h3 id="SPA-缺點"><a href="#SPA-缺點" class="headerlink" title="SPA 缺點"></a>SPA 缺點</h3><ul>
+<li>**首次載入速度慢 (FCP 慢)**：需要下載完整的 JavaScript 檔案後才能渲染頁面，導致使用者看到畫面的時間（First Contentful Paint）較長。</li>
+<li><strong>SEO 不佳</strong>：搜尋引擎爬蟲可能無法正確執行 JavaScript，導致抓取到的頁面是空白的，不利於搜尋引擎排名。雖然現在 Google 爬蟲已經能更好地處理 JavaScript，但這仍然是一個潛在問題。</li>
+</ul>
+<h2 id="SSR-Server-Side-Rendering"><a href="#SSR-Server-Side-Rendering" class="headerlink" title="SSR (Server-Side Rendering)"></a>SSR (Server-Side Rendering)</h2><p>為了解決 SPA 的問題，SSR 應運而生。Nuxt3 和 Next.js 這類框架讓 SSR 的實作變得更加簡單。</p>
+<h3 id="SSR-運作方式"><a href="#SSR-運作方式" class="headerlink" title="SSR 運作方式"></a>SSR 運作方式</h3><ol>
+<li><strong>初始請求</strong>：瀏覽器向伺服器請求頁面。</li>
+<li><strong>伺服器端渲染</strong>：伺服器接收到請求後，會在後端環境（如 Node.js）執行前端框架的程式碼，將對應的頁面元件渲染成完整的 HTML 字串。</li>
+<li><strong>回傳 HTML</strong>：伺服器將渲染好的 HTML 回傳給瀏覽器。</li>
+<li>**Hydration (注水)**：瀏覽器顯示 HTML 內容後，會接著下載 JavaScript 檔案。JS 執行後會將事件監聽器、狀態等附加到現有的 DOM 上，讓頁面變成一個可互動的 SPA。這個過程稱為 “Hydration”。</li>
+</ol>
+<h3 id="SSR-優點"><a href="#SSR-優點" class="headerlink" title="SSR 優點"></a>SSR 優點</h3><ul>
+<li>**首次載入速度快 (FCP 快)**：瀏覽器直接接收到完整的 HTML，可以立即顯示內容，使用者能更快看到頁面。</li>
+<li><strong>SEO 友善</strong>：回傳給爬蟲的是完整的 HTML，有利於搜尋引擎索引。</li>
+</ul>
+<h3 id="SSR-缺點"><a href="#SSR-缺點" class="headerlink" title="SSR 缺點"></a>SSR 缺點</h3><ul>
+<li><strong>伺服器負擔大</strong>：每個請求都需要在伺服器上即時渲染，對伺服器造成較大壓力。</li>
+<li><strong>開發複雜度高</strong>：需要考慮程式碼在伺服器和客戶端兩種環境下的執行情況，例如 <code>window</code>、<code>document</code> 等瀏覽器專屬的 API 只能在客戶端使用。</li>
+</ul>
+<h2 id="SSG-Static-Site-Generation"><a href="#SSG-Static-Site-Generation" class="headerlink" title="SSG (Static Site Generation)"></a>SSG (Static Site Generation)</h2><p>SSG 結合了 SSR 和 SPA 的部分優點，它在「建置階段」就產生所有頁面的靜態 HTML 檔案。</p>
+<h3 id="SSG-運作方式"><a href="#SSG-運作方式" class="headerlink" title="SSG 運作方式"></a>SSG 運作方式</h3><ol>
+<li><strong>建置階段</strong>：在部署前，透過框架的 <code>build</code> 指令，抓取所有需要的資料，並為每個頁面產生一個對應的 HTML 檔案。</li>
+<li><strong>部署</strong>：將這些產生的靜態檔案（HTML, CSS, JS）部署到任何靜態網站託管服務上，例如 GitHub Pages, Netlify, Vercel 或 CDN。</li>
+<li><strong>使用者請求</strong>：使用者請求頁面時，伺服器直接回傳對應的靜態 HTML 檔案，無需任何後端渲染。</li>
+</ol>
+<h3 id="SSG-優點"><a href="#SSG-優點" class="headerlink" title="SSG 優點"></a>SSG 優點</h3><ul>
+<li><strong>效能極致</strong>：因為頁面是預先渲染好的，回應速度最快。</li>
+<li><strong>安全性高</strong>：沒有後端資料庫或即時渲染邏輯，減少了被攻擊的風險。</li>
+<li><strong>成本低廉</strong>：可以部署在便宜甚至免費的靜態託管服務上。</li>
+<li><strong>SEO 友善</strong>：與 SSR 一樣，提供完整的 HTML 內容。</li>
+</ul>
+<h3 id="SSG-缺點"><a href="#SSG-缺點" class="headerlink" title="SSG 缺點"></a>SSG 缺點</h3><ul>
+<li><strong>更新延遲</strong>：如果網站內容頻繁變動（例如新聞網站、論壇），每次更新都需要重新建置整個網站，可能耗時較長。</li>
+<li><strong>不適用於動態內容</strong>：不適合需要根據使用者互動即時產生內容的頁面（例如個人化儀表板）。</li>
+</ul>
+<h2 id="Nuxt3-中的渲染模式"><a href="#Nuxt3-中的渲染模式" class="headerlink" title="Nuxt3 中的渲染模式"></a>Nuxt3 中的渲染模式</h2><p>Nuxt3 提供了靈活的設定，讓你可以輕鬆在這些模式之間切換：</p>
+<ul>
+<li>**通用渲染 (Universal Rendering)**：預設模式，結合了 SSR（首次載入）和 CSR（後續導航）。</li>
+<li>**客戶端渲染 (CSR&#x2F;SPA)**：在 <code>nuxt.config.ts</code> 中設定 <code>ssr: false</code> 即可切換為 SPA 模式。</li>
+<li>**靜態網站生成 (SSG)**：執行 <code>nuxi generate</code> 指令來建置專案，Nuxt 會為你的頁面產生靜態檔案。</li>
+</ul>
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><table>
+<thead>
+<tr>
+<th align="left">特性</th>
+<th align="left">SPA (CSR)</th>
+<th align="left">SSR</th>
+<th align="left">SSG</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>渲染位置</strong></td>
+<td align="left">瀏覽器</td>
+<td align="left">伺服器 (每次請求)</td>
+<td align="left">伺服器 (建置時)</td>
+</tr>
+<tr>
+<td align="left"><strong>首次載入速度</strong></td>
+<td align="left">慢</td>
+<td align="left">快</td>
+<td align="left">最快</td>
+</tr>
+<tr>
+<td align="left"><strong>SEO</strong></td>
+<td align="left">差</td>
+<td align="left">好</td>
+<td align="left">好</td>
+</tr>
+<tr>
+<td align="left"><strong>伺服器負擔</strong></td>
+<td align="left">低</td>
+<td align="left">高</td>
+<td align="left">無 (靜態伺服器)</td>
+</tr>
+<tr>
+<td align="left"><strong>適用場景</strong></td>
+<td align="left">後台管理、Web 應用</td>
+<td align="left">新聞、電商、內容網站</td>
+<td align="left">部落格、文件、作品集</td>
+</tr>
+</tbody></table>
+]]></content>
+      <tags>
+        <tag>SSR</tag>
+        <tag>SPA</tag>
+        <tag>SSG</tag>
       </tags>
   </entry>
   <entry>
