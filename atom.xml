@@ -6,7 +6,7 @@
   <link href="https://colinchiu87.github.io/atom.xml" rel="self"/>
   
   <link href="https://colinchiu87.github.io/"/>
-  <updated>2025-10-20T06:50:32.601Z</updated>
+  <updated>2025-10-29T06:47:34.213Z</updated>
   <id>https://colinchiu87.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Tailwind CSS 專業技巧與竅門：讓你的 UI 升級 🚀</title>
+    <link href="https://colinchiu87.github.io/posts/Css-tailwindSkill/"/>
+    <id>https://colinchiu87.github.io/posts/Css-tailwindSkill/</id>
+    <published>2025-10-29T06:20:15.000Z</published>
+    <updated>2025-10-29T06:47:34.213Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>許多開發者在使用 Tailwind CSS 時，可能只停留在基礎的實用類別應用。但其實 Tailwind 隱藏了許多鮮為人知但極為強大的技巧，可以幫助你用更少的程式碼實現更高階的 UI 效果。</p><p>這篇文章將分享幾個連許多資深開發者都不知道的 Tailwind CSS 專業技巧！</p><img src="/posts/Css-tailwindSkill/tailwindcss.png" class=""><span id="more"></span><h2 id="1-特殊的-UI-元素客製化"><a href="#1-特殊的-UI-元素客製化" class="headerlink" title="1. 特殊的 UI 元素客製化"></a>1. 特殊的 UI 元素客製化</h2><h3 id="🎨-自訂瀏覽器重點色-Accent-Color"><a href="#🎨-自訂瀏覽器重點色-Accent-Color" class="headerlink" title="🎨 自訂瀏覽器重點色 (Accent Color)"></a>🎨 自訂瀏覽器重點色 (Accent Color)</h3><p>你是否想過更改瀏覽器中預設的核取方塊（checkboxes）或單選按鈕（radio groups）的藍色？使用 Tailwind 輕而易舉。</p><ul><li>技巧： 使用 <code>accent-&#123;color&#125;</code> 實用程式。</li><li>應用： 只需為表單元素添加 <code>class=&quot;accent-pink-500&quot;</code>，即可讓你的表單元素獲得完全客製化的重點色，與你的品牌設計完美融合。</li></ul><h3 id="📁-輕鬆美化檔案輸入框（File-Input）"><a href="#📁-輕鬆美化檔案輸入框（File-Input）" class="headerlink" title="📁 輕鬆美化檔案輸入框（File Input）"></a>📁 輕鬆美化檔案輸入框（File Input）</h3><p>傳統上，美化 <code>&lt;input type=&quot;file&quot;&gt;</code> 是一件令人頭痛的事。Tailwind 提供了一個優雅的解決方案。</p><ul><li>技巧： 使用 file: 前綴。</li><li>應用： 你可以直接為檔案輸入框的不同部分定義樣式，例如 <code>file:border-r</code> 或 <code>file:text-blue-700</code>，省去了使用額外 JavaScript 或完全隱藏預設輸入框的麻煩。</li></ul><h2 id="2-提升響應式和互動性體驗"><a href="#2-提升響應式和互動性體驗" class="headerlink" title="2. 提升響應式和互動性體驗"></a>2. 提升響應式和互動性體驗</h2><h3 id="📏-實現流動式文字排版（Fluid-Typography）"><a href="#📏-實現流動式文字排版（Fluid-Typography）" class="headerlink" title="📏 實現流動式文字排版（Fluid Typography）"></a>📏 實現流動式文字排版（Fluid Typography）</h3><p>擺脫在特定斷點（breakpoints）上突然改變字體大小的生硬感，讓文字大小隨螢幕寬度平滑變化。</p><ul><li>問題： 傳統上依賴 sm:、lg: 媒體查詢改變字體大小。</li><li>技巧： 利用 任意值（Arbitrary Values） 結合 CSS 函數，如 <code>min()</code> 或 <code>clamp()</code>。</li><li>範例： 寫作 <code>text-[min(10vw, 70px)]</code>。這樣文字大小會根據視埠寬度（<code>vw</code>）進行計算，在指定範圍內實現完全流動和響應式的字體大小，帶來更順暢的視覺體驗。</li></ul><h3 id="🖱️-自訂文字選取區（Selection）高亮顏色"><a href="#🖱️-自訂文字選取區（Selection）高亮顏色" class="headerlink" title="🖱️ 自訂文字選取區（Selection）高亮顏色"></a>🖱️ 自訂文字選取區（Selection）高亮顏色</h3><p>當使用者選取螢幕上的文字時，預設會出現藍色高亮。你可以在 Tailwind 中輕鬆覆寫它。</p><ul><li>技巧： 使用 <code>selection:</code> 偽類。</li><li>應用： 添加 <code>selection:bg-green-500</code> <code>selection:text-white</code>，即可將選取時的背景色改為綠色、文字改為白色，客製化網站的每一個視覺細節。</li></ul><h2 id="3-程式碼優化與工作流程提升"><a href="#3-程式碼優化與工作流程提升" class="headerlink" title="3. 程式碼優化與工作流程提升"></a>3. 程式碼優化與工作流程提升</h2><h3 id="⚛️-用-Tailwind-寫更少的-JavaScript"><a href="#⚛️-用-Tailwind-寫更少的-JavaScript" class="headerlink" title="⚛️ 用 Tailwind 寫更少的 JavaScript"></a>⚛️ 用 Tailwind 寫更少的 JavaScript</h3><p>你是否經常使用 JavaScript 處理像手風琴（Accordion）這樣的簡單 UI 狀態？其實 Tailwind 搭配原生 HTML 標籤就能實現。</p><ul><li>技巧： 結合原生的 HTML <code>&lt;details&gt;</code> 和 <code>&lt;summary&gt;</code> 標籤，搭配 <code>open:</code> 前綴選擇器。</li><li>應用： 例如，使用 <code>open:bg-gray-100</code>，可以讓你在 <code>&lt;details&gt;</code> 標籤處於「打開」狀態時自動應用樣式，無需編寫任何 JavaScript 就能管理 UI 狀態。</li></ul><h3 id="⚙️-專業開發者的高效秘訣"><a href="#⚙️-專業開發者的高效秘訣" class="headerlink" title="⚙️ 專業開發者的高效秘訣"></a>⚙️ 專業開發者的高效秘訣</h3><p>如何才能像專業人士一樣，快速掌握並使用數千個 Tailwind 類別？</p><ol><li><p>放棄死記硬背： 你不需要記憶所有類別。透過持續的實踐，你會自然而然地對常見的類別產生肌肉記憶。</p></li><li><p>善用搜尋捷徑： 在 Tailwind CSS 的官方文件中，隨時按下 Command + K (Mac) 或 Ctrl + K (Win)，即可開啟快速搜尋欄，隨時查找任何 CSS 屬性對應的 Tailwind 類別。</p></li><li><p>安裝編輯器擴充功能： 務必安裝 Tailwind CSS 官方擴充功能（適用於 VS Code 或 WebStorm），它提供智慧提示、自動完成、顏色預覽和懸停詳細資訊，能極大地加快你的編寫速度。</p></li></ol><h3 id="📚-繼續精進：從零到專業的實戰課程"><a href="#📚-繼續精進：從零到專業的實戰課程" class="headerlink" title="📚 繼續精進：從零到專業的實戰課程"></a>📚 繼續精進：從零到專業的實戰課程</h3><p>掌握了這些 Tailwind CSS 的核心概念和進階技巧後，下一步就是將它們應用到實際專案中。我也還在實作練習中，一起在這旅途中加油！</p>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;許多開發者在使用 Tailwind CSS 時，可能只停留在基礎的實用類別應用。但其實 Tailwind 隱藏了許多鮮為人知但極為強大的技巧，可以幫助你用更少的程式碼實現更高階的 UI 效果。&lt;/p&gt;
+&lt;p&gt;這篇文章將分享幾個連許多資深開發者都不知道的 Tailwind CSS 專業技巧！&lt;/p&gt;
+&lt;img src=&quot;/posts/Css-tailwindSkill/tailwindcss.png&quot; class=&quot;&quot;&gt;</summary>
+    
+    
+    
+    
+    <category term="CSS" scheme="https://colinchiu87.github.io/tags/CSS/"/>
+    
+  </entry>
   
   <entry>
     <title>前端渲染模式大比拼：SSR vs SSG vs SPA</title>
@@ -440,27 +461,6 @@
     
     
     <category term="Mac" scheme="https://colinchiu87.github.io/tags/Mac/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Big O 分析演算法好壞</title>
-    <link href="https://colinchiu87.github.io/posts/Algorithm-bigO/"/>
-    <id>https://colinchiu87.github.io/posts/Algorithm-bigO/</id>
-    <published>2022-10-04T03:19:07.000Z</published>
-    <updated>2022-11-17T13:04:45.908Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>同樣一個問題可以用不同的演算法解答，那我們要如何去區分當中的好與壞呢？<br>對於這樣的疑問有人提出了一種解答 - Big O.</p><span id="more"></span><h2 id="Big-O-表示法"><a href="#Big-O-表示法" class="headerlink" title="Big O 表示法"></a>Big O 表示法</h2><p>分析演算法的優劣，通常是使用資源來評量，ex: CPU 佔用量、Memory 佔用量、磁碟、網路等等。<br>當說到 big o 時，一般考慮的就是 CPU (時間)佔用。在分析時很常會看到以下的函數：</p><table><thead><tr><th align="center">符號</th><th align="center">名稱</th></tr></thead><tbody><tr><td align="center">O(1)</td><td align="center">常數型</td></tr><tr><td align="center">O(log(n))</td><td align="center">對數型</td></tr><tr><td align="center">O(log(n)c)</td><td align="center">對數多項式型</td></tr><tr><td align="center">O(n)</td><td align="center">線性型</td></tr><tr><td align="center">O(n^2)</td><td align="center">二次型</td></tr><tr><td align="center">O(n^c)</td><td align="center">多項式型</td></tr><tr><td align="center">O(c^n)</td><td align="center">指數型</td></tr></tbody></table><blockquote><p>Big O 是用來描述演算法在輸入 n 個數時，總時間與 n 的關係。</p></blockquote><img src="/posts/Algorithm-bigO/Algorithm-bigO1.png" class=""><blockquote><p>常見排序： 1(常數) &lt; log n &lt; n &lt; n log n &lt; n^2 &lt; 2^n &lt; n!</p></blockquote>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;同樣一個問題可以用不同的演算法解答，那我們要如何去區分當中的好與壞呢？&lt;br&gt;對於這樣的疑問有人提出了一種解答 - Big O.&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="data structure" scheme="https://colinchiu87.github.io/tags/data-structure/"/>
-    
-    <category term="Algorithm" scheme="https://colinchiu87.github.io/tags/Algorithm/"/>
     
   </entry>
   
